@@ -1,13 +1,13 @@
 import React from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
 
-const MainMenu = () => {
+const Footer = () => {
     const data = useStaticQuery(graphql`
         query
         {
         allWordpressWpApiMenusMenusItems(filter: {
               name: {
-                  eq: "Main Menu"
+                  eq: "Footer"
                 }
             }){
           edges{
@@ -31,4 +31,4 @@ const MainMenu = () => {
     </div>)
     };
 
-export default MainMenu;
+export default Footer;
