@@ -8,10 +8,8 @@ module.exports = {
       {
         resolve: "gatsby-source-wordpress",
         options: {
-          /*
-           * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
-           * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
-           */
+          /* The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
+           * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'*/
           baseUrl: "http://127.0.0.1:9000/",
           // The protocol. This can be http or https.
           protocol: "http",
@@ -39,7 +37,6 @@ module.exports = {
             htaccess_user: "your-htaccess-username",
             htaccess_pass: "your-htaccess-password",
             htaccess_sendImmediately: false,
-  
             // If hostingWPCOM is true then you will need to communicate with wordpress.com API
             // in order to do that you need to create an app (of type Web) at https://developer.wordpress.com/apps/
             // then add your clientId, clientSecret, username, and password here
@@ -49,7 +46,6 @@ module.exports = {
             wpcom_app_clientId: "54793",
             wpcom_user: "gatsbyjswpexample@gmail.com",
             wpcom_pass: process.env.WORDPRESS_PASSWORD,
-
             // If you use "JWT Authentication for WP REST API" (https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/)
             // or (https://github.com/jonathan-dejong/simple-jwt-authentication) requires jwt_base_path, path can be found in wordpress wp-api.
             // plugin, you can specify user and password to obtain access token and use authenticated requests against wordpress REST API.
@@ -88,9 +84,8 @@ module.exports = {
           "**/tags",
           "**/taxonomies",
           "**/users",
+          "**/menus" // include for gatsby wordpress plugin
         ],
-        // Blacklisted routes using glob patterns
-        excludedRoutes: ["**/posts/1456"],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {
           return entities
