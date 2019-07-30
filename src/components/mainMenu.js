@@ -2,7 +2,7 @@ import React from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
 import styled from 'styled-components';
 
-const MainMenuWrapper = styled.div`
+const MainMenuWrapper = styled.nav`
     display: flex;
     background-color: rgb(3, 27, 77);
 `
