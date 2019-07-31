@@ -1,30 +1,15 @@
 import React from "react";
-import MainMenu from "./mainMenu";
+import NavMenu from "./navMenu";
 import Footer from "./footer";
-
-import styled, { createGlobalStyle } from "styled-components";
-
-const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-  body{
-    font-family: 'Open Sans', sans-serif;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-`
-
-const LayoutWrapper = styled.div`
-  max-width: 950px;
-  margin: 0 auto;
-`
+import { GlobalStyles, ContentLayoutWrapper } from "../style/layoutStyle";
 
 const Layout = ({ children }) => (
   <div>
     <GlobalStyles />
-    <MainMenu />
-    <LayoutWrapper>
+    <NavMenu />
+    <ContentLayoutWrapper>
       {children}
-    </LayoutWrapper>
+    </ContentLayoutWrapper>
     <Footer />
   </div>
 )
