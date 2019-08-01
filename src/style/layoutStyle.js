@@ -1,2 +1,2 @@
 export const contentWidth = 960;
-export const navMenuHeight = 60;
+export const navMenuHeight = 70;
