@@ -21,6 +21,8 @@ const MainMenuWrapper = styled.nav`
   border-radius: 0px 0px 10px 10px;
   color: ${mainColour} !important;
   height: ${navMenuHeight}px;
+  box-shadow: 1px 1px 0 2px lightgray;
+  overflow: hidden;
 `
 const MenuItem = styled(Link)`
   text-decoration: none;
@@ -30,6 +32,9 @@ const MenuItem = styled(Link)`
   font-weight: bold;
   color: inherit;
   width: ${props => (100 / props.menuPartitions)}%;
+  :hover{
+    background-color: gray;
+  }
 `
 
 const NavElementText = styled.p`

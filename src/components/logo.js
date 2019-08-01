@@ -14,6 +14,9 @@ const LogoText = styled.text`
     font-family: 'Orbitron', sans-serif;
     font-size: 160px;
     fill: ${mainColour};
+    :hover{
+        cursor: default;
+    }
 `
 
 
