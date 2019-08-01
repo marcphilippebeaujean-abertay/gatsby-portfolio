@@ -1,7 +1,8 @@
 import React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
+import NavMenuItem from "./navMenuItem";
 import styled from "styled-components";
 import Logo from './logo';
 
@@ -17,30 +18,23 @@ const MainMenuWrapper = styled.nav`
   transform: translateX(-50%);
   margin: 0 auto;
   padding: 0;
-  top: 0%;
+  top: 0px;
   border-radius: 0px 0px 10px 10px;
   color: ${mainColour} !important;
   height: ${navMenuHeight}px;
   box-shadow: 1px 1px 0 2px lightgray;
   overflow: hidden;
-`
-const MenuItem = styled(Link)`
-  text-decoration: none;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  font-weight: bold;
-  color: inherit;
-  width: ${props => (100 / props.menuPartitions)}%;
-  :hover{
-    background-color: gray;
+  animation-name: menu-drop-in;
+  animation-duration: 1s;
+  @keyframes menu-drop-in {
+    from {
+      top: -30px;
+    }
+    to {
+      top: 0px;
+    }
   }
 `
-
-const NavElementText = styled.p`
-  font-size: 20px;
-`
-
 
 const NavMenu = () => {
     // language=GraphQL
@@ -68,12 +62,8 @@ const NavMenu = () => {
   <MainMenuWrapper>
       {
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
-        item.object_slug === "logo" ? (<Logo menuPartitions={dataMenuPartitions}/>) :
-        (
-            <MenuItem to={item.object_slug} key={item.title} menuPartitions={dataMenuPartitions}>
-              <NavElementText id={item.object_slug+`_text`}>{item.title}</NavElementText>
-            </MenuItem>
-        ))
+        item.object_slug === "logo" ? (<Logo menuPartitions={dataMenuPartitions} />) :
+                                      (<NavMenuItem item={item} menuPartitions={dataMenuPartitions} />))
       }
   </MainMenuWrapper>
   )};
