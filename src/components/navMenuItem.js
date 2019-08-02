@@ -34,8 +34,8 @@ const HoverAnimation = styled.div`
       135deg,
       black,
       black ${stripeWidth}px,
-      rgba(255, 255, 255, 0.4) ${stripeWidth}px,
-      rgba(255, 255, 255, 0.4) ${stripeWidth*2}px
+      rgba(174, 174, 174, 0.2) ${stripeWidth}px,
+      rgba(174, 174, 174, 0.2) ${stripeWidth*2}px
     );
     animation: slide 60s linear infinite;
     @keyframes slide{
