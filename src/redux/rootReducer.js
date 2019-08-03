@@ -1,10 +1,10 @@
 import navReducer from "./navReducer";
-import pgStateReducer from "./pageStateReducer";
+import pageStateReducer from "./pageStateReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-    navigationReducer: navReducer,
-    pageStateReducer: pgStateReducer
+    navReducer: navReducer,
+    pageStateReducer: pageStateReducer
 });
 
 export default rootReducer;

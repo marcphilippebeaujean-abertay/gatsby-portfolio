@@ -3,7 +3,7 @@ import NavMenu from "./navMenu";
 import Footer from "./footer";
 import ContentWrapper from "./contentWrapper";
 import { CONFIRM_PAGE_LOAD } from "../redux/pageStateReducer";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux'
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { createGlobalStyle } from "styled-components";
 
@@ -19,15 +19,17 @@ export const GlobalStyles = createGlobalStyle`
     text-align: justify;
   }
 `
-
-const Layout = (props) => {
+const Layout = ({children}) => {
+  if(useSelector((state => state.pageStateReducer.pageLoads < 2))){
+    useDispatch()({ type: CONFIRM_PAGE_LOAD});
+  }
   return(
-  <div>
-    <GlobalStyles />
-    <NavMenu />
-    <ContentWrapper children={ props.children } />
-    <Footer />
-  </div>
+    <div>
+      <GlobalStyles />
+      <NavMenu />
+      <ContentWrapper children={ children } />
+      <Footer />
+    </div>
 )}
 
 export default Layout;

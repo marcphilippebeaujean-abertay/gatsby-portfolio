@@ -1,5 +1,5 @@
 const defaultState = {
-    pageLoaded: false
+    pageLoads: 0
 };
 
 export const CONFIRM_PAGE_LOAD = "CONFIRM_PAGE_LOADED";
@@ -12,7 +12,7 @@ const pageStateReducer = (previousState = defaultState, action) => {
     let newState =  { ...previousState };
     switch (action.type) {
       case CONFIRM_PAGE_LOAD:
-        newState.pageLoaded = true;
+        newState.pageLoads++;
         break;
       default:
     }

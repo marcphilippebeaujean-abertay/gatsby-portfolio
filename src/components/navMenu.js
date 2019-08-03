@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux'
 import { graphql, useStaticQuery } from 'gatsby';
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
@@ -25,16 +25,17 @@ const MainMenuWrapper = styled.nav`
   height: ${navMenuHeight}px;
   box-shadow: 1px 1px 0 2px lightgray;
   overflow: hidden;
-  animation-name: menu-drop-in;
-  animation-duration: 1s;
-  @keyframes menu-drop-in {
-    from {
-      top: -30px;
-    }
-    to {
-      top: 0px;
-    }
-  }
+  ${ props => props.playAnimation ? `
+    animation-name: menu-drop-in;
+    animation-duration: 1s;
+    @keyframes menu-drop-in {
+      from {
+        top: -30px;
+      }
+      to {
+        top: 0px;
+      }
+    }` : ``}
   @media screen and (max-width: ${contentWidth}px){
     border-radius: 0;
     width: 100%;
@@ -62,19 +63,16 @@ const NavMenu = () => {
       }
     }
   `);
-  const dataMenuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
-  return (
-  <MainMenuWrapper>{
+  const playAnimation = useSelector(state => state.pageStateReducer.pageLoads == 1);
+  const menuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
+  const jsx = (
+    <MainMenuWrapper playAnimation={playAnimation}>{
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
-        item.object_slug === "logo" ? (<Logo menuPartitions={dataMenuPartitions} />) :
-                                      (<NavMenuItem item={item} menuPartitions={dataMenuPartitions} />))}
-  </MainMenuWrapper>
-  )};
+          item.object_slug === "logo" ? (<Logo key={`logo`} menuPartitions={menuPartitions} />) :
+                                        (<NavMenuItem key={item.object_slug+"_key"} item={item} menuPartitions={menuPartitions} />))}
+    </MainMenuWrapper>
+  )
+  return jsx;
+};
 
-  const mapStateToProps = state => {
-    return {
-      pageLoaded: state.pageStateReducer.pageLoaded
-    }
-  }
-
-export default connect(mapStateToProps, null)(NavMenu);
+export default NavMenu;
