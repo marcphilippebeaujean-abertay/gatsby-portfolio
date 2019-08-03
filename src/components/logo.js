@@ -6,7 +6,7 @@ const LogoStyle = styled.div`
     color: inherit;
     display: table-cell;
     vertical-align: middle;
-    width: ${props => (100 / props.partitions) * 2}%;
+    flex-grow: 1;
 `
 
 const LogoText = styled.text`

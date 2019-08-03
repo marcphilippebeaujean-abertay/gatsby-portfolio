@@ -55,7 +55,6 @@ const NavMenuItem = (props) => {
     const [url] = useState(props.item.object_slug);
     const [selected, setSelected] = useState(false);
     useEffect(() => {
-        console.log(document.location.pathname.slice(1));
         if(url === document.location.pathname.slice(1)){
             setSelected(true);
         }
