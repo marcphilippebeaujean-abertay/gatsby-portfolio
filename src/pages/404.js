@@ -1,5 +1,4 @@
 import React from "react"
-import NavMenu from '../components/navMenu';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 

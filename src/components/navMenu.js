@@ -61,8 +61,8 @@ const NavMenu = () => {
   const jsx = (
     <MainMenuWrapper>{
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
-          item.object_slug === "logo" ? (<Logo key={`logo`} menuPartitions={menuPartitions} />) :
-                                        (<NavMenuItem key={item.object_slug+"_key"} item={item} menuPartitions={menuPartitions} />))}
+          item.object_slug === "logo" ? (<Logo key={`logo`} partitions={menuPartitions} />) :
+                                        (<NavMenuItem key={item.object_slug+"_key"} item={item} partitions={menuPartitions} />))}
     </MainMenuWrapper>
   )
   return jsx;

@@ -6,7 +6,7 @@ const LogoStyle = styled.div`
     color: inherit;
     display: table-cell;
     vertical-align: middle;
-    width: ${props => (100 / props.menuPartitions) * 2}%;
+    width: ${props => (100 / props.partitions) * 2}%;
 `
 
 const LogoText = styled.text`
@@ -20,7 +20,7 @@ const LogoText = styled.text`
 `
 
 const Logo = (props) => (
-    <LogoStyle id="logo" menuPartitions={props.menuPartitions}>
+    <LogoStyle id="logo" partitions={props.menuPartitions}>
         <svg height="100%" width="100%" viewBox="0 -200 1000 300"
              xmlns="http://www.w3.org/2000/svg">
             <LogoText x="0%" y="0%" textLength="100%">{`<JustDoIT />`}</LogoText>

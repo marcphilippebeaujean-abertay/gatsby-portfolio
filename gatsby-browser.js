@@ -1,6 +1,5 @@
 const React = require("react")
-const NavMenu = require("./src/components/navMenu").default
-const Footer = require("./src/components/footer").default;
+const Layout = require("./src/components/layout").default
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -11,9 +10,7 @@ exports.wrapPageElement = ({ element, props }) => {
     // props provide same data to Layout as Page element will get
     // including location, data, etc - you don't need to pass it
     return (
-    <div>
-        <NavMenu />
-        { element }
-        <Footer />
-    </div>)
-  }
+        <Layout>
+            {element}
+        </Layout>)
+}

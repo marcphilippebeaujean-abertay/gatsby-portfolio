@@ -1,11 +1,15 @@
 import React from 'react'
-import Layout from '../components/layout';
+import styled from "styled-components";
+import { mainContentWidthPercent } from "../style/layoutStyle";
 
-export default ({pageContext}) =>(
-    <div>
-        <Layout>
-            <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
-            <div dangerouslySetInnerHTML={{__html: pageContext.content }} />
-        </Layout>
-    </div>
+const PageContentWrapper = styled.div`
+  width: ${mainContentWidthPercent}%;
+  padding-right: 10px;
+`
+
+export default ({ pageContext }) =>(
+    <PageContentWrapper>
+      <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
+      <div dangerouslySetInnerHTML={{__html: pageContext.content }} />
+    </PageContentWrapper>
 )

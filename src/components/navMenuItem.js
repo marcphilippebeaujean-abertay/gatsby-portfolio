@@ -11,7 +11,7 @@ const MenuItem = styled(Link)`
     vertical-align: middle;
     font-weight: bold;
     color: inherit;
-    width: ${props => (100 / props.menuPartitions)}%;
+    width: ${props => (100 / props.partitions)}%;
     overflow: hidden;
 `
 
@@ -48,7 +48,7 @@ const HoverAnimation = styled.div`
 `
 
 const NavMenuItem = (props) => (
-    <MenuItem to={props.item.object_slug} key={props.item.title} menuPartitions={props.menuPartitions}>
+    <MenuItem to={`/${props.item.object_slug}`} key={props.item.title} partitions={props.partitions}>
         <HoverAnimation id={props.item.object_slug+`_hover_anim`}/>
         <NavElementText id={props.item.object_slug+`_text`}>{props.item.title}</NavElementText>
     </MenuItem>);

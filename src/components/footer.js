@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
 
 const Footer = () => {
@@ -22,9 +22,13 @@ const Footer = () => {
         }
     }
     `)
+    useEffect(() => {
+      // Update the document title using the browser API
+      console.log(data.allWordpressWpApiMenusMenusItems.edges[0].node.items);
+    });
     return (<div>
         {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item => (
-            <Link to={item.object_slug} key={item.title}>
+            <Link to={`/${item.object_slug}`} key={item.title}>
                 {item.title}
             </Link>
         ))}
