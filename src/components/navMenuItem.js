@@ -52,13 +52,15 @@ const HoverAnimation = styled.div`
 `
 
 const NavMenuItem = (props) => {
-    const [url] = useState(props.item.object_slug);
+    const [urlSlug] = useState(props.item.object_slug);
     const [selected, setSelected] = useState(false);
-    useEffect(() => {
-        if(url === document.location.pathname.slice(1)){
+    useEffect(()=>{
+        if(urlSlug === document.location.pathname.slice(1)){
             setSelected(true);
+        }else{
+            setSelected(false);
         }
-      });
+    })
     return (
         <MenuItem to={`/${props.item.object_slug}`}
                   key={props.item.title}
