@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
@@ -34,9 +34,17 @@ const MainMenuWrapper = styled.nav`
       top: 0px;
     }
   }
+  @media screen and (max-width: ${contentWidth}px){
+    border-radius: 0;
+    width: 100%;
+  }
 `
 
 const NavMenu = () => {
+    // Event on load
+    useEffect(() => {
+      console.log("React component loaded!");
+    });
     // language=GraphQL
     const data = useStaticQuery(graphql`
     query{

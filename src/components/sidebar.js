@@ -7,6 +7,10 @@ const SidebarWrapper = styled.div`
     margin-left: ${contentWidth*0.7}px;
     top: ${navMenuHeight}px;
     width: ${contentWidth - (contentWidth*0.7)}px;
+    @media screen and (max-width: ${contentWidth}px){
+        margin-left: ${props => 100 - props.width}%;
+        width: ${props => props.width}%
+    }
 `
 
 const Sidebar = (props) => (
