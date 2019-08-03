@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'gatsby';
-
+import { mainColour } from '../style/themeStyle';
 
 const MenuItem = styled(Link)`
     position: relative;
@@ -10,9 +10,13 @@ const MenuItem = styled(Link)`
     display: table-cell;
     vertical-align: middle;
     font-weight: bold;
-    color: inherit;
+    color: ${props => props.selected ? `black` : `inherit`};
+    background-color: ${props => props.selected ? mainColour : `inherit`};
     width: ${props => (100 / props.partitions)}%;
     overflow: hidden;
+    :hover{
+        cursor: ${props => props.selected ? `default` : `pointer`}
+    }
 `
 
 const NavElementText = styled.p`
@@ -47,11 +51,24 @@ const HoverAnimation = styled.div`
     }
 `
 
-const NavMenuItem = (props) => (
-    <MenuItem to={`/${props.item.object_slug}`} key={props.item.title} partitions={props.partitions}>
-        <HoverAnimation id={props.item.object_slug+`_hover_anim`}/>
-        <NavElementText id={props.item.object_slug+`_text`}>{props.item.title}</NavElementText>
-    </MenuItem>);
-
+const NavMenuItem = (props) => {
+    const [url] = useState(props.item.object_slug);
+    const [selected, setSelected] = useState(false);
+    useEffect(() => {
+        console.log(document.location.pathname.slice(1));
+        if(url === document.location.pathname.slice(1)){
+            setSelected(true);
+        }
+      });
+    return (
+        <MenuItem to={`/${props.item.object_slug}`}
+                  key={props.item.title}
+                  partitions={props.partitions}
+                  selected={selected}>
+            {selected ? null : <HoverAnimation id={props.item.object_slug+`_hover_anim`}/>}
+            <NavElementText id={props.item.object_slug+`_text`}>{props.item.title}</NavElementText>
+        </MenuItem>
+    )
+};
 
 export default NavMenuItem
