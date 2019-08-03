@@ -20,15 +20,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 `
 const Layout = ({children}) => {
-  if(useSelector((state => state.pageStateReducer.pageLoads < 2))){
-    useDispatch()({ type: CONFIRM_PAGE_LOAD});
-  }
   return(
     <div>
       <GlobalStyles />
-      <NavMenu />
       <ContentWrapper children={ children } />
-      <Footer />
     </div>
 )}
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
 import { graphql, useStaticQuery } from 'gatsby';
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
@@ -43,7 +42,6 @@ const MainMenuWrapper = styled.nav`
 `
 
 const NavMenu = () => {
-    // language=GraphQL
     const data = useStaticQuery(graphql`
     query{
       allWordpressWpApiMenusMenusItems(filter: {
@@ -63,10 +61,13 @@ const NavMenu = () => {
       }
     }
   `);
-  const playAnimation = useSelector(state => state.pageStateReducer.pageLoads == 1);
+  //if(useSelector((state => state.pageStateReducer.pageLoads < 2))){
+  //  useDispatch()({ type: CONFIRM_PAGE_LOAD});
+  //}
+  //const playAnimation = useSelector(state => state.pageStateReducer.pageLoads == 1);
   const menuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
   const jsx = (
-    <MainMenuWrapper playAnimation={playAnimation}>{
+    <MainMenuWrapper playAnimation={true}>{
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
           item.object_slug === "logo" ? (<Logo key={`logo`} menuPartitions={menuPartitions} />) :
                                         (<NavMenuItem key={item.object_slug+"_key"} item={item} menuPartitions={menuPartitions} />))}
