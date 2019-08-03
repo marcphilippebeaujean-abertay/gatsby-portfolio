@@ -3,8 +3,7 @@ import {graphql, useStaticQuery, Link} from 'gatsby';
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
-        query
-        {
+        query{
         allWordpressWpApiMenusMenusItems(filter: {
               name: {
                   eq: "Footer"
@@ -20,8 +19,7 @@ const Footer = () => {
             }
           }
         }
-    }
-    `)
+      }`);
     useEffect(() => {
       // Update the document title using the browser API
       console.log(data.allWordpressWpApiMenusMenusItems.edges[0].node.items);

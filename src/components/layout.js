@@ -2,7 +2,6 @@ import React from "react";
 import Sidebar from "./sidebar";
 import NavMenu from "./navMenu";
 import Footer from "./footer";
-import styled from "styled-components";
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { createGlobalStyle } from "styled-components";
 
@@ -18,19 +17,16 @@ export const GlobalStyles = createGlobalStyle`
     text-align: justify;
   }
 `
-const MainViewWrapper = styled.div`
-  display: flex;
-`
 
 const Layout = ({ children }) => {
   return(
     <div>
       <GlobalStyles />
       <NavMenu />
-      <MainViewWrapper>
+      <div style={{display: `flex`}}>
         {children}
         <Sidebar />
-      </MainViewWrapper>
+      </div>
       <Footer />
     </div>
 )}
