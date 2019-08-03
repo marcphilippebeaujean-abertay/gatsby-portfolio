@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { navMenuHeight, contentWidth } from "../style/layoutStyle";
+import { navMenuHeight, contentWidth, mainContentWidthPercent } from "../style/layoutStyle";
+
+const defaultWidthPercent = 100-mainContentWidthPercent;
 
 const SidebarWrapper = styled.div`
     position: fixed;
@@ -8,13 +10,13 @@ const SidebarWrapper = styled.div`
     top: ${navMenuHeight}px;
     width: ${contentWidth - (contentWidth*0.7)}px;
     @media screen and (max-width: ${contentWidth}px){
-        margin-left: ${props => 100 - props.width}%;
-        width: ${props => props.width}%
+        margin-left: ${100 - defaultWidthPercent}%;
+        width: ${defaultWidthPercent}%
     }
 `
 
-const Sidebar = (props) => (
-    <SidebarWrapper width={props.width}>
+const Sidebar = () => (
+    <SidebarWrapper >
         helloworld
     </SidebarWrapper>);
 export default Sidebar;

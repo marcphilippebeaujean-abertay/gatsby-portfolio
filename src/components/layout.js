@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavMenu from "./navMenu";
 import Footer from "./footer";
 import ContentWrapper from "./contentWrapper";
+import { CONFIRM_PAGE_LOAD } from "../redux/pageStateReducer";
+import { connect } from "react-redux";
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { createGlobalStyle } from "styled-components";
 
@@ -18,13 +20,14 @@ export const GlobalStyles = createGlobalStyle`
   }
 `
 
-const Layout = ({ children }) => (
+const Layout = (props) => {
+  return(
   <div>
     <GlobalStyles />
     <NavMenu />
-    <ContentWrapper pageContent={children} />
+    <ContentWrapper children={ props.children } />
     <Footer />
   </div>
-)
+)}
 
-export default Layout
+export default Layout;

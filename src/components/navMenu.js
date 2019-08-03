@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import { graphql, useStaticQuery } from 'gatsby';
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
@@ -41,10 +42,6 @@ const MainMenuWrapper = styled.nav`
 `
 
 const NavMenu = () => {
-    // Event on load
-    useEffect(() => {
-      console.log("React component loaded!");
-    });
     // language=GraphQL
     const data = useStaticQuery(graphql`
     query{
@@ -67,13 +64,17 @@ const NavMenu = () => {
   `);
   const dataMenuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
   return (
-  <MainMenuWrapper>
-      {
+  <MainMenuWrapper>{
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
         item.object_slug === "logo" ? (<Logo menuPartitions={dataMenuPartitions} />) :
-                                      (<NavMenuItem item={item} menuPartitions={dataMenuPartitions} />))
-      }
+                                      (<NavMenuItem item={item} menuPartitions={dataMenuPartitions} />))}
   </MainMenuWrapper>
   )};
 
-export default NavMenu;
+  const mapStateToProps = state => {
+    return {
+      pageLoaded: state.pageStateReducer.pageLoaded
+    }
+  }
+
+export default connect(mapStateToProps, null)(NavMenu);

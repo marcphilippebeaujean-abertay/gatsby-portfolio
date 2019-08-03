@@ -53,4 +53,5 @@ const NavMenuItem = (props) => (
         <NavElementText id={props.item.object_slug+`_text`}>{props.item.title}</NavElementText>
     </MenuItem>);
 
+
 export default NavMenuItem

@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Sidebar from "./sidebar";
-import { contentWidth } from "../style/layoutStyle";
-
-const mainContentWidthPercent = 70;
-
-
+import { mainContentWidthPercent } from "../style/layoutStyle";
 
 const PageLayoutWrapper = styled.div`
   width: ${mainContentWidthPercent}%;
@@ -15,12 +11,12 @@ const MainViewWrapper = styled.div`
   display: flex;
 `
 
-const ContentWrapper = (props) => (
+const ContentWrapper = ({ children }) => (
     <MainViewWrapper >
       <PageLayoutWrapper>
-        {props.pageContent}
+        { children }
       </PageLayoutWrapper>
-      <Sidebar width={100-mainContentWidthPercent}/>
+      <Sidebar />
     </MainViewWrapper>
 )
 

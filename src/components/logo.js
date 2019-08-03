@@ -19,7 +19,6 @@ const LogoText = styled.text`
     }
 `
 
-
 const Logo = (props) => (
     <LogoStyle id="logo" menuPartitions={props.menuPartitions}>
         <svg height="100%" width="100%" viewBox="0 -200 1000 300"
