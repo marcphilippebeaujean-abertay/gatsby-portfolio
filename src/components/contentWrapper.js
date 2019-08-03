@@ -7,6 +7,7 @@ const PageLayoutWrapper = styled.div`
   width: ${mainContentWidthPercent}%;
   padding-right: 10px;
 `
+
 const MainViewWrapper = styled.div`
   display: flex;
 `

@@ -1,9 +1,5 @@
-import React, { useEffect } from "react";
-import NavMenu from "./navMenu";
-import Footer from "./footer";
+import React from "react";
 import ContentWrapper from "./contentWrapper";
-import { CONFIRM_PAGE_LOAD } from "../redux/pageStateReducer";
-import { useSelector, useDispatch } from 'react-redux'
 import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
 import { createGlobalStyle } from "styled-components";
 

@@ -6,9 +6,6 @@ import NavMenuItem from "./navMenuItem";
 import styled from "styled-components";
 import Logo from './logo';
 
-const navMenuPartitions = 6;
-export const navMenuWidth = contentWidth / navMenuPartitions;
-
 const MainMenuWrapper = styled.nav`
   background-color: rgb(0, 0, 0);
   display: flex;
@@ -24,17 +21,16 @@ const MainMenuWrapper = styled.nav`
   height: ${navMenuHeight}px;
   box-shadow: 1px 1px 0 2px lightgray;
   overflow: hidden;
-  ${ props => props.playAnimation ? `
-    animation-name: menu-drop-in;
-    animation-duration: 1s;
-    @keyframes menu-drop-in {
-      from {
-        top: -30px;
-      }
-      to {
-        top: 0px;
-      }
-    }` : ``}
+  animation-name: menu-drop-in;
+  animation-duration: 1s;
+  @keyframes menu-drop-in {
+    from {
+      top: -30px;
+    }
+    to {
+      top: 0px;
+    }
+  }
   @media screen and (max-width: ${contentWidth}px){
     border-radius: 0;
     width: 100%;
@@ -61,13 +57,9 @@ const NavMenu = () => {
       }
     }
   `);
-  //if(useSelector((state => state.pageStateReducer.pageLoads < 2))){
-  //  useDispatch()({ type: CONFIRM_PAGE_LOAD});
-  //}
-  //const playAnimation = useSelector(state => state.pageStateReducer.pageLoads == 1);
   const menuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
   const jsx = (
-    <MainMenuWrapper playAnimation={true}>{
+    <MainMenuWrapper>{
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
           item.object_slug === "logo" ? (<Logo key={`logo`} menuPartitions={menuPartitions} />) :
                                         (<NavMenuItem key={item.object_slug+"_key"} item={item} menuPartitions={menuPartitions} />))}

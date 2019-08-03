@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/layout';
-import NavMenu from '../components/navMenu';
 
 export default ({pageContext}) =>(
     <div>
