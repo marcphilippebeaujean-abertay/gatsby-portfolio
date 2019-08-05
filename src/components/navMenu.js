@@ -37,6 +37,7 @@ const MainMenuWrapper = styled.nav`
   }
   @media screen and (max-width: ${smallScreenWidth}px){
         height: ${navMenuHeight - 20}px;
+        overflow: inherit;
     }
 `
 
@@ -62,11 +63,13 @@ const NavMenu = () => {
   `);
   const menuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
   const jsx = (
-    <MainMenuWrapper>{
+    <MainMenuWrapper>
+      {
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
           item.object_slug === "logo" ? (<Logo key={`logo`} partitions={menuPartitions} />) :
-                                        (<NavMenuItem key={item.object_slug+"_key"} item={item} partitions={menuPartitions} />))}
-        <HamburgerButton />
+                                        (<NavMenuItem key={item.object_slug+"_key"} item={item} partitions={menuPartitions} />))
+      }
+        <HamburgerButton items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items} />
     </MainMenuWrapper>
   )
   return jsx;

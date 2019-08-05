@@ -1,6 +1,6 @@
 import React from 'react';
 import { mainColour } from "../style/themeStyle";
-import { initContentWidth, smallScreenSidePadding } from "../style/layoutStyle";
+import { initContentWidth } from "../style/layoutStyle";
 import styled from "styled-components";
 
 const LogoStyle = styled.div`
