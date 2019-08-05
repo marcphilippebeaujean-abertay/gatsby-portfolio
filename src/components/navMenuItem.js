@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React, {useState, useEffect} from 'react';
+import { smallScreenWidth } from '../style/layoutStyle';
 import { Link } from 'gatsby';
 import { mainColour } from '../style/themeStyle';
 
@@ -26,6 +27,9 @@ const MenuItem = styled(Link)`
     overflow: hidden;
     :hover{
         cursor: ${props => props.selected ? `default` : `pointer`}
+    }
+    @media screen and (max-width: ${smallScreenWidth}px) {
+        display: none;
     }
 `
 
