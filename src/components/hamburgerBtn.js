@@ -2,6 +2,7 @@ import React,  { useState } from 'react';
 import { Link } from 'gatsby';
 import { IoIosMenu } from 'react-icons/io';
 import { smallScreenWidth, smallScreenNavHeight } from "../style/layoutStyle";
+import { mainColour } from "../style/themeStyle";
 import styled from "styled-components";
 
 const NavigationIcon = styled.div`
@@ -19,14 +20,23 @@ const NavigationOverlay = styled.nav`
     left: 0%;
     background-color: black;
     width: 100%;
-    z-index: 4 !important;
+    z-index: 1 !important;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    display: flex;
+    display: ${props => props.overlayActive ? `flex` : `none`};
     flex-direction: column;
     @media screen and (min-width: ${smallScreenWidth}px){
-        display: none;
+        display: none !important;
     }
+`
+
+const OverlayLink = styled(Link)`
+    text-decoration: none;
+    color: ${props => props.selected ? `black` : mainColour};
+    background-color: ${props => props.selected ? mainColour : `black`};
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
 `
 
 const HamburgerButton = (props) => {
@@ -39,13 +49,15 @@ const HamburgerButton = (props) => {
             <NavigationIcon onClick={toggleOverlay}>
                 <IoIosMenu size={50}/>
             </NavigationIcon>
-            {overlayActive ? 
-            <NavigationOverlay>
+            <NavigationOverlay overlayActive={overlayActive}>
                 { props.items.map(item => item.object_slug !== "logo" ?
-                <Link key={item.object_slug+"_key"}
-                      to={`/${item.object_slug}`}
-                      onClick={toggleOverlay}>{item.title}</Link> : null)}
-            </NavigationOverlay> : ""}
+                <OverlayLink key={item.object_slug+"_key"}
+                             to={`/${item.object_slug}`}
+                             onClick={toggleOverlay}
+                             selected={item.object_slug === document.location.pathname.slice(1)}>
+                    {item.title}
+                </OverlayLink> : null)}
+            </NavigationOverlay>
         </div>);
     }
 
