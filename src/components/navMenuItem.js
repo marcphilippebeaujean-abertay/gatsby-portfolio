@@ -12,6 +12,16 @@ const MenuItem = styled(Link)`
     font-weight: bold;
     color: ${props => props.selected ? `black` : `inherit`};
     background-color: ${props => props.selected ? mainColour : `inherit`};
+    animation-name: ${props => props.selected ? `selection-fade-in` : ``};
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    @keyframes selection-fade-in{
+        from {
+            background-color: inherit;
+        } to {
+            background-color: ${mainColour};
+        }
+    }
     width: ${props => (100 / props.partitions)}%;
     overflow: hidden;
     :hover{

@@ -26,8 +26,7 @@ const MainMenuWrapper = styled.nav`
   @keyframes menu-drop-in {
     from {
       top: -30px;
-    }
-    to {
+    } to {
       top: 0px;
     }
   }

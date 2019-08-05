@@ -9,7 +9,7 @@ const PageContentWrapper = styled.div`
 
 export default ({ pageContext }) =>(
     <PageContentWrapper>
-      <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
+      <h2 dangerouslySetInnerHTML={{__html: pageContext.title}} />
       <div dangerouslySetInnerHTML={{__html: pageContext.content }} />
     </PageContentWrapper>
 )

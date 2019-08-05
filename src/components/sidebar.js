@@ -4,7 +4,7 @@ import { navMenuHeight, contentWidth, mainContentWidthPercent } from "../style/l
 
 const defaultWidthPercent = 100-mainContentWidthPercent;
 
-const SidebarWrapper = styled.div`
+const SidebarWrapper = styled.aside`
     position: fixed;
     margin-left: ${contentWidth*0.7}px;
     top: ${navMenuHeight}px;
@@ -17,6 +17,6 @@ const SidebarWrapper = styled.div`
 
 const Sidebar = () => (
     <SidebarWrapper >
-        helloworld
+        
     </SidebarWrapper>);
 export default Sidebar;
