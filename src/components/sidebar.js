@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { navMenuHeight, contentWidth, mainContentWidthPercent } from "../style/layoutStyle";
+import { navMenuHeight, initContentWidth, mainContentWidthPercent } from "../style/layoutStyle";
 
 const defaultWidthPercent = 100-mainContentWidthPercent;
 
 const SidebarWrapper = styled.aside`
     position: fixed;
-    margin-left: ${contentWidth*0.7}px;
+    margin-left: ${initContentWidth*mainContentWidthPercent}px;
     top: ${navMenuHeight}px;
-    width: ${contentWidth - (contentWidth*0.7)}px;
-    @media screen and (max-width: ${contentWidth}px){
+    width: ${initContentWidth - (initContentWidth*mainContentWidthPercent)}px;
+    @media screen and (max-width: ${initContentWidth}px){
         margin-left: ${100 - defaultWidthPercent}%;
         width: ${defaultWidthPercent}%
     }

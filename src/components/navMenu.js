@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { navMenuHeight, contentWidth } from  "../style/layoutStyle";
+import { navMenuHeight, initContentWidth, smallScreenWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
+import HamburgerButton from "./hamburgerBtn";
 import NavMenuItem from "./navMenuItem";
 import styled from "styled-components";
 import Logo from './logo';
@@ -9,7 +10,7 @@ import Logo from './logo';
 const MainMenuWrapper = styled.nav`
   background-color: rgb(0, 0, 0);
   display: flex;
-  width: ${contentWidth}px;
+  width: ${initContentWidth}px;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -30,10 +31,13 @@ const MainMenuWrapper = styled.nav`
       top: 0px;
     }
   }
-  @media screen and (max-width: ${contentWidth}px){
+  @media screen and (max-width: ${initContentWidth}px){
     border-radius: 0;
     width: 100%;
   }
+  @media screen and (max-width: ${smallScreenWidth}px){
+        height: ${navMenuHeight - 20}px;
+    }
 `
 
 const NavMenu = () => {
@@ -62,6 +66,7 @@ const NavMenu = () => {
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
           item.object_slug === "logo" ? (<Logo key={`logo`} partitions={menuPartitions} />) :
                                         (<NavMenuItem key={item.object_slug+"_key"} item={item} partitions={menuPartitions} />))}
+        <HamburgerButton />
     </MainMenuWrapper>
   )
   return jsx;
