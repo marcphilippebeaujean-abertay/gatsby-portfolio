@@ -20,7 +20,8 @@ const Footer = () => {
           }
         }
       }`);
-    return (<div>
+    return (
+    <div>
         {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item => (
             <Link to={`/${item.object_slug}`} key={item.title}>
                 {item.title}

@@ -3,6 +3,8 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
-import reduxWrapper from "./src/redux/reduxWrapper";
-
-export const wrapRootElement = reduxWrapper;
+exports.wrapPageElement = ({ element, props }) => {
+    <Layout>
+        {element}
+    </Layout>
+}
