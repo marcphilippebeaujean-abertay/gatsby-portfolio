@@ -25,7 +25,7 @@ const MainMenuWrapper = styled.nav`
   animation-duration: 1s;
   @keyframes menu-drop-in {
     from {
-      top: -30px;
+      top: -100px;
     } to {
       top: 0px;
     }
