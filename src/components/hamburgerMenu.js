@@ -58,6 +58,16 @@ const NavigationOverlay = styled.nav`
     @media screen and (min-width: ${smallScreenWidth}px){
         display: none !important;
     }
+    animation: slide-down 0.2s;
+    @keyframes slide-down {
+        from{
+            opacity: 0;
+            transform: scaleX(0);
+        }to {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+    }
 `
 
 const OverlayLink = styled(Link)`

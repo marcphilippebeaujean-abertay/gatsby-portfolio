@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { navMenuHeight, initContentWidth, smallScreenWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
-import HamburgerButton from "./hamburgerBtn";
+import HamburgerButton from "./hamburgerMenu";
 import NavMenuItem from "./navMenuItem";
 import styled from "styled-components";
 import Logo from './logo';
