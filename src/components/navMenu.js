@@ -24,6 +24,7 @@ const MainMenuWrapper = styled.nav`
   overflow: hidden;
   animation-name: menu-drop-in;
   animation-duration: 1s;
+  z-index: 1;
   @keyframes menu-drop-in {
     from {
       top: -100px;

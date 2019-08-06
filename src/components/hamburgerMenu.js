@@ -50,11 +50,10 @@ const NavigationOverlay = styled.nav`
     left: 0%;
     background-color: black;
     width: 100%;
-    z-index: 1 !important;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    z-index: 2 !important;
     display: ${props => props.overlayActive ? `flex` : `none`};
     flex-direction: column;
+    opacity: 1;
     @media screen and (min-width: ${smallScreenWidth}px){
         display: none !important;
     }
@@ -72,6 +71,7 @@ const NavigationOverlay = styled.nav`
 
 const OverlayLink = styled(Link)`
     text-decoration: none;
+    opacity: 1;
     color: ${props => props.selected ? `black` : mainColour};
     background-color: ${props => props.selected ? mainColour : `black`};
     padding-top: 10px;
