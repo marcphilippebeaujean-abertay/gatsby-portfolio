@@ -1,6 +1,6 @@
 import React from 'react';
 import { mainColour } from "../style/themeStyle";
-import { initContentWidth } from "../style/layoutStyle";
+import { smallScreenWidth } from "../style/layoutStyle";
 import styled from "styled-components";
 
 const LogoStyle = styled.div`
@@ -8,10 +8,10 @@ const LogoStyle = styled.div`
     display: table-cell;
     vertical-align: middle;
     flex-grow: 1;
-    @media screen and (max-width: ${initContentWidth}px){
+    @media screen and (max-width: ${smallScreenWidth}px){
         vertical-align: left;
-        flex-grow: 0;
         width: 200px;
+        flex-grow: 0;
     }
 `
 

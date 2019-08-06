@@ -7,6 +7,7 @@ import { smallScreenWidth, mainContentWidthPercent } from "../style/layoutStyle"
 const sidebarWidthPercent = 100-mainContentWidthPercent;
 
 const SidebarWrapper = styled.aside`
+    z-index: 0;
     margin-top: 35px;
     position: relative;
     width: ${sidebarWidthPercent}%;

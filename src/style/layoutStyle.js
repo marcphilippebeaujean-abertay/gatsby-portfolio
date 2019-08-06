@@ -1,4 +1,4 @@
-export const initContentWidth = 950;
+export const initContentWidth = 1300;
 export const smallScreenWidth = 700;
 
 export const smallScreenSidePadding = 20;
