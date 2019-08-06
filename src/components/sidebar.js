@@ -8,9 +8,20 @@ const sidebarWidthPercent = 100-mainContentWidthPercent;
 
 const SidebarWrapper = styled.aside`
     margin-top: 35px;
+    position: relative;
     width: ${sidebarWidthPercent}%;
+    animation: fade-in 1s;
     @media screen and (max-width: ${smallScreenWidth}px) {
         display: none;
+    }
+    @keyframes fade-in {
+        from{
+            opacity: 0;
+            left: 50px;
+        } to {
+            opacity: 1;
+            left: 0px;
+        }
     }
 `
 

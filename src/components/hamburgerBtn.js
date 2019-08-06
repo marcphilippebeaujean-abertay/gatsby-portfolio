@@ -32,7 +32,7 @@ const MenuBar = styled.div`
         from {
             opacity: 0;
         } to {
-            opacity: 100;
+            opacity: 1;
         }
     }
     @keyframes bar3 {
