@@ -1,7 +1,7 @@
 export const initContentWidth = 950;
 export const smallScreenWidth = 700;
 
-export const smallScreenSidePadding = 10;
+export const smallScreenSidePadding = 20;
 
 export const navMenuHeight = 70;
 export const smallScreenNavHeight = navMenuHeight - 20;

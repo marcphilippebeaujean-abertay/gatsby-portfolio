@@ -1,16 +1,46 @@
 import React,  { useState } from 'react';
 import { Link } from 'gatsby';
-import { IoIosMenu } from 'react-icons/io';
-import { smallScreenWidth, smallScreenNavHeight } from "../style/layoutStyle";
+import { smallScreenWidth, smallScreenNavHeight, smallScreenSidePadding } from "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
 import styled from "styled-components";
 
 const NavigationIcon = styled.div`
     position: absolute;
-    bottom: -1.5px;
-    right: 10px;
+    display: flex;
+    flex-direction: column;
+    right: ${smallScreenSidePadding}px;
+    top: 2px;
     @media screen and (min-width: ${smallScreenWidth}px){
         display: none;
+    }
+`
+
+const MenuBar = styled.div`
+    width: 50px;
+    height: 5px;
+    margin: 5px 0;
+    background-color: ${mainColour};
+    ${props =>  `animation: bar${props.bar} 1s ${props.overlayActive ? `reverse` : ``}`};
+    @keyframes bar1 {
+        from {
+            transform: rotate(-45deg) translate(-9px, 6px);
+        }to{
+            transform: rotate(0deg) translate(0px, 0px);
+        }
+    }
+    @keyframes bar2 {
+        from {
+            opacity: 0;
+        } to {
+            opacity: 100;
+        }
+    }
+    @keyframes bar3 {
+        from {
+            transform: rotate(45deg) translate(-8px, -8px);
+        }to{
+            transform: rotate(0deg) translate(0px, 0px);
+        }
     }
 `
 
@@ -47,7 +77,9 @@ const HamburgerButton = (props) => {
     return(
         <div>
             <NavigationIcon onClick={toggleOverlay}>
-                <IoIosMenu size={50}/>
+                <MenuBar overlayActive={overlayActive} bar={1}/>
+                <MenuBar overlayActive={overlayActive} bar={2}/>
+                <MenuBar overlayActive={overlayActive} bar={3}/>
             </NavigationIcon>
             <NavigationOverlay overlayActive={overlayActive}>
                 { props.items.map(item => item.object_slug !== "logo" ?
