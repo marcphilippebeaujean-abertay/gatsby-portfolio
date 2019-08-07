@@ -10,14 +10,14 @@ const NavigationIcon = styled.div`
     flex-direction: column;
     right: ${smallScreenSidePadding}px;
     top: 2px;
-    width: 50px;
+    width: 40px;
     overflow: hidden;
     @media screen and (min-width: ${smallScreenWidth}px){
         display: none;
     }
     .bar{
         position: relative;
-        width: 50px;
+        width: 100%;
         height: 5px;
         margin: 5px 0;
         background-color: ${mainColour};
@@ -27,14 +27,12 @@ const NavigationIcon = styled.div`
     }
     .bar.bar1 {
         transform: rotate(-45deg) translate(-10px, 11px);
-        width: 100%;
     }
     .bar.bar2 {
         opacity: 0;
     }
     .bar.bar3 {
         transform: rotate(45deg) translate(-10px, -11px);
-        width: 100%;
     }
 `
 

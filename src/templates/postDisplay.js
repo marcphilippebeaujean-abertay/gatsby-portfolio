@@ -16,24 +16,29 @@ const PageContentWrapper = styled.div`
 `
 
 export default ({ pageContext }) => {
-    const data = useStaticQuery(graphql`
-    query{
-      allWordpressPost(limit: 6) {
+    const data = useStaticQuery(graphql`{
+      allWordpressWpBlogpost {
         edges {
           node {
             id
+            date( formatString: "/YYYY/MM/DD/" )
+            featured_media {
+              localFile {
+                childImageSharp {
+                  id
+                }
+              }
+            }
+            slug
             title
             excerpt
-            date(formatString: "DD-MM-YYYY")
-            slug
           }
         }
       }
-    }
-    `);
+    }`);
     return(
       <PageContentWrapper>
-        {data.allWordpressPost.edges.map(post =>
+        {data.allWordpressWpBlogpost.edges.map(post =>
           <PostPreview post={post.node} key={post.node.title} />
         )}
       </PageContentWrapper>)

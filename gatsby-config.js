@@ -77,14 +77,15 @@ module.exports = {
         // all routes that begin with `yoast` from fetch.
         // Whitelisted routes using glob patterns
         includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
-          "**/users",
-          "**/menus" // include for gatsby wordpress plugin
+          "**/*/categories",
+          "**/*/posts",
+          "**/*/pages",
+          "**/*/media",
+          "**/*/tags",
+          "**/*/taxonomies",
+          "**/*/users",
+          "**/*/menus",
+          "**/*/blogpost"
         ],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {
