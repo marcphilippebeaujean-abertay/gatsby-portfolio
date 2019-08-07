@@ -13,7 +13,7 @@ const PostPreview = props => {
     return (
         <PostPreviewWrapper>
             <h2 dangerouslySetInnerHTML={{__html: props.post.title}} />
-            <p className='date'>{props.post.date}</p>
+            <p className='date' dangerouslySetInnerHTML={{__html: props.post.date.slice(1)}} />
             <div dangerouslySetInnerHTML={{__html: props.post.excerpt}} />
             <Link to={`/post/${props.post.slug}`}>Read more</Link>
         </PostPreviewWrapper>

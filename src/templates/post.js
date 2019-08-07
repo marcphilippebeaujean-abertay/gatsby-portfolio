@@ -3,8 +3,6 @@ import { PageContentWrapper } from './page';
 
 export default ({pageContext}) =>(
     <PageContentWrapper>
-        <h1>
-            {pageContext.title}
-        </h1>
+        <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
     </PageContentWrapper>
 )

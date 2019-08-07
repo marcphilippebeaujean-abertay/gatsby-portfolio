@@ -83,7 +83,6 @@ exports.createPages = ({ graphql, actions }) => {
             console.log(result.errors)
             reject(result.errors)
           }
-          console.log("building posts...");
           const postTemplate = path.resolve("./src/templates/post.js");
           // We want to create a detailed page for each
           // post node. We'll just use the WordPress Slug for the slug.

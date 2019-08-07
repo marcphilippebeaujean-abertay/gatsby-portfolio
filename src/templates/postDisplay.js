@@ -21,7 +21,7 @@ export default ({ pageContext }) => {
         edges {
           node {
             id
-            date( formatString: "/YYYY/MM/DD/" )
+            date( formatString: "/MM/DD/YYYY" )
             featured_media {
               localFile {
                 childImageSharp {

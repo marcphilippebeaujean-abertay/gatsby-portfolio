@@ -2,6 +2,7 @@ import React from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
 import { smallScreenWidth } from "../style/layoutStyle";
 import { mainColour } from '../style/themeStyle';
+import Img from "gatsby-image/withIEPolyfill";
 import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
@@ -34,6 +35,17 @@ const FooterLink = styled(Link)`
 `
 
 const Footer = () => {
+    const linkedinLogo = useStaticQuery(graphql`
+      query {
+        logo: file(relativePath: {eq: "linkedin-icon.png"}) {
+          childImageSharp {
+            fluid(maxWidth: 48) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `);
     const data = useStaticQuery(graphql`
         query{
         allWordpressWpApiMenusMenusItems(filter: {
@@ -54,6 +66,9 @@ const Footer = () => {
       }`);
     return (
     <FooterWrapper>
+      <div>
+        <Img fluid={linkedinLogo.logo.childImageSharp.fluid} />
+      </div>
       <div className={`left-footer-container footer-container`}>
         {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
         index % 2 === 0 ? (
