@@ -38,29 +38,23 @@ const NavigationIcon = styled.div`
     }
 `
 
-const NavigationOverlay = styled.nav`
-    position: fixed;
-    margin-top: ${smallScreenNavHeight}px;
-    left: 0%;
-    background-color: black;
-    width: 100%;
-    z-index: 2 !important;
-    transform: ${props => props.overlayActive ? `scaleX(1)` : `scaleX(0)`};
-    display: flex;
-    flex-direction: column;
-    opacity: 1;
-    @media screen and (min-width: ${smallScreenWidth}px){
-        display: none !important;
+const HamburgerMenu = styled.div`
+    #nav-overlay{
+        position: fixed;
+        margin-top: ${smallScreenNavHeight}px;
+        left: 0%;
+        background-color: black;
+        width: 100%;
+        z-index: 2 !important;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transition: all 0.5s;
+        transform: scaleX(0);
     }
-    animation: slide-down 0.2s;
-    @keyframes slide-down {
-        from{
-            opacity: 0;
-            transform: scaleX(0);
-        }to {
-            opacity: 1;
-            transform: scaleX(1);
-        }
+    #nav-overlay.overlay-active{
+        transform: scaleX(1);
+        opacity: 1;
     }
 `
 
@@ -73,6 +67,7 @@ const OverlayLink = styled(Link)`
     padding-bottom: 10px;
     text-align: center;
 `
+
 const barElementsTag = `bar`;
 
 const HamburgerButton = (props) => {
@@ -80,17 +75,19 @@ const HamburgerButton = (props) => {
     const toggleOverlay = () => {
         const menuBarElements = Array.from(document.getElementsByClassName(barElementsTag));
         menuBarElements.map((elem, index) => elem.classList.toggle(`${barElementsTag+(index+1)}`));
+        const overlayElement = document.getElementById(`nav-overlay`);
+        overlayElement.classList.toggle(`overlay-active`);
         setOverlayActive(!overlayActive);
     }
     // TODO: STORE BAR ELEMENTS IN STATE
     return(
-        <div>
+        <HamburgerMenu>
             <NavigationIcon onClick={toggleOverlay}>
                 <div className={barElementsTag} />
                 <div className={barElementsTag} />
                 <div className={barElementsTag} />
             </NavigationIcon>
-            <NavigationOverlay overlayActive={overlayActive}>
+            <div id={`nav-overlay`}>
                 { props.items.map(item => item.object_slug !== "logo" ?
                 <OverlayLink key={item.object_slug+"_key"}
                              to={`/${item.object_slug}`}
@@ -98,8 +95,8 @@ const HamburgerButton = (props) => {
                              selected={item.object_slug === document.location.pathname.slice(1)}>
                     {item.title}
                 </OverlayLink> : null)}
-            </NavigationOverlay>
-        </div>);
+            </div>
+        </HamburgerMenu>);
     }
 
 export default HamburgerButton;
