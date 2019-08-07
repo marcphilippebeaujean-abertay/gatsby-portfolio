@@ -10,37 +10,31 @@ const NavigationIcon = styled.div`
     flex-direction: column;
     right: ${smallScreenSidePadding}px;
     top: 2px;
+    width: 50px;
+    overflow: hidden;
     @media screen and (min-width: ${smallScreenWidth}px){
         display: none;
     }
-`
-
-const MenuBar = styled.div`
-    width: 50px;
-    height: 5px;
-    margin: 5px 0;
-    background-color: ${mainColour};
-    ${props =>  `animation: bar${props.bar} 1s ${props.overlayActive ? `reverse` : ``}`};
-    @keyframes bar1 {
-        from {
-            transform: rotate(-45deg) translate(-9px, 6px);
-        }to{
-            transform: rotate(0deg) translate(0px, 0px);
-        }
+    .bar{
+        position: relative;
+        width: 50px;
+        height: 5px;
+        margin: 5px 0;
+        background-color: ${mainColour};
+        transition: all 0.5s;
+        opacity: 1;
+        transform: rotate(0);
     }
-    @keyframes bar2 {
-        from {
-            opacity: 0;
-        } to {
-            opacity: 1;
-        }
+    .bar.bar1 {
+        transform: rotate(-45deg) translate(-10px, 11px);
+        width: 100%;
     }
-    @keyframes bar3 {
-        from {
-            transform: rotate(45deg) translate(-8px, -8px);
-        }to{
-            transform: rotate(0deg) translate(0px, 0px);
-        }
+    .bar.bar2 {
+        opacity: 0;
+    }
+    .bar.bar3 {
+        transform: rotate(45deg) translate(-10px, -11px);
+        width: 100%;
     }
 `
 
@@ -51,7 +45,8 @@ const NavigationOverlay = styled.nav`
     background-color: black;
     width: 100%;
     z-index: 2 !important;
-    display: ${props => props.overlayActive ? `flex` : `none`};
+    transform: ${props => props.overlayActive ? `scaleX(1)` : `scaleX(0)`};
+    display: flex;
     flex-direction: column;
     opacity: 1;
     @media screen and (min-width: ${smallScreenWidth}px){
@@ -78,19 +73,22 @@ const OverlayLink = styled(Link)`
     padding-bottom: 10px;
     text-align: center;
 `
+const barElementsTag = `bar`;
 
 const HamburgerButton = (props) => {
-    const [overlayActive, setOverlayActive] = useState(false)
+    const [overlayActive, setOverlayActive] = useState(false);
     const toggleOverlay = () => {
+        const menuBarElements = Array.from(document.getElementsByClassName(barElementsTag));
+        menuBarElements.map((elem, index) => elem.classList.toggle(`${barElementsTag+(index+1)}`));
         setOverlayActive(!overlayActive);
     }
     // TODO: STORE BAR ELEMENTS IN STATE
     return(
         <div>
             <NavigationIcon onClick={toggleOverlay}>
-                <MenuBar overlayActive={overlayActive} bar={1}/>
-                <MenuBar overlayActive={overlayActive} bar={2}/>
-                <MenuBar overlayActive={overlayActive} bar={3}/>
+                <div className={barElementsTag} />
+                <div className={barElementsTag} />
+                <div className={barElementsTag} />
             </NavigationIcon>
             <NavigationOverlay overlayActive={overlayActive}>
                 { props.items.map(item => item.object_slug !== "logo" ?
