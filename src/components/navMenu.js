@@ -70,7 +70,7 @@ const NavMenu = () => {
           item.object_slug === "logo" ? (<Logo key={`logo`} partitions={menuPartitions} />) :
                                         (<NavMenuItem key={item.object_slug+"_key"} item={item} partitions={menuPartitions} />))
       }
-        <HamburgerButton items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items} />
+      <HamburgerButton items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items} />
     </MainMenuWrapper>
   )
   return jsx;

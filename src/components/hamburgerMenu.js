@@ -51,6 +51,9 @@ const HamburgerMenu = styled.div`
         opacity: 0;
         transition: all 0.2s;
         transform: scaleX(0);
+        @media screen and (min-width: ${smallScreenWidth}px) {
+            display: none !important;
+        }
     }
     #nav-overlay.overlay-active{
         transform: scaleX(1);
