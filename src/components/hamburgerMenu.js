@@ -21,7 +21,7 @@ const NavigationIcon = styled.div`
         height: 5px;
         margin: 5px 0;
         background-color: ${mainColour};
-        transition: all 0.5s;
+        transition: all 0.2s;
         opacity: 1;
         transform: rotate(0);
     }
@@ -49,7 +49,7 @@ const HamburgerMenu = styled.div`
         display: flex;
         flex-direction: column;
         opacity: 0;
-        transition: all 0.5s;
+        transition: all 0.2s;
         transform: scaleX(0);
     }
     #nav-overlay.overlay-active{
@@ -79,7 +79,6 @@ const HamburgerButton = (props) => {
         overlayElement.classList.toggle(`overlay-active`);
         setOverlayActive(!overlayActive);
     }
-    // TODO: STORE BAR ELEMENTS IN STATE
     return(
         <HamburgerMenu>
             <NavigationIcon onClick={toggleOverlay}>
