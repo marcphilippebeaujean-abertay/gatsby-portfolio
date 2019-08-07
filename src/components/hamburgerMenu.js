@@ -84,6 +84,7 @@ const HamburgerButton = (props) => {
     const toggleOverlay = () => {
         setOverlayActive(!overlayActive);
     }
+    // TODO: STORE BAR ELEMENTS IN STATE
     return(
         <div>
             <NavigationIcon onClick={toggleOverlay}>
