@@ -34,7 +34,7 @@ export default ({ pageContext }) => {
     return(
       <PageContentWrapper>
         {data.allWordpressPost.edges.map(post =>
-          <PostPreview post = {post.node} />
+          <PostPreview post={post.node} key={post.node.title} />
         )}
       </PageContentWrapper>)
 }

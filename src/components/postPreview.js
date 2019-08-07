@@ -1,14 +1,22 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import styled from "styled-components";
+
+const PostPreviewWrapper = styled.div`
+    .date{
+        font-style: italic;
+        margin-top: 0;
+    }
+`
 
 const PostPreview = props => {
     return (
-        <div>
+        <PostPreviewWrapper>
             <h2 dangerouslySetInnerHTML={{__html: props.post.title}} />
-            <p>{props.post.date}</p>
+            <p className='date'>{props.post.date}</p>
             <div dangerouslySetInnerHTML={{__html: props.post.excerpt}} />
             <Link to={`/post/${props.post.slug}`}>Read more</Link>
-        </div>
+        </PostPreviewWrapper>
     )
 }
 

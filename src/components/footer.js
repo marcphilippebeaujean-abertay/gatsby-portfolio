@@ -11,19 +11,20 @@ const FooterWrapper = styled.footer`
   margin: 0;
   flex-grow: 1;
   display: flex;
-  @media screen and (max-width: ${smallScreenWidth}px){
-    flex-direction: column;
-    .footer-container{
-      width: 100%;
-      text-align: center !important;
-    }
-  }
   .footer-container{
     width: 50%;
     padding: 10px 10px;
   }
   .left-footer-container{
     text-align: right !important;
+  }
+  @media screen and (max-width: ${smallScreenWidth}px){
+    flex-direction: column;
+    .footer-container{
+      width: 100%;
+      padding: 10px 0;
+      text-align: center !important;
+    }
   }
 `
 
