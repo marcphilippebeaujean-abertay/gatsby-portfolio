@@ -2,12 +2,12 @@ import React from 'react'
 import styled from "styled-components";
 import PostPreview from "../components/postPreview";
 import { graphql, useStaticQuery } from 'gatsby';
-import { mainContentWidthPercent, initContentWidth, smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle";
+import { mainContentWidthPercent, initContentWidth, mediumScreenWidth, smallScreenSidePadding } from "../style/layoutStyle";
 
 const PageContentWrapper = styled.div`
   width: ${mainContentWidthPercent}%;
   padding-right: ${smallScreenSidePadding}px;
-  @media screen and (max-width: ${smallScreenWidth}px) {
+  @media screen and (max-width: ${mediumScreenWidth}px) {
         width: 100%;
   }
   @media screen and (max-width: ${initContentWidth}px){
@@ -23,11 +23,7 @@ export default ({ pageContext }) => {
             id
             date( formatString: "/MM/DD/YYYY" )
             featured_media {
-              localFile {
-                childImageSharp {
-                  id
-                }
-              }
+              source_url
             }
             slug
             title

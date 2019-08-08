@@ -34,18 +34,12 @@ const FooterLink = styled(Link)`
   text-decoration: none !important;
 `
 
+const SocialMediaLogoWrapper = styled.div`
+  display: flex;
+  width: 100%;
+`
+
 const Footer = () => {
-    const linkedinLogo = useStaticQuery(graphql`
-      query {
-        logo: file(relativePath: {eq: "linkedin-icon.png"}) {
-          childImageSharp {
-            fluid(maxWidth: 48) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `);
     const data = useStaticQuery(graphql`
         query{
         allWordpressWpApiMenusMenusItems(filter: {
@@ -66,9 +60,9 @@ const Footer = () => {
       }`);
     return (
     <FooterWrapper>
-      <div>
-        <Img fluid={linkedinLogo.logo.childImageSharp.fluid} />
-      </div>
+      {/*<SocialMediaLogoWrapper>
+        <img href={`../linkedin-icon.png`} />
+      </SocialMediaLogoWrapper>*/}
       <div className={`left-footer-container footer-container`}>
         {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
         index % 2 === 0 ? (
