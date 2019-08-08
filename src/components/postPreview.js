@@ -10,7 +10,7 @@ const PostPreviewWrapper = styled.div`
     flex-direction: column;
     .date{
         font-style: italic;
-        margin: 0;
+        margin: 5px 0 !important;
     }
     .image-excerpt-container{
         display: flex;
