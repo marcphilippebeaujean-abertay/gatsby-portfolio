@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from "styled-components";
-import { mainContentWidthPercent, initContentWidth, smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle";
+import { mainContentWidthPercent, initContentWidth, mediumScreenWidth, smallScreenSidePadding } from "../style/layoutStyle";
 
 export const PageContentWrapper = styled.div`
   width: ${mainContentWidthPercent}%;
   padding-right: ${smallScreenSidePadding}px;
-  @media screen and (max-width: ${smallScreenWidth}px) {
+  @media screen and (max-width: ${mediumScreenWidth}px) {
         width: 100%;
   }
   @media screen and (max-width: ${initContentWidth}px){
