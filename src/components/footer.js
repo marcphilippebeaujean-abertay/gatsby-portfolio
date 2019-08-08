@@ -19,6 +19,8 @@ const FooterWrapper = styled.footer`
   }
   .left-footer-container{
     text-align: right !important;
+    align-content: right;
+    align-self: right;
   }
   #footer-links-container{
     display: flex;
@@ -39,10 +41,13 @@ const FooterWrapper = styled.footer`
 `
 
 const FooterLink = styled(Link)`
-  display: flex;
+  display: relative;
   flex-direction: column;
   color: ${props => props.selected ? mainColour : `white`};
   text-decoration: none !important;
+  :hover{
+    color: ${mainColour};
+  }
 `
 
 const SocialMediaLogoWrapper = styled.div`
@@ -57,8 +62,13 @@ const SocialMediaLogoWrapper = styled.div`
     width: 50px;
     transition: ease 0.2s;
   }
-  .logo:hover{
+  a:hover .logo{
     filter: grayscale(0);
+  }
+  @media screen and (max-width: ${smallScreenWidth}px){
+    .logo{
+      filter: grayscale(0);
+    }
   }
 `
 
@@ -84,28 +94,28 @@ const Footer = () => {
     return (
     <FooterWrapper>
       <SocialMediaLogoWrapper>
-        <img className="logo" src={linkedInLogo} alt="LinkedIn Logo" />
-        <img className="logo" src={youtubeLogo} alt="YouTube Logo" />
+        <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" ><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
+        <a href=""><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
       </SocialMediaLogoWrapper>
       <div id="footer-links-container">
         <div className={`left-footer-container footer-container`}>
           {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
           index % 2 === 0 ? (
-              <FooterLink to={`/${item.object_slug}`}
-                          key={item.title}
-                          selected={item.object_slug === document.location.pathname.slice(1)}>
-                  {item.title}
-              </FooterLink>
+                  <FooterLink to={`/${item.object_slug}`}
+                            key={item.title}
+                            selected={item.object_slug === document.location.pathname.slice(1)}>
+                            {item.title}
+                  </FooterLink>
           ) : null)}
         </div>
         <div className={`footer-container`}>
           {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
           index % 2 === 1 ? (
-                <FooterLink to={`/${item.object_slug}`}
+                  <FooterLink to={`/${item.object_slug}`}
                             key={item.title}
                             selected={item.object_slug === document.location.pathname.slice(1)}>
-                    {item.title}
-                </FooterLink>
+                            {item.title}
+                  </FooterLink>
             ) : null)}
         </div>
       </div>
