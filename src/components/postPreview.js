@@ -20,8 +20,8 @@ const PostPreviewWrapper = styled.div`
         position: relative;
     }
     .thumbnail{
-        width: ${excerptHeight};
-        height: 100%;
+        width:  156px;
+        height:  ${excerptHeight-100};
     }
     p{
         margin: 0;

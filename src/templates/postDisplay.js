@@ -5,11 +5,13 @@ import { PageContentWrapper } from './page';
 
 export default ({ pageContext }) => {
     const data = useStaticQuery(graphql`{
-      allWordpressWpBlogpost {
+      allWordpressWpBlogpost (
+        limit: 10,
+        sort: { fields: date, order: DESC }) {
         edges {
           node {
             id
-            date( formatString: "/MM/DD/YYYY" )
+            date( formatString: "DD/MM/YYYY" )
             featured_media {
               source_url
             }

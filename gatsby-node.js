@@ -42,6 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Create Page pages.
         const pageTemplate = path.resolve("./src/templates/page.js");
         const postDisplayTemplate = path.resolve("./src/templates/postDisplay.js");
+        const contactsTemplate = path.resolve("./src/templates/contacts.js");
         // We want to create a detailed page for each
         // page node. We'll just use the WordPress Slug for the slug.
         // The Page ID is prefixed with 'PAGE_'
@@ -49,14 +50,24 @@ exports.createPages = ({ graphql, actions }) => {
           // Gatsby uses Redux to manage its internal state.
           // Plugins and sites can use functions like "createPage"
           // to interact with Gatsby.
+          let template = pageTemplate;
+          switch(edge.node.template){
+            case 'blog-page.php':
+              template = postDisplayTemplate;
+              break;
+            case 'contact-page.php':
+              template = contactsTemplate;
+              break;
+            default:
+              break;
+          }
           createPage({
             // Each page is required to have a `path` as well
             // as a template component. The `context` is
             // optional but is often necessary so the template
             // can query data specific to each page.
             path: `/${edge.node.slug}/`,
-            component: slash(edge.node.template === 'blog-page.php' ?
-                             postDisplayTemplate : pageTemplate),
+            component: slash(edge.node.template = template),
             context: edge.node,
           })
         })
