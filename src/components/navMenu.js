@@ -64,10 +64,10 @@ const NavMenu = () => {
   `);
   useEffect(()=>{
     const currentUrl = document.location.pathname.slice(1);
-    const currentSelected = document.getElementsByClassName("selected");
-    const newSelectedObject = document.getElementsByClassName(currentUrl);
-    if(currentSelected.length > 0) currentSelected[0].classList.remove("selected");
-    if(newSelectedObject.length > 0) newSelectedObject[0].classList.add("selected");
+    const currentSelected = Array.from(document.getElementsByClassName("selected"));
+    const newSelectedObject = Array.from(document.getElementsByClassName(currentUrl));
+    if(currentSelected.length > 0) currentSelected.map(obj => obj.classList.remove("selected"));
+    if(newSelectedObject.length > 0) newSelectedObject.map(obj => obj.classList.add("selected"));
   })
   const menuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
   return (
