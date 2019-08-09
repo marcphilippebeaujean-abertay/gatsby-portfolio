@@ -11,8 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Open Sans', sans-serif;
     padding: 0 !important;
     margin: 0;
-    min-height: 100%;
-    overflow: auto;
+    position: relative;
   }
   html {
     height: 100%;

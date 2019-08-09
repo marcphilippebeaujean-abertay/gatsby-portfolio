@@ -12,9 +12,8 @@ const FooterWrapper = styled.footer`
   padding: 0 !important;
   clear: both;
   height: ${footerHeight}px;
-  top: -${footerHeight}px;
+  margin-top: -${footerHeight}px;
   background-color: black;
-  margin: 0;
   display: flex;
   flex-direction: column;
   .footer-container{
