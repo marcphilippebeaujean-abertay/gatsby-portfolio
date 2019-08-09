@@ -1,22 +1,34 @@
 import styled from "styled-components";
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { smallScreenWidth } from '../style/layoutStyle';
+import { mainColour } from "../style/themeStyle";
 import { Link } from 'gatsby';
-import { mainColour } from '../style/themeStyle';
 
 const MenuItem = styled(Link)`
     position: relative;
-    text-decoration: none;
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    font-weight: bold;
-    color: ${props => props.selected ? `black` : `inherit`};
-    background-color: ${props => props.selected ? mainColour : `inherit`};
+    color: inherit;
+    background-color: inherit;
     width: ${props => (100 / props.partitions)}%;
     overflow: hidden;
-    :hover{
-        cursor: ${props => props.selected ? `default` : `pointer`}
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+    display: flex;
+    .menu-item{
+        display: inherit;
+        font-weight: bold;
+        vertical-align: middle;
+        transition: all 0.3s;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+    }
+    .menu-item.selected{
+        color: black !important;
+        background-color: ${mainColour} !important;
+    }
+    .selected:hover{
+        cursor: default !important;
     }
     @media screen and (max-width: ${smallScreenWidth}px) {
         display: none;
@@ -27,6 +39,8 @@ const NavElementText = styled.p`
     font-size: 20px;
     z-index: 1;
     position: relative;
+    width: 100%;
+    text-align: center;
 `
 
 const stripeWidth = 20;
@@ -56,22 +70,14 @@ const HoverAnimation = styled.div`
 `
 
 const NavMenuItem = (props) => {
-    const [urlSlug] = useState(props.item.object_slug);
-    const [selected, setSelected] = useState(false);
-    useEffect(()=>{
-        if(urlSlug === document.location.pathname.slice(1)){
-            setSelected(true);
-        }else{
-            setSelected(false);
-        }
-    })
     return (
         <MenuItem to={`/${props.item.object_slug}`}
                   key={props.item.title}
-                  partitions={props.partitions}
-                  selected={selected}>
-            {selected ? null : <HoverAnimation id={props.item.object_slug+`_hover_anim`}/>}
-            <NavElementText id={props.item.object_slug+`_text`}>{props.item.title}</NavElementText>
+                  partitions={props.partitions}>
+            <div className={`${props.item.object_slug} menu-item`}>
+                {/* ? null : <HoverAnimation id={props.item.object_slug+`_hover_anim`}/>*/}
+                <NavElementText id={props.item.object_slug+`_text`}>{props.item.title}</NavElementText>
+            </div>
         </MenuItem>
     )
 };

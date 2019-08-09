@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { navMenuHeight, initContentWidth, smallScreenWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
@@ -37,9 +37,9 @@ const MainMenuWrapper = styled.nav`
     width: 100%;
   }
   @media screen and (max-width: ${smallScreenWidth}px){
-        height: ${navMenuHeight - 20}px;
-        overflow: inherit;
-    }
+    height: ${navMenuHeight - 20}px;
+    overflow: inherit;
+  }
 `
 
 const NavMenu = () => {
@@ -62,8 +62,15 @@ const NavMenu = () => {
       }
     }
   `);
+  useEffect(()=>{
+    const currentUrl = document.location.pathname.slice(1);
+    const currentSelected = document.getElementsByClassName("selected");
+    const newSelectedObject = document.getElementsByClassName(currentUrl);
+    if(currentSelected.length > 0) currentSelected[0].classList.remove("selected");
+    if(newSelectedObject.length > 0) newSelectedObject[0].classList.add("selected");
+  })
   const menuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
-  const jsx = (
+  return (
     <MainMenuWrapper>
       {
         data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
@@ -73,7 +80,6 @@ const NavMenu = () => {
       <HamburgerButton items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items} />
     </MainMenuWrapper>
   )
-  return jsx;
 };
 
 export default NavMenu;
