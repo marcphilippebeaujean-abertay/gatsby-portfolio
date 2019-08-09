@@ -1,14 +1,18 @@
 import React from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
-import { smallScreenWidth } from "../style/layoutStyle";
+import { footerHeight, navMenuHeight, smallScreenWidth } from "../style/layoutStyle";
 import { mainColour } from '../style/themeStyle';
 import styled from "styled-components";
 import linkedInLogo from '../images/linkedin-icon.png';
 import youtubeLogo from '../images/youtube-icon.png';
 
 const FooterWrapper = styled.footer`
+  position: relative;
   width: 100%;
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  height: ${footerHeight}px;
+  /*top: -${footerHeight}px;*/
   background-color: black;
   margin: 0;
   display: flex;

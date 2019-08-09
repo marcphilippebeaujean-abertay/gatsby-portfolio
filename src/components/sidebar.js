@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Img from "gatsby-image/withIEPolyfill";
 import { graphql, useStaticQuery } from 'gatsby';
-import {mediumScreenWidth, mainContentWidthPercent, initContentWidth, smallScreenSidePadding } from "../style/layoutStyle";
+import {mediumScreenWidth, mainContentWidthPercent,
+        initContentWidth, smallScreenSidePadding } from "../style/layoutStyle";
 
 const sidebarWidthPercent = 100-mainContentWidthPercent;
 

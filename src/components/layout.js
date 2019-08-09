@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "./sidebar";
 import NavMenu from "./navMenu";
 import Footer from "./footer";
-import { navMenuHeight, initContentWidth, smallScreenNavHeight, smallScreenWidth } from  "../style/layoutStyle";
+import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
@@ -12,31 +12,37 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0 !important;
     margin: 0;
   }
+  html, body{
+    height: 100%;
+  }
+  #main-content-container{
+    min-height: 100%;
+  }
 `
 
 export const PageContentStyle = styled.div`
   position: relative;
   display: flex;
-  max-width: ${initContentWidth}px;
+  overflow: auto;
   margin: 0 auto;
-  margin-top: ${navMenuHeight}px;
+  max-width: ${initContentWidth}px;
+  padding-bottom: ${footerHeight}px;
   text-align: justify;
-  @media screen and (max-width: ${smallScreenWidth}px){
-    margin-top: ${smallScreenNavHeight}px;
-  }
 `
 
 const Layout = ({ children }) => {
   return(
-    <div>
-      <GlobalStyles />
-      <NavMenu />
-      <PageContentStyle>
-        {children}
-        <Sidebar />
-      </PageContentStyle>
-      <Footer />
-    </div>
+    <React.Fragment>
+      <div id="main-content-container">
+        <GlobalStyles />
+        <NavMenu />
+        <PageContentStyle>
+          {children}
+          <Sidebar />
+        </PageContentStyle>
+        <Footer />
+      </div>
+    </React.Fragment>
 )}
 
 export default Layout;

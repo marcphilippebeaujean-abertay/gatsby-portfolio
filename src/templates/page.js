@@ -1,15 +1,21 @@
 import React from 'react'
 import styled from "styled-components";
-import { mainContentWidthPercent, initContentWidth, mediumScreenWidth, smallScreenSidePadding } from "../style/layoutStyle";
+import { smallScreenWidth, smallScreenNavHeight,
+         navMenuHeight, mainContentWidthPercent,
+         initContentWidth, mediumScreenWidth, smallScreenSidePadding } from "../style/layoutStyle";
 
 export const PageContentWrapper = styled.div`
   width: ${mainContentWidthPercent}%;
+  margin-top: ${navMenuHeight}px;
   padding-right: ${smallScreenSidePadding}px;
   @media screen and (max-width: ${mediumScreenWidth}px) {
-        width: 100%;
+    width: 100%;
   }
   @media screen and (max-width: ${initContentWidth}px){
-        padding: 0px ${smallScreenSidePadding}px !important;
+    padding: 0px ${smallScreenSidePadding}px !important;
+  }
+  @media screen and (max-width: ${smallScreenWidth}px){
+    margin-top: ${smallScreenNavHeight}px;
   }
 `
 
