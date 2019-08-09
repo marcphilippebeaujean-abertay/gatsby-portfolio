@@ -9,10 +9,10 @@ import youtubeLogo from '../images/youtube-icon.png';
 const FooterWrapper = styled.footer`
   position: relative;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  padding: 0 !important;
+  clear: both;
   height: ${footerHeight}px;
-  /*top: -${footerHeight}px;*/
+  top: -${footerHeight}px;
   background-color: black;
   margin: 0;
   display: flex;
