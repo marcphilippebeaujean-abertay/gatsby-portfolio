@@ -22,10 +22,8 @@ const SidebarWrapper = styled.aside`
     @keyframes fade-in {
         from{
             opacity: 0;
-            left: 50px;
         } to {
             opacity: 1;
-            left: 0px;
         }
     }
 `
