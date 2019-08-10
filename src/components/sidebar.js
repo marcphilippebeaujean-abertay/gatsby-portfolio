@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Img from "gatsby-image/withIEPolyfill";
 import { graphql, useStaticQuery } from 'gatsby';
-import {mediumScreenWidth, mainContentWidthPercent,
+import {mediumScreenWidth, mainContentWidthPercent, navMenuHeight,
         initContentWidth, smallScreenSidePadding } from "../style/layoutStyle";
 
 const sidebarWidthPercent = 100-mainContentWidthPercent;
@@ -13,6 +13,7 @@ const SidebarWrapper = styled.aside`
     position: relative;
     width: ${sidebarWidthPercent}%;
     animation: fade-in 1s;
+    top: ${navMenuHeight}px;
     @media screen and (max-width: ${initContentWidth}px){
         padding-right: ${smallScreenSidePadding}px;
     }

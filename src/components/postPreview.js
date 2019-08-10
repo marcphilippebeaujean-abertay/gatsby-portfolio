@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { Link } from 'gatsby';
-import { smallScreenWidth } from '../style/layoutStyle';
+import { smallScreenWidth, smallScreenSidePadding } from '../style/layoutStyle';
 
 const excerptHeight = `200px`;
 
@@ -20,8 +20,9 @@ const PostPreviewWrapper = styled.div`
         position: relative;
     }
     .thumbnail{
-        width:  156px;
-        height:  ${excerptHeight-100};
+        margin-right: ${smallScreenSidePadding}px;
+        width: 200px;
+        height: auto;
     }
     p{
         margin: 0;

@@ -93,6 +93,14 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-recaptcha`,
+      options: {
+         async: true,
+         defer: false,
+         args: `?onload=onloadCallback&render=explicit`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

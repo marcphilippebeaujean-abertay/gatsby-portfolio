@@ -1,6 +1,6 @@
 import React from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
-import { footerHeight, navMenuHeight, smallScreenWidth } from "../style/layoutStyle";
+import { footerHeight, smallScreenWidth } from "../style/layoutStyle";
 import { mainColour } from '../style/themeStyle';
 import styled from "styled-components";
 import linkedInLogo from '../images/linkedin-icon.png';
