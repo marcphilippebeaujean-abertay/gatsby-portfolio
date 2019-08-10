@@ -48,8 +48,8 @@ const ContactsForm = styled.form`
 
 export default () => {
     const { executeRecaptcha } = useGoogleReCaptcha();
-    const token = executeRecaptcha("send_email");
-    console.log(token);
+    const token = executeRecaptcha("send_email").then(promiseValue => console.log("captcha key is: "+promiseValue))
+                                                .catch(error => console.log("error retrieving captcha: "+error));
     return(
         <div>
             <ContactsForm>

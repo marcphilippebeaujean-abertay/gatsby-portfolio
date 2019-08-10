@@ -6,7 +6,6 @@ import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
-
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
   body{
