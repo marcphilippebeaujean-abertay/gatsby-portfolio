@@ -4,7 +4,8 @@ import NavMenu from "./navMenu";
 import Footer from "./footer";
 import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
-import { loadReCaptcha } from 'react-recaptcha-v3'
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+
 
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
@@ -32,13 +33,11 @@ export const PageContentStyle = styled.div`
   padding-bottom: ${footerHeight}px;
   text-align: justify;
 `
-
+// "6LcHXrIUAAAAAGXsi5JIm7OKKo9b2bifbsS8BYgJ"
 const Layout = ({ children }) => {
-  useEffect(() => {
-    loadReCaptcha('6LcHXrIUAAAAAGXsi5JIm7OKKo9b2bifbsS8BYgJ');
-  })
   return(
-    <React.Fragment>
+    <GoogleReCaptchaProvider
+    reCaptchaKey="6LcHXrIUAAAAAGXsi5JIm7OKKo9b2bifbsS8BYgJ">
       <div id="main-content-container">
         <GlobalStyles />
         <NavMenu />
@@ -48,7 +47,7 @@ const Layout = ({ children }) => {
         </PageContentStyle>
       </div>
       <Footer />
-    </React.Fragment>
+    </GoogleReCaptchaProvider>
 )}
 
 export default Layout;

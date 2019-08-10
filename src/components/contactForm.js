@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { mainColour } from "../style/themeStyle";
 import { smallScreenWidth } from "../style/layoutStyle";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const ContactsForm = styled.form`
     width: 100%;
@@ -46,21 +47,26 @@ const ContactsForm = styled.form`
 `
 
 export default () => {
+    const { executeRecaptcha } = useGoogleReCaptcha();
+    const token = executeRecaptcha("send_email");
+    console.log(token);
     return(
-        <ContactsForm>
-            <label for="name">
-                Name:
-            </label>
-            <input className="input-field" type="text" name="your-name" placeholder="John Smith" />
-            <label for="email">
-                E-Mail:
-            </label>
-            <input className="input-field" type="text" name="your-email" placeholder="example@mail.com" />
-            <label for="message">
-                Message:
-            </label>
-            <textarea rows="10" className="input-field" name="your-message" placeholder="Hi Marc, I love your blog!" />
-            <input className="submit-btn" type="submit" value="Submit" />
-        </ContactsForm>
+        <div>
+            <ContactsForm>
+                <label htmlFor="name">
+                    Name:
+                </label>
+                <input className="input-field" type="text" name="your-name" placeholder="John Smith" />
+                <label htmlFor="email">
+                    E-Mail:
+                </label>
+                <input className="input-field" type="text" name="your-email" placeholder="example@mail.com" />
+                <label htmlFor="message">
+                    Message:
+                </label>
+                <textarea rows="10" className="input-field" name="your-message" placeholder="Hi Marc, I love your blog!" />
+                <input className="submit-btn" type="submit" value="Submit" />
+            </ContactsForm>
+        </div>
     )
 }
