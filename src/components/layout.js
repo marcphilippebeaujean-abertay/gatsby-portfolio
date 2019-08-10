@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Sidebar from "./sidebar";
 import NavMenu from "./navMenu";
 import Footer from "./footer";
 import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
+import { loadReCaptcha } from 'react-recaptcha-v3'
 
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
@@ -33,6 +34,9 @@ export const PageContentStyle = styled.div`
 `
 
 const Layout = ({ children }) => {
+  useEffect(() => {
+    loadReCaptcha('6LcHXrIUAAAAAGXsi5JIm7OKKo9b2bifbsS8BYgJ');
+  })
   return(
     <React.Fragment>
       <div id="main-content-container">
