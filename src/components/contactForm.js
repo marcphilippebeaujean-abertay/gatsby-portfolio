@@ -7,6 +7,9 @@ const ContactsForm = styled.form`
     width: 100%;
     display: flex;
     flex-direction: column;
+    label{
+        font-weight: bold;
+    }
     .input-field{
         padding: 10px 0px;
         margin-bottom: 20px;
@@ -51,15 +54,15 @@ export default () => {
     return(
         <ContactsForm name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true">
             <label htmlFor="name">
-                Full Name:
+                Full Name
             </label>
             <input className="input-field" id="form-name" type="text" name="name" placeholder="John Smith" />
             <label htmlFor="email">
-                E-Mail:
+                E-Mail
             </label>
             <input className="input-field" id="form-email" type="text" name="email" placeholder="example@mail.com" />
             <label htmlFor="message">
-                Message:
+                Message
             </label>
             <label id="recaptcha-token">Don't fill out if you are human<input type="text" name="bot-field" /></label>
             <textarea rows="10" id="form-message" className="input-field" name="message" placeholder="Hi Marc, I love your blog!" />

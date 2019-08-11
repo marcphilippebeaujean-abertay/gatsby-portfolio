@@ -1,10 +1,9 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Sidebar from "./sidebar";
 import NavMenu from "./navMenu";
 import Footer from "./footer";
 import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
@@ -35,8 +34,7 @@ export const PageContentStyle = styled.div`
 // "6LcHXrIUAAAAAGXsi5JIm7OKKo9b2bifbsS8BYgJ"
 const Layout = ({ children }) => {
   return(
-    <GoogleReCaptchaProvider
-    reCaptchaKey="6LcHXrIUAAAAAGXsi5JIm7OKKo9b2bifbsS8BYgJ">
+    <div>
       <div id="main-content-container">
         <GlobalStyles />
         <NavMenu />
@@ -46,7 +44,7 @@ const Layout = ({ children }) => {
         </PageContentStyle>
       </div>
       <Footer />
-    </GoogleReCaptchaProvider>
+    </div>
 )}
 
 export default Layout;

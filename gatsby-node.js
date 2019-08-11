@@ -41,8 +41,8 @@ exports.createPages = ({ graphql, actions }) => {
         }
         // Create Page pages.
         const pageTemplate = path.resolve("./src/templates/page.js");
-        const postDisplayTemplate = path.resolve("./src/templates/postDisplay.js");
         const contactsTemplate = path.resolve("./src/templates/contacts.js");
+        const archiveTemplate = path.resolve("./src/templates/archive.js");
         // We want to create a detailed page for each
         // page node. We'll just use the WordPress Slug for the slug.
         // The Page ID is prefixed with 'PAGE_'
@@ -53,10 +53,12 @@ exports.createPages = ({ graphql, actions }) => {
           let template = pageTemplate;
           switch(edge.node.template){
             case 'blog-page.php':
-              template = postDisplayTemplate;
-              break;
+              return; // this page will be auto generated in post sections! Only relevant for nav menu creation.
             case 'contact-page.php':
               template = contactsTemplate;
+              break;
+            case 'archive-page.php':
+              template = archiveTemplate;
               break;
             default:
               break;
@@ -77,13 +79,17 @@ exports.createPages = ({ graphql, actions }) => {
       .then(() => {
         graphql(`
             {
-              allWordpressWpBlogpost {
+              allWordpressWpBlogpost(sort: { fields: date, order: DESC }) {
                 edges {
                   node {
                     slug
                     content
-                    date
+                    date( formatString: "DD/MM/YYYY" )
                     title
+                    featured_media {
+                      source_url
+                    }
+                    excerpt
                   }
                 }
               }
@@ -94,11 +100,28 @@ exports.createPages = ({ graphql, actions }) => {
             console.log(result.errors)
             reject(result.errors)
           }
-          const postTemplate = path.resolve("./src/templates/post.js");
+          // Create a blog page for each
+          const posts = result.data.allWordpressWpBlogpost.edges;
+          const postsPerPage = 2;
+          const numberOfPages = Math.ceil(posts.length / postsPerPage);
+          const blogTemplate = path.resolve("./src/templates/blogDisplayPage.js");
+          Array.from({length: numberOfPages}).forEach((page, index) => {
+            createPage({
+              component: blogTemplate,
+              path: index === 0 ? `/blog` : `/blog/${index+1}`,
+              context: {
+                posts: posts.slice(index*postsPerPage, (index*postsPerPage)+postsPerPage),
+                title: `Blog`,
+                numberOfPages,
+                currentPage: index+1
+              }
+            })
+          })
           // We want to create a detailed page for each
           // post node. We'll just use the WordPress Slug for the slug.
           // The Post ID is prefixed with 'POST_'
-          _.each(result.data.allWordpressWpBlogpost.edges, edge => {
+          const postTemplate = path.resolve("./src/templates/post.js");
+          _.each(posts, edge => {
             createPage({
               path: `/post/${edge.node.slug}/`,
               component: slash(postTemplate),
