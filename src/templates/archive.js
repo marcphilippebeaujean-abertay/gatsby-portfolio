@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components';
 import { PageContentWrapper } from './page';
 import { IoIosSearch } from "react-icons/io";
+import { mainColour } from "../style/themeStyle";
 import PostPreview from '../components/postPreview';
 
 const SearchBar = styled.form`
@@ -10,6 +11,9 @@ const SearchBar = styled.form`
     #search-btn{
         height: 39px;
         width: 50px;
+        background-color: ${mainColour};
+        border: 0;
+        border-radius: 0px 5px 5px 0px;
     }
     .input-field{
         width: 100%;
@@ -39,12 +43,10 @@ export default ({ pageContext }) => {
     const [foundPost, setFoundPost] = useState([]);
     const searchForPost = e => {
         e.preventDefault();
-        console.log(`searching for blogs with term...${searchTerm}`);
-        // TODO: dangerous!
+        if(searchTerm.length === 0) return;
         fetch(`http://localhost:9000/wp-json/wp/v2/blogpost?search=${searchTerm}`)
         .then(response => response.json())
         .then(result => {
-            console.log(result);
             const postList = result.reduce((accumulator, queriedPost) => {
                 accumulator.push({
                     featured_media: {
@@ -56,7 +58,6 @@ export default ({ pageContext }) => {
                     })
                 return accumulator;
                 }, []);
-            console.log(postList);
             setFoundPost(postList);
         })
         .catch(e => console.error(e))
@@ -73,12 +74,12 @@ export default ({ pageContext }) => {
                    value={searchTerm}
                    onChange={handleInputChange}
                    placeholder="Search" />
-            <button id="search-btn"><IoIosSearch /></button>
+            <button id="search-btn"><IoIosSearch size="30px"/></button>
         </SearchBar>
         <SearchResultWrapper>
-            {
-                foundPost.map(post => <PostPreview post={post} key={post.title}/>)
-            }
+        {
+            foundPost.map(post => <PostPreview post={post} key={post.title}/>)
+        }
         </SearchResultWrapper>
     </PageContentWrapper>)
 }
