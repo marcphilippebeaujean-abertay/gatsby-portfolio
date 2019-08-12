@@ -1,11 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components';
 import { PageContentWrapper } from './page';
 import { IoIosSearch } from "react-icons/io";
-import { useStaticQuery, graphql } from "gatsby";
 import PostPreview from '../components/postPreview';
 
-const SearchBar = styled.div`
+const SearchBar = styled.form`
     width: 100%;
     display: flex;
     #search-btn{
@@ -36,44 +35,50 @@ const SearchResultWrapper = styled.div`
 `
 
 export default ({ pageContext }) => {
-    const data = useStaticQuery(graphql`
-        {
-          allWordpressWpBlogpost(sort: { fields: title, order: ASC }) {
-            edges {
-              node {
-                slug
-                content
-                date( formatString: "DD/MM/YYYY" )
-                title
-                featured_media {
-                  source_url
-                }
-                excerpt
-              }
-            }
-          }
-        }
-    `);
-    console.log(data);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [foundPost, setFoundPost] = useState([]);
+    const searchForPost = e => {
+        e.preventDefault();
+        console.log(`searching for blogs with term...${searchTerm}`);
+        // TODO: dangerous!
+        fetch(`http://localhost:9000/wp-json/wp/v2/blogpost?search=${searchTerm}`)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result);
+            const postList = result.reduce((accumulator, queriedPost) => {
+                accumulator.push({
+                    featured_media: {
+                        source_url: queriedPost.better_featured_image.source_url
+                    },
+                    title: queriedPost.title.rendered,
+                    excerpt: queriedPost.excerpt.rendered,
+                    date: "change the date!"
+                    })
+                return accumulator;
+                }, []);
+            console.log(postList);
+            setFoundPost(postList);
+        })
+        .catch(e => console.error(e))
+    }
+    const handleInputChange = e => setSearchTerm(e.target.value);
     return (
     <PageContentWrapper>
         <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
-        <SearchBar>
+        <SearchBar onSubmit={searchForPost}>
             <input className="input-field"
                    id="search-bar"
                    type="text"
                    name="search-bar"
+                   value={searchTerm}
+                   onChange={handleInputChange}
                    placeholder="Search" />
             <button id="search-btn"><IoIosSearch /></button>
         </SearchBar>
         <SearchResultWrapper>
-        { data.allWordpressWpBlogpost.edges.map( item => 
-            (
-                <div className="post-preview-hider">
-                    <PostPreview post={item.node} key={item.node.title} />
-                </div>
-            ))
-        }
+            {
+                foundPost.map(post => <PostPreview post={post} key={post.title}/>)
+            }
         </SearchResultWrapper>
     </PageContentWrapper>)
 }
