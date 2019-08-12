@@ -40,7 +40,7 @@ export default ({ pageContext }) => {
             <button id="search-btn"><IoIosSearch /></button>
         </SearchBar>
         <div id="blog-display-wrapper">
-            
+
         </div>
     </PageContentWrapper>)
 }

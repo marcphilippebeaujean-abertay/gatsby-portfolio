@@ -10,7 +10,8 @@ const slash = require(`slash`)
 // Will create pages for WordPress posts (route : /post/{slug})
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
-  createRedirect({ fromPath: '/', toPath: '/home', redirectInBrowser: true, isPermanent: true })
+  createRedirect({ fromPath: '/', toPath: '/blog/1', redirectInBrowser: true, isPermanent: true })
+  createRedirect({ fromPath: '/blog', toPath: '/blog/1', redirectInBrowser: true, isPermanent: true })
   return new Promise((resolve, reject) => {
     // The “graphql” function allows us to run arbitrary
     // queries against the local WordPress graphql schema. Think of
@@ -108,7 +109,7 @@ exports.createPages = ({ graphql, actions }) => {
           Array.from({length: numberOfPages}).forEach((page, index) => {
             createPage({
               component: blogTemplate,
-              path: index === 0 ? `/blog` : `/blog/${index+1}`,
+              path: `/blog/${index+1}`,
               context: {
                 posts: posts.slice(index*postsPerPage, (index*postsPerPage)+postsPerPage),
                 title: `Blog`,
