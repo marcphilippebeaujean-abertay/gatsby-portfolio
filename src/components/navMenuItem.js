@@ -74,7 +74,7 @@ const NavElementText = styled.p`
 
 const NavMenuItem = (props) => {
     return (
-        <MenuItem to={`/${props.item.object_slug}`}
+        <MenuItem to={props.item.object_slug === `blog` ? `/${props.item.object_slug}/1` : `/${props.item.object_slug}`}
                   key={props.item.title}
                   partitions={props.partitions}>
             <div className={`${props.item.object_slug} menu-item`}>
