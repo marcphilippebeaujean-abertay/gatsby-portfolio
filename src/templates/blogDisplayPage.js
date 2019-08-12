@@ -73,7 +73,7 @@ export default ({ pageContext }) => {
             ))
           }
           {
-            pageContext.currentPage === pageContext.numberOfPages ? null : 
+            pageContext.currentPage === pageContext.numberOfPages ? null :
                                                     <Link to={`/blog/${pageContext.currentPage+1}`}
                                                           className="nav-arrow"
                                                           id="page-forward">

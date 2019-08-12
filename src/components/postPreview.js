@@ -55,7 +55,7 @@ const PostPreview = props => {
             <h2 dangerouslySetInnerHTML={{__html: props.post.title}} />
             <p className='date'>Published on {props.post.date.slice(1)}</p>
             <div className='image-excerpt-container'>
-                <img className='thumbnail' src={props.post.featured_media.source_url} alt="Thumbnail" />
+                <img className="thumbnail" src={props.post.featured_media.source_url} alt="Thumbnail" />
                 <div>
                     <div className="excerpt-text">
                         <p>{props.post.excerpt.slice(3, props.post.excerpt.length - 5)}

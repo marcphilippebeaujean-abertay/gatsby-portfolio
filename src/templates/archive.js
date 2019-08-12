@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import { PageContentWrapper } from './page';
 import { IoIosSearch } from "react-icons/io";
+import { useStaticQuery, graphql } from "gatsby";
+import PostPreview from '../components/postPreview';
 
 const SearchBar = styled.div`
     width: 100%;
@@ -25,9 +27,34 @@ const SearchBar = styled.div`
         border-style: solid;
         box-shadow: 0px;
     }
-`;
+`
+
+const SearchResultWrapper = styled.div`
+    .post-preview-hider{
+        display: none !important;
+    }
+`
 
 export default ({ pageContext }) => {
+    const data = useStaticQuery(graphql`
+        {
+          allWordpressWpBlogpost(sort: { fields: title, order: ASC }) {
+            edges {
+              node {
+                slug
+                content
+                date( formatString: "DD/MM/YYYY" )
+                title
+                featured_media {
+                  source_url
+                }
+                excerpt
+              }
+            }
+          }
+        }
+    `);
+    console.log(data);
     return (
     <PageContentWrapper>
         <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
@@ -39,8 +66,14 @@ export default ({ pageContext }) => {
                    placeholder="Search" />
             <button id="search-btn"><IoIosSearch /></button>
         </SearchBar>
-        <div id="blog-display-wrapper">
-
-        </div>
+        <SearchResultWrapper>
+        { data.allWordpressWpBlogpost.edges.map( item => 
+            (
+                <div className="post-preview-hider">
+                    <PostPreview post={item.node} key={item.node.title} />
+                </div>
+            ))
+        }
+        </SearchResultWrapper>
     </PageContentWrapper>)
 }
