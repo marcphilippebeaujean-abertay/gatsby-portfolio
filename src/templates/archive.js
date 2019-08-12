@@ -15,6 +15,9 @@ const SearchBar = styled.form`
         border: 0;
         border-radius: 0px 5px 5px 0px;
     }
+    #search-btn:hover{
+        cursor: pointer;
+    }
     .input-field{
         width: 100%;
         padding: 10px 0px;
