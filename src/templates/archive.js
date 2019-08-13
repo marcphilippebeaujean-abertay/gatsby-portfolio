@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { PageContentWrapper } from './page';
 import { IoIosSearch } from "react-icons/io";
 import { mainColour } from "../style/themeStyle";
+import { DateTime } from 'luxon';
 import PostPreview from '../components/postPreview';
 
 const SearchBar = styled.form`
@@ -57,7 +58,7 @@ export default ({ pageContext }) => {
                     },
                     title: queriedPost.title.rendered,
                     excerpt: queriedPost.excerpt.rendered,
-                    date: "change the date!"
+                    date: DateTime.fromISO(queriedPost.date).toFormat('dd/MM/yyyy')
                     })
                 return accumulator;
                 }, []);
