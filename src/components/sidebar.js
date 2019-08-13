@@ -9,7 +9,6 @@ const sidebarWidthPercent = 100-mainContentWidthPercent;
 
 const SidebarWrapper = styled.aside`
     z-index: 0;
-    margin-top: 35px;
     position: relative;
     width: ${sidebarWidthPercent}%;
     animation: fade-in 1s;
@@ -46,6 +45,13 @@ const Sidebar = () => {
         <Img fluid={data.personalPic.childImageSharp.fluid} />
         <p>Hi, and welcome to my site! I hope you are enjoying the content. If you find the information valuable, 
             please consider a small donation - it helps me keep the server running. Thanks, and I hope to see you here again soon!</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="J6YRD6YHY8YHW" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+        </form>
+
     </SidebarWrapper>);
 }
 export default Sidebar;
