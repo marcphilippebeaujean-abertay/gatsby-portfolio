@@ -5,6 +5,7 @@ import { mainColour } from '../style/themeStyle';
 import styled from "styled-components";
 import linkedInLogo from '../images/linkedin-icon.png';
 import youtubeLogo from '../images/youtube-icon.png';
+import githubLogo from '../images/github-icon.png';
 
 const FooterWrapper = styled.footer`
   position: relative;
@@ -17,8 +18,11 @@ const FooterWrapper = styled.footer`
   display: flex;
   flex-direction: column;
   .footer-container{
-    width: 50%;
+    display: flex;
     padding: 10px 10px;
+    flex-direction: column;
+    width: 50%;
+    background-color: black;
   }
   .left-footer-container{
     text-align: right !important;
@@ -27,6 +31,7 @@ const FooterWrapper = styled.footer`
   }
   #footer-links-container{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     width: 100%;
   }
@@ -34,11 +39,12 @@ const FooterWrapper = styled.footer`
     flex-direction: column;
     .footer-container{
       width: 100%;
-      padding: 10px 0;
+      padding: 0px;
       text-align: center !important;
     }
     #footer-links-container{
       flex-direction: column;
+      background-color: black;
     }
   }
 `
@@ -59,19 +65,14 @@ const SocialMediaLogoWrapper = styled.div`
   width: 100%;
   justify-content: center;
   .logo{
+    background-color: white;
     margin: 0px 20px;
-    filter: grayscale(1);
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     transition: ease 0.2s;
   }
   a:hover .logo{
-    filter: grayscale(0);
-  }
-  @media screen and (max-width: ${smallScreenWidth}px){
-    .logo{
-      filter: grayscale(0);
-    }
+    background-color: ${mainColour};
   }
 `
 
@@ -97,8 +98,9 @@ const Footer = () => {
     return (
     <FooterWrapper>
       <SocialMediaLogoWrapper>
-        <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" ><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
-        <a href=""><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
+        <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" target="_blank"><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
+        <a href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3" target="_blank"><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
+        <a href="https://github.com/marcphilippebeaujean-abertay" target="_blank"><img className="logo" src={githubLogo} alt="GitHub Logo" /></a>
       </SocialMediaLogoWrapper>
       <div id="footer-links-container">
         <div className={`left-footer-container footer-container`}>
@@ -122,6 +124,7 @@ const Footer = () => {
             ) : null)}
         </div>
       </div>
+
     </FooterWrapper>)
     };
 

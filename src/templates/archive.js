@@ -79,8 +79,9 @@ export default ({ pageContext }) => {
                    placeholder="Search" />
             <button id="search-btn"><IoIosSearch size="30px"/></button>
         </SearchBar>
-        <SearchResultWrapper>
+        <SearchResultWrapper id="search-results">
         {
+            foundPost.length === 0 ? <h2 style={{textAlign: `center`}}>No posts to see here...</h2>:
             foundPost.map(post => <PostPreview post={post} key={post.title}/>)
         }
         </SearchResultWrapper>

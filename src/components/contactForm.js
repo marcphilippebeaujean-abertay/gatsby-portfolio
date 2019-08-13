@@ -66,7 +66,10 @@ export default () => {
             </label>
             <label id="recaptcha-token">Don't fill out if you are human<input type="text" name="bot-field" /></label>
             <textarea rows="10" id="form-message" className="input-field" name="message" placeholder="Hi Marc, I love your blog!" />
-            <input id="submit-btn" type="submit" value="Submit" disabled />
+            <label htmlFor="submit">
+                By clicking Submit, you agree to the Terms and have read the Data Use Policy, including Cookie Use.
+            </label>
+            <input id="submit-btn" type="submit" value="Submit" name="submit" disabled />
         </ContactsForm>
     )
 }
