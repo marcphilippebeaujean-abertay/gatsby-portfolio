@@ -67,7 +67,7 @@ const PostPreview = props => {
             <h2 dangerouslySetInnerHTML={{__html: props.post.title}} />
             <div className='post-info-row'>
                 <IoIosCalendar size={32} /><span className="post-info-text">{props.post.date}</span>
-                <IoIosPricetag size={32} style={{marginLeft: `10px`}} /><span className="post-info-text">{props.post.tags.map(tag => <span className="tag">{tag.name}</span>)}</span>
+                <IoIosPricetag size={32} style={{marginLeft: `10px`}} /><span className="post-info-text">{props.post.tags.map(tag => <span key={`tag_${tag.name}`} className="tag">{tag.name}</span>)}</span>
             </div>
             <div className='image-excerpt-container'>
                 <img className="thumbnail" src={props.post.featured_media.source_url} alt="Thumbnail" />
