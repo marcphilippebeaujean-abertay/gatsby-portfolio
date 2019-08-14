@@ -74,8 +74,7 @@ export default () => {
             case 'name':
                 return new RegExp(/(?=.{6,})([A-Z][a-z]+[\s]?){2,}/).test(value);
             case 'email':
-                console.log('missing case');
-                return false;
+                return new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(value);
             case 'message':
                 return value.length > 10;
             case 'termAgreement':
@@ -112,7 +111,6 @@ export default () => {
                 }
             } else {
                 if(elementClassList.contains('error-hidden')){
-                    console.log('removing error');
                     elementClassList.remove('error-hidden');
                 }
                 inputsValid = false;
@@ -121,9 +119,8 @@ export default () => {
         return inputsValid;
     }
     const handleSubmit = e => {
-        e.preventDefault();
         if(!inputsValid()){
-            console.log('inputs are invalid!');
+            e.preventDefault();
             return;
         }
         console.log('inputs were valid');
