@@ -19,7 +19,8 @@ const FooterWrapper = styled.footer`
   flex-direction: column;
   .footer-container{
     display: flex;
-    padding: 10px 10px;
+    padding: 0px 10px;
+    padding-bottom: 10px;
     flex-direction: column;
     width: 50%;
     background-color: black;
@@ -61,7 +62,7 @@ const FooterLink = styled(Link)`
 
 const SocialMediaLogoWrapper = styled.div`
   display: flex;
-  padding: 10px 0;
+  padding-top: 10px;
   width: 100%;
   justify-content: center;
   .logo{
@@ -124,7 +125,6 @@ const Footer = () => {
             ) : null)}
         </div>
       </div>
-
     </FooterWrapper>)
     };
 
