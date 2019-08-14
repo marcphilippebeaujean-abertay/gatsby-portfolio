@@ -53,6 +53,7 @@ const FooterWrapper = styled.footer`
 const FooterLink = styled(Link)`
   display: relative;
   flex-direction: column;
+  width: auto;
   color: ${props => props.selected ? mainColour : `white`};
   text-decoration: none !important;
   :hover{

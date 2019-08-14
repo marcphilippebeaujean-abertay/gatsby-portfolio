@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
-import styled from 'styled-components';
 import { PageContentWrapper } from './page';
 import { IoIosSearch } from "react-icons/io";
 import { mainColour } from "../style/themeStyle";
 import { DateTime } from 'luxon';
+import styled from 'styled-components';
 import PostPreview from '../components/postPreview';
+import SearchIcon from '../images/search-image.png';
 
 const SearchBar = styled.form`
     width: 100%;
@@ -39,6 +40,15 @@ const SearchBar = styled.form`
 const SearchResultWrapper = styled.div`
     .post-preview-hider{
         display: none !important;
+    }
+    #no-post-found-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #search-icon{
+        width: 200px;
+        height: auto;
     }
 `
 
@@ -82,7 +92,13 @@ export default ({ pageContext }) => {
         </SearchBar>
         <SearchResultWrapper id="search-results">
         {
-            foundPost.length === 0 ? <h2 style={{textAlign: `center`}}>No posts to see here...</h2>:
+            foundPost.length === 0 ?
+                (<div>
+                    <div id="no-post-found-container">
+                        <img id="search-icon" src={SearchIcon} alt="search icon for no search found"/>
+                    </div>
+                    <h2 style={{textAlign: `center`}}>No posts to see. Please start a new search!</h2>
+                </div>) :
             foundPost.map(post => <PostPreview post={post} key={post.title}/>)
         }
         </SearchResultWrapper>

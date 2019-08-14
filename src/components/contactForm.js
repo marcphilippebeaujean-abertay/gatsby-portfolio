@@ -14,7 +14,7 @@ const ContactsForm = styled.form`
     }
     .input-field{
         padding: 10px 0px;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
         font-size: 16px;
         border-style:solid;
         border-width: 0.5px;
@@ -35,6 +35,9 @@ const ContactsForm = styled.form`
         margin: 0;
         color: red;
         transition: all 0.2s;
+    }
+    #checkbox-text{
+        margin: 3px 0px;
     }
     #submit-btn{
         width: 200px;
@@ -144,7 +147,7 @@ export default () => {
             <textarea rows="10" id="form-message" className="input-field" name="message" placeholder="Hi Marc, I love your blog!" onChange={handleFormChange} />
             <p id="message-error" className="error error-hidden">Please enter a longer message!</p>
             <div data-netlify-recaptcha="true" />
-            <p>
+            <p id="checkbox-text">
                 <input type="checkbox" name="termAgreement" onChange={toggleTermAgreement} /> I agree to the Terms and have read the <Link to={`/datenschutzerklarung/`}>Data Policy</Link>, including Cookie Use.
             </p>
             <p id="termAgreement-error" className="error error-hidden">Please agree to the terms!</p>
