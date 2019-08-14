@@ -2,15 +2,20 @@ import React from 'react';
 import styled from "styled-components";
 import { Link } from 'gatsby';
 import { smallScreenWidth, smallScreenSidePadding } from '../style/layoutStyle';
+import { IoIosCalendar } from 'react-icons/io';
 
 const excerptHeight = `200px`;
 
 const PostPreviewWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    .date{
-        font-style: italic;
+    .post-info-row{
         margin: 5px 0 !important;
+    }
+    .post-info-text{
+        position: relative;
+        bottom: 8.5px;
+        margin-left: 10px;
     }
     .image-excerpt-container{
         display: flex;
@@ -53,7 +58,7 @@ const PostPreview = props => {
     return (
         <PostPreviewWrapper>
             <h2 dangerouslySetInnerHTML={{__html: props.post.title}} />
-            <p className='date'>Published on {props.post.date}</p>
+            <div className='post-info-row'><IoIosCalendar size={32} /><span className="post-info-text">{props.post.date}</span></div>
             <div className='image-excerpt-container'>
                 <img className="thumbnail" src={props.post.featured_media.source_url} alt="Thumbnail" />
                 <div>

@@ -98,8 +98,7 @@ export default ({ pageContext }) => {
                         <img id="search-icon" src={SearchIcon} alt="search icon for no search found"/>
                     </div>
                     <h2 style={{textAlign: `center`}}>No posts to see. Please start a new search!</h2>
-                </div>) :
-            foundPost.map(post => <PostPreview post={post} key={post.title}/>)
+                </div>) : foundPost.map(post => <PostPreview post={post} key={post.title}/>)
         }
         </SearchResultWrapper>
     </PageContentWrapper>)
