@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { Link } from 'gatsby';
 import { smallScreenWidth, smallScreenSidePadding } from '../style/layoutStyle';
-import { IoIosCalendar } from 'react-icons/io';
+import { IoIosCalendar, IoIosPricetag } from 'react-icons/io';
 
 const excerptHeight = `200px`;
 
@@ -42,6 +42,13 @@ const PostPreviewWrapper = styled.div`
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
+    .tag{
+        color: darkblue;
+        background-color: lightblue;
+        border-radius: 5px;
+        margin-right: 5px;
+        padding: 5px;
+    }
     @media screen and (max-width: ${smallScreenWidth}px){
         .thumbnail{
             display: none;
@@ -58,7 +65,10 @@ const PostPreview = props => {
     return (
         <PostPreviewWrapper>
             <h2 dangerouslySetInnerHTML={{__html: props.post.title}} />
-            <div className='post-info-row'><IoIosCalendar size={32} /><span className="post-info-text">{props.post.date}</span></div>
+            <div className='post-info-row'>
+                <IoIosCalendar size={32} /><span className="post-info-text">{props.post.date}</span>
+                <IoIosPricetag size={32} style={{marginLeft: `10px`}} /><span className="post-info-text">{props.post.tags.map(tag => <span className="tag">{tag.name}</span>)}</span>
+            </div>
             <div className='image-excerpt-container'>
                 <img className="thumbnail" src={props.post.featured_media.source_url} alt="Thumbnail" />
                 <div>

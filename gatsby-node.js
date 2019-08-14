@@ -90,6 +90,9 @@ exports.createPages = ({ graphql, actions }) => {
                       source_url
                     }
                     excerpt
+                    tags {
+                      name
+                    }
                   }
                 }
               }
