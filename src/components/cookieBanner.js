@@ -37,6 +37,9 @@ const CookieBannerWrapper = styled.div`
     #submit-btn:hover{
         cursor: pointer;
     }
+    .hide {
+        display: none;
+    }
 `
 const BannerInformationWrapper = styled.div`
     display: flex;
@@ -62,10 +65,14 @@ const BannerInformationWrapper = styled.div`
 `
 
 export default (props) => {
-
+    const hideBanner = () => {
+        console.log('tried to close banner');
+        const cookieBanner = document.getElementById('banner-wrapper');
+        cookieBanner.classList.add('hide');
+    }
     return (
-        <CookieBannerWrapper id="cookie-banner-container">
-            <BannerInformationWrapper>
+        <CookieBannerWrapper onClick={() => hideBanner()} id="cookie-banner-container">
+            <BannerInformationWrapper id='banner-wrapper'>
                 <p>This website uses cookies! Please read the <Link to={`/datenschutzerklarung/`}>Data Policy</Link> for more information.</p>
                 <button id="submit-btn">Ok</button>
             </BannerInformationWrapper>
