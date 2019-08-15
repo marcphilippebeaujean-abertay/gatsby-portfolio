@@ -1,13 +1,16 @@
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React, { useEffect } from "react"
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const NotFoundPage = () => {
+  window.location = "http://localhost:8000/page-not-found";
+  useEffect(()=>{
+    window.location = "http://localhost:8000/page-not-found";
+  })
+  return(
+    <div style={{display: `absolute`,
+                 width: `100vw`, height: `100vh`,
+                 backgroundColor: `white`,
+                 zIndex: `5`}}/>
+  )
+}
 
 export default NotFoundPage

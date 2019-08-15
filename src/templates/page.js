@@ -19,9 +19,12 @@ export const PageContentWrapper = styled.div`
   }
 `
 
-export default ({ pageContext }) =>(
+export default ({ pageContext }) => {
+    console.log("page loaded")
+    return(
     <PageContentWrapper>
       <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
       <div dangerouslySetInnerHTML={{__html: pageContext.content }} />
     </PageContentWrapper>
-)
+    )
+}

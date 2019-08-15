@@ -6,7 +6,6 @@ import { DateTime } from 'luxon';
 import styled from 'styled-components';
 import PostPreview from '../components/postPreview';
 import SearchIcon from '../images/search-image.png';
-import { tag } from 'postcss-selector-parser';
 
 const SearchBar = styled.form`
     width: 100%;
@@ -64,7 +63,6 @@ export default ({ pageContext }) => {
         .then(result => {
             const postList = [];
             result.forEach(queriedPost => {
-                console.log('initialising post fetch....')
                 fetch(`http://localhost:9000/wp-json/wp/v2/tags?post=${queriedPost.id}`)
                 .then(resp => resp.json())
                 .then(postTags => {

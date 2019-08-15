@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { mainColour } from "../style/themeStyle";
 import { smallScreenWidth } from "../style/layoutStyle";
 import { Link } from "gatsby";
-import { forEach } from 'iterall';
 
 const ContactsForm = styled.form`
     width: 100%;
@@ -129,7 +128,7 @@ export default () => {
         console.log('inputs were valid');
     }
     return(
-        <ContactsForm name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true" onSubmit={handleSubmit}>
+        <ContactsForm action="/success" name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true" onSubmit={handleSubmit}>
             <label htmlFor="name">
                 Full Name
             </label>

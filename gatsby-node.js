@@ -43,6 +43,8 @@ exports.createPages = ({ graphql, actions }) => {
         const pageTemplate = path.resolve("./src/templates/page.js");
         const contactsTemplate = path.resolve("./src/templates/contacts.js");
         const archiveTemplate = path.resolve("./src/templates/archive.js");
+        const successTemplate = path.resolve("./src/templates/success.js");
+        const errorTemplate = path.resolve("./src/templates/error.js");
         // We want to create a detailed page for each
         // page node. We'll just use the WordPress Slug for the slug.
         // The Page ID is prefixed with 'PAGE_'
@@ -59,6 +61,12 @@ exports.createPages = ({ graphql, actions }) => {
               break;
             case 'archive-page.php':
               template = archiveTemplate;
+              break;
+            case 'error.php':
+              template = errorTemplate;
+              break;
+            case 'success.php':
+              template = successTemplate;
               break;
             default:
               break;
