@@ -22,6 +22,10 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     position: relative;
   }
+  .fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
 `
 
 export const PageContentStyle = styled.div`
@@ -36,7 +40,7 @@ export const PageContentStyle = styled.div`
 // "6LcHXrIUAAAAAGXsi5JIm7OKKo9b2bifbsS8BYgJ"
 const Layout = ({ children }) => {
   return(
-    <div>
+    <FacebookProvider appId='2992918847417224'>
       <div id="main-content-container">
         <GlobalStyles />
         <NavMenu />
@@ -47,7 +51,7 @@ const Layout = ({ children }) => {
       </div>
       <Footer />
       <CookieBanner />
-    </div>
+    </FacebookProvider>
 )}
 
 export default Layout;

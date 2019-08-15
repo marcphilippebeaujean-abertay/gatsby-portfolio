@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { Link } from 'gatsby';
-import { smallScreenWidth, mediumScreenWidth, smallScreenSidePadding } from '../style/layoutStyle';
+import { smallScreenWidth, smallScreenSidePadding } from '../style/layoutStyle';
 import { IoIosCalendar, IoIosPricetag } from 'react-icons/io';
 
 const excerptHeight = `200px`;
@@ -49,9 +49,18 @@ const PostPreviewWrapper = styled.div`
         margin-right: 5px;
         padding: 5px;
     }
+    .in-text-thumbnail{
+        display: none;
+    }
     @media screen and (max-width: ${smallScreenWidth}px){
         .thumbnail{
             display: none;
+        }
+        .in-text-thumbnail{
+            display: inherit;
+            float: left;
+            width: 100px;
+            height: auto;
         }
         .excerpt-text{
             position: static;
@@ -78,6 +87,7 @@ const PostPreview = props => {
                 <img className="thumbnail" src={props.post.featured_media.source_url} alt="Thumbnail" />
                 <div>
                     <div className="excerpt-text">
+                        <img className="in-text-thumbnail" src={props.post.featured_media.source_url} alt="Thumbnail" />
                         <p>{props.post.excerpt.slice(3, props.post.excerpt.length - 5)}
                         <span> <Link to={`/post/${props.post.slug}`}>Read More</Link></span>
                         </p>

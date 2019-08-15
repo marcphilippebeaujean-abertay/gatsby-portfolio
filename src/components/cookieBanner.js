@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { mainColour } from "../style/themeStyle";
-import { footerHeight, smallScreenWidth } from '../style/layoutStyle';
+import { smallScreenWidth } from '../style/layoutStyle';
 
 const CookieBannerWrapper = styled.div`
     width: 100%;
