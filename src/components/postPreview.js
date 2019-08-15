@@ -62,7 +62,6 @@ const PostPreviewWrapper = styled.div`
 `
 
 const PostPreview = props => {
-    console.log(props.post);
     return (
         <PostPreviewWrapper>
             <h2 dangerouslySetInnerHTML={{__html: props.post.title}} />

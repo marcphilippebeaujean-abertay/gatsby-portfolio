@@ -4,6 +4,8 @@ import NavMenu from "./navMenu";
 import Footer from "./footer";
 import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
+import { FacebookProvider } from "react-facebook";
+import CookieBanner from "./cookieBanner";
 
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
@@ -44,6 +46,7 @@ const Layout = ({ children }) => {
         </PageContentStyle>
       </div>
       <Footer />
+      <CookieBanner />
     </div>
 )}
 
