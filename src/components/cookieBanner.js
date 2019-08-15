@@ -69,10 +69,11 @@ export default (props) => {
         console.log('tried to close banner');
         const cookieBanner = document.getElementById('banner-wrapper');
         cookieBanner.classList.add('hide');
+        localStorage.setItem('cookiesAccepted', true);
     }
     return (
         <CookieBannerWrapper onClick={() => hideBanner()} id="cookie-banner-container">
-            <BannerInformationWrapper id='banner-wrapper'>
+            <BannerInformationWrapper className={localStorage.getItem('cookiesAccepted') ? "hide" : ""} id='banner-wrapper'>
                 <p>This website uses cookies! Please read the <Link to={`/datenschutzerklarung/`}>Data Policy</Link> for more information.</p>
                 <button id="submit-btn">Ok</button>
             </BannerInformationWrapper>
