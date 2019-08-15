@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { Link } from 'gatsby';
-import { smallScreenWidth, smallScreenSidePadding } from '../style/layoutStyle';
+import { smallScreenWidth, mediumScreenWidth, smallScreenSidePadding } from '../style/layoutStyle';
 import { IoIosCalendar, IoIosPricetag } from 'react-icons/io';
 
 const excerptHeight = `200px`;
@@ -15,7 +15,7 @@ const PostPreviewWrapper = styled.div`
     .post-info-text{
         position: relative;
         bottom: 8.5px;
-        margin-left: 10px;
+        margin: 0px 10px;
     }
     .image-excerpt-container{
         display: flex;
@@ -59,6 +59,11 @@ const PostPreviewWrapper = styled.div`
             transform: translateY(0%);
         }
     }
+    @media screen and (min-width: ${smallScreenWidth}px){
+        br{
+            display: none;
+        }
+    }
 `
 
 const PostPreview = props => {
@@ -66,8 +71,8 @@ const PostPreview = props => {
         <PostPreviewWrapper>
             <h2 dangerouslySetInnerHTML={{__html: props.post.title}} />
             <div className='post-info-row'>
-                <IoIosCalendar size={32} /><span className="post-info-text">{props.post.date}</span>
-                <IoIosPricetag size={32} style={{marginLeft: `10px`}} /><span className="post-info-text">{props.post.tags.map(tag => <span key={`tag_${tag.name}`} className="tag">{tag.name}</span>)}</span>
+                <IoIosCalendar size={32} className="post-attribute" /><span className="post-info-text">{props.post.date}</span>
+                <br></br><IoIosPricetag size={32} className="post-attribute-icon"/><span className="post-info-text">{props.post.tags.map(tag => <span key={`tag_${tag.name}`} className="tag">{tag.name}</span>)}</span>
             </div>
             <div className='image-excerpt-container'>
                 <img className="thumbnail" src={props.post.featured_media.source_url} alt="Thumbnail" />
