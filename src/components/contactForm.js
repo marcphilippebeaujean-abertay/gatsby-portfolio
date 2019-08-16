@@ -25,7 +25,6 @@ const ContactsForm = styled.form`
         border-style: solid;
         box-shadow: 0px;
     }
-    /*className="error error-hidden"*/
     .error-hidden{
         display: none;
     }
