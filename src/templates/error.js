@@ -22,7 +22,7 @@ export default ({ pageContext }) =>{
           <div style={{width: `50%`}}>
             <Img fluid={data.errorPic.childImageSharp.fluid} alt="Error picture!" />
           </div>
-          <p style={{fontWeight: `bold`}}>Looks like the page you were looking for cannot be accessed or doesn't exist. I apologize for the inconvenience 
+          <p><b>Oooops!</b> Looks like the page you were looking for cannot be accessed or doesn't exist. I apologize for the inconvenience 
             - please contact me if you think this is a bug!</p>
       </div>
     </PageContentWrapper>
