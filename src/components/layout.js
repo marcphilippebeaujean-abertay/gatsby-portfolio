@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet"
 import Sidebar from "./sidebar";
 import NavMenu from "./navMenu";
 import Footer from "./footer";
@@ -41,6 +42,10 @@ export const PageContentStyle = styled.div`
 const Layout = ({ children }) => {
   return(
     <FacebookProvider appId='2992918847417224'>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`<JustDoIT />`}</title>
+      </Helmet>
       <div id="main-content-container">
         <GlobalStyles />
         <NavMenu />
