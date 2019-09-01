@@ -10,6 +10,7 @@ const slash = require(`slash`)
 // Will create pages for WordPress posts (route : /post/{slug})
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
+  createRedirect({ fromPath: '', toPath: '/blog/1', redirectInBrowser: true, isPermanent: true });
   createRedirect({ fromPath: '/', toPath: '/blog/1', redirectInBrowser: true, isPermanent: true });
   createRedirect({ fromPath: '/blog', toPath: '/blog/1', redirectInBrowser: true, isPermanent: true });
   return new Promise((resolve, reject) => {

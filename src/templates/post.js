@@ -4,6 +4,7 @@ import "../style/prism.css";
 import { PageContentWrapper } from './page';
 import { Comments } from 'react-facebook';
 
+
 export default ({pageContext}) =>{
     useEffect(() => Prism.highlightAll());
     return (

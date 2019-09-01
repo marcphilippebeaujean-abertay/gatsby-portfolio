@@ -101,7 +101,6 @@ export default () => {
         })
     }
     const inputsValid = () => {
-        console.log('validating the input!');
         let inputsValid = true;
         for(const formName in formValues) {
             const inputIsValid = isValidInput(formName, formValues[`${formName}`]);
@@ -124,7 +123,6 @@ export default () => {
             e.preventDefault();
             return;
         }
-        console.log('inputs were valid');
     }
     return(
         <ContactsForm action="/success" name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true" onSubmit={handleSubmit}>
