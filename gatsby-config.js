@@ -1,8 +1,16 @@
+require("dotenv").config({
+   path: '.env'
+})
+
 module.exports = {
   siteMetadata: {
-    title: `<JustDoIT />`,
-    description: `Amazing tech blog.`,
-    author: `@marcphilippebeaujean`,
+    title: "<JustDoIT />",
+    author: "Marc Philippe Beaujean",
+    description:
+      "Blog about Software and Personal Development.",
+    url: "https://www.jdit.eu", // No trailing slash allowed!
+    image: "/images/jdit-icon.png", // Path to your image you placed in the 'static' folder
+    //twitterUsername: "@occlumency",
   },
   plugins: [
       {
@@ -10,9 +18,9 @@ module.exports = {
         options: {
           /* The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
            * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'*/
-          baseUrl: "http://127.0.0.1:9000/",
+          baseUrl: process.env.API_URL,
           // The protocol. This can be http or https.
-          protocol: "http",
+          protocol: process.env.API_PROTOCOL,
           // Indicates whether the site is hosted on wordpress.com.
           // If false, then the assumption is made that the site is self hosted.
           // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
@@ -125,7 +133,7 @@ module.exports = {
       options: {
         name: `gatsby-starter-default`,
         short_name: `starter`,
-        start_url: `/`,
+        start_url: `/blog/1`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
