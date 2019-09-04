@@ -78,7 +78,7 @@ const SocialMediaLogoWrapper = styled.div`
   }
 `
 
-const Footer = () => {
+const Footer = ({ siteUrl }) => {
     const data = useStaticQuery(graphql`
         query{
         allWordpressWpApiMenusMenusItems(filter: {
@@ -110,7 +110,7 @@ const Footer = () => {
           index % 2 === 0 ? (
                   <FooterLink to={`/${item.object_slug}`}
                             key={item.title}
-                            selected={item.object_slug === document.location.pathname.slice(1)}>
+                            selected={item.object_slug === siteUrl.match(/(?<=\/).*(?=\/)/)[0]}>
                             {item.title}
                   </FooterLink>
           ) : null)}
@@ -119,9 +119,9 @@ const Footer = () => {
           {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
           index % 2 === 1 ? (
                   <FooterLink to={`/${item.object_slug}`}
-                            key={item.title}
-                            selected={item.object_slug === document.location.pathname.slice(1)}>
-                            {item.title}
+                              key={item.title}
+                              selected={item.object_slug === siteUrl.match(/(?<=\/).*(?=\/)/)[0]}>
+                              {item.title}
                   </FooterLink>
             ) : null)}
         </div>

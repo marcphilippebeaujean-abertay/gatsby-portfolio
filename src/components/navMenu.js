@@ -42,7 +42,7 @@ const MainMenuWrapper = styled.nav`
   }
 `
 
-const NavMenu = () => {
+const NavMenu = ({siteUrl}) => {
     const data = useStaticQuery(graphql`
     query{
       allWordpressWpApiMenusMenusItems(filter: {
@@ -63,7 +63,7 @@ const NavMenu = () => {
     }
   `);
   useEffect(()=>{
-    const currentUrl = document.location.pathname.match(/^(\/)([a-z])*(?!\/)\w+/)[0].slice(1);
+    const currentUrl = siteUrl.match(/(?<=\/).*(?=\/)/);
     const currentSelected = Array.from(document.getElementsByClassName("selected"));
     const newSelectedObject = Array.from(document.getElementsByClassName(currentUrl));
     if(currentSelected.length > 0) currentSelected.map(obj => obj.classList.remove("selected"));
