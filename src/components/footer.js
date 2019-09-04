@@ -2,6 +2,8 @@ import React from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
 import { footerHeight, smallScreenWidth } from "../style/layoutStyle";
 import { mainColour } from '../style/themeStyle';
+import { getCurrentUrlPathname } from '../utility/navigation';
+import { document } from "browser-monads";
 import styled from "styled-components";
 import linkedInLogo from '../images/linkedin-icon.png';
 import youtubeLogo from '../images/youtube-icon.png';
@@ -110,7 +112,7 @@ const Footer = ({ siteUrl }) => {
           index % 2 === 0 ? (
                   <FooterLink to={`/${item.object_slug}`}
                             key={item.title}
-                            selected={item.object_slug === siteUrl.match(/(?<=\/).*(?=\/)/)[0]}>
+                            selected={item.object_slug === getCurrentUrlPathname(document)} >
                             {item.title}
                   </FooterLink>
           ) : null)}
@@ -120,8 +122,8 @@ const Footer = ({ siteUrl }) => {
           index % 2 === 1 ? (
                   <FooterLink to={`/${item.object_slug}`}
                               key={item.title}
-                              selected={item.object_slug === siteUrl.match(/(?<=\/).*(?=\/)/)[0]}>
-                              {item.title}
+                              selected={item.object_slug === getCurrentUrlPathname(document)} >
+                             {item.title}
                   </FooterLink>
             ) : null)}
         </div>

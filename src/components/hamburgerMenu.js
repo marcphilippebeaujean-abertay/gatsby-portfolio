@@ -2,6 +2,8 @@ import React,  { useState } from 'react';
 import { Link } from 'gatsby';
 import { smallScreenWidth, smallScreenNavHeight, smallScreenSidePadding } from "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
+import { getCurrentUrlPathname } from '../utility/navigation';
+import { document } from "browser-monads";
 import styled from "styled-components";
 
 const NavigationIcon = styled.div`
@@ -80,6 +82,7 @@ const HamburgerButton = (props) => {
         overlayElement.classList.toggle(`overlay-active`);
         setOverlayActive(!overlayActive);
     }
+    //const siteUrl = props.siteUrl.match(/(?<=\/).*(?=\/)/)[0];
     return(
         <HamburgerMenu>
             <NavigationIcon onClick={toggleOverlay}>
@@ -92,7 +95,7 @@ const HamburgerButton = (props) => {
                 <OverlayLink key={item.object_slug+"_key"}
                              to={`/${item.object_slug}`}
                              onClick={toggleOverlay}
-                             selected={item.object_slug === document.location.pathname.slice(1)}>
+                             selected={item.object_slug === getCurrentUrlPathname(document)}>
                     {item.title}
                 </OverlayLink> : null)}
             </div>

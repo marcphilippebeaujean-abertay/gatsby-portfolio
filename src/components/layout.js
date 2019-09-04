@@ -5,6 +5,7 @@ import Footer from "./footer";
 import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
 import { FacebookProvider } from "react-facebook";
+import Error from "../templates/error";
 import CookieBanner from "./cookieBanner";
 import SEO from "./seo";
 
@@ -48,13 +49,13 @@ const Layout = ({ children }) => {
            title={`<JustDoIT />`}/>
       <div id="main-content-container">
         <GlobalStyles />
-        <NavMenu siteUrl={children.key} />
+        <NavMenu />
         <PageContentStyle>
-          {children}
+          { 'custom404' in children.props ? <Error /> : children }
           <Sidebar />
         </PageContentStyle>
       </div>
-      <Footer siteUrl={children.key} />
+      <Footer />
       <CookieBanner />
     </FacebookProvider>
 )}

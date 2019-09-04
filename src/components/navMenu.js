@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { navMenuHeight, initContentWidth, smallScreenWidth } from  "../style/layoutStyle";
 import { mainColour } from "../style/themeStyle";
+import { getCurrentUrlPathname } from '../utility/navigation';
+import { document } from "browser-monads";
 import HamburgerButton from "./hamburgerMenu";
 import NavMenuItem from "./navMenuItem";
 import styled from "styled-components";
@@ -61,25 +63,26 @@ const NavMenu = ({siteUrl}) => {
         }
       }
     }
-  `);
-  useEffect(()=>{
-    const currentUrl = siteUrl.match(/(?<=\/).*(?=\/)/);
-    const currentSelected = Array.from(document.getElementsByClassName("selected"));
-    const newSelectedObject = Array.from(document.getElementsByClassName(currentUrl));
-    if(currentSelected.length > 0) currentSelected.map(obj => obj.classList.remove("selected"));
-    if(newSelectedObject.length > 0) newSelectedObject.map(obj => obj.classList.add("selected"));
-  })
-  const menuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
-  return (
-    <MainMenuWrapper>
-      {
-        data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
-          item.object_slug === "logo" ? (<Logo key={`logo`} partitions={menuPartitions} />) :
-                                        (<NavMenuItem key={item.object_slug+"_key"} item={item} partitions={menuPartitions} />))
-      }
-      <HamburgerButton items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items} />
-    </MainMenuWrapper>
-  )
+    `);
+    useEffect(()=>{
+      console.log(getCurrentUrlPathname(document));
+      const currentUrl = getCurrentUrlPathname(document);
+      const currentSelected = Array.from(document.getElementsByClassName("selected"));
+      const newSelectedObject = Array.from(document.getElementsByClassName(currentUrl));
+      if(currentSelected.length > 0) currentSelected.map(obj => obj.classList.remove("selected"));
+      if(newSelectedObject.length > 0) newSelectedObject.map(obj => obj.classList.add("selected"));
+    })
+    const menuPartitions = data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length+1;
+    return (
+      <MainMenuWrapper>
+        {
+          data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
+            item.object_slug === "logo" ? (<Logo key={`logo`} partitions={menuPartitions} />) :
+                                          (<NavMenuItem key={item.object_slug+"_key"} item={item} partitions={menuPartitions} />))
+        }
+        <HamburgerButton items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items} />
+      </MainMenuWrapper>
+    )
 };
 
 export default NavMenu;

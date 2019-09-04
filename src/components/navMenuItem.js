@@ -4,6 +4,7 @@ import { smallScreenWidth } from '../style/layoutStyle';
 import { mainColour } from "../style/themeStyle";
 import { Link } from 'gatsby';
 
+
 const stripeWidth = 20;
 const MenuItem = styled(Link)`
     position: relative;

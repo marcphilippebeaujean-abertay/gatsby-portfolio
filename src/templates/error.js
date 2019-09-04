@@ -3,7 +3,7 @@ import {PageContentWrapper} from './page';
 import Img from "gatsby-image/withIEPolyfill";
 import { graphql, useStaticQuery } from 'gatsby';
 
-export default ({ pageContext }) =>{
+export default () =>{
     const data = useStaticQuery(graphql`
     query {
         errorPic: file(relativePath: { eq: "error-icon.png" }) {
@@ -17,7 +17,7 @@ export default ({ pageContext }) =>{
     `);
     return (
     <PageContentWrapper>
-      <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
+      <h1>Error 404</h1>
       <div>
           <div style={{width: `50%`}}>
             <Img fluid={data.errorPic.childImageSharp.fluid} alt="Error picture!" />
