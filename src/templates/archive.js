@@ -58,12 +58,12 @@ export default ({ pageContext }) => {
     const searchForPost = e => {
         e.preventDefault();
         if(searchTerm.length === 0) return;
-        fetch(`http://localhost:9000/wp-json/wp/v2/blogpost?search=${searchTerm}`)
+        fetch(`${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/blogpost?search=${searchTerm}`)
         .then(response => response.json())
         .then(result => {
             const postList = [];
             result.forEach(queriedPost => {
-                fetch(`http://localhost:9000/wp-json/wp/v2/tags?post=${queriedPost.id}`)
+                fetch(`${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/tags?post=${queriedPost.id}`)
                 .then(resp => resp.json())
                 .then(postTags => {
                     const tagNames = postTags.map(postTag => {return { name: postTag.name } });
