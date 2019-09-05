@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
       <SEO lang="German"
            description="Software development blog"
            meta={[]}
-           title={`<JustDoIT />`}/>
+           title={children.props.pageContext.title} />
       <div id="main-content-container">
         <GlobalStyles />
         <NavMenu />

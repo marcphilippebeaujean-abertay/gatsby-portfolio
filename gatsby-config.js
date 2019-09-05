@@ -6,8 +6,7 @@ module.exports = {
   siteMetadata: {
     title: "<JustDoIT />",
     author: "Marc Philippe Beaujean",
-    description:
-      "Blog about Software and Personal Development.",
+    description: "Blog about Software and Personal Development.",
     url: "https://www.jdit.eu", // No trailing slash allowed!
     image: "/images/jdit-icon.png", // Path to your image you placed in the 'static' folder
     //twitterUsername: "@occlumency",
