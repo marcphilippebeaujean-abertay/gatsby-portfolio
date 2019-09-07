@@ -4,6 +4,7 @@ import { mainColour } from "../style/themeStyle";
 import { smallScreenWidth } from "../style/layoutStyle";
 import { Link } from "gatsby";
 
+
 const ContactsForm = styled.form`
     width: 100%;
     display: flex;
@@ -142,7 +143,6 @@ export default () => {
             <label value={formValues.message} id="recaptcha-token">Don't fill out if you are human<input type="text" name="bot-field" /></label>
             <textarea rows="10" id="form-message" className="input-field" name="message" placeholder="Hi Marc, I love your blog!" onChange={handleFormChange} />
             <p id="message-error" className="error error-hidden">Please enter a longer message!</p>
-            <div data-netlify-recaptcha="true" />
             <p id="checkbox-text">
                 <input type="checkbox" name="termAgreement" onChange={toggleTermAgreement} /> I agree to the Terms and have read the <Link to={`/datenschutzerklarung/`}>Data Policy</Link>, including Cookie Use.
             </p>

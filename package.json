@@ -36,6 +36,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-facebook": "^8.0.4",
+    "react-google-recaptcha": "^2.0.0-rc.1",
+    "react-google-recaptcha-v3": "^1.4.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "react-recaptcha-v3": "^1.1.0",
