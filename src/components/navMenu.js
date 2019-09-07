@@ -24,8 +24,11 @@ const MainMenuWrapper = styled.nav`
   height: ${navMenuHeight}px;
   box-shadow: 1px 1px 0 2px lightgray;
   overflow: hidden;
-  animation-name: menu-drop-in;
-  animation-duration: 1s;
+  -webkit-animation: menu-drop-in 1s;
+  -moz-animation:    menu-drop-in 1s;
+  -o-animation:      menu-drop-in 1s;
+  -ms-transition:    menu-drop-in 1s;
+  animation: menu-drop-in 1s;
   z-index: 1;
   @keyframes menu-drop-in {
     from {
