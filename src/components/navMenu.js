@@ -65,7 +65,6 @@ const NavMenu = ({siteUrl}) => {
     }
     `);
     useEffect(()=>{
-      console.log(getCurrentUrlPathname(document));
       const currentUrl = getCurrentUrlPathname(document);
       const currentSelected = Array.from(document.getElementsByClassName("selected"));
       const newSelectedObject = Array.from(document.getElementsByClassName(currentUrl));

@@ -100,35 +100,35 @@ const Footer = ({ siteUrl }) => {
         }
       }`);
     return (
-    <FooterWrapper>
-      <SocialMediaLogoWrapper>
-        <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" target="_blank" rel="noopener noreferrer"><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
-        <a href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3" target="_blank" rel="noopener noreferrer"><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
-        <a href="https://github.com/marcphilippebeaujean-abertay" target="_blank" rel="noopener noreferrer"><img className="logo" src={githubLogo} alt="GitHub Logo" /></a>
-      </SocialMediaLogoWrapper>
-      <div id="footer-links-container">
-        <div className={`left-footer-container footer-container`}>
-          {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
-          index % 2 === 0 ? (
-                  <FooterLink to={`/${item.object_slug}`}
-                            key={item.title}
-                            selected={item.object_slug === getCurrentUrlPathname(document)} >
-                            {item.title}
-                  </FooterLink>
-          ) : null)}
-        </div>
-        <div className={`footer-container`}>
-          {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
-          index % 2 === 1 ? (
-                  <FooterLink to={`/${item.object_slug}`}
+      <FooterWrapper>
+        <SocialMediaLogoWrapper>
+          <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" target="_blank" rel="noopener noreferrer"><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
+          <a href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3" target="_blank" rel="noopener noreferrer"><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
+          <a href="https://github.com/marcphilippebeaujean-abertay" target="_blank" rel="noopener noreferrer"><img className="logo" src={githubLogo} alt="GitHub Logo" /></a>
+        </SocialMediaLogoWrapper>
+        <div id="footer-links-container">
+          <div className={`left-footer-container footer-container`}>
+            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
+            index % 2 === 0 ? (
+                    <FooterLink to={`/${item.object_slug}`}
                               key={item.title}
                               selected={item.object_slug === getCurrentUrlPathname(document)} >
-                             {item.title}
-                  </FooterLink>
+                              {item.title}
+                    </FooterLink>
             ) : null)}
+          </div>
+          <div className={`footer-container`}>
+            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
+            index % 2 === 1 ? (
+                    <FooterLink to={`/${item.object_slug}`}
+                                key={item.title}
+                                selected={item.object_slug === getCurrentUrlPathname(document)} >
+                               {item.title}
+                    </FooterLink>
+              ) : null)}
+          </div>
         </div>
-      </div>
-    </FooterWrapper>)
+      </FooterWrapper>)
     };
 
 export default Footer;

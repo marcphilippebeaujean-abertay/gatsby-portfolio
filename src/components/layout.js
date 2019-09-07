@@ -39,14 +39,13 @@ export const PageContentStyle = styled.div`
   padding-bottom: ${footerHeight}px;
   text-align: justify;
 `
-// "6LcHXrIUAAAAAGXsi5JIm7OKKo9b2bifbsS8BYgJ"
 const Layout = ({ children }) => {
   return(
     <FacebookProvider appId='2992918847417224'>
       <SEO lang="German"
            description="Software development blog"
            meta={[]}
-           title={children.props.pageContext.title} />
+           title={children.props.pageContext.title === undefined ? 'Error' : children.props.pageContext.title} />
       <div id="main-content-container">
         <GlobalStyles />
         <NavMenu />
