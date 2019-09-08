@@ -11,11 +11,6 @@ import SEO from "./seo";
 
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-  @font-face {
-    font-family: "Open Sans";
-    font-style: normal;
-    src: local("Open Sans"), local("PTSans-Regular"),     url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap") format("woff");
-}
   body{
     font-family: 'Open Sans', sans-serif !important;
     padding: 0 !important;

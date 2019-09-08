@@ -1,8 +1,7 @@
-const Layout = require("./src/components/layout").default
-const React = require("react")
+const Layout = require("./src/components/layout").default;
+const React = require("react");
 const {FacebookProvider} = require("react-facebook");
 
-//const { Helmet } = require("react-helmet")
 
 /**
  * Implement Gatsby's Browser APIs in this file.
@@ -11,9 +10,10 @@ const {FacebookProvider} = require("react-facebook");
  */
 exports.wrapPageElement = ({ element, props }) => {
     return (
-    <Layout>
-        {element}
-    </Layout>)
+        <Layout>
+            {element}
+        </Layout>
+    )
 }
 
 exports.wrapRootElement = ({ element }) => {

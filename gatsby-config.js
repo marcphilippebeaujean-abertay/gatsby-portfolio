@@ -9,7 +9,6 @@ module.exports = {
     description: "Blog about Software and Personal Development.",
     url: "https://www.jdit.eu", // No trailing slash allowed!
     image: "/images/jdit-icon.png", // Path to your image you placed in the 'static' folder
-    //twitterUsername: "@occlumency",
   },
   plugins: [
       {

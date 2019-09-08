@@ -28,7 +28,7 @@ const MainMenuWrapper = styled.nav`
   -moz-animation:    menu-drop-in 1s;
   -o-animation:      menu-drop-in 1s;
   -ms-transition:    menu-drop-in 1s;
-  animation: menu-drop-in 1s;
+  animation:         menu-drop-in 1s;
   z-index: 1;
   @keyframes menu-drop-in {
     from {
