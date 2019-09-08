@@ -9,6 +9,12 @@ const {FacebookProvider} = require("react-facebook");
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
+exports.wrapPageElement = ({ element, props }) => {
+    return (
+    <Layout>
+        {element}
+    </Layout>)
+}
 
 exports.wrapRootElement = ({ element }) => {
     return (
