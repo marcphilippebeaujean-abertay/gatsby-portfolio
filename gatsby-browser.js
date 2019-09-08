@@ -15,11 +15,3 @@ exports.wrapPageElement = ({ element, props }) => {
         </Layout>
     )
 }
-
-exports.wrapRootElement = ({ element }) => {
-    return (
-        <FacebookProvider appId='2992918847417224'>
-            { element }
-        </FacebookProvider>
-    )
-}

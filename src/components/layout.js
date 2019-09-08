@@ -4,8 +4,6 @@ import NavMenu from "./navMenu";
 import Footer from "./footer";
 import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
-import { FacebookProvider } from "react-facebook";
-import Error from "../templates/error";
 import CookieBanner from "./cookieBanner";
 import SEO from "./seo";
 

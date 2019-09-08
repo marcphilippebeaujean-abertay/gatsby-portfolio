@@ -2,15 +2,20 @@ import React, {useEffect} from 'react';
 import Prism from "prismjs";
 import "../style/prism.css";
 import { PageContentWrapper } from './page';
-import { Comments } from 'react-facebook';
+import { DiscussionEmbed } from 'disqus-react'
+
 
 
 export default ({pageContext}) =>{
+    const disqusConfig = {
+        shortname: process.env.GATSBY_DISQUS_NAME,
+        config: { identifier: pageContext.title },
+    }
     useEffect(() => Prism.highlightAll());
     return (
     <PageContentWrapper>
         <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} />
         <div dangerouslySetInnerHTML={{__html: pageContext.content}} />
-        <Comments data-href={`https://www.jdit.eu/post/${pageContext.slug}`} data-numposts="10" />
+        <DiscussionEmbed { ...disqusConfig} />
     </PageContentWrapper>)
 }

@@ -9,6 +9,7 @@
     "bluebird": "^3.5.5",
     "browser-monads": "^1.0.0",
     "core-js": "^3.1.4",
+    "disqus-react": "^1.0.6",
     "dotenv": "^8.1.0",
     "fs": "^0.0.1-security",
     "gatsby": "^2.13.34",
