@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@emotion/core": "^10.0.17",
     "babel-plugin-styled-components": "^1.10.6",
     "bluebird": "^3.5.5",
     "browser-monads": "^1.0.0",
@@ -45,7 +46,9 @@
     "react-icons": "^3.7.0",
     "react-recaptcha-v3": "^1.1.0",
     "react-redux": "^7.1.0",
+    "react-spinners": "^0.6.1",
     "redux": "^4.0.4",
+    "spin.js": "^4.0.0",
     "styled-components": "^4.3.2",
     "webpack": "^4.39.3",
     "why-did-you-update": "^1.0.6"

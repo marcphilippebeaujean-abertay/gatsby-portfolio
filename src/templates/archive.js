@@ -6,6 +6,8 @@ import { DateTime } from 'luxon';
 import styled from 'styled-components';
 import PostPreview from '../components/postPreview';
 import SearchIcon from '../images/search-image.png';
+import ClipLoader from 'react-spinners/ClipLoader';
+
 
 const SearchBar = styled.form`
     width: 100%;
@@ -38,6 +40,7 @@ const SearchBar = styled.form`
 `
 
 const SearchResultWrapper = styled.div`
+    position: relative;
     .post-preview-hider{
         display: none !important;
     }
@@ -50,18 +53,40 @@ const SearchResultWrapper = styled.div`
         width: 200px;
         height: auto;
     }
+    .hidden-results{
+        display: none !important;
+    }
 `
+
+const SpinnerWrapper = styled.div`
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+`
+
+const override = `
+    
+`;
+
 
 export default ({ pageContext }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [foundPost, setFoundPost] = useState([]);
+    const [searchPending, setSearchPending] = useState(false);
     const searchForPost = e => {
         e.preventDefault();
         if(searchTerm.length === 0) return;
+        const searchResultsDiv = document.getElementById(`results-container`);
+        searchResultsDiv.classList.add(`hidden-results`);
+        setSearchPending(true);
         fetch(`${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/blogpost?search=${searchTerm}`)
         .then(response => response.json())
         .then(result => {
             const postList = [];
+            if (result.length === 0){
+                setSearchPending(false);
+                searchResultsDiv.classList.remove(`hidden-results`);
+            }
             result.forEach(queriedPost => {
                 fetch(`${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/tags?post=${queriedPost.id}`)
                 .then(resp => resp.json())
@@ -74,12 +99,18 @@ export default ({ pageContext }) => {
                         title: queriedPost.title.rendered,
                         excerpt: queriedPost.excerpt.rendered,
                         date: DateTime.fromISO(queriedPost.date).toFormat('dd/MM/yyyy'),
-                        tags: tagNames
+                        tags: tagNames,
+                        slug: queriedPost.slug
                     })
                     if(postList.length === result.length){
                         setFoundPost(postList);
                     }
-                }).catch(e => console.error('failed to fetch post tags!'))
+                })
+                .catch(e => console.error('failed to fetch post tags!'))
+                .finally(() => {
+                    setSearchPending(false);
+                    searchResultsDiv.classList.remove(`hidden-results`);
+                })
             })
         })
         .catch(e => console.error(e))
@@ -99,15 +130,31 @@ export default ({ pageContext }) => {
             <button id="search-btn"><IoIosSearch size="30px"/></button>
         </SearchBar>
         <SearchResultWrapper id="search-results">
-        {
-            foundPost.length === 0 ?
-                (<div>
-                    <div id="no-post-found-container">
-                        <img id="search-icon" src={SearchIcon} alt="search icon for no search found"/>
-                    </div>
-                    <h2 style={{textAlign: `center`}}>No posts to see. Please start a new search!</h2>
-                </div>) : foundPost.map(post => <PostPreview post={post} key={post.title}/>)
-        }
+            <div id='results-container'>
+            {
+               foundPost.length === 0 ? (
+               <div>
+                   <div id="no-post-found-container">
+                       <img id="search-icon" src={SearchIcon} alt="search icon for no search found"/>
+                   </div>
+                   <h2 style={{textAlign: `center`}}>No posts to see. Please start a new search!</h2>
+               </div>
+               ) : (foundPost.map(post => <PostPreview post={post} key={post.title}/>))
+            }
+            </div>
         </SearchResultWrapper>
+        <SpinnerWrapper >
+        {
+        searchPending ?
+            <ClipLoader
+                css={override}
+                sizeUnit={"px"}
+                size={150}
+                color={mainColour}
+                loading={searchPending}
+            />
+            : null
+        }
+        </SpinnerWrapper>
     </PageContentWrapper>)
 }
