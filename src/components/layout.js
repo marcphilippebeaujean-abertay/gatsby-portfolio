@@ -46,7 +46,7 @@ export const PageContentStyle = styled.div`
 `
 const Layout = ({ children }) => {
   return(
-    <FacebookProvider appId='2992918847417224'>
+    <div>
       <SEO lang="German"
            description="Software development blog"
            meta={[]}
@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
       </div>
       <Footer />
       <CookieBanner />
-    </FacebookProvider>
+    </div>
 )}
 
 export default Layout;
