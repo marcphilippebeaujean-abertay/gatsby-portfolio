@@ -119,12 +119,6 @@ module.exports = {
         display: `standalone`
       },
     },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-          component: require.resolve(`./src/components/layout.js`)
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -138,24 +132,6 @@ module.exports = {
         display: `minimal-ui`,
         title: `<JustDoIT />`,
         icon: `src/images/jdit-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 590,
-            },
-          },
-          `gatsby-remark-lazy-load`,
-          `gatsby-remark-prismjs`
-        ],
       },
     },
     {

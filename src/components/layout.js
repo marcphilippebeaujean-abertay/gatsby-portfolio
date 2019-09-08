@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
         <GlobalStyles />
         <NavMenu />
         <PageContentStyle>
-          { 'custom404' in children.props ? <Error /> : children }
+          { children }
           <Sidebar />
         </PageContentStyle>
       </div>
