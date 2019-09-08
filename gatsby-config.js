@@ -134,13 +134,7 @@ module.exports = {
         icon: `src/images/jdit-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        minify: true,
-        ssr: true
-      },
-    },
+    `gatsby-plugin-styled-components`,
     'gatsby-plugin-netlify'
   ],
 }
