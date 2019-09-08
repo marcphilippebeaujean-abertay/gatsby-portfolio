@@ -158,12 +158,13 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-netlify',
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        minify: true
+        minify: true,
+        ssr: true
       },
     },
+    'gatsby-plugin-netlify'
   ],
 }

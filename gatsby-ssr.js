@@ -1,7 +1,6 @@
 
 const Layout = require("./src/components/layout").default
 const React = require("react")
-const { FacebookProvider } = require("react-facebook");
 
 //const { Helmet } = require("react-helmet")
 
@@ -11,7 +10,7 @@ const { FacebookProvider } = require("react-facebook");
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 exports.wrapPageElement = ({ element, props }) => {
-    <Layout>
+    return (<Layout>
         {element}
-    </Layout>
+    </Layout>)
 }
