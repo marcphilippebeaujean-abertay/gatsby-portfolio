@@ -5,15 +5,19 @@ import Footer from "./footer";
 import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
 import { FacebookProvider } from "react-facebook";
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import Error from "../templates/error";
 import CookieBanner from "./cookieBanner";
 import SEO from "./seo";
 
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+  @font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    src: local("Open Sans"), local("PTSans-Regular"),     url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap") format("woff");
+}
   body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
     padding: 0 !important;
     margin: 0;
     position: relative;
