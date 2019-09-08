@@ -162,9 +162,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        // Change plugin default options here, e.g.:
-        ssr: true,
-        // displayName: false, 
         minify: true
       },
     },
