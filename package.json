@@ -14,6 +14,7 @@
     "fs": "^0.0.1-security",
     "gatsby": "^2.13.34",
     "gatsby-image": "^2.2.6",
+    "gatsby-plugin-disqus": "^1.1.2",
     "gatsby-plugin-layout": "^1.1.2",
     "gatsby-plugin-manifest": "^2.2.14",
     "gatsby-plugin-netlify": "^2.1.11",

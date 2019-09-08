@@ -108,6 +108,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: process.env.GATSBY_DISQUS_NAME
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `GatsbyJS`,
