@@ -2,7 +2,6 @@ import React from "react"
 import { PageContentWrapper } from '../templates/page';
 import Img from "gatsby-image/withIEPolyfill";
 import { graphql, useStaticQuery } from 'gatsby';
-import SEO from "../components/seo";
 
 const browser = typeof window !== "undefined" && window;
 
