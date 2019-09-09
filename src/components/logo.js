@@ -1,6 +1,6 @@
 import React from 'react';
 import { mainColour } from "../style/themeStyle";
-import { smallScreenWidth, smallScreenSidePadding, navMenuHeight } from "../style/layoutStyle";
+import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle";
 import styled from "styled-components";
 
 const LogoStyle = styled.div`
@@ -31,10 +31,6 @@ const LogoContainer = styled.div`
         margin: 0px 0px 0px ${smallScreenSidePadding}px;
         flex-grow: 0;
     }
-`
-
-const LogoText = styled.text`
-    
 `
 
 const Logo = (props) => (
