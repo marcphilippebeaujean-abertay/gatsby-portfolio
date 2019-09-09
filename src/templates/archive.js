@@ -64,11 +64,6 @@ const SpinnerWrapper = styled.div`
     width: 150px;
 `
 
-const override = `
-    
-`;
-
-
 export default ({ pageContext }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [foundPost, setFoundPost] = useState([]);
@@ -147,7 +142,6 @@ export default ({ pageContext }) => {
         {
         searchPending ?
             <ClipLoader
-                css={override}
                 sizeUnit={"px"}
                 size={150}
                 color={mainColour}

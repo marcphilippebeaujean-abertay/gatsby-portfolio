@@ -2,6 +2,9 @@ import React from "react"
 import { PageContentWrapper } from '../templates/page';
 import Img from "gatsby-image/withIEPolyfill";
 import { graphql, useStaticQuery } from 'gatsby';
+import SEO from "../components/seo";
+
+const browser = typeof window !== "undefined" && window;
 
 export default ({ pageContext }) => {
   const data = useStaticQuery(graphql`
@@ -16,15 +19,17 @@ export default ({ pageContext }) => {
       }
     `);
   return (
-    <PageContentWrapper>
-      <h1>Error 404</h1>
-      <div>
-        <div style={{width: `50%`}}>
-          <Img fluid={data.errorPic.childImageSharp.fluid} alt="Error picture!" />
+    browser && (
+      <PageContentWrapper>
+        <h1>Error 404</h1>
+        <div>
+          <div style={{width: `50%`}}>
+            <Img fluid={data.errorPic.childImageSharp.fluid} alt="Error picture!" />
+          </div>
+          <p><b>Oooops!</b> Looks like the page you were looking for cannot be accessed or doesn't exist. I apologize for the inconvenience 
+              - please contact me if you think this is a bug!</p>
         </div>
-        <p><b>Oooops!</b> Looks like the page you were looking for cannot be accessed or doesn't exist. I apologize for the inconvenience 
-            - please contact me if you think this is a bug!</p>
-      </div>
-    </PageContentWrapper>
-  )
+      </PageContentWrapper>
+      )
+  );
 }

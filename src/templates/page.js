@@ -17,6 +17,11 @@ export const PageContentWrapper = styled.div`
   @media screen and (max-width: ${smallScreenWidth}px){
     margin-top: ${smallScreenNavHeight}px;
   }
+  pre code {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+  }
 `
 
 export default ({ pageContext }) => {

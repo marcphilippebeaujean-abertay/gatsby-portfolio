@@ -1,6 +1,5 @@
 const Layout = require("./src/components/layout").default;
 const React = require("react");
-const {FacebookProvider} = require("react-facebook");
 
 
 /**

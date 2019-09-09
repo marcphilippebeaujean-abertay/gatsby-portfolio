@@ -76,7 +76,7 @@ export default () => {
             case 'name':
                 return new RegExp(/(?=.{6,})([A-Z][a-z]+[\s]?){2,}/).test(value);
             case 'email':
-                return new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(value);
+                return new RegExp(/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\.\w{2,3})+$/).test(value);
             case 'message':
                 return value.length > 10;
             case 'termAgreement':
