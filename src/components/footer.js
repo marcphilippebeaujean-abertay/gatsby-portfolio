@@ -111,26 +111,17 @@ const Footer = ({ siteUrl }) => {
         </SocialMediaLogoWrapper>
         <div id="footer-links-container">
           <div className={`left-footer-container footer-container`}>
+            <p><b>Legal</b></p>
             {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
-            index % 2 === 0 ? (
                     <FooterLink to={`/${item.object_slug}`}
                               key={item.title}
                               selected={item.object_slug === getCurrentUrlPathname(document)} >
                               {item.title}
                     </FooterLink>
-            ) : null)}
-          </div>
-          <div className={`footer-container`}>
-            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
-            index % 2 === 1 ? (
-                    <FooterLink to={`/${item.object_slug}`}
-                                key={item.title}
-                                selected={item.object_slug === getCurrentUrlPathname(document)} >
-                               {item.title}
-                    </FooterLink>
-              ) : null)}
+            )}
           </div>
         </div>
+        
       </FooterWrapper>)
     };
 
