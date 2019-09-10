@@ -9,6 +9,7 @@ const sidebarWidthPercent = 100-mainContentWidthPercent;
 
 const SidebarWrapper = styled.aside`
     z-index: 0;
+    overflow: hidden;
     position: absolute;
     margin-left: calc(${mainContentWidthPercent}% + ${smallScreenSidePadding}px);
     width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding}px);
