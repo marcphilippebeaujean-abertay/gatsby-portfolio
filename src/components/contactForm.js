@@ -54,8 +54,9 @@ const ContactsForm = styled.form`
         background-color: ${mainColour};
         cursor: pointer;
     }
-    #recaptcha-token{
-        display: none;
+    #bot-field{
+        position: absolute;
+        top: 1000%;
     }
     @media screen and (max-width: ${smallScreenWidth}px){
         #submit-btn{
@@ -140,7 +141,7 @@ export default () => {
             <label htmlFor="message">
                 Message
             </label>
-            <label value={formValues.message} id="recaptcha-token">Don't fill out if you are human<input type="text" name="bot-field" /></label>
+            <label id="bot-field">Don’t fill this out if you're human: <input name="bot-field" /></label>
             <textarea rows="10" id="form-message" className="input-field" name="message" placeholder="Hi Marc, I love your blog!" onChange={handleFormChange} />
             <p id="message-error" className="error error-hidden">Please enter a longer message!</p>
             <p id="checkbox-text">
