@@ -115,7 +115,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
           // Create a blog page for each
           const posts = result.data.allWordpressWpBlogpost.edges;
-          const postsPerPage = 2;
+          const postsPerPage = 5;
           const numberOfPages = Math.ceil(posts.length / postsPerPage);
           const blogTemplate = path.resolve("./src/templates/blogDisplayPage.js");
           Array.from({length: numberOfPages}).forEach((page, index) => {

@@ -9,12 +9,15 @@ const sidebarWidthPercent = 100-mainContentWidthPercent;
 
 const SidebarWrapper = styled.aside`
     z-index: 0;
-    position: relative;
-    width: ${sidebarWidthPercent}%;
+    position: absolute;
+    margin-left: calc(${mainContentWidthPercent}% + ${smallScreenSidePadding}px);
+    width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding}px);
     animation: fade-in 1s;
     top: ${navMenuHeight}px;
     @media screen and (max-width: ${initContentWidth}px){
-        padding-right: ${smallScreenSidePadding}px;
+        padding: 0 0 0 ${smallScreenSidePadding*3}px;
+        margin-left: calc(${mainContentWidthPercent}% - ${smallScreenSidePadding}px);
+        width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding*3}px);
     }
     @media screen and (max-width: ${mediumScreenWidth}px) {
         display: none;
@@ -42,10 +45,10 @@ const Sidebar = () => {
     `);
     return (
     <SidebarWrapper >
-        <div style={{backgroundColor: `lightgrey`, padding: `10px`}}>
+        <div>
             <Img fluid={data.personalPic.childImageSharp.fluid} alt="Picture of me!" />
             <p>Hi, and welcome to my site! I hope you are enjoying the content. If you find the information valuable, 
-                please consider sharing the content - it helps me a lot. Thanks, and I hope to see you here again soon!</p>
+               please consider sharing the content - it helps me a lot. Thanks, and I hope to see you here again soon!</p>
         </div>
     </SidebarWrapper>);
 }

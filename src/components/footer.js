@@ -8,6 +8,8 @@ import styled from "styled-components";
 import linkedInLogo from '../images/linkedin-icon.png';
 import youtubeLogo from '../images/youtube-icon.png';
 import githubLogo from '../images/github-icon.png';
+import twitterLogo from '../images/twitter-icon.png';
+
 
 const FooterWrapper = styled.footer`
   position: relative;
@@ -105,6 +107,7 @@ const Footer = ({ siteUrl }) => {
           <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" target="_blank" rel="noopener noreferrer"><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
           <a href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3" target="_blank" rel="noopener noreferrer"><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
           <a href="https://github.com/marcphilippebeaujean-abertay" target="_blank" rel="noopener noreferrer"><img className="logo" src={githubLogo} alt="GitHub Logo" /></a>
+          <a href="https://twitter.com/MarcBeaujean" target="_blank" rel="noopener noreferrer"><img className="logo" src={twitterLogo} alt="Twitter Logo" /></a>
         </SocialMediaLogoWrapper>
         <div id="footer-links-container">
           <div className={`left-footer-container footer-container`}>

@@ -5,7 +5,6 @@ import Footer from "./footer";
 import SEO from "../components/seo";
 import { footerHeight, initContentWidth } from  "../style/layoutStyle";
 import styled, { createGlobalStyle } from "styled-components";
-import { Helmet } from "react-helmet";
 import CookieBanner from "./cookieBanner";
 
 export const GlobalStyles = createGlobalStyle`
