@@ -126,7 +126,7 @@ export default () => {
         }
     }
     return(
-        <ContactsForm action="/success" name="contact" method="post" data-netlify-honeypot="bot-field" data-netlify="true" onSubmit={handleSubmit}>
+        <ContactsForm action="/success/" name="contact" method="post" data-netlify-honeypot="bot-field" data-netlify="true" onSubmit={handleSubmit}>
             <label htmlFor="name">
                 Full Name
             </label>
@@ -135,7 +135,7 @@ export default () => {
             <label htmlFor="email">
                 E-Mail
             </label>
-            <input value={formValues.email} className="input-field" id="form-email" type="text" name="email" placeholder="example@mail.com" onChange={handleFormChange} />
+            <input value={formValues.email} className="input-field" id="form-email" type="email" name="email" placeholder="example@mail.com" onChange={handleFormChange} />
             <p id="email-error" className="error error-hidden">Please enter a valid email!</p>
             <label htmlFor="message">
                 Message
