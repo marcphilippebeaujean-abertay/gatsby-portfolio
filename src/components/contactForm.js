@@ -126,7 +126,7 @@ export default () => {
         }
     }
     return(
-        <ContactsForm action="/success" name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true" onSubmit={handleSubmit}>
+        <ContactsForm action="/success" name="contact" method="post" data-netlify-honeypot="bot-field" data-netlify="true" onSubmit={handleSubmit}>
             <label htmlFor="name">
                 Full Name
             </label>
