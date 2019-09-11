@@ -39,7 +39,7 @@ export const GlobalStyles = createGlobalStyle`
 export const PageContentStyle = styled.div`
   position: relative;
   display: flex;
-  overflow: auto;
+  /*overflow: auto;*/
   margin: 0 auto;
   max-width: ${initContentWidth}px;
   padding-bottom: ${footerHeight}px;
