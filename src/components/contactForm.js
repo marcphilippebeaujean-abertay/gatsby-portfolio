@@ -55,7 +55,7 @@ const ContactsForm = styled.form`
         cursor: pointer;
     }
     #bot-field{
-        position: absolute;
+        position: fixed;
         top: 1000%;
     }
     @media screen and (max-width: ${smallScreenWidth}px){
@@ -141,13 +141,13 @@ export default () => {
             <label htmlFor="message">
                 Message
             </label>
-            <label id="bot-field">Don’t fill this out if you're human: <input name="bot-field" /></label>
             <textarea rows="10" id="form-message" className="input-field" name="message" placeholder="Hi Marc, I love your blog!" onChange={handleFormChange} />
             <p id="message-error" className="error error-hidden">Please enter a longer message!</p>
             <p id="checkbox-text">
                 <input type="checkbox" name="termAgreement" onChange={toggleTermAgreement} /> I agree to the Terms and have read the <Link to={`/datenschutzerklarung/`}>Data Policy</Link>, including Cookie Use.
             </p>
             <p id="termAgreement-error" className="error error-hidden">Please agree to the terms!</p>
+            <label id="bot-field">Don’t fill this out if you're human: <input name="bot-field" /></label>
             <input id="submit-btn" type="submit" value="Submit" name="submit" />
         </ContactsForm>
     )
