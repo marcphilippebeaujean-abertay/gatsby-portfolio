@@ -1,6 +1,6 @@
 import React from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
-import { footerHeight, smallScreenWidth } from "../style/layoutStyle";
+import { footerHeight, smallScreenWidth, initContentWidth } from "../style/layoutStyle";
 import { mainColour } from '../style/themeStyle';
 import { getCurrentUrlPathname } from '../utility/navigation';
 import { document } from "browser-monads";
@@ -14,32 +14,41 @@ import twitterLogo from '../images/twitter-icon.png';
 const FooterWrapper = styled.footer`
   position: relative;
   width: 100%;
-  padding: 0 !important;
+  padding: 0 0 10px 0 !important;
   clear: both;
   height: ${footerHeight}px;
-  margin-top: -${footerHeight}px;
+  margin-top: -${footerHeight+10}px;
   background-color: black;
+  color: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   .footer-container{
     display: flex;
     padding: 0px 10px;
     padding-bottom: 10px;
     flex-direction: column;
-    width: 50%;
     background-color: black;
+    flex-grow: 1;
   }
-  .left-footer-container{
-    text-align: right !important;
-    align-content: right;
-    align-self: right;
+  .contacts-entry{
+    margin: 0px;
   }
   #footer-links-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 100%;
+    width: ${initContentWidth}px;
+    margin: 0 auto;
   }
+  @media screen and (max-width: ${initContentWidth}px){
+    .footer-container{
+      width: 100%;
+    }
+    #footer-links-container{
+      width: 100%;
+    }
+  }
+
   @media screen and (max-width: ${smallScreenWidth}px){
     flex-direction: column;
     .footer-container{
@@ -55,9 +64,7 @@ const FooterWrapper = styled.footer`
 `
 
 const FooterLink = styled(Link)`
-  display: relative;
-  flex-direction: column;
-  width: auto;
+  display: inline-block;
   color: ${props => props.selected ? mainColour : `white`};
   text-decoration: none !important;
   :hover{
@@ -67,9 +74,9 @@ const FooterLink = styled(Link)`
 
 const SocialMediaLogoWrapper = styled.div`
   display: flex;
-  padding-top: 10px;
-  width: 100%;
-  justify-content: center;
+  position: relative;
+  padding: 10px;
+  left: -20px;
   .logo{
     background-color: white;
     margin: 0px 20px;
@@ -80,14 +87,18 @@ const SocialMediaLogoWrapper = styled.div`
   a:hover .logo{
     background-color: ${mainColour};
   }
+  @media screen and (max-width: ${smallScreenWidth}px){
+    justify-content: center;
+    left: 0px;
+  }
 `
 
-const Footer = ({ siteUrl }) => {
+const Footer = () => {
     const data = useStaticQuery(graphql`
         query{
         allWordpressWpApiMenusMenusItems(filter: {
               name: {
-                  eq: "Footer"
+                  eq: "Legal"
                 }
             }){
           edges{
@@ -103,25 +114,29 @@ const Footer = ({ siteUrl }) => {
       }`);
     return (
       <FooterWrapper>
-        <SocialMediaLogoWrapper>
-          <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" target="_blank" rel="noopener noreferrer"><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
-          <a href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3" target="_blank" rel="noopener noreferrer"><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
-          <a href="https://github.com/marcphilippebeaujean-abertay" target="_blank" rel="noopener noreferrer"><img className="logo" src={githubLogo} alt="GitHub Logo" /></a>
-          <a href="https://twitter.com/MarcBeaujean" target="_blank" rel="noopener noreferrer"><img className="logo" src={twitterLogo} alt="Twitter Logo" /></a>
-        </SocialMediaLogoWrapper>
         <div id="footer-links-container">
-          <div className={`left-footer-container footer-container`}>
+          <div className="footer-container">
             <p><b>Legal</b></p>
-            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map((item, index) =>
-                    <FooterLink to={`/${item.object_slug}`}
+            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
+                    <div><FooterLink to={`/${item.object_slug}`}
                               key={item.title}
                               selected={item.object_slug === getCurrentUrlPathname(document)} >
                               {item.title}
-                    </FooterLink>
+                    </FooterLink></div>
             )}
           </div>
+          <div className="footer-container">
+            <p><b>Contact</b></p>
+            <p className="contacts-entry">Marc Philippe Beaujean</p>
+            <p className="contacts-entry">marcphilippebeaujean@gmail.com</p>
+            <SocialMediaLogoWrapper>
+              <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" target="_blank" rel="noopener noreferrer"><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
+              <a href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3" target="_blank" rel="noopener noreferrer"><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
+              <a href="https://github.com/marcphilippebeaujean-abertay" target="_blank" rel="noopener noreferrer"><img className="logo" src={githubLogo} alt="GitHub Logo" /></a>
+              <a href="https://twitter.com/MarcBeaujean" target="_blank" rel="noopener noreferrer"><img className="logo" src={twitterLogo} alt="Twitter Logo" /></a>
+            </SocialMediaLogoWrapper>
+          </div>
         </div>
-        
       </FooterWrapper>)
     };
 
