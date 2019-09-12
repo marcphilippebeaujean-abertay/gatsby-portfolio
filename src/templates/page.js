@@ -21,7 +21,7 @@ export const PageContentWrapper = styled.div`
   figure>img{
     display: block !important;
     margin: 0 auto;
-    width: auto;
+    max-width: 100%;
     height: auto;
   }
   figure>figcaption{
