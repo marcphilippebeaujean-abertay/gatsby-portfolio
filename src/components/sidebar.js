@@ -48,7 +48,7 @@ const Sidebar = () => {
         <div>
             <Img fluid={data.personalPic.childImageSharp.fluid} alt="Picture of me!" />
             <p>Hi, and welcome to my site! I hope you are enjoying the content. If you find the information valuable, 
-               please consider sharing the content - it helps me a lot. Thanks, and I hope to see you here again soon!</p>
+               please consider sharing it with others - it helps me a lot. Thanks, and I hope to see you here again soon!</p>
         </div>
     </SidebarWrapper>);
 }

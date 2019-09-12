@@ -18,6 +18,15 @@ export const PageContentWrapper = styled.div`
   @media screen and (max-width: ${smallScreenWidth}px){
     margin-top: ${smallScreenNavHeight}px;
   }
+  figure>img{
+    display: block !important;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+  }
+  figure>figcaption{
+    text-align: center;
+  }
 `
 
 export default ({ pageContext }) => {
