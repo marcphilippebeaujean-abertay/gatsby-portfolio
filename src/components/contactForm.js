@@ -53,10 +53,6 @@ const ContactsForm = styled.form`
     background-color: ${mainColour};
     cursor: pointer;
   }
-  #bot-field {
-    position: fixed;
-    top: 1000%;
-  }
   @media screen and (max-width: ${smallScreenWidth}px) {
     #submit-btn {
       width: 100%;
