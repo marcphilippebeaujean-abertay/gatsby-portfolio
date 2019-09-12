@@ -147,7 +147,8 @@ export default () => {
                 <input type="checkbox" name="termAgreement" onChange={toggleTermAgreement} /> I agree to the Terms and have read the <Link to={`/datenschutzerklarung/`}>Data Policy</Link>, including Cookie Use.
             </p>
             <p id="termAgreement-error" className="error error-hidden">Please agree to the terms!</p>
-            <label id="bot-field">Don’t fill this out if you're human: <input name="bot-field" /></label>
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
             <input id="submit-btn" type="submit" value="Submit" name="submit" />
         </ContactsForm>
     )
