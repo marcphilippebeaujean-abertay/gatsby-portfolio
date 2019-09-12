@@ -1,15 +1,18 @@
-import React from 'react';
-import {graphql, useStaticQuery, Link} from 'gatsby';
-import { footerHeight, smallScreenWidth, initContentWidth } from "../style/layoutStyle";
-import { mainColour } from '../style/themeStyle';
-import { getCurrentUrlPathname } from '../utility/navigation';
-import { document } from "browser-monads";
-import styled from "styled-components";
-import linkedInLogo from '../images/linkedin-icon.png';
-import youtubeLogo from '../images/youtube-icon.png';
-import githubLogo from '../images/github-icon.png';
-import twitterLogo from '../images/twitter-icon.png';
-
+import React from "react"
+import { graphql, useStaticQuery, Link } from "gatsby"
+import {
+  footerHeight,
+  smallScreenWidth,
+  initContentWidth,
+} from "../style/layoutStyle"
+import { mainColour } from "../style/themeStyle"
+import { getCurrentUrlPathname } from "../utility/navigation"
+import { document } from "browser-monads"
+import styled from "styled-components"
+import linkedInLogo from "../images/linkedin-icon.png"
+import youtubeLogo from "../images/youtube-icon.png"
+import githubLogo from "../images/github-icon.png"
+import twitterLogo from "../images/twitter-icon.png"
 
 const FooterWrapper = styled.footer`
   position: relative;
@@ -17,12 +20,12 @@ const FooterWrapper = styled.footer`
   padding: 0 0 10px 0 !important;
   clear: both;
   height: ${footerHeight}px;
-  margin-top: -${footerHeight+10}px;
+  margin-top: -${footerHeight + 10}px;
   background-color: black;
   color: white;
   display: flex;
   flex-direction: row;
-  .footer-container{
+  .footer-container {
     display: flex;
     padding: 0px 10px;
     padding-bottom: 10px;
@@ -30,33 +33,33 @@ const FooterWrapper = styled.footer`
     background-color: black;
     flex-grow: 1;
   }
-  .contacts-entry{
+  .contacts-entry {
     margin: 0px;
   }
-  #footer-links-container{
+  #footer-links-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: ${initContentWidth}px;
     margin: 0 auto;
   }
-  @media screen and (max-width: ${initContentWidth}px){
-    .footer-container{
+  @media screen and (max-width: ${initContentWidth}px) {
+    .footer-container {
       width: 100%;
     }
-    #footer-links-container{
+    #footer-links-container {
       width: 100%;
     }
   }
 
-  @media screen and (max-width: ${smallScreenWidth}px){
+  @media screen and (max-width: ${smallScreenWidth}px) {
     flex-direction: column;
-    .footer-container{
+    .footer-container {
       width: 100%;
       padding: 0px;
       text-align: center !important;
     }
-    #footer-links-container{
+    #footer-links-container {
       flex-direction: column;
       background-color: black;
     }
@@ -65,9 +68,9 @@ const FooterWrapper = styled.footer`
 
 const FooterLink = styled(Link)`
   display: inline-block;
-  color: ${props => props.selected ? mainColour : `white`};
+  color: ${props => (props.selected ? mainColour : `white`)};
   text-decoration: none !important;
-  :hover{
+  :hover {
     color: ${mainColour};
   }
 `
@@ -77,67 +80,101 @@ const SocialMediaLogoWrapper = styled.div`
   position: relative;
   padding: 10px;
   left: -20px;
-  .logo{
+  .logo {
     background-color: white;
     margin: 0px 20px;
     height: 30px;
     width: 30px;
     transition: ease 0.2s;
   }
-  a:hover .logo{
+  a:hover .logo {
     background-color: ${mainColour};
   }
-  @media screen and (max-width: ${smallScreenWidth}px){
+  @media screen and (max-width: ${smallScreenWidth}px) {
     justify-content: center;
     left: 0px;
   }
 `
 
 const Footer = () => {
-    const data = useStaticQuery(graphql`
-        query{
-        allWordpressWpApiMenusMenusItems(filter: {
-              name: {
-                  eq: "Legal"
-                }
-            }){
-          edges{
-            node{
-              name
-              items{
-                title,
-                object_slug
-              }
+  const data = useStaticQuery(graphql`
+    query {
+      allWordpressWpApiMenusMenusItems(filter: { name: { eq: "Legal" } }) {
+        edges {
+          node {
+            name
+            items {
+              title
+              object_slug
             }
           }
         }
-      }`);
-    return (
-      <FooterWrapper>
-        <div id="footer-links-container">
-          <div className="footer-container">
-            <p><b>Legal</b></p>
-            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
-                    <div><FooterLink to={`/${item.object_slug}`}
-                              key={item.title}
-                              selected={item.object_slug === getCurrentUrlPathname(document)} >
-                              {item.title}
-                    </FooterLink></div>
-            )}
-          </div>
-          <div className="footer-container">
-            <p><b>Contact</b></p>
-            <p className="contacts-entry">Marc Philippe Beaujean</p>
-            <p className="contacts-entry">marcphilippebeaujean@gmail.com</p>
-            <SocialMediaLogoWrapper>
-              <a href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/" target="_blank" rel="noopener noreferrer"><img className="logo" src={linkedInLogo} alt="LinkedIn Logo" /></a>
-              <a href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3" target="_blank" rel="noopener noreferrer"><img className="logo" src={youtubeLogo} alt="YouTube Logo" /></a>
-              <a href="https://github.com/marcphilippebeaujean-abertay" target="_blank" rel="noopener noreferrer"><img className="logo" src={githubLogo} alt="GitHub Logo" /></a>
-              <a href="https://twitter.com/MarcBeaujean" target="_blank" rel="noopener noreferrer"><img className="logo" src={twitterLogo} alt="Twitter Logo" /></a>
-            </SocialMediaLogoWrapper>
-          </div>
+      }
+    }
+  `)
+  return (
+    <FooterWrapper>
+      <div id="footer-links-container">
+        <div className="footer-container">
+          <p>
+            <b>Legal</b>
+          </p>
+          {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
+            item => (
+              <div>
+                <FooterLink
+                  to={`/${item.object_slug}`}
+                  key={item.title}
+                  selected={
+                    item.object_slug === getCurrentUrlPathname(document)
+                  }
+                >
+                  {item.title}
+                </FooterLink>
+              </div>
+            )
+          )}
         </div>
-      </FooterWrapper>)
-    };
+        <div className="footer-container">
+          <p>
+            <b>Contact</b>
+          </p>
+          <p className="contacts-entry">Marc Philippe Beaujean</p>
+          <p className="contacts-entry">marcphilippebeaujean@gmail.com</p>
+          <SocialMediaLogoWrapper>
+            <a
+              href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="logo" src={linkedInLogo} alt="LinkedIn Logo" />
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="logo" src={youtubeLogo} alt="YouTube Logo" />
+            </a>
+            <a
+              href="https://github.com/marcphilippebeaujean-abertay"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="logo" src={githubLogo} alt="GitHub Logo" />
+            </a>
+            <a
+              href="https://twitter.com/MarcBeaujean"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="logo" src={twitterLogo} alt="Twitter Logo" />
+            </a>
+          </SocialMediaLogoWrapper>
+        </div>
+      </div>
+    </FooterWrapper>
+  )
+}
 
-export default Footer;
+export default Footer

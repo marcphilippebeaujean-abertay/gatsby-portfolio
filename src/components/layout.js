@@ -1,11 +1,10 @@
-import React from "react";
-import Sidebar from "./sidebar";
-import NavMenu from "./navMenu";
-import Footer from "./footer";
-import SEO from "../components/seo";
-import { footerHeight, initContentWidth } from  "../style/layoutStyle";
-import styled, { createGlobalStyle } from "styled-components";
-import CookieBanner from "./cookieBanner";
+import React from "react"
+import Sidebar from "./sidebar"
+import NavMenu from "./navMenu"
+import Footer from "./footer"
+import SEO from "../components/seo"
+import { footerHeight, initContentWidth } from "../style/layoutStyle"
+import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
@@ -46,24 +45,30 @@ export const PageContentStyle = styled.div`
   text-align: justify;
 `
 const Layout = ({ children }) => {
-  console.log(children);
-  return(
+  console.log(children)
+  return (
     <div>
       <div id="main-content-container">
-        <SEO lang="German"
+        <SEO
+          lang="German"
           description="Software development blog"
           meta={[]}
-          title={children.props.pageContext.title === undefined ? 'Error' : children.props.pageContext.title} />
+          title={
+            children.props.pageContext.title === undefined
+              ? "Error"
+              : children.props.pageContext.title
+          }
+        />
         <GlobalStyles />
         <NavMenu />
         <PageContentStyle>
-          { children }
+          {children}
           <Sidebar />
         </PageContentStyle>
       </div>
       <Footer />
-      <CookieBanner />
     </div>
-)}
+  )
+}
 
-export default Layout;
+export default Layout
