@@ -25,10 +25,50 @@ export default () => {
     }
     return false
   }
+  const handleFormChange = e => {
+    const changedElement = e.target
+    const { name, value } = changedElement
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    })
+  }
+  const toggleTermAgreement = e => {
+    const value = !formValues.termAgreement
+    setFormValues({
+      ...formValues,
+      termAgreement: value,
+    })
+  }
+  const inputsValid = () => {
+    let inputsValid = true
+    for (const formName in formValues) {
+      const inputIsValid = isValidInput(formName, formValues[`${formName}`])
+      const elementClassList = document.getElementById(`${formName}-error`)
+        .classList
+      if (inputIsValid) {
+        if (!elementClassList.contains("error-hidden")) {
+          elementClassList.add("error-hidden")
+        }
+      } else {
+        if (elementClassList.contains("error-hidden")) {
+          elementClassList.remove("error-hidden")
+        }
+        inputsValid = false
+      }
+    }
+    return inputsValid
+  }
+  const handleSubmit = e => {
+    if (!inputsValid()) {
+      e.preventDefault()
+      return
+    }
+  }
   return (
     <NewsletterForm
       action="/success/"
-      name="contact"
+      name="newsletter-subscription"
       method="post"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
