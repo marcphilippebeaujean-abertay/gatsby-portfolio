@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 import {
   smallScreenWidth,
@@ -9,14 +10,35 @@ import {
   smallScreenSidePadding,
 } from "./layoutStyle"
 
-export const PageContentWrapper = styled.div`
+export const PageContentWrapper = ({ children }) => (
+  <PageLayoutWrapper>
+    <FigureStylesWrapper>{children}</FigureStylesWrapper>
+  </PageLayoutWrapper>
+)
+
+const PageLayoutWrapper = styled.div`
   /***** Content Layout *****/
   width: ${mainContentWidthPercent}%;
   margin-top: ${navMenuHeight}px;
   padding-right: ${smallScreenSidePadding}px;
+  @media screen and (max-width: ${mediumScreenWidth}px) {
+    width: 100%;
+    overflow: hidden;
+  }
+  @media screen and (max-width: ${initContentWidth}px) {
+    padding: 0px ${smallScreenSidePadding}px !important;
+  }
+  @media screen and (max-width: ${smallScreenWidth}px) {
+    margin-top: ${smallScreenNavHeight}px;
+  }
+`
+
+const FigureStylesWrapper = styled.div`
   figure {
     display: inline-block;
     position: relative;
+    width: 100%;
+    margin: 0;
   }
   figure > img {
     display: block !important;
@@ -28,14 +50,11 @@ export const PageContentWrapper = styled.div`
     text-align: center;
     margin: 0 auto;
   }
-  /***** WordPress Styles *****/
   .image-row-block {
     display: flex;
     margin: 0 auto;
   }
-  .image-block > figure {
-    margin: 0px 30px;
-  }
+
   .image-block img {
     position: relative;
     top: 50%;
@@ -48,15 +67,12 @@ export const PageContentWrapper = styled.div`
     width: 33%;
     text-align: center;
   }
-  @media screen and (max-width: ${mediumScreenWidth}px) {
-    width: 100%;
-    overflow: hidden;
-  }
-  @media screen and (max-width: ${initContentWidth}px) {
-    padding: 0px ${smallScreenSidePadding}px !important;
+  @media screen and (min-width: ${smallScreenWidth}px) {
+    .image-block > figure {
+      margin: 0 30px;
+    }
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
-    margin-top: ${smallScreenNavHeight}px;
     .image-block figcaption {
       display: inherit;
     }
