@@ -14,26 +14,34 @@ export const PageContentWrapper = styled.div`
   width: ${mainContentWidthPercent}%;
   margin-top: ${navMenuHeight}px;
   padding-right: ${smallScreenSidePadding}px;
+  figure {
+    display: inline-block;
+    position: relative;
+  }
   figure > img {
     display: block !important;
     margin: 0 auto;
     max-width: 100%;
     height: auto;
   }
-  figure > figcaption {
+  figcaption {
     text-align: center;
+    margin: 0 auto;
   }
-  /***** Forms *****/
-
   /***** WordPress Styles *****/
   .image-row-block {
     display: flex;
     margin: 0 auto;
   }
-  .image-row-block > figure {
+  .image-block > figure {
     margin: 0px 30px;
   }
-  .wp-block-image figcaption {
+  .image-block img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .image-block figcaption {
     display: none;
   }
   .caption-block > div {
@@ -49,18 +57,21 @@ export const PageContentWrapper = styled.div`
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     margin-top: ${smallScreenNavHeight}px;
-    .wp-block-image figcaption {
+    .image-block figcaption {
       display: inherit;
     }
-    .image-row-block .wp-block-image {
+    .image-block img {
+      position: relative !important;
+      top: 50%;
+      transform: translateY(-50%) !important;
+      height: auto;
       width: 200px;
-      margin: 0 auto;
+    }
+    .image-row-block > figure {
+      height: 150px;
     }
     .image-row-block {
       flex-direction: column;
-    }
-    .image-row-block > figure {
-      margin: 0px;
     }
     .caption-block {
       display: none;
