@@ -96,6 +96,7 @@ export default ({ pageContext }) => {
                 featured_media: {
                   source_url: queriedPost.better_featured_image.source_url,
                 },
+                id: queriedPost.id,
                 title: queriedPost.title.rendered,
                 excerpt: queriedPost.excerpt.rendered,
                 date: DateTime.fromISO(queriedPost.date).toFormat("dd/MM/yyyy"),
