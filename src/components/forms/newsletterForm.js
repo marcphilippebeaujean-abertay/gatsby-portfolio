@@ -27,6 +27,12 @@ export default ({ formTitle }) => {
       data-netlify="true"
       onSubmit={handleSubmit}
     >
+      <p>
+        <b>
+          Fancy becoming a better Developer? Subscribe to the newsletter to get
+          updated on new content!
+        </b>
+      </p>
       <input
         value={formValues.email}
         className="input-field"
@@ -47,7 +53,7 @@ export default ({ formTitle }) => {
         />{" "}
         I agree to and have read the{" "}
         <Link to={`/datenschutzerklarung/`}>Data Policy</Link>. I acknowledge
-        that I can cancel the subscription at any time.
+        that I can cancel the newsletter subscription at any time.
       </p>
       <p id={`${formTitle}-termAgreement-error`} className="error error-hidden">
         Please agree to the terms!
@@ -57,7 +63,7 @@ export default ({ formTitle }) => {
       <input
         className="submit-btn extended-submit-btn"
         type="submit"
-        value="Submit"
+        value="Subscribe"
         name="submit"
       />
     </FormWrapper>

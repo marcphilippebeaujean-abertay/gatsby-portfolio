@@ -56,7 +56,7 @@ export default styled.form`
     width: 100% !important;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
-    #submit-btn {
+    .submit-btn {
       width: 100%;
     }
   }
