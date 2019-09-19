@@ -1,64 +1,11 @@
 import React, { useState } from "react"
-import styled from "styled-components"
-import { mainColour } from "../style/themeStyle"
-import { smallScreenWidth } from "../style/layoutStyle"
+import FormWrapper from "../style/formStyleComponent"
+import {
+  handleFormChange,
+  inputsValid,
+  toggleTermAgreement,
+} from "../utility/formFunctionality"
 import { Link } from "gatsby"
-
-const ContactsForm = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  label {
-    font-weight: bold;
-  }
-  .input-field {
-    padding: 10px 0px;
-    margin-bottom: 5px;
-    font-size: 16px;
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: lightgrey;
-    border-radius: 5px;
-  }
-  .input-field:hover {
-    border-color: lightblue;
-    border-style: solid;
-    box-shadow: 0px;
-  }
-  .error-hidden {
-    display: none;
-  }
-  .error {
-    padding: 0;
-    margin: 0;
-    color: red;
-    transition: all 0.2s;
-  }
-  #checkbox-text {
-    margin: 3px 0px;
-  }
-  #submit-btn {
-    width: 200px;
-    height: 50px;
-    color: ${mainColour};
-    background-color: black;
-    box-shadow: 0px;
-    border-radius: 5px;
-    border-style: solid;
-    font-size: 16px;
-    transition: all 0.3s;
-  }
-  #submit-btn:hover {
-    color: black;
-    background-color: ${mainColour};
-    cursor: pointer;
-  }
-  @media screen and (max-width: ${smallScreenWidth}px) {
-    #submit-btn {
-      width: 100%;
-    }
-  }
-`
 
 export default () => {
   const [formValues, setFormValues] = useState({
@@ -67,65 +14,14 @@ export default () => {
     message: "",
     termAgreement: false,
   })
-  const isValidInput = (fieldName, value) => {
-    switch (fieldName) {
-      case "name":
-        return new RegExp(/(?=.{6,})([A-Z][a-z]+[\s]?){2,}/).test(value)
-      case "email":
-        return new RegExp(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w{2,3}$/).test(
-          value
-        )
-      case "message":
-        return value.length > 10
-      case "termAgreement":
-        return value
-      default:
-        console.log("weird case")
-    }
-    return false
-  }
-  const handleFormChange = e => {
-    const changedElement = e.target
-    const { name, value } = changedElement
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    })
-  }
-  const toggleTermAgreement = e => {
-    const value = !formValues.termAgreement
-    setFormValues({
-      ...formValues,
-      termAgreement: value,
-    })
-  }
-  const inputsValid = () => {
-    let inputsValid = true
-    for (const formName in formValues) {
-      const inputIsValid = isValidInput(formName, formValues[`${formName}`])
-      const elementClassList = document.getElementById(`${formName}-error`)
-        .classList
-      if (inputIsValid) {
-        if (!elementClassList.contains("error-hidden")) {
-          elementClassList.add("error-hidden")
-        }
-      } else {
-        if (elementClassList.contains("error-hidden")) {
-          elementClassList.remove("error-hidden")
-        }
-        inputsValid = false
-      }
-    }
-    return inputsValid
-  }
   const handleSubmit = e => {
-    if (!inputsValid()) {
+    if (!inputsValid(formValues)) {
       e.preventDefault()
       return
     }
   }
   return (
-    <ContactsForm
+    <FormWrapper
       action="/success/"
       name="contact"
       method="post"
@@ -141,7 +37,7 @@ export default () => {
         type="text"
         name="name"
         placeholder="John Smith"
-        onChange={handleFormChange}
+        onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
       <p id="name-error" className="error error-hidden">
         Please enter a valid name!
@@ -154,7 +50,7 @@ export default () => {
         type="email"
         name="email"
         placeholder="example@mail.com"
-        onChange={handleFormChange}
+        onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
       <p id="email-error" className="error error-hidden">
         Please enter a valid email!
@@ -166,7 +62,7 @@ export default () => {
         className="input-field"
         name="message"
         placeholder="Hi Marc, I love your blog!"
-        onChange={handleFormChange}
+        onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
       <p id="message-error" className="error error-hidden">
         Please enter a longer message!
@@ -175,7 +71,7 @@ export default () => {
         <input
           type="checkbox"
           name="termAgreement"
-          onChange={toggleTermAgreement}
+          onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
         />{" "}
         I agree to the Terms and have read the{" "}
         <Link to={`/datenschutzerklarung/`}>Data Policy</Link>, including Cookie
@@ -187,6 +83,6 @@ export default () => {
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
       <input id="submit-btn" type="submit" value="Submit" name="submit" />
-    </ContactsForm>
+    </FormWrapper>
   )
 }

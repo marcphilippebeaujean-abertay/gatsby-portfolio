@@ -1,11 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-
-const NewsletterForm = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`
+import FormWrapper from "../style/formStyleComponent"
 
 export default () => {
   const [formValues, setFormValues] = useState({
@@ -66,7 +61,7 @@ export default () => {
     }
   }
   return (
-    <NewsletterForm
+    <FormWrapper
       action="/success/"
       name="newsletter-subscription"
       method="post"
@@ -83,6 +78,6 @@ export default () => {
         placeholder="example@mail.com"
         onChange={handleFormChange}
       />
-    </NewsletterForm>
+    </FormWrapper>
   )
 }
