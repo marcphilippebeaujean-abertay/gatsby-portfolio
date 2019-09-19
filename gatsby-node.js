@@ -107,7 +107,7 @@ exports.createPages = ({ graphql, actions }) => {
             allWordpressWpBlogpost(sort: { fields: date, order: DESC }) {
               edges {
                 node {
-                  id
+                  wordpress_id
                   slug
                   content
                   date(formatString: "DD/MM/YYYY")
