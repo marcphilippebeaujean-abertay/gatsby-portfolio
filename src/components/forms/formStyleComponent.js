@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { mainColour } from "./themeStyle"
-import { smallScreenWidth } from "./layoutStyle"
+import { mainColour } from "../../style/themeStyle"
+import { smallScreenWidth } from "../../style/layoutStyle"
 
 export default styled.form`
   width: 100%;
@@ -32,10 +32,10 @@ export default styled.form`
     color: red;
     transition: all 0.2s;
   }
-  #checkbox-text {
+  .checkbox-text {
     margin: 3px 0px;
   }
-  #submit-btn {
+  .submit-btn {
     width: 200px;
     height: 50px;
     color: ${mainColour};
@@ -45,11 +45,15 @@ export default styled.form`
     border-style: solid;
     font-size: 16px;
     transition: all 0.3s;
+    margin-bottom: 10px;
   }
-  #submit-btn:hover {
+  .submit-btn:hover {
     color: black;
     background-color: ${mainColour};
     cursor: pointer;
+  }
+  .extended-submit-btn {
+    width: 100% !important;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     #submit-btn {

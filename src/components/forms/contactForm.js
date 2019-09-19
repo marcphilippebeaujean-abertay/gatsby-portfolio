@@ -1,13 +1,13 @@
 import React, { useState } from "react"
-import FormWrapper from "../style/formStyleComponent"
+import FormWrapper from "./formStyleComponent"
 import {
   handleFormChange,
   inputsValid,
   toggleTermAgreement,
-} from "../utility/formFunctionality"
+} from "./formFunctionality"
 import { Link } from "gatsby"
 
-export default () => {
+export default ({ formTitle }) => {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -15,7 +15,7 @@ export default () => {
     termAgreement: false,
   })
   const handleSubmit = e => {
-    if (!inputsValid(formValues)) {
+    if (!inputsValid(formValues, formTitle)) {
       e.preventDefault()
       return
     }
@@ -32,39 +32,36 @@ export default () => {
       <label htmlFor="name">Full Name</label>
       <input
         value={formValues.name}
-        className="input-field"
-        id="form-name"
+        className="input-field form-name"
         type="text"
         name="name"
         placeholder="John Smith"
         onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
-      <p id="name-error" className="error error-hidden">
+      <p id={`${formTitle}-name-error`} className="error error-hidden">
         Please enter a valid name!
       </p>
       <label htmlFor="email">E-Mail</label>
       <input
         value={formValues.email}
-        className="input-field"
-        id="form-email"
+        className="input-field form-email"
         type="email"
         name="email"
         placeholder="example@mail.com"
         onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
-      <p id="email-error" className="error error-hidden">
+      <p id={`${formTitle}-email-error`} className="error error-hidden">
         Please enter a valid email!
       </p>
       <label htmlFor="message">Message</label>
       <textarea
         rows="10"
-        id="form-message"
-        className="input-field"
+        className="form-message input-field"
         name="message"
         placeholder="Hi Marc, I love your blog!"
         onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
-      <p id="message-error" className="error error-hidden">
+      <p id={`${formTitle}-message-error`} className="error error-hidden">
         Please enter a longer message!
       </p>
       <p id="checkbox-text">
@@ -77,12 +74,17 @@ export default () => {
         <Link to={`/datenschutzerklarung/`}>Data Policy</Link>, including Cookie
         Use.
       </p>
-      <p id="termAgreement-error" className="error error-hidden">
+      <p id={`${formTitle}-termAgreement-error`} className="error error-hidden">
         Please agree to the terms!
       </p>
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
-      <input id="submit-btn" type="submit" value="Submit" name="submit" />
+      <input
+        className="submit-btn"
+        type="submit"
+        value="Submit"
+        name="submit"
+      />
     </FormWrapper>
   )
 }

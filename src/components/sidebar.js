@@ -9,6 +9,7 @@ import {
   initContentWidth,
   smallScreenSidePadding,
 } from "../style/layoutStyle"
+import NewsletterForm from "./forms/newsletterForm"
 
 const sidebarWidthPercent = 100 - mainContentWidthPercent
 
@@ -54,6 +55,7 @@ const Sidebar = () => {
   return (
     <SidebarWrapper>
       <div>
+        <NewsletterForm formTitle={"newsletter"} />
         <Img
           fluid={data.personalPic.childImageSharp.fluid}
           alt="Picture of me!"

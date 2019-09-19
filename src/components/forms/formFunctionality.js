@@ -29,12 +29,13 @@ export const toggleTermAgreement = (e, formValues, setFormValues) => {
     termAgreement: value,
   })
 }
-export const inputsValid = formValues => {
+export const inputsValid = (formValues, formTitle) => {
   let inputsValid = true
   for (const formName in formValues) {
     const inputIsValid = isValidInput(formName, formValues[`${formName}`])
-    const elementClassList = document.getElementById(`${formName}-error`)
-      .classList
+    const elementClassList = document.getElementById(
+      `${formTitle}-${formName}-error`
+    ).classList
     if (inputIsValid) {
       if (!elementClassList.contains("error-hidden")) {
         elementClassList.add("error-hidden")
