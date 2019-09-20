@@ -65,10 +65,11 @@ const BannerInformationWrapper = styled.div`
 `
 
 export default props => {
+  console.log(window.localStorage.getItem("cookiesAccepted"))
   const hideBanner = () => {
     const cookieBanner = document.getElementById("banner-wrapper")
     cookieBanner.classList.add("hide")
-    window.localStorage.setItem("cookiesAccepted", true)
+    window.localStorage.setItem("cookiesAccepted", "true")
   }
   return (
     <CookieBannerWrapper
@@ -76,7 +77,11 @@ export default props => {
       id="cookie-banner-container"
     >
       <BannerInformationWrapper
-        className={window.localStorage.getItem("cookiesAccepted") ? "hide" : ""}
+        className={
+          window.localStorage.getItem("cookiesAccepted") === "true"
+            ? "hide"
+            : ""
+        }
         id="banner-wrapper"
       >
         <p>
