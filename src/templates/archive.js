@@ -3,6 +3,7 @@ import { PageContentWrapper } from "../style/pageStyleComponent"
 import { IoIosSearch } from "react-icons/io"
 import { mainColour } from "../style/themeStyle"
 import { DateTime } from "luxon"
+import { inputFieldHeight } from "../components/forms/formStyleComponent"
 import styled from "styled-components"
 import PostPreview from "../components/postPreview"
 import SearchIcon from "../images/search-image.png"
@@ -10,22 +11,37 @@ import ClipLoader from "react-spinners/ClipLoader"
 
 const SearchBar = styled.form`
   width: 100%;
+  height: ${inputFieldHeight}px;
+  margin-bottom: 20px;
   display: flex;
+  -webkit-appearance: none;
+  border-radius: 0;
   #search-btn {
-    height: 39px;
-    width: 50px;
-    background-color: ${mainColour};
-    border: 0;
+    height: ${inputFieldHeight}px;
+    width: 60px;
+    background-color: black;
+    border: 1px solid transparent;
     border-radius: 0px 5px 5px 0px;
+    font-size: 16px;
+  }
+  #search-btn::-moz-focus-inner {
+    border: 0;
   }
   #search-btn:hover {
     cursor: pointer;
+    background-color: ${mainColour};
+    color: black;
+  }
+  #btn-icon {
+    color: ${mainColour};
+  }
+  #search-btn:hover #btn-icon {
+    color: black;
   }
   .input-field {
-    width: 100%;
-    padding: 10px 0px;
-    margin-bottom: 20px;
     font-size: 16px;
+    width: 100%;
+    max-height: ${inputFieldHeight}px;
     border-style: solid;
     border-width: 0.5px;
     border-color: lightgrey;
@@ -49,7 +65,7 @@ const SearchResultWrapper = styled.div`
     justify-content: center;
   }
   #search-icon {
-    width: 200px;
+    width: 150px;
     height: auto;
   }
   .hidden-results {
@@ -131,7 +147,10 @@ export default ({ pageContext }) => {
           placeholder="Search"
         />
         <button id="search-btn">
-          <IoIosSearch size="30px" />
+          <span>
+            {" "}
+            <IoIosSearch id="btn-icon" size="30px" />
+          </span>
         </button>
       </SearchBar>
       <SearchResultWrapper id="search-results">

@@ -2,15 +2,19 @@ import styled from "styled-components"
 import { mainColour } from "../../style/themeStyle"
 import { smallScreenWidth } from "../../style/layoutStyle"
 
+export const inputFieldHeight = 40
+
 export default styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+  text-justify: none;
   label {
     font-weight: bold;
   }
   .input-field {
-    padding: 10px 0px;
+    /*padding: ${inputFieldHeight}px 0px;*/
+    height: ${inputFieldHeight}px;
     margin-bottom: 5px;
     font-size: 16px;
     border-style: solid;
@@ -23,6 +27,9 @@ export default styled.form`
     border-style: solid;
     box-shadow: 0px;
   }
+  textarea {
+    height: 150px !important;
+  }
   .error-hidden {
     display: none;
   }
@@ -32,17 +39,16 @@ export default styled.form`
     color: red;
     transition: all 0.2s;
   }
-  .checkbox-text {
-    margin: 3px 0px;
+  #checkbox-text {
+    margin: 5px !important;
   }
   .submit-btn {
     width: 200px;
     height: 50px;
     color: ${mainColour};
     background-color: black;
-    box-shadow: 0px;
-    border-radius: 5px;
-    border-style: solid;
+    border: 0;
+    border-radius: 5px 5px 5px 5px;
     font-size: 16px;
     transition: all 0.3s;
     margin-bottom: 10px;
