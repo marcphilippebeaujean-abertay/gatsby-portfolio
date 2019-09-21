@@ -42,7 +42,10 @@ export const PageContentStyle = styled.div`
   margin: 0 auto;
   max-width: ${initContentWidth}px;
   padding-bottom: ${footerHeight}px;
-  text-align: justify;
+  p,
+  li {
+    text-align: justify;
+  }
 `
 const Layout = ({ children }) => {
   console.log(children)

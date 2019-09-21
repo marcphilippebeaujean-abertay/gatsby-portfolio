@@ -7,6 +7,7 @@ import { window, document } from "browser-monads"
 
 const CookieBannerWrapper = styled.div`
   width: 100%;
+  text-justify: none;
   height: auto;
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.9);
@@ -27,9 +28,10 @@ const CookieBannerWrapper = styled.div`
     align-self: center;
     width: 100px;
     height: 40px;
-    color: black;
-    background-color: ${mainColour};
+    color: ${mainColour};
+    background-color: rgba(0, 0, 0, 0.9);
     box-shadow: 0px;
+    border-color: ${mainColour};
     border-radius: 5px;
     border-style: solid;
     font-size: 16px;
@@ -37,6 +39,8 @@ const CookieBannerWrapper = styled.div`
   }
   #submit-btn:hover {
     cursor: pointer;
+    color: black;
+    background-color: ${mainColour};
   }
   .hide {
     display: none;
@@ -84,11 +88,12 @@ export default props => {
         id="banner-wrapper"
       >
         <p>
-          This website uses cookies! Please read the{" "}
+          This website uses cookies! By using this website, you are agreeing to
+          the terms - please read the{" "}
           <Link to={`/datenschutzerklarung/`}>Data Policy</Link> for more
           information.
         </p>
-        <button id="submit-btn">Ok</button>
+        <button id="submit-btn">Got It!</button>
       </BannerInformationWrapper>
     </CookieBannerWrapper>
   )
