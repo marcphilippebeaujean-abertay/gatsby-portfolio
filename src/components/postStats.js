@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { IoIosCalendar, IoIosPricetag } from "react-icons/io"
 import { FaComment } from "react-icons/fa"
 import { CommentCount } from "gatsby-plugin-disqus"
+import { Link } from "gatsby"
 import { smallScreenWidth } from "../style/layoutStyle"
 
 const disqusConfig = postId => {
@@ -19,6 +20,13 @@ const PostStatsStyle = styled.div`
     border-radius: 5px;
     margin-right: 5px;
     padding: 5px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .tag:hover {
+    background-color: darkblue;
+    color: white;
   }
   .post-info-row {
     margin: 5px 0 !important;
@@ -45,9 +53,12 @@ export default ({ post }) => {
         <IoIosPricetag size={32} className="post-attribute-icon" />
         <span className="post-info-text">
           {post.tags.map(tag => (
-            <span key={`tag_${tag.name}`} className="tag">
-              {tag.name}
-            </span>
+            <Link
+              to={`/${tag.name.replace(/ /g, "-")}`}
+              key={`tag_${tag.name}`}
+            >
+              <span className="tag">{tag.name}</span>
+            </Link>
           ))}
         </span>
         <br />

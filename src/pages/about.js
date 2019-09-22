@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { smallScreenWidth } from "../style/layoutStyle"
+import SoftwareDevLogo from "../images/software-dev-icon.png"
 import styled from "styled-components"
 
 const FigureStylesWrapper = styled.div`
@@ -19,7 +20,7 @@ const FigureStylesWrapper = styled.div`
     display: none;
   }
   .caption-block > div {
-    width: 33%;
+    width: 25%;
     text-align: center;
   }
   @media screen and (min-width: ${smallScreenWidth}px) {
@@ -65,12 +66,12 @@ export default ({ pageContext }) => {
         was also fortunate enough to be awarded with the John Wilson award for
         academic excellence.
       </p>
-      <div class="wp-block-image">
-        <figure class="aligncenter">
+      <div className="wp-block-image">
+        <figure className="aligncenter">
           <img
             src="https://wp.jdit.eu/wp-content/uploads/2019/09/graduation_photo_resized-1.jpg"
             alt=""
-            class="wp-image-186"
+            className="wp-image-186"
           />
           <figcaption>Graduation in-front of Caird Hall, Dundee</figcaption>
         </figure>
@@ -83,12 +84,12 @@ export default ({ pageContext }) => {
         graduating from the course, I began my career as a fullstack software
         developer, working for a consultancy called 7Principles.{" "}
       </p>
-      <div class="wp-block-image">
-        <figure class="aligncenter">
+      <div className="wp-block-image">
+        <figure className="aligncenter">
           <img
             src="https://wp.jdit.eu/wp-content/uploads/2019/09/IMG_5915_reduced_size-1.jpg"
             alt=""
-            class="wp-image-182"
+            className="wp-image-182"
           />
           <figcaption>
             AcademicWork software development class of 2019
@@ -105,33 +106,40 @@ export default ({ pageContext }) => {
         range of topics, you can find a quick overview here:
       </p>
       <FigureStylesWrapper>
-        <div class="image-block image-row-block">
-          <figure class="wp-block-image">
+        <div className="image-block image-row-block">
+          <figure className="wp-block-image">
+            <img src={SoftwareDevLogo} alt="jdit icon" />
+          </figure>
+          <figcaption>Software Development</figcaption>
+          <figure className="wp-block-image">
             <img
               src="https://wp.jdit.eu/wp-content/uploads/2019/09/handshake-icon-1024x784.png"
               alt="handshake icon"
-              class="wp-image-213"
+              className="wp-image-213"
             />
           </figure>
           <figcaption>Softskills</figcaption>
-          <figure class="wp-block-image">
+          <figure className="wp-block-image">
             <img
               src="https://wp.jdit.eu/wp-content/uploads/2019/09/dev-ops-1-1024x724.png"
               alt="dev ops icon"
-              class="wp-image-2090"
+              className="wp-image-2090"
             />
           </figure>
           <figcaption>Developer Operations</figcaption>
-          <figure class="wp-block-image">
+          <figure className="wp-block-image">
             <img
               src="https://wp.jdit.eu/wp-content/uploads/2019/09/game-development-5.png"
               alt="game dev icon"
-              class="wp-image-233"
+              className="wp-image-233"
             />
           </figure>
           <figcaption>Game Development</figcaption>
         </div>
         <div class="caption-block image-row-block">
+          <div>
+            <figcaption>Software Development</figcaption>
+          </div>
           <div>
             <figcaption>Softskills</figcaption>
           </div>

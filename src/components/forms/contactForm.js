@@ -70,9 +70,8 @@ export default ({ formTitle }) => {
           name="termAgreement"
           onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
         />{" "}
-        I agree to the Terms and have read the{" "}
-        <Link to={`/datenschutzerklarung/`}>Data Policy</Link>, including Cookie
-        Use.
+        I agree to the terms and have read the{" "}
+        <Link to={`/datenschutzerklarung/`}>Data Policy</Link>.
       </p>
       <p id={`${formTitle}-termAgreement-error`} className="error error-hidden">
         Please agree to the terms!

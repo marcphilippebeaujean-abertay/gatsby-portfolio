@@ -127,15 +127,42 @@ exports.createPages = ({ graphql, actions }) => {
               },
             })
           })
+          const uniqueTagNames = []
           // We want to create a detailed page for each
           // post node. We'll just use the WordPress Slug for the slug.
           // The Post ID is prefixed with 'POST_'
           const postTemplate = path.resolve("./src/templates/post.js")
           _.each(posts, edge => {
+            _.each(edge.node.tags, tag => {
+              if (!uniqueTagNames.includes(tag.name)) {
+                uniqueTagNames.push(tag.name)
+              }
+            })
             createPage({
               path: `/post/${edge.node.slug}/`,
               component: slash(postTemplate),
               context: edge.node,
+            })
+          })
+          /** Create pages for tags */
+          const tagPageTemplate = path.resolve("./src/templates/tagPage.js")
+          _.each(uniqueTagNames, tagName => {
+            postsForTag = []
+            _.each(posts, edge => {
+              _.each(edge.node.tags, tag => {
+                if (tag.name === tagName) {
+                  postsForTag.push(edge)
+                }
+              })
+            })
+            const tagUrlSlug = `/${tagName.replace(/ /g, "-")}/`
+            createPage({
+              component: tagPageTemplate,
+              path: tagUrlSlug,
+              context: {
+                posts: postsForTag,
+                title: `#${tagName}`,
+              },
             })
           })
           resolve()
