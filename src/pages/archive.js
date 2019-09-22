@@ -1,12 +1,15 @@
 import React, { useState } from "react"
+import { Helmet } from "react-helmet"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { IoIosSearch } from "react-icons/io"
 import { mainColour } from "../style/themeStyle"
 import { DateTime } from "luxon"
 import { inputFieldHeight } from "../components/forms/formStyleComponent"
+import { graphql, useStaticQuery } from "gatsby"
+
+import Img from "gatsby-image/withIEPolyfill"
 import styled from "styled-components"
 import PostPreview from "../components/postPreview"
-import SearchIcon from "../images/search-image.png"
 import ClipLoader from "react-spinners/ClipLoader"
 
 const SearchBar = styled.form`
@@ -61,12 +64,12 @@ const SearchResultWrapper = styled.div`
   }
   #no-post-found-container {
     width: 100%;
-    display: flex;
     justify-content: center;
   }
-  #search-icon {
+  #search-icon-wrapper {
     width: 150px;
     height: auto;
+    margin: 0 auto;
   }
   .hidden-results {
     display: none !important;
@@ -132,10 +135,22 @@ export default ({ pageContext }) => {
       })
       .catch(e => console.error(e))
   }
+  const data = useStaticQuery(graphql`
+    query {
+      searchIcon: file(relativePath: { eq: "search-image.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   const handleInputChange = e => setSearchTerm(e.target.value)
   return (
     <PageContentWrapper>
-      <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
+      <Helmet title="Archive" />
+      <h1>Archive</h1>
       <SearchBar onSubmit={searchForPost}>
         <input
           className="input-field"
@@ -156,12 +171,11 @@ export default ({ pageContext }) => {
       <SearchResultWrapper id="search-results">
         <div id="results-container">
           {foundPost.length === 0 ? (
-            <div>
-              <div id="no-post-found-container">
-                <img
-                  id="search-icon"
-                  src={SearchIcon}
-                  alt="search icon for no search found"
+            <div id="no-post-found-container">
+              <div id="search-icon-wrapper">
+                <Img
+                  fluid={data.searchIcon.childImageSharp.fluid}
+                  alt="Search icon for no search found"
                 />
               </div>
               <h2 style={{ textAlign: `center` }}>

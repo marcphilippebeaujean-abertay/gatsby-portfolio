@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import Img from "gatsby-image/withIEPolyfill"
 import { graphql, useStaticQuery } from "gatsby"
@@ -31,7 +32,8 @@ export default ({ pageContext }) => {
   `)
   return (
     <PageContentWrapper>
-      <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
+      <Helmet title="Success" />
+      <h1>Success</h1>
       <MessageWrapper>
         <ImageContainer>
           <Img

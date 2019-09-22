@@ -48,7 +48,6 @@ export const PageContentStyle = styled.div`
   }
 `
 const Layout = ({ children }) => {
-  console.log(children)
   return (
     <div>
       <div id="main-content-container">
