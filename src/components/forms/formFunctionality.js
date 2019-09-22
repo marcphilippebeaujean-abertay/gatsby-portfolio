@@ -1,7 +1,7 @@
 const isValidInput = (fieldName, value) => {
   switch (fieldName) {
     case "name":
-      return new RegExp(/(?=.{6,})([A-Z][a-z]+[\s]?){2,}/).test(value)
+      return true
     case "email":
       return new RegExp(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w{2,3}$/).test(value)
     case "message":
