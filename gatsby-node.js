@@ -117,17 +117,15 @@ exports.createPages = ({ graphql, actions }) => {
               },
             })
           })
-          const tagPostMap = new Map()
+          const uniqueTagNames = []
           // We want to create a detailed page for each
           // post node. We'll just use the WordPress Slug for the slug.
           // The Post ID is prefixed with 'POST_'
           const postTemplate = path.resolve("./src/templates/post.js")
           _.each(posts, edge => {
             _.each(edge.node.tags, tag => {
-              if (tagPostMap.has(tag.name)) {
-                tagPostMap.get(tag.name).push(edge)
-              } else {
-                tagPostMap.set(tag.name, [edge])
+              if (!uniqueTagNames.includes(tag.name)) {
+                uniqueTagNames.push(tag.name)
               }
             })
             createPage({
@@ -138,17 +136,25 @@ exports.createPages = ({ graphql, actions }) => {
           })
           /** Create pages for tags */
           const tagPageTemplate = path.resolve("./src/templates/tagPage.js")
-          for (let [tagName, posts] of tagPostMap.keys()) {
+          _.each(uniqueTagNames, tagName => {
+            postsForTag = []
+            _.each(posts, edge => {
+              _.each(edge.node.tags, tag => {
+                if (tag.name === tagName) {
+                  postsForTag.push(edge)
+                }
+              })
+            })
             const tagUrlSlug = `/${tagName.replace(/ /g, "-")}/`
             createPage({
               component: tagPageTemplate,
               path: tagUrlSlug,
               context: {
-                posts: posts,
+                posts: postsForTag,
                 title: `#${tagName}`,
               },
             })
-          }
+          })
           resolve()
         })
       })

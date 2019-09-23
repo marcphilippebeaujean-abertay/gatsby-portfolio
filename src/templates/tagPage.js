@@ -9,8 +9,8 @@ export default ({ pageContext }) => {
         style={{ marginBottom: `0px` }}
         dangerouslySetInnerHTML={{ __html: pageContext.title }}
       />
-      {pageContext.posts.map(post => (
-        <PostPreview post={post.node} key={post.node.title} />
+      {pageContext.posts.map(edge => (
+        <PostPreview post={edge.node} key={edge.node.title} />
       ))}
     </PageContentWrapper>
   )
