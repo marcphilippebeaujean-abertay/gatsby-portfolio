@@ -109,7 +109,11 @@ const HamburgerButton = props => {
               key={item.object_slug + "_key"}
               to={`/${item.object_slug}`}
               onClick={toggleOverlay}
-              selected={item.object_slug === getCurrentUrlPathname(document)}
+              selected={
+                item.object_slug === getCurrentUrlPathname(document) ||
+                (item.object_slug === "blog" &&
+                  getCurrentUrlPathname(document) === "")
+              }
             >
               {item.title}
             </OverlayLink>
