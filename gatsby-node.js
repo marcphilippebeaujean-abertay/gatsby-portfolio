@@ -10,6 +10,12 @@ const slash = require(`slash`)
 // Will create pages for WordPress posts (route : /post/{slug})
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
+  createRedirect({
+    fromPath: "/blog",
+    toPath: "/blog/1",
+    redirectInBrowser: true,
+    isPermanent: true,
+  })
   return new Promise((resolve, reject) => {
     // The “graphql” function allows us to run arbitrary
     // queries against the local WordPress graphql schema. Think of
