@@ -10,24 +10,6 @@ const slash = require(`slash`)
 // Will create pages for WordPress posts (route : /post/{slug})
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
-  createRedirect({
-    fromPath: "",
-    toPath: "/blog/1",
-    redirectInBrowser: true,
-    isPermanent: true,
-  })
-  createRedirect({
-    fromPath: "/",
-    toPath: "/blog/1",
-    redirectInBrowser: true,
-    isPermanent: true,
-  })
-  createRedirect({
-    fromPath: "/blog",
-    toPath: "/blog/1",
-    redirectInBrowser: true,
-    isPermanent: true,
-  })
   return new Promise((resolve, reject) => {
     // The “graphql” function allows us to run arbitrary
     // queries against the local WordPress graphql schema. Think of
@@ -59,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Create Page pages.
         const pageTemplate = path.resolve("./src/templates/page.js")
         // We want to create a detailed page for each
-        // page node. We'll just use the WordPress Slug for the slug.
+        // page node. We'll just use the WordPress slug for the slug.
         // The Page ID is prefixed with 'PAGE_'
         _.each(result.data.allWordpressPage.edges, edge => {
           // Gatsby uses Redux to manage its internal state.
@@ -110,8 +92,16 @@ exports.createPages = ({ graphql, actions }) => {
           const postsPerPage = 5
           const numberOfPages = Math.ceil(posts.length / postsPerPage)
           const blogTemplate = path.resolve(
-            "./src/templates/blogDisplayPage.js"
+            "./src/templates/blogInfiniteScroll.js"
           )
+          createPage({
+            component: blogTemplate,
+            path: `/`,
+            context: {
+              posts: posts.slice(0, postsPerPage),
+              title: `Blog`,
+            },
+          })
           Array.from({ length: numberOfPages }).forEach((page, index) => {
             createPage({
               component: blogTemplate,
