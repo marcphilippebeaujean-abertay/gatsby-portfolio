@@ -43,6 +43,9 @@ const FooterWrapper = styled.footer`
     width: ${initContentWidth}px;
     margin: 0 auto;
   }
+  #footer-container-right {
+    text-align: right;
+  }
   @media screen and (max-width: ${initContentWidth}px) {
     .footer-container {
       width: 100%;
@@ -50,12 +53,15 @@ const FooterWrapper = styled.footer`
     #footer-links-container {
       width: 100%;
     }
+    #footer-container-right {
+      justify-content: center;
+      text-align: center;
+    }
   }
 
   @media screen and (max-width: ${smallScreenWidth}px) {
     flex-direction: column;
     .footer-container {
-      width: 100%;
       padding: 0px;
       text-align: center !important;
     }
@@ -77,12 +83,12 @@ const FooterLink = styled(Link)`
 
 const SocialMediaLogoWrapper = styled.div`
   display: flex;
-  position: relative;
-  padding: 10px;
-  left: -20px;
+  padding: 5px 0;
+  justify-content: flex-end;
+  background-color: black;
   .logo {
     background-color: white;
-    margin: 0px 20px;
+    margin: 0px 0px 0 40px;
     height: 30px;
     width: 30px;
     transition: ease 0.2s;
@@ -91,6 +97,9 @@ const SocialMediaLogoWrapper = styled.div`
     background-color: ${mainColour};
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
+    .logo {
+      margin: 0px 20px;
+    }
     justify-content: center;
     left: 0px;
   }
@@ -134,11 +143,10 @@ const Footer = () => {
             )
           )}
         </div>
-        <div className="footer-container">
+        <div className="footer-container" id="footer-container-right">
           <p>
             <b>Contact</b>
           </p>
-          <p className="contacts-entry">Marc Philippe Beaujean</p>
           <p className="contacts-entry">marcphilippebeaujean@gmail.com</p>
           <SocialMediaLogoWrapper>
             <a
