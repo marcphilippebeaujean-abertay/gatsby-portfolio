@@ -39,7 +39,7 @@ export default ({ formTitle }) => {
         onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
       <p id={`${formTitle}-name-error`} className="error error-hidden">
-        Please enter a valid name!
+        Please enter a longer name!
       </p>
       <label htmlFor="email">E-Mail</label>
       <input
