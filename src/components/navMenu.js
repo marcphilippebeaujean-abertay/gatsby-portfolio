@@ -76,7 +76,6 @@ const NavMenu = () => {
       }
     }
   `)
-  console.log(data)
   useEffect(() => {
     const currentUrl =
       getCurrentUrlPathname(document) !== ""
