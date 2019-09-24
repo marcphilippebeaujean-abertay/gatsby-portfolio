@@ -1,9 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { mainColour } from "../style/themeStyle"
 import { smallScreenWidth, initContentWidth } from "../style/layoutStyle"
-import { window, document } from "browser-monads"
 
 const CookieBannerWrapper = styled.div`
   width: 100%;
@@ -69,8 +68,14 @@ const BannerInformationWrapper = styled.div`
 `
 const cookieBannerStorageKey = "cookiesAccepted"
 export default props => {
-  console.log(window.localStorage.getItem(cookieBannerStorageKey))
+  useEffect(() => {
+    if (window.localStorage.getItem(cookieBannerStorageKey) !== "true") {
+      let banner = document.getElementById("banner-wrapper")
+      banner.classList.remove("hide")
+    }
+  })
   const hideBanner = () => {
+    if (!window) return
     const cookieBanner = document.getElementById("banner-wrapper")
     cookieBanner.classList.add("hide")
     window.localStorage.setItem(cookieBannerStorageKey, "true")
@@ -80,14 +85,7 @@ export default props => {
       onClick={() => hideBanner()}
       id="cookie-banner-container"
     >
-      <BannerInformationWrapper
-        className={
-          window.localStorage.getItem(cookieBannerStorageKey) === "true"
-            ? "hide"
-            : ""
-        }
-        id="banner-wrapper"
-      >
+      <BannerInformationWrapper className="hide" id="banner-wrapper">
         <p>
           This website uses cookies! By using this website, you are agreeing to
           the terms - please read the{" "}
