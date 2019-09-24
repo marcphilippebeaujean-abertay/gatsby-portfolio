@@ -29,7 +29,7 @@ const CookieBannerWrapper = styled.div`
     width: 100px;
     height: 40px;
     color: ${mainColour};
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0);
     box-shadow: 0px;
     border-color: ${mainColour};
     border-radius: 5px;
@@ -67,12 +67,13 @@ const BannerInformationWrapper = styled.div`
     }
   }
 `
-
+const cookieBannerStorageKey = "cookiesAccepted"
 export default props => {
+  console.log(window.localStorage.getItem(cookieBannerStorageKey))
   const hideBanner = () => {
     const cookieBanner = document.getElementById("banner-wrapper")
     cookieBanner.classList.add("hide")
-    window.localStorage.setItem("cookiesAccepted", "true")
+    window.localStorage.setItem(cookieBannerStorageKey, "true")
   }
   return (
     <CookieBannerWrapper
@@ -81,7 +82,7 @@ export default props => {
     >
       <BannerInformationWrapper
         className={
-          window.localStorage.getItem("cookiesAccepted") === "true"
+          window.localStorage.getItem(cookieBannerStorageKey) === "true"
             ? "hide"
             : ""
         }
