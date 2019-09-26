@@ -136,7 +136,7 @@ export default ({ pageContext }) => {
           </figure>
           <figcaption>Game Development</figcaption>
         </div>
-        <div class="caption-block image-row-block">
+        <div className="caption-block image-row-block">
           <div>
             <figcaption>Software Development</figcaption>
           </div>

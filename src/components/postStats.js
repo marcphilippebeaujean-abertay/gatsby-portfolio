@@ -19,10 +19,12 @@ const PostStatsStyle = styled.div`
     background-color: lightblue;
     border-radius: 5px;
     margin-right: 5px;
-    padding: 5px;
+    padding: 3px;
   }
   a {
     text-decoration: none;
+    position: relative;
+    padding: 10px 0px;
   }
   .tag:hover {
     background-color: darkblue;
@@ -34,7 +36,12 @@ const PostStatsStyle = styled.div`
   .post-info-text {
     position: relative;
     bottom: 8.5px;
-    margin: 0px 10px;
+    line-height: 10px;
+    margin: 5px 15px;
+  }
+  .tag-wrapper {
+    display: inline-block;
+    margin: 10px 0px;
   }
   @media screen and (min-width: ${smallScreenWidth}px) {
     br {
@@ -53,12 +60,11 @@ export default ({ post }) => {
         <IoIosPricetag size={32} className="post-attribute-icon" />
         <span className="post-info-text">
           {post.tags.map(tag => (
-            <Link
-              to={`/${tag.name.replace(/ /g, "-")}`}
-              key={`tag_${tag.name}`}
-            >
-              <span className="tag">{tag.name}</span>
-            </Link>
+            <span className="tag-wrapper" key={`tag_${tag.name}`}>
+              <Link to={`/${tag.name.replace(/ /g, "-")}`}>
+                <span className="tag">{tag.name}</span>
+              </Link>
+            </span>
           ))}
         </span>
         <br />
