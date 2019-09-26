@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import {
   smallScreenWidth,
@@ -68,6 +68,13 @@ const HamburgerMenu = styled.div`
     width: 100vw;
     height: 100vh;
   }
+  .selected {
+    color: black !important;
+    background-color: ${mainColour} !important;
+  }
+  .selected:hover {
+    cursor: default !important;
+  }
 `
 
 const OverlayLink = styled(Link)`
@@ -95,6 +102,22 @@ const HamburgerButton = props => {
     overlayElement.classList.toggle(`overlay-active`)
     setOverlayActive(!overlayActive)
   }
+  useEffect(() => {
+    const currentUrl =
+      getCurrentUrlPathname(document) !== ""
+        ? getCurrentUrlPathname(document)
+        : "blog"
+    const currentSelected = Array.from(
+      document.getElementsByClassName("selected")
+    )
+    const newSelectedObject = Array.from(
+      document.getElementsByClassName(currentUrl)
+    )
+    if (currentSelected.length > 0)
+      currentSelected.map(obj => obj.classList.remove("selected"))
+    if (newSelectedObject.length > 0)
+      newSelectedObject.map(obj => obj.classList.add("selected"))
+  })
   return (
     <HamburgerMenu>
       <NavigationIcon onClick={toggleOverlay}>
@@ -109,11 +132,7 @@ const HamburgerButton = props => {
               key={item.object_slug + "_key"}
               to={item.object_slug === "blog" ? "/" : `/${item.object_slug}`}
               onClick={toggleOverlay}
-              selected={
-                item.object_slug === getCurrentUrlPathname(document) ||
-                (item.object_slug === "blog" &&
-                  getCurrentUrlPathname(document) === "")
-              }
+              className={item.object_slug}
             >
               {item.title}
             </OverlayLink>
