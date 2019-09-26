@@ -48,7 +48,7 @@ const Sidebar = () => {
           data-height="400"
           href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
         >
-          Tweets by MarcBeaujean
+          Tweets by @MarcBeaujean
         </a>{" "}
         <script
           async

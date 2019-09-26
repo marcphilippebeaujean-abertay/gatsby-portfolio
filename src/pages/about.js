@@ -65,7 +65,7 @@ export default ({ pageContext }) => {
     {
       gradPhoto: file(relativePath: { eq: "graduation_photo_resized.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
