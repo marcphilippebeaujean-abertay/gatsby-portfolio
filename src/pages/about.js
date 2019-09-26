@@ -5,7 +5,6 @@ import { smallScreenWidth } from "../style/layoutStyle"
 import { graphql, useStaticQuery } from "gatsby"
 
 import Img from "gatsby-image/withIEPolyfill"
-
 import SoftwareDevLogo from "../images/software-dev-icon.png"
 import styled from "styled-components"
 
@@ -14,7 +13,6 @@ const FigureStylesWrapper = styled.div`
     display: flex;
     margin: 0 auto;
   }
-
   .image-block img {
     position: relative;
     top: 50%;
@@ -55,7 +53,32 @@ const FigureStylesWrapper = styled.div`
   }
 `
 
+const GatsbyImgWrapper = styled.div`
+  max-width: ${props => props.maxWidth};
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+`
+
 export default ({ pageContext }) => {
+  const data = useStaticQuery(graphql`
+    {
+      gradPhoto: file(relativePath: { eq: "graduation_photo_resized.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      academyPhoto: file(relativePath: { eq: "academy.JPG" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   return (
     <PageContentWrapper>
       <Helmet title="About" />
@@ -70,16 +93,15 @@ export default ({ pageContext }) => {
         was also fortunate enough to be awarded with the John Wilson award for
         academic excellence.
       </p>
-      <div className="wp-block-image">
-        <figure className="aligncenter">
-          <img
-            src="https://wp.jdit.eu/wp-content/uploads/2019/09/graduation_photo_resized-1.jpg"
-            alt=""
-            className="wp-image-186"
-          />
-          <figcaption>Graduation in-front of Caird Hall, Dundee</figcaption>
-        </figure>
-      </div>
+      <GatsbyImgWrapper maxWidth={`300px`}>
+        <Img
+          fluid={data.gradPhoto.childImageSharp.fluid}
+          alt="Graduation photo from Abertay University"
+          className="wp-image-186"
+        />
+      </GatsbyImgWrapper>
+
+      <figcaption>Graduation in-front of Caird Hall, Dundee</figcaption>
       <p>
         Upon moving back to Germany, I realized that I had different ambitions
         than when I had began my studies. I decided to pursue a career in
@@ -88,18 +110,14 @@ export default ({ pageContext }) => {
         graduating from the course, I began my career as a fullstack software
         developer, working for a consultancy called 7Principles.{" "}
       </p>
-      <div className="wp-block-image">
-        <figure className="aligncenter">
-          <img
-            src="https://wp.jdit.eu/wp-content/uploads/2019/09/IMG_5915_reduced_size-1.jpg"
-            alt=""
-            className="wp-image-182"
-          />
-          <figcaption>
-            AcademicWork software development class of 2019
-          </figcaption>
-        </figure>
-      </div>
+      <GatsbyImgWrapper maxWidth={`500px`}>
+        <Img
+          fluid={data.academyPhoto.childImageSharp.fluid}
+          alt="Graduation photo from Abertay University"
+          className="wp-image-186"
+        />
+        <figcaption>AcademicWork software development class of 2019</figcaption>
+      </GatsbyImgWrapper>
       <h2>About the Blog</h2>
       <p>
         <strong>&lt;JustDoIT /&gt;</strong> is a passion project that originated

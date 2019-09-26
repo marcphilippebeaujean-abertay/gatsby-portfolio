@@ -53,10 +53,6 @@ const FooterWrapper = styled.footer`
     #footer-links-container {
       width: 100%;
     }
-    #footer-container-right {
-      justify-content: center;
-      text-align: center;
-    }
   }
 
   @media screen and (max-width: ${smallScreenWidth}px) {
