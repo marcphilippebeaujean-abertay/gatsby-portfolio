@@ -2,6 +2,10 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { smallScreenWidth } from "../style/layoutStyle"
+import { graphql, useStaticQuery } from "gatsby"
+
+import Img from "gatsby-image/withIEPolyfill"
+
 import SoftwareDevLogo from "../images/software-dev-icon.png"
 import styled from "styled-components"
 
