@@ -27,26 +27,16 @@ const PostPreviewWrapper = styled.div`
   h2 {
     margin-bottom: 0;
   }
-  .excerpt-text {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
 
   .in-text-thumbnail {
-    display: none;
+    display: inherit;
+    float: left;
+    width: 200px;
+    height: auto;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
-    .thumbnail {
-      display: none;
-    }
     .in-text-thumbnail {
-      display: inherit;
-      float: left;
       width: 100px;
-      height: auto;
     }
     .excerpt-text {
       position: static;
@@ -62,11 +52,6 @@ const PostPreview = props => {
       <h2 dangerouslySetInnerHTML={{ __html: props.post.title }} />
       <PostStats post={props.post} />
       <div className="image-excerpt-container">
-        <img
-          className="thumbnail"
-          src={props.post.featured_media.source_url}
-          alt="Thumbnail"
-        />
         <div>
           <div className="excerpt-text">
             <img
