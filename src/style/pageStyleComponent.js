@@ -39,5 +39,6 @@ export const PageContentWrapper = styled.div`
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     margin-top: ${smallScreenNavHeight}px;
+    margin-bottom: 10px;
   }
 `
