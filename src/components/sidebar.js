@@ -41,17 +41,21 @@ const SidebarWrapper = styled.aside`
 const Sidebar = () => {
   return (
     <SidebarWrapper>
-      <a
-        class="twitter-timeline"
-        href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
-      >
-        Tweets by MarcBeaujean
-      </a>{" "}
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
-      ></script>
+      <div>
+        <a
+          class="twitter-timeline"
+          data-width="500"
+          data-height="400"
+          href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
+        >
+          Tweets by MarcBeaujean
+        </a>{" "}
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script>
+      </div>
       <div>
         <NewsletterForm formTitle={"newsletter"} />
       </div>
