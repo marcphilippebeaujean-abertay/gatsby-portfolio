@@ -7,8 +7,9 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import {Helmet} from "react-helmet"
+import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import ogLogo from "../images/jdit-icon"
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -64,6 +65,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: "og:image",
+          content: { ogLogo },
         },
       ].concat(meta)}
     />

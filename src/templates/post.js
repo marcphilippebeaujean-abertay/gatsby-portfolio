@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { Helmet } from "react-helmet"
 import Prism from "prismjs"
 import "../style/prism.css"
 import { PageContentWrapper } from "../style/pageStyleComponent"
@@ -14,6 +15,12 @@ export default ({ pageContext }) => {
   useEffect(() => Prism.highlightAll())
   return (
     <PageContentWrapper>
+      <Helmet>
+        <meta
+          property="og:image"
+          content={pageContext.featured_media.source_url}
+        />
+      </Helmet>
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <PostStats post={pageContext} />
       <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
