@@ -44,7 +44,7 @@ const Sidebar = () => {
       <div>
         <a
           class="twitter-timeline"
-          data-height="300"
+          data-height="500"
           href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
         >
           Tweets by MarcBeaujean

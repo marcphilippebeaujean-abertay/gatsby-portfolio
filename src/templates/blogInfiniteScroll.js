@@ -4,7 +4,7 @@ import PostPreview from "../components/postPreview"
 
 export default ({ pageContext }) => {
   return (
-    <PageContentWrapper>
+    <PageContentWrapper id="post-feed">
       <h1
         style={{ marginBottom: `0px` }}
         dangerouslySetInnerHTML={{ __html: pageContext.title }}
