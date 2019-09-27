@@ -17,7 +17,7 @@ const SidebarWrapper = styled.aside`
   margin-left: calc(${mainContentWidthPercent}% + ${smallScreenSidePadding}px);
   width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding}px);
   animation: fade-in 1s;
-  top: ${navMenuHeight}px;
+  top: ${navMenuHeight - 30}px;
   @media screen and (max-width: ${initContentWidth}px) {
     padding: 0 0 0 ${smallScreenSidePadding * 3}px;
     margin-left: calc(
@@ -44,10 +44,8 @@ const Sidebar = () => {
       <div>
         <a
           class="twitter-timeline"
-          data-width="500"
-          data-height="400"
+          data-height="300"
           href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
-          style={{ display: `None` }}
         >
           Tweets by MarcBeaujean
         </a>{" "}

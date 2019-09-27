@@ -15,7 +15,7 @@ import styled from "styled-components"
 import Logo from "./logo"
 
 const MainMenuWrapper = styled.nav`
-  z-index: 1;
+  z-index: 3;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -60,6 +60,17 @@ const MainMenuWrapper = styled.nav`
   position: fixed;
 `
 
+const TopCoverupDiv = styled.div`
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  height: ${navMenuHeight}px;
+  @media screen and (max-width: ${smallScreenWidth}px) {
+    display: none;
+  }
+`
+
 const NavMenu = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -95,25 +106,29 @@ const NavMenu = () => {
   const menuPartitions =
     data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length + 1
   return (
-    <MainMenuWrapper>
-      <CookieBanner />
-      <div className="nav-bar">
-        {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
-          item.object_slug === "logo" ? (
-            <Logo key={`logo`} partitions={menuPartitions} />
-          ) : (
-            <NavMenuItem
-              key={item.object_slug + "_key"}
-              item={item}
-              partitions={menuPartitions}
-            />
-          )
-        )}
-        <HamburgerButton
-          items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items}
-        />
-      </div>
-    </MainMenuWrapper>
+    <div>
+      <TopCoverupDiv />
+
+      <MainMenuWrapper>
+        <CookieBanner />
+        <div className="nav-bar">
+          {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
+            item.object_slug === "logo" ? (
+              <Logo key={`logo`} partitions={menuPartitions} />
+            ) : (
+              <NavMenuItem
+                key={item.object_slug + "_key"}
+                item={item}
+                partitions={menuPartitions}
+              />
+            )
+          )}
+          <HamburgerButton
+            items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items}
+          />
+        </div>
+      </MainMenuWrapper>
+    </div>
   )
 }
 
