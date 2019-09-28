@@ -1,10 +1,15 @@
 import React from "react"
 import PostPreview from "../components/postPreview"
+import SEO from "../components/seo"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 
 export default ({ pageContext }) => {
   return (
     <PageContentWrapper>
+      <SEO
+        title={`${pageContext.title}`}
+        description={`Results for tag "${pageContext.excerpt}"`}
+      />
       <h1
         style={{ marginBottom: `0px` }}
         dangerouslySetInnerHTML={{ __html: pageContext.title }}

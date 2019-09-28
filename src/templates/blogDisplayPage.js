@@ -1,6 +1,7 @@
 import React from "react"
 import PostPreview from "../components/postPreview"
 import styled from "styled-components"
+import SEO from "../components/seo"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 import { Link } from "gatsby"
 import { PageContentWrapper } from "../style/pageStyleComponent"
@@ -48,6 +49,10 @@ const PageToggleStyle = styled.div`
 export default ({ pageContext }) => {
   return (
     <PageContentWrapper>
+      <SEO
+        title={`Blog - Page ${pageContext.currentPage}`}
+        description={`Showing results for page ${pageContext.currentPage} of the <JustDoIT /> software development blog`}
+      />
       <h1
         style={{ marginBottom: `0px` }}
         dangerouslySetInnerHTML={{ __html: pageContext.title }}

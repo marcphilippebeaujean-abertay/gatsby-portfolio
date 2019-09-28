@@ -2,7 +2,6 @@ import React from "react"
 import Sidebar from "./sidebar"
 import NavMenu from "./navMenu"
 import Footer from "./footer"
-import SEO from "../components/seo"
 import { footerHeight, initContentWidth } from "../style/layoutStyle"
 import styled, { createGlobalStyle } from "styled-components"
 
@@ -47,16 +46,6 @@ const Layout = ({ children }) => {
   return (
     <div>
       <div id="main-content-container">
-        <SEO
-          lang="German"
-          description="Software development blog"
-          meta={[]}
-          title={
-            children.props.pageContext.title === undefined
-              ? "Error"
-              : children.props.pageContext.title
-          }
-        />
         <GlobalStyles />
         <NavMenu />
         <PageContentStyle>

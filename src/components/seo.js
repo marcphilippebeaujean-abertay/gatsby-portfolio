@@ -9,9 +9,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import seoTags from "../utility/seoTags"
 import ogLogo from "../images/jdit-icon.png"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, tags, image, title }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -37,6 +38,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: tags + seoTags.join(","),
         },
         {
           property: `og:title`,
@@ -70,7 +75,35 @@ function SEO({ description, lang, meta, title }) {
           name: "og:image",
           content: { ogLogo },
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          image
+            ? [
+                {
+                  property: "og:image",
+                  content: image.src,
+                },
+                {
+                  property: "og:image:width",
+                  content: image.width,
+                },
+                {
+                  property: "og:image:height",
+                  content: image.height,
+                },
+                {
+                  name: "twitter:card",
+                  content: "summary_large_image",
+                },
+              ]
+            : [
+                {
+                  name: "twitter:card",
+                  content: "summary",
+                },
+              ]
+        )
+        .concat(meta)}
     />
   )
 }
@@ -79,11 +112,19 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  image: {
+    url: ogLogo,
+    width: `200px`,
+    height: `200px`,
+  },
+  tags: seoTags,
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
+  tags: PropTypes.string,
+  image: PropTypes.object,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }

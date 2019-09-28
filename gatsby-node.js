@@ -34,6 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
               title
               content
               template
+              excerpt
             }
           }
         }
@@ -79,6 +80,10 @@ exports.createPages = ({ graphql, actions }) => {
                   title
                   featured_media {
                     source_url
+                    media_details {
+                      height
+                      width
+                    }
                   }
                   excerpt
                   tags {

@@ -1,8 +1,8 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { smallScreenWidth } from "../style/layoutStyle"
 import { graphql, useStaticQuery } from "gatsby"
+import SEO from "../components/seo"
 
 import Img from "gatsby-image/withIEPolyfill"
 import SoftwareDevLogo from "../images/software-dev-icon.png"
@@ -81,7 +81,12 @@ export default ({ pageContext }) => {
   `)
   return (
     <PageContentWrapper>
-      <Helmet title="About" />
+      <SEO
+        title={"About"}
+        description={
+          "Hi! My name is Marc Philippe Beaujean and I'm a software developer from Germany."
+        }
+      />
       <h1>About</h1>
       <h2>About the Author</h2>
       <p>

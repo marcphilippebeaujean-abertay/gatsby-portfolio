@@ -1,5 +1,5 @@
 import React from "react"
-import { Helmet } from "react-helmet"
+import SEO from "../components/seo"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import Img from "gatsby-image/withIEPolyfill"
 import { graphql, useStaticQuery } from "gatsby"
@@ -32,7 +32,7 @@ export default ({ pageContext }) => {
   `)
   return (
     <PageContentWrapper>
-      <Helmet title="Success" />
+      <SEO title="Success" description="Your message was sent successfully!" />
       <h1>Success</h1>
       <MessageWrapper>
         <ImageContainer>

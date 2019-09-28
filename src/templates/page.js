@@ -1,9 +1,11 @@
 import React from "react"
+import SEO from "../components/seo"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 
 export default ({ pageContext }) => {
   return (
     <PageContentWrapper>
+      <SEO title={pageContext.title} description={pageContext.excerpt} />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
     </PageContentWrapper>

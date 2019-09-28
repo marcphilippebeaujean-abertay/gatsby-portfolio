@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Helmet } from "react-helmet"
+import SEO from "../components/seo"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { IoIosSearch } from "react-icons/io"
 import { mainColour } from "../style/themeStyle"
@@ -167,7 +167,10 @@ export default ({ pageContext }) => {
   const handleInputChange = e => setSearchTerm(e.target.value)
   return (
     <PageContentWrapper>
-      <Helmet title="Archive" />
+      <SEO
+        title="Archive"
+        description="Search through the posts of <JustDoIT />"
+      />
       <h1>Archive</h1>
       <SearchBar onSubmit={searchForPost}>
         <input

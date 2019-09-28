@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Helmet } from "react-helmet"
+import SEO from "../components/seo"
 import Prism from "prismjs"
 import "../style/prism.css"
 import { PageContentWrapper } from "../style/pageStyleComponent"
@@ -15,12 +15,16 @@ export default ({ pageContext }) => {
   useEffect(() => Prism.highlightAll())
   return (
     <PageContentWrapper>
-      <Helmet>
-        <meta
-          property="og:image"
-          content={pageContext.featured_media.source_url}
-        />
-      </Helmet>
+      <SEO
+        title={pageContext.title}
+        description={pageContext.excerpt}
+        image={{
+          src: pageContext.featured_media.source_url,
+          height: pageContext.featured_media.media_details.height,
+          width: pageContext.featured_media.media_details.width,
+        }}
+        tags={[...pageContext.tags.map(tag => tag.name)].join(",")}
+      />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <PostStats post={pageContext} />
       <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />

@@ -1,6 +1,8 @@
 import React from "react"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import Img from "gatsby-image/withIEPolyfill"
+import SEO from "../components/seo"
+
 import { graphql, useStaticQuery } from "gatsby"
 
 const browser = typeof window !== "undefined" && window
@@ -20,6 +22,12 @@ export default ({ pageContext }) => {
   return (
     browser && (
       <PageContentWrapper>
+        <SEO
+          title={"Error"}
+          description={
+            "Woops! Looks like you hit a page that could not be found."
+          }
+        />
         <h1>Error 404</h1>
         <div>
           <div style={{ width: `50%` }}>

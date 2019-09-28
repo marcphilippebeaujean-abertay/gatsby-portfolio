@@ -1,5 +1,5 @@
 import React from "react"
-import { Helmet } from "react-helmet"
+import SEO from "../components/seo"
 
 import ContactForm from "../components/forms/contactForm"
 import { PageContentWrapper } from "../style/pageStyleComponent"
@@ -7,7 +7,7 @@ import { PageContentWrapper } from "../style/pageStyleComponent"
 export default ({ pageContext }) => {
   return (
     <PageContentWrapper>
-      <Helmet title="Contact" />
+      <SEO title="Contact" description="Send me a message!" />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <ContactForm formTitle={"contact"} />
     </PageContentWrapper>
