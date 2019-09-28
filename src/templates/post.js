@@ -17,7 +17,10 @@ export default ({ pageContext }) => {
     <PageContentWrapper>
       <SEO
         title={pageContext.title}
-        description={pageContext.excerpt}
+        description={pageContext.excerpt.slice(
+          3,
+          pageContext.excerpt.length - 4
+        )}
         image={{
           src: pageContext.featured_media.source_url,
           height: pageContext.featured_media.media_details.height,
