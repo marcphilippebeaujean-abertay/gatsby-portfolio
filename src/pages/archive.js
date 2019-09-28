@@ -96,21 +96,39 @@ export default ({ pageContext }) => {
       `${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/blogpost?search=${searchTerm}`
     )
       .then(response => response.json())
-      .then(result => {
+      .then(queriedPosts => {
         const postList = []
-        if (result.length === 0) {
+        if (queriedPosts.length === 0) {
           setSearchPending(false)
           searchResultsDiv.classList.remove(`hidden-results`)
         }
-        result.forEach(queriedPost => {
-          fetch(
-            `${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/tags?post=${queriedPost.id}`
+        // Get list of tags to query by aggregating them from the search results
+        const foundTagIds = []
+        queriedPosts.forEach(queriedPost => {
+          foundTagIds.push(
+            ...queriedPost.tags
+              .filter(tagId => !foundTagIds.includes(tagId))
+              .map(tagId => tagId)
           )
-            .then(resp => resp.json())
-            .then(postTags => {
-              const tagNames = postTags.map(postTag => {
-                return { name: postTag.name }
-              })
+        })
+        console.log(foundTagIds)
+        fetch(
+          `${process.env.GATSBY_API_PROTOCOL}://${
+            process.env.GATSBY_API_URL
+          }/wp-json/wp/v2/tags?include=${foundTagIds
+            .map(tagId => `${tagId}`)
+            .join(",")}`
+        )
+          .then(resp => resp.json())
+          .then(postTags => {
+            queriedPosts.forEach(queriedPost => {
+              const tagNames = postTags
+                .filter(postTag => queriedPost.tags.includes(postTag.id))
+                .map(postTag => {
+                  return {
+                    name: postTag.name,
+                  }
+                })
               postList.push({
                 featured_media: {
                   source_url: queriedPost.better_featured_image.source_url,
@@ -122,16 +140,16 @@ export default ({ pageContext }) => {
                 tags: tagNames,
                 slug: queriedPost.slug,
               })
-              if (postList.length === result.length) {
-                setFoundPost(postList)
-              }
             })
-            .catch(e => console.error("failed to fetch post tags!"))
-            .finally(() => {
-              setSearchPending(false)
-              searchResultsDiv.classList.remove(`hidden-results`)
-            })
-        })
+            if (postList.length === queriedPosts.length) {
+              setFoundPost(postList)
+            }
+          })
+          .catch(e => console.error("failed to fetch post tags!"))
+          .finally(() => {
+            setSearchPending(false)
+            searchResultsDiv.classList.remove(`hidden-results`)
+          })
       })
       .catch(e => console.error(e))
   }

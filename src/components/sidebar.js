@@ -43,7 +43,7 @@ const Sidebar = () => {
     <SidebarWrapper>
       <div>
         <a
-          class="twitter-timeline"
+          className="twitter-timeline"
           data-height="500"
           href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
         >
