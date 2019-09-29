@@ -6,9 +6,19 @@ const twitterDataHeight = `500`
 const twitterColourCode = `#1DA1F2`
 
 const TwitterFeedWrapper = styled.div`
+  h1 {
+    z-index: 4;
+    position: absolute;
+    background-color: white;
+    margin: 0px;
+    color: black;
+  }
   position: relative;
   height: ${twitterDataHeight}px;
   overflow: hidden;
+  .hidden {
+    display: none;
+  }
 `
 
 const TwitterOverlay = styled.div`
@@ -16,11 +26,7 @@ const TwitterOverlay = styled.div`
   width: 100%;
   height: 100%;
   z-index: 3;
-  h1 {
-    background-color: white;
-    margin: 0px;
-    color: black;
-  }
+  transition: opacity 1s;
   a {
     text-decoration: none;
     color: ${twitterColourCode};
@@ -30,11 +36,8 @@ const TwitterOverlay = styled.div`
     width: 100%;
     background-color: white;
     position: relative;
-    transition: opacity 1s;
   }
-  .hidden {
-    opacity: 0;
-  }
+
   #twitter-loader {
     width: 100%;
     max-width: 100px;
@@ -59,15 +62,18 @@ const TwitterOverlay = styled.div`
 export default props => {
   useEffect(() => {
     setTimeout(() => {
-      document.getElementById("loading-overlay").classList.add("hidden")
+      document.getElementById("overlay").classList.add("hidden")
     }, 3000)
   })
   return (
     <TwitterFeedWrapper>
-      <TwitterOverlay>
-        <h1>
-          Tweets by <a href="https://twitter.com/MarcBeaujean">@MarcBeaujean</a>
-        </h1>
+      <h1>
+        Tweets by{" "}
+        <a href="https://twitter.com/MarcBeaujean" target="_blank">
+          @MarcBeaujean
+        </a>
+      </h1>
+      <TwitterOverlay id="overlay">
         <div id="loading-overlay">
           <img src={twitterLogo} id="twitter-loader" />
         </div>
