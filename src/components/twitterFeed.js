@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import styled from "styled-components"
 import twitterLogo from "../images/Twitter_logo_og.png"
 
-const twitterDataHeight = `500`
+const twitterDataHeight = `350`
 const twitterColourCode = `#1DA1F2`
 
 const TwitterFeedWrapper = styled.div`
@@ -40,13 +40,13 @@ const TwitterOverlay = styled.div`
 
   #twitter-loader {
     width: 100%;
-    max-width: 100px;
+    max-width: 60px;
     height: auto;
     position: absolute;
-    top: 44%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: fade-in 1.5s;
+    animation: fade-in 1.2s;
     animation-iteration-count: infinite;
   }
   @keyframes fade-in {

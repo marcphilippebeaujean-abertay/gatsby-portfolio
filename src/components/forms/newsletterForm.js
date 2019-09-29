@@ -6,6 +6,18 @@ import {
   toggleTermAgreement,
 } from "./formFunctionality"
 import { Link } from "gatsby"
+import styled from "styled-components"
+
+const NewsletterWrapper = styled.div`
+  background-color: #e9e5e5;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin: 2px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  #form-email {
+    width: 100%;
+  }
+`
 
 export default ({ formTitle }) => {
   const [formValues, setFormValues] = useState({
@@ -27,45 +39,50 @@ export default ({ formTitle }) => {
       data-netlify="true"
       onSubmit={handleSubmit}
     >
-      <p>
-        <b>
-          Fancy becoming a better Developer? Subscribe to the newsletter to get
-          updated on new content!
-        </b>
-      </p>
-      <input
-        value={formValues.email}
-        className="input-field"
-        id="form-email"
-        type="email"
-        name="email"
-        placeholder="example@mail.com"
-        onChange={e => handleFormChange(e, formValues, setFormValues)}
-      />
-      <p id={`${formTitle}-email-error`} className="error error-hidden">
-        Please enter a valid email!
-      </p>
-      <p id="checkbox-text">
+      <NewsletterWrapper>
+        <p>
+          <b>
+            Fancy becoming a better Developer? Subscribe to the newsletter to
+            get updated on new content!
+          </b>
+        </p>
         <input
-          type="checkbox"
-          name="termAgreement"
-          onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
+          value={formValues.email}
+          className="input-field"
+          id="form-email"
+          type="email"
+          name="email"
+          placeholder="example@mail.com"
+          onChange={e => handleFormChange(e, formValues, setFormValues)}
+        />
+        <p id={`${formTitle}-email-error`} className="error error-hidden">
+          Please enter a valid email!
+        </p>
+        <p id="checkbox-text">
+          <input
+            type="checkbox"
+            name="termAgreement"
+            onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
+          />{" "}
+          I agree to and have read the{" "}
+          <Link to={`/datenschutzerklarung/`}>Data Policy</Link>. I acknowledge
+          that I can cancel the newsletter subscription at any time.
+        </p>
+        <p
+          id={`${formTitle}-termAgreement-error`}
+          className="error error-hidden"
+        >
+          Please agree to the terms!
+        </p>
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
+        <input
+          className="submit-btn extended-submit-btn"
+          type="submit"
+          value="Subscribe"
+          name="submit"
         />{" "}
-        I agree to and have read the{" "}
-        <Link to={`/datenschutzerklarung/`}>Data Policy</Link>. I acknowledge
-        that I can cancel the newsletter subscription at any time.
-      </p>
-      <p id={`${formTitle}-termAgreement-error`} className="error error-hidden">
-        Please agree to the terms!
-      </p>
-      <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value="contact" />
-      <input
-        className="submit-btn extended-submit-btn"
-        type="submit"
-        value="Subscribe"
-        name="submit"
-      />
+      </NewsletterWrapper>
     </FormWrapper>
   )
 }
