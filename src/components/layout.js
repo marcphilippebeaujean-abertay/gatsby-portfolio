@@ -41,6 +41,8 @@ export const PageContentStyle = styled.div`
   margin: 0 auto;
   max-width: ${initContentWidth}px;
   padding-bottom: ${footerHeight}px;
+  overflow: auto;
+  height: auto;
 `
 const Layout = ({ children }) => {
   return (

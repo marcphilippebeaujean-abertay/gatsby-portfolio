@@ -14,11 +14,10 @@ const sidebarWidthPercent = 100 - mainContentWidthPercent
 
 const SidebarWrapper = styled.aside`
   z-index: 0;
-  position: absolute;
-  margin-left: calc(${mainContentWidthPercent}% + ${smallScreenSidePadding}px);
+  position: relative;
+  margin: ${navMenuHeight}px 0px 10px 0px;
   width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding}px);
   animation: fade-in 1s;
-  top: ${navMenuHeight}px;
   @media screen and (max-width: ${initContentWidth}px) {
     padding: 0 0 0 ${smallScreenSidePadding * 3}px;
     margin-left: calc(
