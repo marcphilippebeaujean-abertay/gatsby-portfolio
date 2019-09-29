@@ -16,4 +16,4 @@ export default [
   "mark",
   "justdoit",
   "justdoIT",
-]
+].join(",")
