@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import TwitterFeed from "./twitterFeed"
 import {
   mediumScreenWidth,
   mainContentWidthPercent,
@@ -17,7 +18,7 @@ const SidebarWrapper = styled.aside`
   margin-left: calc(${mainContentWidthPercent}% + ${smallScreenSidePadding}px);
   width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding}px);
   animation: fade-in 1s;
-  top: ${navMenuHeight - 30}px;
+  top: ${navMenuHeight}px;
   @media screen and (max-width: ${initContentWidth}px) {
     padding: 0 0 0 ${smallScreenSidePadding * 3}px;
     margin-left: calc(
@@ -41,20 +42,7 @@ const SidebarWrapper = styled.aside`
 const Sidebar = () => {
   return (
     <SidebarWrapper>
-      <div>
-        <a
-          className="twitter-timeline"
-          data-height="500"
-          href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
-        >
-          Tweets by MarcBeaujean
-        </a>{" "}
-        <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charSet="utf-8"
-        ></script>
-      </div>
+      <TwitterFeed />
       <div>
         <NewsletterForm formTitle={"newsletter"} />
       </div>

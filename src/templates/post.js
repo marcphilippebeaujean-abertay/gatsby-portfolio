@@ -26,7 +26,7 @@ export default ({ pageContext }) => {
           height: pageContext.featured_media.media_details.height,
           width: pageContext.featured_media.media_details.width,
         }}
-        tags={[...pageContext.tags.map(tag => tag.name)].join(",")}
+        tags={[...pageContext.tags.map(tag => tag.name)]}
       />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <PostStats post={pageContext} />

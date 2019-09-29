@@ -41,7 +41,7 @@ function SEO({ description, lang, meta, tags, image, title }) {
         },
         {
           name: `keywords`,
-          content: tags + seoTags.join(","),
+          content: tags.join(",") + seoTags.join(","),
         },
         {
           property: `og:title`,
@@ -117,13 +117,13 @@ SEO.defaultProps = {
     width: `200px`,
     height: `200px`,
   },
-  tags: seoTags,
+  tags: [],
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  tags: PropTypes.string,
+  tags: PropTypes.array,
   image: PropTypes.object,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,

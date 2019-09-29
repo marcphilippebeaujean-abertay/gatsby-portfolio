@@ -1,0 +1,90 @@
+import React, { useEffect } from "react"
+import styled from "styled-components"
+import twitterLogo from "../images/Twitter_logo_og.png"
+
+const twitterDataHeight = `500`
+const twitterColourCode = `#1DA1F2`
+
+const TwitterFeedWrapper = styled.div`
+  position: relative;
+  height: ${twitterDataHeight}px;
+  overflow: hidden;
+`
+
+const TwitterOverlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  h1 {
+    background-color: white;
+    margin: 0px;
+    color: black;
+  }
+  a {
+    text-decoration: none;
+    color: ${twitterColourCode};
+  }
+  #loading-overlay {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    position: relative;
+    transition: opacity 1s;
+  }
+  .hidden {
+    opacity: 0;
+  }
+  #twitter-loader {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fade-in 1.5s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`
+
+export default props => {
+  useEffect(() => {
+    setTimeout(() => {
+      document.getElementById("loading-overlay").classList.add("hidden")
+    }, 3000)
+  })
+  return (
+    <TwitterFeedWrapper>
+      <TwitterOverlay>
+        <h1>
+          Tweets by <a href="https://twitter.com/MarcBeaujean">@MarcBeaujean</a>
+        </h1>
+        <div id="loading-overlay">
+          <img src={twitterLogo} id="twitter-loader" />
+        </div>
+      </TwitterOverlay>
+      <a
+        className="twitter-timeline"
+        data-height={twitterDataHeight}
+        href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
+        data-chrome="noscrollbar"
+      >
+        Tweets by MarcBeaujean
+      </a>{" "}
+      <script
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charSet="utf-8"
+      ></script>
+    </TwitterFeedWrapper>
+  )
+}
