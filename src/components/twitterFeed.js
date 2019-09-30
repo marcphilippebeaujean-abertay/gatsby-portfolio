@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import twitterLogo from "../images/Twitter_logo_og.png"
 
@@ -43,15 +43,15 @@ const TwitterOverlay = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 2;
   transition: opacity 1s;
   #loading-overlay {
     height: 100%;
     width: 100%;
     background-color: white;
     position: relative;
+    transition: all 0.1s ease-out;
   }
-
   #twitter-loader {
     width: 100%;
     max-width: 60px;
@@ -63,17 +63,24 @@ const TwitterOverlay = styled.div`
     animation: fade-in 1.2s;
     animation-iteration-count: infinite;
   }
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 `
 
+const timelineLoaderLoop = func => {
+  if (document.getElementsByClassName("twitter-timeline").length > 0) {
+    document.getElementById("loading-overlay").classList.add("hidden")
+  } else {
+    setTimeout(() => func(func), 2000)
+  }
+}
+
 export default props => {
+  useEffect(() => {
+    setTimeout(() => timelineLoaderLoop(timelineLoaderLoop), 2000)
+  })
   return (
     <TwitterFeedWrapper>
       <div className="center">
