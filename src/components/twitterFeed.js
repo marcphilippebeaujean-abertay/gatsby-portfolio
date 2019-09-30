@@ -64,15 +64,14 @@ const TwitterOverlay = styled.div`
     animation-iteration-count: infinite;
   }
   .hidden {
-    opacity: 0;
-    pointer-events: none;
+    z-index: -1;
     display: none;
   }
 `
 
 const timelineLoaderLoop = func => {
-  if (document.getElementsByClassName("twitter-timeline").length > 0) {
-    document.getElementById("loading-overlay").classList.add("hidden")
+  if (document.getElementById("twitter-widget-0")) {
+    document.getElementById("overlay").classList.add("hidden")
   } else {
     setTimeout(() => func(func), 2000)
   }
