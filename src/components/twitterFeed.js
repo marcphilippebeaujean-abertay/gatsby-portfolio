@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import twitterLogo from "../images/Twitter_logo_og.png"
+import twitterLoadFailed from "../images/twitter-fetch-fail.png"
 
 const twitterDataHeight = `350`
 const twitterColourCode = `#1DA1F2`
@@ -16,8 +17,29 @@ const TwitterFeedWrapper = styled.div`
   position: relative;
   height: ${twitterDataHeight}px;
   overflow: hidden;
+  a {
+    text-decoration: none;
+    color: ${twitterColourCode};
+  }
   .hidden {
     display: none;
+  }
+`
+
+const FailedToLoadOverlay = styled.div`
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 10%;
+  h2 {
+    color: ${twitterColourCode};
+    text-align: center;
+  }
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 `
 
@@ -27,10 +49,6 @@ const TwitterOverlay = styled.div`
   height: 100%;
   z-index: 3;
   transition: opacity 1s;
-  a {
-    text-decoration: none;
-    color: ${twitterColourCode};
-  }
   #loading-overlay {
     height: 100%;
     width: 100%;
@@ -67,12 +85,18 @@ export default props => {
   })
   return (
     <TwitterFeedWrapper>
-      <h1>
-        Tweets by{" "}
-        <a href="https://twitter.com/MarcBeaujean" target="_blank">
-          @MarcBeaujean
-        </a>
-      </h1>
+      <div className="center">
+        <h1>
+          Tweets by{" "}
+          <a href="https://twitter.com/MarcBeaujean" target="_blank">
+            @MarcBeaujean
+          </a>
+        </h1>
+      </div>
+      <FailedToLoadOverlay>
+        <h2>Failed to load Twitter Feed</h2>
+        <img src={twitterLoadFailed} alt="Twitter fetch failed logo" />
+      </FailedToLoadOverlay>
       <TwitterOverlay id="overlay">
         <div id="loading-overlay">
           <img src={twitterLogo} id="twitter-loader" />
