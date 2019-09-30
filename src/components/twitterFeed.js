@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
 import twitterLogo from "../images/Twitter_logo_og.png"
 
@@ -25,6 +25,17 @@ const TwitterFeedWrapper = styled.div`
   }
   .hidden {
     display: none;
+  }
+  .timeline-Widget {
+    animation: fadein 2s;
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `
 
@@ -63,11 +74,6 @@ const TwitterOverlay = styled.div`
 `
 
 export default props => {
-  useEffect(() => {
-    setTimeout(() => {
-      document.getElementById("overlay").classList.add("hidden")
-    }, 3000)
-  })
   return (
     <TwitterFeedWrapper>
       <div className="center">

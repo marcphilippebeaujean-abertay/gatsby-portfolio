@@ -65,14 +65,14 @@ export default ({ pageContext }) => {
     {
       gradPhoto: file(relativePath: { eq: "graduation_photo_resized.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       academyPhoto: file(relativePath: { eq: "academy.JPG" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 3000) {
             ...GatsbyImageSharpFluid
           }
         }
