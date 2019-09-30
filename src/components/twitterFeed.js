@@ -66,6 +66,7 @@ const TwitterOverlay = styled.div`
   .hidden {
     opacity: 0;
     pointer-events: none;
+    display: none;
   }
 `
 
