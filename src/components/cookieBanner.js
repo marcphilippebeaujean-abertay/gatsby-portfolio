@@ -81,10 +81,7 @@ export default props => {
     window.localStorage.setItem(cookieBannerStorageKey, "true")
   }
   return (
-    <CookieBannerWrapper
-      onClick={() => hideBanner()}
-      id="cookie-banner-container"
-    >
+    <CookieBannerWrapper id="cookie-banner-container">
       <BannerInformationWrapper className="hide" id="banner-wrapper">
         <p>
           This website uses cookies! By using this website, you are agreeing to
@@ -92,7 +89,9 @@ export default props => {
           <Link to={`/datenschutzerklarung/`}>Data Policy</Link> for more
           information.
         </p>
-        <button id="submit-btn">Got It!</button>
+        <button id="submit-btn" onClick={() => hideBanner()}>
+          Got It!
+        </button>
       </BannerInformationWrapper>
     </CookieBannerWrapper>
   )
