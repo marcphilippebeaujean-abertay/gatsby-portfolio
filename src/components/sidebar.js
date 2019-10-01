@@ -5,7 +5,6 @@ import {
   mediumScreenWidth,
   mainContentWidthPercent,
   navMenuHeight,
-  initContentWidth,
   smallScreenSidePadding,
 } from "../style/layoutStyle"
 import NewsletterForm from "./forms/newsletterForm"
@@ -18,13 +17,7 @@ const SidebarWrapper = styled.aside`
   margin: ${navMenuHeight}px 0px 10px 0px;
   width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding}px);
   animation: fade-in 1s;
-  @media screen and (max-width: ${initContentWidth}px) {
-    padding: 0 0 0 ${smallScreenSidePadding * 3}px;
-    margin-left: calc(
-      ${mainContentWidthPercent}% - ${smallScreenSidePadding}px
-    );
-    width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding * 3}px);
-  }
+
   @media screen and (max-width: ${mediumScreenWidth}px) {
     display: none;
   }

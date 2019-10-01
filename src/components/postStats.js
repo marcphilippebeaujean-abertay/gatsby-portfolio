@@ -14,21 +14,10 @@ const disqusConfig = postId => {
 }
 
 const PostStatsStyle = styled.div`
-  .tag {
-    color: darkblue;
-    background-color: lightblue;
-    border-radius: 5px;
-    margin-right: 5px;
-    padding: 3px;
-  }
   a {
     text-decoration: none;
     position: relative;
     padding: 10px 0px;
-  }
-  .tag:hover {
-    background-color: darkblue;
-    color: white;
   }
   .post-info-row {
     margin: 5px 0 !important;
@@ -39,14 +28,35 @@ const PostStatsStyle = styled.div`
     line-height: 10px;
     margin: 5px 15px;
   }
-  .tag-wrapper {
-    display: inline-block;
-    margin: 10px 0px;
-  }
   @media screen and (min-width: ${smallScreenWidth}px) {
     br {
       display: none;
     }
+  }
+`
+
+export const TagWrapper = styled.span`
+  position: relative;
+  bottom: 8.5px;
+  line-height: 10px;
+  margin: 5px 15px;
+  a {
+    text-decoration: none !important;
+  }
+  .tag {
+    color: darkblue;
+    background-color: lightblue;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 3px;
+  }
+  .tag-wrapper {
+    display: inline-block;
+    margin: 10px 0px;
+  }
+  .tag:hover {
+    background-color: darkblue;
+    color: white;
   }
 `
 
@@ -58,7 +68,7 @@ export default ({ post }) => {
         <span className="post-info-text">{post.date}</span>
         <br />
         <IoIosPricetag size={32} className="post-attribute-icon" />
-        <span className="post-info-text">
+        <TagWrapper>
           {post.tags.map(tag => (
             <span className="tag-wrapper" key={`tag_${tag.name}`}>
               <Link to={`/${tag.name.replace(/ /g, "-")}`}>
@@ -66,7 +76,7 @@ export default ({ post }) => {
               </Link>
             </span>
           ))}
-        </span>
+        </TagWrapper>
         <br />
         <FaComment size={32} className="post-attribute-icon" />
         <span className="post-info-text">

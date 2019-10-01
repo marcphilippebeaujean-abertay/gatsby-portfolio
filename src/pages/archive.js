@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import SEO from "../components/seo"
+import { TagWrapper } from "../components/postStats"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { IoIosSearch } from "react-icons/io"
 import { mainColour } from "../style/themeStyle"
 import { DateTime } from "luxon"
 import { inputFieldHeight } from "../components/forms/formStyleComponent"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 import Img from "gatsby-image/withIEPolyfill"
 import styled from "styled-components"
@@ -162,8 +163,16 @@ export default ({ pageContext }) => {
           }
         }
       }
+      allWordpressTag {
+        edges {
+          node {
+            name
+          }
+        }
+      }
     }
   `)
+  console.log(data)
   const handleInputChange = e => setSearchTerm(e.target.value)
   return (
     <PageContentWrapper>
@@ -172,6 +181,15 @@ export default ({ pageContext }) => {
         description="Search through the posts of <JustDoIT />"
       />
       <h1>Archive</h1>
+      <TagWrapper>
+        {data.allWordpressTag.edges.map(tag => (
+          <span className="tag-wrapper" key={`tag_${tag.node.name}`}>
+            <Link to={`/${tag.node.name.replace(/ /g, "-")}`}>
+              <span className="tag">{tag.node.name}</span>
+            </Link>
+          </span>
+        ))}
+      </TagWrapper>
       <SearchBar onSubmit={searchForPost}>
         <input
           className="input-field"
