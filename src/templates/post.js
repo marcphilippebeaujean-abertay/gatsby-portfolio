@@ -5,7 +5,17 @@ import "../style/prism.css"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import "../components/postStats"
 import { DiscussionEmbed } from "disqus-react"
+import SubForm from "../components/forms/newsletterForm"
 import PostStats from "../components/postStats"
+import styled from "styled-components"
+import { mediumScreenWidth } from "../style/layoutStyle"
+
+const NewsletterFormWrapper = styled.div`
+  display: none;
+  @media screen and (max-width: ${mediumScreenWidth}px) {
+    display: inherit;
+  }
+`
 
 export default ({ pageContext }) => {
   const disqusConfig = {
@@ -31,6 +41,9 @@ export default ({ pageContext }) => {
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <PostStats post={pageContext} />
       <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
+      <NewsletterFormWrapper>
+        <SubForm formTitle={"newsletter"} />
+      </NewsletterFormWrapper>
       <DiscussionEmbed {...disqusConfig} />
     </PageContentWrapper>
   )
