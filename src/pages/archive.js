@@ -50,6 +50,7 @@ const SearchBar = styled.form`
     border-width: 0.5px;
     border-color: lightgrey;
     border-radius: 5px 0px 0px 5px;
+    padding-left: 20px;
   }
   .input-field:hover {
     border-color: lightblue;
