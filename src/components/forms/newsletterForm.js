@@ -16,7 +16,7 @@ const NewsletterWrapper = styled.div`
   overflow: hidden;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
   #form-email {
-    width: calc(100% - 20px);
+    width: calc(100% - 10px);
     max-width: 100%;
     overflow: hidden;
   }

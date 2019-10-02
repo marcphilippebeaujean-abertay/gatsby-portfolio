@@ -21,7 +21,7 @@ export default styled.form`
     border-width: 0.5px;
     border-color: lightgrey;
     border-radius: 5px;
-    padding-left: 20px;
+    padding: 0 10px;
   }
   .input-field:hover {
     border-color: lightblue;
