@@ -12,7 +12,6 @@ const PostPreviewWrapper = styled.div`
   .image-excerpt-container {
     display: flex;
     flex-direction: row;
-    max-height: ${excerptHeight};
     flex-grow: 1;
     position: relative;
   }
