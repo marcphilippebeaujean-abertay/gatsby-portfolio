@@ -78,11 +78,7 @@ export default ({ formTitle }) => {
           Please agree to the terms!
         </p>
         <input type="hidden" name="bot-field" />
-        <input
-          type="hidden"
-          name="newsletter-subscription"
-          value="newsletter-subscription"
-        />
+        <input type="hidden" name="form-name" value="newsletter-subscription" />
         <input
           className="submit-btn extended-submit-btn"
           type="submit"
