@@ -22,7 +22,7 @@ export default ({ formTitle }) => {
   }
   return (
     <FormWrapper
-      action="/success/"
+      action="/success-contact/"
       name="contact"
       method="post"
       data-netlify-honeypot="bot-field"

@@ -35,6 +35,7 @@ export default ({ formTitle }) => {
   }
   return (
     <FormWrapper
+      action="/success-newsletter/"
       name="newsletter-subscription"
       method="post"
       data-netlify-honeypot="bot-field"
