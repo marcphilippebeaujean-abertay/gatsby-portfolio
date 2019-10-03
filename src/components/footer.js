@@ -141,9 +141,8 @@ const Footer = () => {
         </div>
         <div className="footer-container" id="footer-container-right">
           <p>
-            <b>Contact</b>
+            <b>Social Media</b>
           </p>
-          <p className="contacts-entry">marcphilippebeaujean@gmail.com</p>
           <SocialMediaLogoWrapper>
             <a
               href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/"
