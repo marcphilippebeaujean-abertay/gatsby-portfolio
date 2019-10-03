@@ -54,7 +54,7 @@ export default ({ formTitle }) => {
           className="input-field"
           id="form-email"
           type="email"
-          name="email"
+          name="sub-email"
           placeholder="example@mail.com"
           onChange={e => handleFormChange(e, formValues, setFormValues)}
         />
@@ -64,7 +64,7 @@ export default ({ formTitle }) => {
         <p id="checkbox-text">
           <input
             type="checkbox"
-            name="termAgreement"
+            name="sub-termAgreement"
             onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
           />{" "}
           I agree to and have read the{" "}
@@ -78,7 +78,7 @@ export default ({ formTitle }) => {
           Please agree to the terms!
         </p>
         <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="newsletter-subscription" value="contact" />
         <input
           className="submit-btn extended-submit-btn"
           type="submit"

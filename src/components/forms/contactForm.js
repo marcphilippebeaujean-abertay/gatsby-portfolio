@@ -46,7 +46,7 @@ export default ({ formTitle }) => {
         value={formValues.email}
         className="input-field form-email"
         type="email"
-        name="email"
+        name="sub-email"
         placeholder="example@mail.com"
         onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
@@ -77,12 +77,12 @@ export default ({ formTitle }) => {
         Please agree to the terms!
       </p>
       <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="contact" value="contact" />
       <input
         className="submit-btn"
         type="submit"
         value="Submit"
-        name="submit"
+        name="submit-contact"
       />
     </FormWrapper>
   )

@@ -1,5 +1,9 @@
 const isValidInput = (fieldName, value) => {
-  switch (fieldName) {
+  let fieldStr =
+    fieldName.lastIndexOf("-") > 0
+      ? fieldName.slice(fieldName.lastIndexOf("-") + 1)
+      : fieldName
+  switch (fieldStr) {
     case "name":
       return value.length > 1
     case "email":
