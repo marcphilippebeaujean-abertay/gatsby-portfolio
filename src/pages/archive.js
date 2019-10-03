@@ -173,7 +173,6 @@ export default ({ pageContext }) => {
       }
     }
   `)
-  console.log(data)
   const handleInputChange = e => setSearchTerm(e.target.value)
   return (
     <PageContentWrapper>

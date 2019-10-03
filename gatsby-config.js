@@ -100,6 +100,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

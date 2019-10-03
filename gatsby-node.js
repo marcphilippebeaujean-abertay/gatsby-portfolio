@@ -84,6 +84,22 @@ exports.createPages = ({ graphql, actions }) => {
                       height
                       width
                     }
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 500) {
+                          base64
+                          tracedSVG
+                          aspectRatio
+                          src
+                          srcSet
+                          srcWebp
+                          srcSetWebp
+                          sizes
+                          originalImg
+                          originalName
+                        }
+                      }
+                    }
                   }
                   excerpt
                   tags {

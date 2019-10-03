@@ -3,8 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle"
 import PostStats from "./postStats"
-
-const excerptHeight = `200px`
+import Img from "gatsby-image/withIEPolyfill"
 
 const PostPreviewWrapper = styled.div`
   display: flex;
@@ -46,6 +45,7 @@ const PostPreviewWrapper = styled.div`
 `
 
 const PostPreview = props => {
+  console.log(props)
   return (
     <PostPreviewWrapper>
       <h2 dangerouslySetInnerHTML={{ __html: props.post.title }} />
@@ -53,11 +53,22 @@ const PostPreview = props => {
       <div className="image-excerpt-container">
         <div>
           <div className="excerpt-text">
-            <img
-              className="in-text-thumbnail"
-              src={props.post.featured_media.source_url}
-              alt="Thumbnail"
-            />
+            {`localFile` in props.post.featured_media ? (
+              <div className="in-text-thumbnail">
+                <Img
+                  fluid={
+                    props.post.featured_media.localFile.childImageSharp.fluid
+                  }
+                  alt="Search icon for no search found"
+                />
+              </div>
+            ) : (
+              <img
+                className="in-text-thumbnail"
+                src={props.post.featured_media.source_url}
+                alt="Thumbnail"
+              />
+            )}
             <p>
               {props.post.excerpt.slice(3, props.post.excerpt.length - 5)}
               <span>
