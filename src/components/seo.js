@@ -41,7 +41,7 @@ function SEO({ description, lang, meta, tags, image, title }) {
         },
         {
           name: `keywords`,
-          content: tags.join(",") + seoTags.join(","),
+          content: tags.join(",") + "," + seoTags.join(","),
         },
         {
           property: `og:title`,

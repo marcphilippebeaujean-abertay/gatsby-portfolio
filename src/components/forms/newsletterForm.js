@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import FormWrapper from "./formStyleComponent"
 import {
   handleFormChange,
-  inputsValid,
+  handleSubmit,
   toggleTermAgreement,
 } from "./formFunctionality"
 import { Link } from "gatsby"
@@ -27,12 +27,6 @@ export default ({ formTitle }) => {
     email: "",
     termAgreement: false,
   })
-  const handleSubmit = e => {
-    if (!inputsValid(formValues, formTitle)) {
-      e.preventDefault()
-      return
-    }
-  }
   return (
     <FormWrapper
       action="/success-newsletter/"

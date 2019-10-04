@@ -1,7 +1,11 @@
 const _ = require(`lodash`)
 const Promise = require(`bluebird`)
 const path = require(`path`)
+const fetch = require("node-fetch")
 const slash = require(`slash`)
+require("dotenv").config({
+  path: ".env",
+})
 // Implement the Gatsby API “createPages”. This is
 // called after the Gatsby bootstrap is finished so you have
 // access to any information necessary to programmatically
@@ -78,6 +82,7 @@ exports.createPages = ({ graphql, actions }) => {
                   content
                   date(formatString: "DD/MM/YYYY")
                   title
+                  seo_tags
                   featured_media {
                     source_url
                     media_details {
@@ -113,74 +118,97 @@ exports.createPages = ({ graphql, actions }) => {
             console.log(result.errors)
             reject(result.errors)
           }
-          // Create a blog page for each
-          const posts = result.data.allWordpressWpBlogpost.edges
-          const postsPerPage = 5
-          const numberOfPages = Math.ceil(posts.length / postsPerPage)
-          const blogTemplate = path.resolve(
-            "./src/templates/blogInfiniteScroll.js"
+          let seoTag = []
+          let seoTagIds = [
+            ...result.data.allWordpressWpBlogpost.edges.map(
+              edge => edge.node.seo_tags
+            ),
+          ]
+          fetch(
+            `${process.env.GATSBY_API_PROTOCOL}://${
+              process.env.GATSBY_API_URL
+            }/wp-json/wp/v2/seo_tags?include=${seoTagIds.join(",")}`
           )
-          createPage({
-            component: blogTemplate,
-            path: `/`,
-            context: {
-              posts: posts.slice(0, postsPerPage),
-              title: `Blog`,
-            },
-          })
-          Array.from({ length: numberOfPages }).forEach((page, index) => {
-            createPage({
-              component: blogTemplate,
-              path: `/blog/${index + 1}`,
-              context: {
-                posts: posts.slice(
-                  index * postsPerPage,
-                  index * postsPerPage + postsPerPage
-                ),
-                title: `Blog`,
-                numberOfPages,
-                currentPage: index + 1,
-              },
+            .then(response => response.json())
+            .then(tags => {
+              seoTags = tags
             })
-          })
-          const uniqueTagNames = []
-          // We want to create a detailed page for each
-          // post node. We'll just use the WordPress Slug for the slug.
-          // The Post ID is prefixed with 'POST_'
-          const postTemplate = path.resolve("./src/templates/post.js")
-          _.each(posts, edge => {
-            _.each(edge.node.tags, tag => {
-              if (!uniqueTagNames.includes(tag.name)) {
-                uniqueTagNames.push(tag.name)
-              }
+            .catch(e => {
+              console.log(e)
             })
-            createPage({
-              path: `/post/${edge.node.slug}/`,
-              component: slash(postTemplate),
-              context: edge.node,
-            })
-          })
-          /** Create pages for tags */
-          const tagPageTemplate = path.resolve("./src/templates/tagPage.js")
-          _.each(uniqueTagNames, tagName => {
-            postsForTag = []
-            _.each(posts, edge => {
-              _.each(edge.node.tags, tag => {
-                if (tag.name === tagName) {
-                  postsForTag.push(edge)
-                }
+            .finally(() => {
+              // Create a blog page for each
+              const posts = result.data.allWordpressWpBlogpost.edges
+              const postsPerPage = 5
+              const numberOfPages = Math.ceil(posts.length / postsPerPage)
+              const blogTemplate = path.resolve(
+                "./src/templates/blogInfiniteScroll.js"
+              )
+              createPage({
+                component: blogTemplate,
+                path: `/`,
+                context: {
+                  posts: posts.slice(0, postsPerPage),
+                  title: `Blog`,
+                },
+              })
+              Array.from({ length: numberOfPages }).forEach((page, index) => {
+                createPage({
+                  component: blogTemplate,
+                  path: `/blog/${index + 1}`,
+                  context: {
+                    posts: posts.slice(
+                      index * postsPerPage,
+                      index * postsPerPage + postsPerPage
+                    ),
+                    title: `Blog`,
+                    numberOfPages,
+                    currentPage: index + 1,
+                  },
+                })
+              })
+              const uniqueTagNames = []
+              // We want to create a detailed page for each
+              // post node. We'll just use the WordPress Slug for the slug.
+              // The Post ID is prefixed with 'POST_'
+              const postTemplate = path.resolve("./src/templates/post.js")
+              _.each(posts, edge => {
+                _.each(edge.node.tags, tag => {
+                  if (!uniqueTagNames.includes(tag.name)) {
+                    uniqueTagNames.push(tag.name)
+                  }
+                })
+                edge.node.seoTags = seoTags.filter(tag =>
+                  edge.node.seo_tags.includes(tag.id)
+                )
+                createPage({
+                  path: `/post/${edge.node.slug}/`,
+                  component: slash(postTemplate),
+                  context: edge.node,
+                })
+              })
+              /** Create pages for tags */
+              const tagPageTemplate = path.resolve("./src/templates/tagPage.js")
+              _.each(uniqueTagNames, tagName => {
+                postsForTag = []
+                _.each(posts, edge => {
+                  _.each(edge.node.tags, tag => {
+                    if (tag.name === tagName) {
+                      postsForTag.push(edge)
+                    }
+                  })
+                })
+                const tagUrlSlug = `/${tagName.replace(/ /g, "-")}/`
+                createPage({
+                  component: tagPageTemplate,
+                  path: tagUrlSlug,
+                  context: {
+                    posts: postsForTag,
+                    title: `#${tagName}`,
+                  },
+                })
               })
             })
-            const tagUrlSlug = `/${tagName.replace(/ /g, "-")}/`
-            createPage({
-              component: tagPageTemplate,
-              path: tagUrlSlug,
-              context: {
-                posts: postsForTag,
-                title: `#${tagName}`,
-              },
-            })
-          })
           resolve()
         })
       })

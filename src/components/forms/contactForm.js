@@ -2,10 +2,13 @@ import React, { useState } from "react"
 import FormWrapper from "./formStyleComponent"
 import {
   handleFormChange,
-  inputsValid,
   toggleTermAgreement,
+  handleSubmit,
 } from "./formFunctionality"
 import { Link } from "gatsby"
+import Recaptcha from "react-google-recaptcha"
+
+const RECAPTCHA_KEY = process.env.GATSBY_RECAPTHCA_KEY
 
 export default ({ formTitle }) => {
   const [formValues, setFormValues] = useState({
@@ -13,12 +16,13 @@ export default ({ formTitle }) => {
     email: "",
     message: "",
     termAgreement: false,
+    "g-recaptcha-response": "",
   })
-  const handleSubmit = e => {
-    if (!inputsValid(formValues, formTitle)) {
-      e.preventDefault()
-      return
-    }
+  const handleRecaptcha = value => {
+    setFormValues({
+      ...formValues,
+      "g-recaptcha-response": value,
+    })
   }
   return (
     <FormWrapper
@@ -46,7 +50,7 @@ export default ({ formTitle }) => {
         value={formValues.email}
         className="input-field form-email"
         type="email"
-        name="sub-email"
+        name="email"
         placeholder="example@mail.com"
         onChange={e => handleFormChange(e, formValues, setFormValues)}
       />
@@ -78,6 +82,13 @@ export default ({ formTitle }) => {
       </p>
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
+      <Recaptcha sitekey={RECAPTCHA_KEY} onChange={handleRecaptcha} />
+      <p
+        id={`${formTitle}-g-recaptcha-response-error`}
+        className="error error-hidden"
+      >
+        Please confirm that you are not a robot!
+      </p>
       <input
         className="submit-btn"
         type="submit"

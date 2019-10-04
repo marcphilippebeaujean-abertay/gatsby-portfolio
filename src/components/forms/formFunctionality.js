@@ -1,8 +1,7 @@
+import { navigate } from "gatsby-link"
+
 const isValidInput = (fieldName, value) => {
-  let fieldStr =
-    fieldName.lastIndexOf("-") > 0
-      ? fieldName.slice(fieldName.lastIndexOf("-") + 1)
-      : fieldName
+  let fieldStr = fieldName
   switch (fieldStr) {
     case "name":
       return value.length > 1
@@ -12,8 +11,10 @@ const isValidInput = (fieldName, value) => {
       return value.length > 10
     case "termAgreement":
       return value
+    case "g-recaptcha-response":
+      return value.length > 0
     default:
-      console.log("weird case")
+      console.log("weird field - " + fieldName)
   }
   return false
 }
@@ -52,4 +53,28 @@ export const inputsValid = (formValues, formTitle) => {
     }
   }
   return inputsValid
+}
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
+export const handleSubmit = (e, formValues, formTitle) => {
+  e.preventDefault()
+  if (!inputsValid(formValues, formTitle)) {
+    return
+  }
+  const form = e.target
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({
+      "form-name": form.getAttribute("name"),
+      ...formValues,
+    }),
+  })
+    .then(() => navigate(form.getAttribute("action")))
+    .catch(error => alert(error))
 }

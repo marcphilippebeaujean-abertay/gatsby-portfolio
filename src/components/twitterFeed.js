@@ -106,7 +106,6 @@ export default props => {
         data-height={twitterDataHeight}
         href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
         data-chrome="noscrollbar"
-        data-widget-id="twitter-widget-0"
       >
         Tweets by MarcBeaujean
       </a>{" "}
