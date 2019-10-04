@@ -208,8 +208,8 @@ exports.createPages = ({ graphql, actions }) => {
                   },
                 })
               })
+              resolve()
             })
-          resolve()
         })
       })
     // ==== END POSTS ====

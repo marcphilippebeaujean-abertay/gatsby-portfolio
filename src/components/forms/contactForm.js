@@ -8,7 +8,7 @@ import {
 import { Link } from "gatsby"
 import Recaptcha from "react-google-recaptcha"
 
-const RECAPTCHA_KEY = process.env.GATSBY_RECAPTHCA_KEY
+const RECAPTCHA_KEY = process.env.GATSBY_SITE_RECAPTCHA_KEY
 
 export default ({ formTitle }) => {
   const [formValues, setFormValues] = useState({
