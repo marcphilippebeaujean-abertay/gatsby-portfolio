@@ -34,7 +34,7 @@ export default ({ formTitle }) => {
       method="post"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
-      onSubmit={handleSubmit}
+      onSubmit={e => handleSubmit(e, formValues, formTitle)}
     >
       <NewsletterWrapper>
         <p>
