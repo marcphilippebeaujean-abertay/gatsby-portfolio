@@ -22,10 +22,14 @@ const NewsletterWrapper = styled.div`
   }
 `
 
+const initFormState = {
+  email: "",
+  termAgreement: false,
+}
+
 export default ({ formTitle }) => {
   const [formValues, setFormValues] = useState({
-    email: "",
-    termAgreement: false,
+    ...initFormState,
   })
   return (
     <FormWrapper
@@ -34,7 +38,12 @@ export default ({ formTitle }) => {
       method="post"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
-      onSubmit={e => handleSubmit(e, formValues, formTitle)}
+      onSubmit={e => {
+        handleSubmit(e, formValues, formTitle)
+        setFormValues({
+          ...initFormState,
+        })
+      }}
     >
       <NewsletterWrapper>
         <p>
