@@ -42,19 +42,18 @@ export const TagWrapper = styled.span`
   margin: 5px 15px;
   a {
     text-decoration: none !important;
-  }
-  .tag {
     color: darkblue;
     background-color: lightblue;
-    border-radius: 5px;
-    margin-right: 5px;
     padding: 3px;
+    margin-right: 5px;
+    border-radius: 5px;
+    text-align: center;
   }
   .tag-wrapper {
     display: inline-block;
     margin: 10px 0px;
   }
-  .tag:hover {
+  a:hover {
     background-color: darkblue;
     color: white;
   }
@@ -71,9 +70,7 @@ export default ({ post }) => {
         <TagWrapper>
           {post.tags.map(tag => (
             <span className="tag-wrapper" key={`tag_${tag.name}`}>
-              <Link to={`/${tag.name.replace(/ /g, "-")}`}>
-                <span className="tag">{tag.name}</span>
-              </Link>
+              <Link to={`/${tag.name.replace(/ /g, "-")}`}>{tag.name}</Link>
             </span>
           ))}
         </TagWrapper>
