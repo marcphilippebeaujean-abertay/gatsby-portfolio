@@ -82,9 +82,11 @@ const SocialMediaLogoWrapper = styled.div`
   padding: 5px 0;
   justify-content: flex-end;
   background-color: black;
+  a {
+    margin: 0px 0px 0 40px;
+  }
   .logo {
     background-color: white;
-    margin: 0px 0px 0 40px;
     height: 30px;
     width: 30px;
     transition: ease 0.2s;
