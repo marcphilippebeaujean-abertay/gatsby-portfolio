@@ -84,6 +84,7 @@ const SocialMediaLogoWrapper = styled.div`
   background-color: black;
   a {
     margin: 0px 0px 0 40px;
+    border-radius: 25px;
   }
   .logo {
     background-color: white;
@@ -95,7 +96,7 @@ const SocialMediaLogoWrapper = styled.div`
     background-color: ${mainColour};
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
-    .logo {
+    a {
       margin: 0px 20px;
     }
     justify-content: center;
