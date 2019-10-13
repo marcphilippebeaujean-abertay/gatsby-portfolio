@@ -38,6 +38,7 @@ export default ({ formTitle }) => {
       method="post"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
+      id="sub-form"
       onSubmit={e => {
         handleSubmit(e, formValues, formTitle)
         setFormValues({
