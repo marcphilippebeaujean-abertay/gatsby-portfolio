@@ -118,16 +118,9 @@ exports.createPages = ({ graphql, actions }) => {
             console.log(result.errors)
             reject(result.errors)
           }
-          let seoTag = []
-          let seoTagIds = [
-            ...result.data.allWordpressWpBlogpost.edges.map(
-              edge => edge.node.seo_tags
-            ),
-          ]
+          let seoTags = []
           fetch(
-            `${process.env.GATSBY_API_PROTOCOL}://${
-              process.env.GATSBY_API_URL
-            }/wp-json/wp/v2/seo_tags?include=${seoTagIds.join(",")}`
+            `${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/seo_tags?per_page=99`
           )
             .then(response => response.json())
             .then(tags => {
