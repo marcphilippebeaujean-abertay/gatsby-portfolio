@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
     width: 100% !important;
   }
   p{
-    line-height: 1.5em;
+    line-height: 2em !important;
   }
   @media screen {
     pre .token.comment,

@@ -71,6 +71,7 @@ const NavElementText = styled.p`
   font-size: 20px;
   z-index: 1;
   position: relative;
+  bottom: 5px;
   width: 100%;
   text-align: center;
 `
