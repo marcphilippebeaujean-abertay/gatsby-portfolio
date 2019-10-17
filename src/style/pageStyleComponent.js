@@ -27,9 +27,12 @@ export const PageContentWrapper = styled.div`
     text-align: center;
     margin: 0 auto;
   }
+  background-color: white;
+  border-radius: 5px;
   width: ${mainContentWidthPercent}%;
-  margin-top: ${navMenuHeight}px;
-  padding-right: ${smallScreenSidePadding}px;
+  margin-top: ${navMenuHeight + 10}px;
+  padding: 0 ${smallScreenSidePadding}px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
   @media screen and (max-width: ${mediumScreenWidth}px) {
     width: 100%;
     overflow: hidden;

@@ -6,6 +6,9 @@ const twitterDataHeight = `350`
 const twitterColourCode = `#1DA1F2`
 
 const TwitterFeedWrapper = styled.div`
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
   h1 {
     z-index: 4;
     position: absolute;
@@ -45,6 +48,7 @@ const TwitterOverlay = styled.div`
   height: 100%;
   z-index: 2;
   transition: opacity 1s;
+  border-radius: 5px;
   #loading-overlay {
     height: 100%;
     width: 100%;
@@ -83,18 +87,6 @@ export default props => {
   })
   return (
     <TwitterFeedWrapper>
-      <div className="center">
-        <h1>
-          Tweets by{" "}
-          <a
-            href="https://twitter.com/MarcBeaujean"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @MarcBeaujean
-          </a>
-        </h1>
-      </div>
       <TwitterOverlay id="overlay">
         <div id="loading-overlay">
           <img src={twitterLogo} id="twitter-loader" alt="twitter icon" />

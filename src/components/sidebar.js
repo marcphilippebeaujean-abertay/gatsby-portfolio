@@ -16,15 +16,14 @@ const sidebarInitPixelWidth = initContentWidth * (sidebarWidthPercent / 100)
 const SidebarWrapper = styled.aside`
   z-index: 0;
   position: relative;
-  margin: ${navMenuHeight}px 0px 10px 0px;
+  margin: ${navMenuHeight + 10}px 10px 10px 10px;
   width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding}px);
   animation: fade-in 1s;
-  overflow: hidden;
   .fixed {
     position: fixed;
     top: ${navMenuHeight}px;
-    width: calc(${sidebarInitPixelWidth}px - ${smallScreenSidePadding}px);
-    margin: 0px 0px 10px 0px;
+    width: calc(${sidebarInitPixelWidth}px - ${smallScreenSidePadding + 12}px);
+    margin: 10px 10px 10px 0px;
   }
   @media screen and (max-width: ${mediumScreenWidth}px) {
     display: none;

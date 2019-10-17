@@ -15,6 +15,7 @@ import styled from "styled-components"
 import Logo from "./logo"
 
 const MainMenuWrapper = styled.nav`
+  background-color: lightgrey;
   z-index: 3;
   left: 50%;
   transform: translateX(-50%);
@@ -29,7 +30,6 @@ const MainMenuWrapper = styled.nav`
     border-radius: 0px 0px 10px 10px;
     color: ${mainColour} !important;
     height: ${navMenuHeight}px;
-    box-shadow: 1px 1px 0 2px lightgray;
     overflow: hidden;
     -webkit-animation: menu-drop-in 1s;
     -moz-animation: menu-drop-in 1s;

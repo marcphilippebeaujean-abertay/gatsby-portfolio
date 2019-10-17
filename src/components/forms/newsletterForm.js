@@ -9,10 +9,9 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const NewsletterWrapper = styled.div`
-  background-color: #e9e5e5;
+  background-color: white;
   padding: 5px 15px;
   border-radius: 5px;
-  margin: 2px;
   overflow: hidden;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
   #form-email {

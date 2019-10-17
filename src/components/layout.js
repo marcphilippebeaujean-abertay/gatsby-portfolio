@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0 !important;
     margin: 0;
     position: relative;
+    background-color: lightgrey;
   }
   html {
     height: 100%;
@@ -23,6 +24,9 @@ export const GlobalStyles = createGlobalStyle`
   .fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe {
     max-width: 100% !important;
     width: 100% !important;
+  }
+  p{
+    line-height: 1.5em;
   }
   @media screen {
     pre .token.comment,
