@@ -22,7 +22,7 @@ const SidebarWrapper = styled.aside`
   .fixed {
     position: fixed;
     top: ${navMenuHeight}px;
-    width: calc(${sidebarInitPixelWidth}px - ${smallScreenSidePadding + 8}px);
+    width: calc(${sidebarInitPixelWidth}px - ${smallScreenSidePadding + 9}px);
     margin: 10px 10px 10px 0px;
   }
   @media screen and (max-width: ${mediumScreenWidth}px) {
@@ -30,7 +30,7 @@ const SidebarWrapper = styled.aside`
   }
   @media screen and (max-width: ${initContentWidth}px) {
     .fixed {
-      width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding + 6}px);
+      width: calc(${sidebarWidthPercent}% - ${smallScreenSidePadding + 9}px);
     }
   }
   @keyframes fade-in {
