@@ -28,6 +28,9 @@ export const GlobalStyles = createGlobalStyle`
   p{
     line-height: 2em !important;
   }
+  li{
+    line-height: 2em !important;
+  }
   @media screen {
     pre .token.comment,
     pre .token.prolog,
