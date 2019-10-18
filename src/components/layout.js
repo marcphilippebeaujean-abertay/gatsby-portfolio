@@ -2,7 +2,11 @@ import React from "react"
 import Sidebar from "./sidebar"
 import NavMenu from "./navMenu"
 import Footer from "./footer"
-import { footerHeight, initContentWidth } from "../style/layoutStyle"
+import {
+  footerHeight,
+  initContentWidth,
+  mediumScreenWidth,
+} from "../style/layoutStyle"
 import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
@@ -38,18 +42,21 @@ export const GlobalStyles = createGlobalStyle`
     pre .token.cdata {
         color: slategray;
     }
-}
+  }
+  @media screen and (max-width: ${mediumScreenWidth}px) {
+    body{
+      background-color: white !important;
+    }
+  }
 `
 
 export const PageContentStyle = styled.div`
   position: relative;
   display: flex;
-  /*overflow: auto;*/
   margin: 0 auto;
   max-width: ${initContentWidth}px;
   padding-bottom: ${footerHeight}px;
-  /*overflow: auto;*/
-  height: auto;
+  min-height: 100%;
 `
 const Layout = ({ children }) => {
   return (

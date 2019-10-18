@@ -6,6 +6,10 @@ import SEO from "../components/seo"
 
 import Img from "gatsby-image/withIEPolyfill"
 import SoftwareDevLogo from "../images/software-dev-icon.png"
+import SoftskillsLogo from "../images/handshake-icon.png"
+import DevOpsLogo from "../images/dev-ops.png"
+import GameDevLogo from "../images/game-development.png"
+
 import styled from "styled-components"
 
 const FigureStylesWrapper = styled.div`
@@ -140,7 +144,7 @@ export default ({ pageContext }) => {
           <figcaption>Software Development</figcaption>
           <figure className="wp-block-image">
             <img
-              src="https://wp.jdit.eu/wp-content/uploads/2019/09/handshake-icon-1024x784.png"
+              src={SoftskillsLogo}
               alt="handshake icon"
               className="wp-image-213"
             />
@@ -148,7 +152,7 @@ export default ({ pageContext }) => {
           <figcaption>Softskills</figcaption>
           <figure className="wp-block-image">
             <img
-              src="https://wp.jdit.eu/wp-content/uploads/2019/09/dev-ops-1-1024x724.png"
+              src={DevOpsLogo}
               alt="dev ops icon"
               className="wp-image-2090"
             />
@@ -156,7 +160,7 @@ export default ({ pageContext }) => {
           <figcaption>Developer Operations</figcaption>
           <figure className="wp-block-image">
             <img
-              src="https://wp.jdit.eu/wp-content/uploads/2019/09/game-development-5.png"
+              src={GameDevLogo}
               alt="game dev icon"
               className="wp-image-233"
             />

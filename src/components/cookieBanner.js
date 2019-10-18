@@ -9,7 +9,7 @@ const CookieBannerWrapper = styled.div`
   text-justify: none;
   height: auto;
   z-index: 5;
-  background-color: rgba(1, 1, 1, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   bottom: 0;
   color: ${mainColour};
   animation: fadeIn 1s;
