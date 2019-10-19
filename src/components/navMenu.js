@@ -20,6 +20,12 @@ const MainMenuWrapper = styled.nav`
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
+  -webkit-animation: menu-drop-in 1s;
+  -moz-animation: menu-drop-in 1s;
+  -o-animation: menu-drop-in 1s;
+  -ms-transition: menu-drop-in 1s;
+  animation: menu-drop-in 1s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
   .nav-bar {
     margin: 0 auto;
     background-color: rgb(0, 0, 0);
@@ -30,11 +36,6 @@ const MainMenuWrapper = styled.nav`
     color: ${mainColour} !important;
     height: ${navMenuHeight}px;
     overflow: hidden;
-    -webkit-animation: menu-drop-in 1s;
-    -moz-animation: menu-drop-in 1s;
-    -o-animation: menu-drop-in 1s;
-    -ms-transition: menu-drop-in 1s;
-    animation: menu-drop-in 1s;
   }
   @media screen and (max-width: ${initContentWidth}px) {
     .nav-bar {
@@ -61,7 +62,6 @@ const MainMenuWrapper = styled.nav`
 
 const TopCoverupDiv = styled.div`
   position: absolute;
-  background-color: white;
   z-index: 1;
   width: 100%;
   height: ${navMenuHeight}px;
