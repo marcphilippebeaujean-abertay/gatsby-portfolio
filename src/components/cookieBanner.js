@@ -28,7 +28,7 @@ const CookieBannerWrapper = styled.div`
     width: 100px;
     height: 40px;
     color: ${mainColour};
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0px;
     border-color: ${mainColour};
     border-radius: 5px;
@@ -84,8 +84,8 @@ export default props => {
     <CookieBannerWrapper id="cookie-banner-container">
       <BannerInformationWrapper className="hide" id="banner-wrapper">
         <p>
-          This website uses cookies! By using this website, you are agreeing to
-          the terms - please read the{" "}
+          This website uses cookies! By using it, you are agreeing to the terms
+          - please read the{" "}
           <Link to={`/datenschutzerklarung/`}>Data Policy</Link> for more
           information.
         </p>
