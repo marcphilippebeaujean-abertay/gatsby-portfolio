@@ -129,12 +129,12 @@ export default ({ pageContext }) => {
       </GatsbyImgWrapper>
       <h2>About the Blog</h2>
       <p>
-        <strong>&lt;JustDoIT /&gt;</strong> is a passion project that originated
-        from my desire to learn new technologies and best practices in software
-        development. The website was written from scratch using the GatsbyJS
-        framework. With this blog, I hope to share insights that I have gained
-        from my personal experience and research. While I hope to cover a wide
-        range of topics, you can find a quick overview here:
+        <strong>&lt;ByteSchool /&gt;</strong> is a passion project that
+        originated from my desire to learn new technologies and best practices
+        in software development. The website was written from scratch using the
+        GatsbyJS framework. With this blog, I hope to share insights that I have
+        gained from my personal experience and research. While I hope to cover a
+        wide range of topics, you can find a quick overview here:
       </p>
       <FigureStylesWrapper>
         <div className="image-block image-row-block">

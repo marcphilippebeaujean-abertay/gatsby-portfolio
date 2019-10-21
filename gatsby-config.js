@@ -4,10 +4,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "<JustDoIT />",
+    title: "<ByteSchool />",
     author: "Marc Philippe Beaujean",
     description: "Blog about Software and Personal Development.",
-    url: "https://www.jdit.eu", // No trailing slash allowed!
+    url: "https://www.byteschool.io", // No trailing slash allowed!
     image: "/images/jdit-icon.png", // Path to your image you placed in the 'static' folder
   },
   plugins: [
