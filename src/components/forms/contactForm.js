@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Checkbox } from "@material-ui/core"
 import FormWrapper from "./formStyleComponent"
 import {
   handleFormChange,
@@ -70,7 +69,7 @@ export default ({ formTitle }) => {
         Please enter a longer message!
       </p>
       <p id="checkbox-text">
-        <Checkbox
+        <input
           type="checkbox"
           name="termAgreement"
           onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
