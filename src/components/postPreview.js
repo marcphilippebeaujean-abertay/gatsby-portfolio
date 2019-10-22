@@ -25,7 +25,6 @@ const PostPreviewWrapper = styled.div`
   h2 {
     margin-bottom: 0;
   }
-
   .in-text-thumbnail {
     display: inherit;
     float: left;
@@ -34,7 +33,7 @@ const PostPreviewWrapper = styled.div`
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     .in-text-thumbnail {
-      width: 100px;
+      width: 140px;
     }
     .excerpt-text {
       position: static;
