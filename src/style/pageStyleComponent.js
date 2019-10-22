@@ -32,7 +32,7 @@ export const PageContentWrapper = styled.div`
   margin: ${navMenuHeight + 10}px 0 20px 0;
   padding: 0 ${smallScreenSidePadding}px;
   @media screen and (min-width: ${mediumScreenWidth}px) {
-    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
   }
   @media screen and (max-width: ${mediumScreenWidth}px) {

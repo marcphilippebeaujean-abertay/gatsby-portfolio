@@ -13,7 +13,7 @@ const NewsletterWrapper = styled.div`
   padding: 5px 15px;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
   #form-email {
     width: calc(100% - 20px);
     max-width: 100%;
