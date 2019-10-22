@@ -21,6 +21,7 @@ const FooterWrapper = styled.footer`
   clear: both;
   height: ${footerHeight}px;
   margin-top: -${footerHeight + 10}px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.7);
   background-color: black;
   color: white;
   display: flex;
