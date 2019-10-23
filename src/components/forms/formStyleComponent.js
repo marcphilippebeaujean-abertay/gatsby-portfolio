@@ -53,6 +53,8 @@ export default styled.form`
     font-size: 16px;
     transition: all 0.3s;
     margin-bottom: 10px;
+    box-shadow: 1px 1px 4px black;
+
   }
   .submit-btn:hover {
     color: black;

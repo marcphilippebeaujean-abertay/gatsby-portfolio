@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { mainColour } from "../style/themeStyle"
 import { Link } from "gatsby"
 import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle"
 import PostStats from "./postStats"
@@ -13,6 +14,9 @@ const PostPreviewWrapper = styled.div`
     flex-direction: row;
     flex-grow: 1;
     position: relative;
+  }
+  .excerpt-text {
+    width: 100%;
   }
   .thumbnail {
     margin-right: ${smallScreenSidePadding}px;
@@ -28,13 +32,24 @@ const PostPreviewWrapper = styled.div`
   .in-text-thumbnail {
     display: inherit;
     float: left;
-    width: 200px;
-    height: auto;
+    width: 90px;
+    height: 90px;
+  }
+  .read-more {
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .read-more:hover {
+    text-decoration: underline;
+  }
+  .img-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
-    .in-text-thumbnail {
-      width: 140px;
-    }
     .excerpt-text {
       position: static;
       -ms-transform: translateY(0%);
@@ -49,32 +64,33 @@ const PostPreview = props => {
       <h2 dangerouslySetInnerHTML={{ __html: props.post.title }} />
       <PostStats post={props.post} />
       <div className="image-excerpt-container">
-        <div>
-          <div className="excerpt-text">
-            {`localFile` in props.post.featured_media ? (
-              <div className="in-text-thumbnail">
-                <Img
-                  fluid={
-                    props.post.featured_media.localFile.childImageSharp.fluid
-                  }
-                  alt="Search icon for no search found"
-                />
-              </div>
-            ) : (
-              <img
-                className="in-text-thumbnail"
-                src={props.post.featured_media.source_url}
-                alt="Thumbnail"
+        <div className="excerpt-text">
+          {`localFile` in props.post.featured_media ? (
+            <div className="in-text-thumbnail">
+              <Img
+                className="img-center"
+                fluid={
+                  props.post.featured_media.localFile.childImageSharp.fluid
+                }
+                alt="Search icon for no search found"
               />
-            )}
-            <p>
-              {props.post.excerpt.slice(3, props.post.excerpt.length - 5)}
-              <span>
-                {" "}
-                <Link to={`/post/${props.post.slug}`}>Read More</Link>
-              </span>
-            </p>
-          </div>
+            </div>
+          ) : (
+            <img
+              className="in-text-thumbnail img-center"
+              src={props.post.featured_media.source_url}
+              alt="Thumbnail"
+            />
+          )}
+          <p>
+            {props.post.excerpt.slice(3, props.post.excerpt.length - 5)}
+            <span>
+              {" "}
+              <Link className="read-more" to={`/post/${props.post.slug}`}>
+                Read More
+              </Link>
+            </span>
+          </p>
         </div>
       </div>
     </PostPreviewWrapper>
