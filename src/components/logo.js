@@ -27,7 +27,6 @@ const LogoContainer = styled.div`
   height: 50px;
   width: 330px;
   margin: 0px auto;
-  @import url("https://fonts.googleapis.com/css?family=Orbitron&display=swap");
   font-family: "Orbitron", sans-serif;
   :hover {
     cursor: default;

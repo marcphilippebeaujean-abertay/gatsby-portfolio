@@ -71,8 +71,7 @@ export default ({ formTitle }) => {
             onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
           />{" "}
           I agree to and have read the{" "}
-          <Link to={`/datenschutzerklarung/`}>Data Policy</Link>. I acknowledge
-          that I can cancel the newsletter subscription at any time.
+          <Link to={`/datenschutzerklarung/`}>Data Policy</Link>.
         </p>
         <p
           id={`${formTitle}-termAgreement-error`}

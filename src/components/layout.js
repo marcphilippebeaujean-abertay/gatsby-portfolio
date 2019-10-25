@@ -10,7 +10,6 @@ import {
 import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
   body{
     font-family: 'Open Sans', sans-serif !important;
     padding: 0 !important;
@@ -29,11 +28,11 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100% !important;
     width: 100% !important;
   }
-  p{
-    line-height: 2em !important;
+  h1, h2, h3 {
+    margin-bottom: 0px;
   }
-  li{
-    line-height: 2em !important;
+  p{
+    margin: 3px;
   }
   @media screen {
     pre .token.comment,
