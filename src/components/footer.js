@@ -8,6 +8,7 @@ import {
 import { mainColour } from "../style/themeStyle"
 import { getCurrentUrlPathname } from "../utility/navigation"
 import { document } from "browser-monads"
+import Logo from "./logo"
 import styled from "styled-components"
 import linkedInLogo from "../images/linkedin-icon.png"
 import youtubeLogo from "../images/youtube-icon.png"
@@ -45,7 +46,6 @@ const FooterWrapper = styled.footer`
     margin: 0 auto;
   }
   #footer-container-right {
-    text-align: right;
   }
   @media screen and (max-width: ${initContentWidth}px) {
     .footer-container {
@@ -81,10 +81,9 @@ const FooterLink = styled(Link)`
 const SocialMediaLogoWrapper = styled.div`
   display: flex;
   padding: 5px 0;
-  justify-content: flex-end;
   background-color: black;
   a {
-    margin: 0px 0px 0 40px;
+    margin: 0px 40px 0 0;
     border-radius: 25px;
   }
   .logo {
@@ -124,6 +123,9 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <div id="footer-links-container">
+        <div className="footer-container">
+          <Logo width={200} margin={`0px`} />
+        </div>
         <div className="footer-container">
           <p>
             <b>Legal</b>

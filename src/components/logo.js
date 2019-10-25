@@ -25,8 +25,7 @@ const LogoStyle = styled.div`
 
 const LogoContainer = styled.div`
   height: 50px;
-  width: 330px;
-  margin: 0px auto;
+  width: ${props => (props.width === undefined ? `330` : props.width)}px;
   font-family: "Orbitron", sans-serif;
   :hover {
     cursor: default;
