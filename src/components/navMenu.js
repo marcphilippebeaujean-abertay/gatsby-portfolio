@@ -22,7 +22,7 @@ const MainMenuWrapper = styled.nav`
     color: ${mainColour};
   }
   a:active {
-    color: black;
+    color: ${mainColour};
   }
   .nav-bar {
     background-color: rgb(0, 0, 0);

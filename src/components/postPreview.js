@@ -6,6 +6,7 @@ import PostStats from "./postStats"
 import Img from "gatsby-image/withIEPolyfill"
 
 const PostPreviewWrapper = styled.div`
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   .image-excerpt-container {
@@ -29,7 +30,7 @@ const PostPreviewWrapper = styled.div`
   .in-text-thumbnail-wrapper {
     display: block;
     position: relative;
-    top: 3px;
+    top: 6px;
     float: left;
     width: 100px;
     height: 90px;

@@ -132,7 +132,7 @@ exports.createPages = ({ graphql, actions }) => {
             .finally(() => {
               // Create a blog page for each
               const posts = result.data.allWordpressWpBlogpost.edges
-              const postsPerPage = 5
+              const postsPerPage = 10
               const numberOfPages = Math.ceil(posts.length / postsPerPage)
               const blogTemplate = path.resolve(
                 "./src/templates/blogInfiniteScroll.js"

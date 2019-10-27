@@ -1,7 +1,7 @@
 import React from "react"
 import Sidebar from "./sidebar"
 import NavMenu from "./navMenu"
-import Footer from "./footer"
+import Footer from "./footer/footer"
 import { Container, Row, Col } from "react-bootstrap"
 import { footerHeight, smallScreenWidth } from "../style/layoutStyle"
 import { createGlobalStyle } from "styled-components"
