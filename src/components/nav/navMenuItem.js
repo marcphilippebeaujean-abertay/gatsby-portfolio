@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import React from "react"
-import { smallScreenWidth } from "../style/layoutStyle"
-import { mainColour } from "../style/themeStyle"
+import { smallScreenWidth } from "../../style/layoutStyle"
+import { mainColour } from "../../style/themeStyle"
 import { Link } from "gatsby"
 
 const stripeWidth = 20

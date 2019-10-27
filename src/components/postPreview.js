@@ -30,7 +30,7 @@ const PostPreviewWrapper = styled.div`
   .in-text-thumbnail-wrapper {
     display: block;
     position: relative;
-    top: 6px;
+    top: 8px;
     float: left;
     width: 100px;
     height: 90px;

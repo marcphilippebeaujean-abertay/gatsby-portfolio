@@ -1,6 +1,6 @@
 import React from "react"
 import Sidebar from "./sidebar"
-import NavMenu from "./navMenu"
+import NavMenu from "./nav/navMenu"
 import Footer from "./footer/footer"
 import { Container, Row, Col } from "react-bootstrap"
 import { footerHeight, smallScreenWidth } from "../style/layoutStyle"

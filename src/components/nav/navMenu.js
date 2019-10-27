@@ -1,15 +1,15 @@
 import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { navMenuHeight, smallScreenWidth } from "../style/layoutStyle"
+import { navMenuHeight, smallScreenWidth } from "../../style/layoutStyle"
 import { Container } from "react-bootstrap"
-import { mainColour } from "../style/themeStyle"
-import { getCurrentUrlPathname } from "../utility/navigation"
+import { mainColour } from "../../style/themeStyle"
+import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
-import CookieBanner from "./cookieBanner"
-import HamburgerButton from "./hamburgerMenu"
+import CookieBanner from "../cookieBanner"
+import HamburgerButton from "../hamburgerMenu"
 import NavMenuItem from "./navMenuItem"
 import styled from "styled-components"
-import Logo from "./logo"
+import Logo from "../logo"
 
 const MainMenuWrapper = styled.nav`
   background-color: black;

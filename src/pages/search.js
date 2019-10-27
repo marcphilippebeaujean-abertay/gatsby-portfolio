@@ -75,6 +75,10 @@ const SearchResultWrapper = styled.div`
   .hidden-results {
     display: none !important;
   }
+  h2 {
+    margin-top: 40px;
+    padding-bottom: 40px;
+  }
 `
 
 const SpinnerWrapper = styled.div`
