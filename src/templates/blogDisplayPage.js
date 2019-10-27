@@ -1,5 +1,5 @@
 import React from "react"
-import PostPreview from "../components/postPreview"
+import PostPreview from "../components/postComponent/postPreview"
 import styled from "styled-components"
 import SEO from "../components/seo"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { mainColour } from "../style/themeStyle"
-import { smallScreenWidth, initContentWidth } from "../style/layoutStyle"
+import { mainColour } from "../../style/themeStyle"
+import { smallScreenWidth, initContentWidth } from "../../style/layoutStyle"
 
 const CookieBannerWrapper = styled.div`
   width: 100%;

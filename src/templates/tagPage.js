@@ -1,5 +1,5 @@
 import React from "react"
-import PostPreview from "../components/postPreview"
+import PostPreview from "../components/postComponent/postPreview"
 import SEO from "../components/seo"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 

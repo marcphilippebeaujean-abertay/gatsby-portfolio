@@ -2,7 +2,7 @@ import { PageContentWrapper } from "../style/pageStyleComponent"
 import SEO from "../components/seo"
 
 import React from "react"
-import PostPreview from "../components/postPreview"
+import PostPreview from "../components/postComponent/postPreview"
 
 export default ({ pageContext }) => {
   return (

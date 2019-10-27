@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import TwitterFeed from "./twitterFeed"
-import { navMenuHeight } from "../style/layoutStyle"
-import NewsletterForm from "./forms/newsletterForm"
+import { navMenuHeight } from "../../style/layoutStyle"
+import NewsletterForm from "../forms/newsletterForm"
 
 const SidebarWrapper = styled.aside`
   z-index: 0;

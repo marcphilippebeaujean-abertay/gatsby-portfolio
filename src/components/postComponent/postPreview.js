@@ -1,7 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle"
+import {
+  smallScreenWidth,
+  smallScreenSidePadding,
+} from "../../style/layoutStyle"
 import PostStats from "./postStats"
 import Img from "gatsby-image/withIEPolyfill"
 

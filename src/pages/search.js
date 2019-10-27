@@ -9,7 +9,7 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 
 import Img from "gatsby-image/withIEPolyfill"
 import styled from "styled-components"
-import PostPreview from "../components/postPreview"
+import PostPreview from "../components/postComponent/postPreview"
 import ClipLoader from "react-spinners/ClipLoader"
 
 const SearchBar = styled.form`

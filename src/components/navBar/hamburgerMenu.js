@@ -4,9 +4,9 @@ import {
   smallScreenWidth,
   smallScreenNavHeight,
   smallScreenSidePadding,
-} from "../style/layoutStyle"
-import { mainColour } from "../style/themeStyle"
-import { getCurrentUrlPathname } from "../utility/navigation"
+} from "../../style/layoutStyle"
+import { mainColour } from "../../style/themeStyle"
+import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
 import styled from "styled-components"
 

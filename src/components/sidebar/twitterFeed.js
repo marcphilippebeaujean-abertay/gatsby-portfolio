@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import twitterLogo from "../images/Twitter_logo_og.png"
+import twitterLogo from "../../images/Twitter_logo_og.png"
 
 const twitterDataHeight = `350`
 const twitterColourCode = `#1DA1F2`
