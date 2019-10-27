@@ -19,8 +19,6 @@ const PostPreviewWrapper = styled.div`
   }
   .thumbnail {
     margin-right: ${smallScreenSidePadding}px;
-    width: 200px;
-    height: auto;
   }
   p {
     margin: 0;
@@ -29,9 +27,11 @@ const PostPreviewWrapper = styled.div`
     margin-bottom: 0;
   }
   .in-text-thumbnail-wrapper {
-    display: inherit;
+    display: block;
+    position: relative;
+    top: 3px;
     float: left;
-    width: 90px;
+    width: 100px;
     height: 90px;
   }
   .in-text-thumbnail {
@@ -39,6 +39,8 @@ const PostPreviewWrapper = styled.div`
     display: block;
     float: left;
     left: 0 !important;
+  }
+  .container-img {
   }
   .read-more {
     text-decoration: none;
@@ -69,24 +71,22 @@ const PostPreview = props => {
       <h2 dangerouslySetInnerHTML={{ __html: props.post.title }} />
       <PostStats post={props.post} />
       <div className="image-excerpt-container">
-        <div className="excerpt-text">
-          {`localFile` in props.post.featured_media ? (
-            <div className="in-text-thumbnail-wrapper">
-              <Img
-                className="img-center"
-                fluid={
-                  props.post.featured_media.localFile.childImageSharp.fluid
-                }
-                alt="Search icon for no search found"
-              />
-            </div>
-          ) : (
-            <img
-              className="in-text-thumbnail"
-              src={props.post.featured_media.source_url}
-              alt="Thumbnail"
+        {`localFile` in props.post.featured_media ? (
+          <div className="in-text-thumbnail-wrapper thumbnail">
+            <Img
+              className="container-img"
+              fluid={props.post.featured_media.localFile.childImageSharp.fluid}
+              alt="Search icon for no search found"
             />
-          )}
+          </div>
+        ) : (
+          <img
+            className="in-text-thumbnail thumbnail"
+            src={props.post.featured_media.source_url}
+            alt="Thumbnail"
+          />
+        )}
+        <div className="excerpt-text">
           <p>
             {props.post.excerpt.slice(3, props.post.excerpt.length - 5)}
             <span>

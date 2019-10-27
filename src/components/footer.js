@@ -18,16 +18,21 @@ const FooterWrapper = styled.footer`
   padding: 0 0 10px 0 !important;
   clear: both;
   min-height: ${footerHeight}px;
-  margin-top: -${footerHeight + 10}px;
+  margin-top: -${footerHeight}px;
+  margin-bottom: 0 !important;
+
+  .footer-container {
+    margin-bottom: 0 !important;
+  }
   color: white;
   background-color: black !important;
-`
-
-const FooterLink = styled(Link)`
-  display: inline-block;
-  color: ${props => (props.selected ? mainColour : `white`)};
-  text-decoration: none !important;
-  :hover {
+  .footer-link {
+    display: inline-block;
+    color: ${props => (props.selected ? mainColour : `white`)};
+    text-decoration: none !important;
+    margin: 0;
+  }
+  .footer-link:hover {
     color: ${mainColour};
   }
 `
@@ -74,7 +79,7 @@ const Footer = () => {
   `)
   return (
     <FooterWrapper>
-      <Container className="text-white">
+      <Container className="text-white footer-container">
         <Row>
           <Col md="4">
             <Logo width={200} margin={`0px`} />
@@ -86,18 +91,19 @@ const Footer = () => {
             {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
               item => (
                 <div key={item.title}>
-                  <FooterLink
+                  <Link
+                    className="footer-link"
                     to={`/${item.object_slug}`}
                     selected={
                       item.object_slug === getCurrentUrlPathname(document)
                     }
                   >
                     {item.title}
-                  </FooterLink>
+                  </Link>
                 </div>
               )
             )}
-            <p>© 2019 Marc P. Beaujean</p>
+            <p className="footer-link">© 2019 Marc P. Beaujean</p>
           </Col>
           <Col md="4">
             <p>
