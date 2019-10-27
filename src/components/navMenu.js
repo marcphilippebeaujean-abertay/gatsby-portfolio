@@ -1,10 +1,7 @@
 import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import {
-  navMenuHeight,
-  initContentWidth,
-  smallScreenWidth,
-} from "../style/layoutStyle"
+import { navMenuHeight, smallScreenWidth } from "../style/layoutStyle"
+import { Container } from "react-bootstrap"
 import { mainColour } from "../style/themeStyle"
 import { getCurrentUrlPathname } from "../utility/navigation"
 import { document } from "browser-monads"
@@ -16,32 +13,25 @@ import Logo from "./logo"
 
 const MainMenuWrapper = styled.nav`
   background-color: black;
-  z-index: 3;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
-  -webkit-animation: menu-drop-in 1s;
-  -moz-animation: menu-drop-in 1s;
-  -o-animation: menu-drop-in 1s;
-  -ms-transition: menu-drop-in 1s;
+  z-index: 3;
   animation: menu-drop-in 1s;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+  a:hover {
+    text-decoration: none;
+    color: ${mainColour};
+  }
+  a:active {
+    color: black;
+  }
   .nav-bar {
-    margin: 0 auto;
     background-color: rgb(0, 0, 0);
     display: flex;
     position: relative;
-    width: ${initContentWidth}px;
     padding: 0;
     color: ${mainColour} !important;
     height: ${navMenuHeight}px;
     overflow: hidden;
-  }
-  @media screen and (max-width: ${initContentWidth}px) {
-    .nav-bar {
-      border-radius: 0;
-      width: 100%;
-    }
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     .nav-bar {
@@ -63,7 +53,6 @@ const MainMenuWrapper = styled.nav`
 const TopCoverupDiv = styled.div`
   position: absolute;
   z-index: 1;
-  width: 100%;
   height: ${navMenuHeight}px;
   @media screen and (max-width: ${smallScreenWidth}px) {
     display: none;
@@ -106,26 +95,28 @@ const NavMenu = () => {
     data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length + 1
   return (
     <div>
-      <TopCoverupDiv />
-
+      <TopCoverupDiv className="d-none d-sm-block" />
       <MainMenuWrapper>
         <CookieBanner />
-        <div className="nav-bar">
-          {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
-            item.object_slug === "logo" ? (
-              <Logo key={`logo`} partitions={menuPartitions} />
-            ) : (
-              <NavMenuItem
-                key={item.object_slug + "_key"}
-                item={item}
-                partitions={menuPartitions}
-              />
-            )
-          )}
-          <HamburgerButton
-            items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items}
-          />
-        </div>
+        <Container>
+          <div className="nav-bar">
+            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
+              item =>
+                item.object_slug === "logo" ? (
+                  <Logo key={`logo`} partitions={menuPartitions} />
+                ) : (
+                  <NavMenuItem
+                    key={item.object_slug + "_key"}
+                    item={item}
+                    partitions={menuPartitions}
+                  />
+                )
+            )}
+            <HamburgerButton
+              items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items}
+            />
+          </div>
+        </Container>
       </MainMenuWrapper>
     </div>
   )

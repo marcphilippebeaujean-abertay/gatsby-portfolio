@@ -2,12 +2,9 @@ import React from "react"
 import Sidebar from "./sidebar"
 import NavMenu from "./navMenu"
 import Footer from "./footer"
-import {
-  footerHeight,
-  initContentWidth,
-  mediumScreenWidth,
-} from "../style/layoutStyle"
-import styled, { createGlobalStyle } from "styled-components"
+import { Container, Row, Col } from "react-bootstrap"
+import { footerHeight, smallScreenWidth } from "../style/layoutStyle"
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
   body{
@@ -15,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0 !important;
     margin: 0;
     position: relative;
-    background-color: lightgrey;
+    background-color: lightgrey !important;
   }
   html {
     height: 100%;
@@ -28,12 +25,13 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100% !important;
     width: 100% !important;
   }
-  h1, h2, h3 {
-    margin-bottom: 0px;
-  }
   p{
     margin: 3px;
     line-height: 1.7 !important;
+  }
+  #page-content-row{
+    padding-bottom: ${footerHeight}px;
+    margin-bottom: 20px;
   }
   @media screen {
     pre .token.comment,
@@ -43,34 +41,28 @@ export const GlobalStyles = createGlobalStyle`
         color: slategray;
     }
   }
-  @media screen and (max-width: ${mediumScreenWidth}px) {
+  @media screen and (max-width: ${smallScreenWidth}px) {
     body{
       background-color: white !important;
     }
   }
 `
 
-export const PageContentStyle = styled.div`
-  position: relative;
-  display: flex;
-  margin: 0 auto;
-  max-width: ${initContentWidth}px;
-  padding-bottom: ${footerHeight}px;
-  min-height: 100%;
-`
 const Layout = ({ children }) => {
   return (
-    <div>
-      <div id="main-content-container">
+    <Container fluid className="px-0 main">
+      <NavMenu />
+      <Container id="main-content-container">
         <GlobalStyles />
-        <NavMenu />
-        <PageContentStyle>
-          {children}
-          <Sidebar />
-        </PageContentStyle>
-      </div>
+        <Row id="page-content-row">
+          <Col lg={8}>{children}</Col>
+          <Col lg={4} className="d-none d-lg-block">
+            <Sidebar />
+          </Col>
+        </Row>
+      </Container>
       <Footer />
-    </div>
+    </Container>
   )
 }
 

@@ -24,8 +24,7 @@ const PostStatsStyle = styled.div`
   }
   .post-info-text {
     position: relative;
-    bottom: 8.5px;
-    line-height: 10px;
+    top: 3px;
     margin: 5px 15px;
   }
   @media screen and (min-width: ${smallScreenWidth}px) {
@@ -37,8 +36,6 @@ const PostStatsStyle = styled.div`
 
 export const TagWrapper = styled.span`
   position: relative;
-  bottom: 8.5px;
-  line-height: 10px;
   margin: 5px 15px;
   a {
     text-decoration: none !important;

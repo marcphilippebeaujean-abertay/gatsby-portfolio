@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import SEO from "../components/seo"
-import { TagWrapper } from "../components/postStats"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { IoIosSearch } from "react-icons/io"
 import { mainColour } from "../style/themeStyle"
@@ -113,7 +112,6 @@ export default ({ pageContext }) => {
               .map(tagId => tagId)
           )
         })
-        console.log(foundTagIds)
         fetch(
           `${process.env.GATSBY_API_PROTOCOL}://${
             process.env.GATSBY_API_URL
@@ -164,13 +162,6 @@ export default ({ pageContext }) => {
           }
         }
       }
-      allWordpressTag {
-        edges {
-          node {
-            name
-          }
-        }
-      }
     }
   `)
   const handleInputChange = e => setSearchTerm(e.target.value)
@@ -180,16 +171,7 @@ export default ({ pageContext }) => {
         title="Archive"
         description="Search through the posts of <JustDoIT />"
       />
-      <h1>Archive</h1>
-      <TagWrapper>
-        {data.allWordpressTag.edges.map(tag => (
-          <span className="tag-wrapper" key={`tag_${tag.node.name}`}>
-            <Link to={`/${tag.node.name.replace(/ /g, "-")}`}>
-              <span className="tag">{tag.node.name}</span>
-            </Link>
-          </span>
-        ))}
-      </TagWrapper>
+      <h1>Search</h1>
       <SearchBar onSubmit={searchForPost}>
         <input
           className="input-field"

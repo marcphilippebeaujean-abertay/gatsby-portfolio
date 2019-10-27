@@ -1,15 +1,21 @@
 import styled from "styled-components"
+import React from "react"
 import {
   smallScreenWidth,
   smallScreenNavHeight,
   navMenuHeight,
-  mainContentWidthPercent,
-  initContentWidth,
-  mediumScreenWidth,
-  smallScreenSidePadding,
 } from "./layoutStyle"
+import { Container } from "react-bootstrap"
 
-export const PageContentWrapper = styled.div`
+export const PageContentWrapper = ({ children }) => {
+  return (
+    <PageContentWrapperStyle>
+      <Container>{children}</Container>
+    </PageContentWrapperStyle>
+  )
+}
+
+const PageContentWrapperStyle = styled.div`
   /***** Content Layout *****/
   figure {
     display: inline-block;
@@ -28,19 +34,10 @@ export const PageContentWrapper = styled.div`
     margin: 0 auto;
   }
   background-color: white;
-  width: ${mainContentWidthPercent}%;
-  margin: ${navMenuHeight + 10}px 0 20px 0;
-  padding: 0 ${smallScreenSidePadding}px;
-  @media screen and (min-width: ${mediumScreenWidth}px) {
+  margin-top: ${navMenuHeight + 10}px;
+  @media screen and (min-width: ${smallScreenWidth}px) {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
-  }
-  @media screen and (max-width: ${mediumScreenWidth}px) {
-    width: 100%;
-    overflow: hidden;
-  }
-  @media screen and (max-width: ${initContentWidth}px) {
-    padding: 0px ${smallScreenSidePadding}px !important;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     margin-top: ${smallScreenNavHeight}px;

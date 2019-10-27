@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { mainColour } from "../style/themeStyle"
 import { Link } from "gatsby"
 import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle"
 import PostStats from "./postStats"
@@ -29,11 +28,17 @@ const PostPreviewWrapper = styled.div`
   h2 {
     margin-bottom: 0;
   }
-  .in-text-thumbnail {
+  .in-text-thumbnail-wrapper {
     display: inherit;
     float: left;
     width: 90px;
     height: 90px;
+  }
+  .in-text-thumbnail {
+    width: 90px;
+    display: block;
+    float: left;
+    left: 0 !important;
   }
   .read-more {
     text-decoration: none;
@@ -66,7 +71,7 @@ const PostPreview = props => {
       <div className="image-excerpt-container">
         <div className="excerpt-text">
           {`localFile` in props.post.featured_media ? (
-            <div className="in-text-thumbnail">
+            <div className="in-text-thumbnail-wrapper">
               <Img
                 className="img-center"
                 fluid={
@@ -77,7 +82,7 @@ const PostPreview = props => {
             </div>
           ) : (
             <img
-              className="in-text-thumbnail img-center"
+              className="in-text-thumbnail"
               src={props.post.featured_media.source_url}
               alt="Thumbnail"
             />

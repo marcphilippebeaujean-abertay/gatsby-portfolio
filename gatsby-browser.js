@@ -1,5 +1,6 @@
 const Layout = require("./src/components/layout").default
 const React = require("react")
+require("./src/style/style.scss")
 
 /**
  * Implement Gatsby's Browser APIs in this file.

@@ -25,15 +25,15 @@ const LogoStyle = styled.div`
 
 const LogoContainer = styled.div`
   height: 50px;
-  width: ${props => (props.width === undefined ? `330` : props.width)}px;
+  width: 330px;
   font-family: "Orbitron", sans-serif;
   :hover {
     cursor: default;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     vertical-align: left;
-    width: 200px;
-    margin: 0px 0px 0px ${smallScreenSidePadding}px;
+    position: relative;
+    bottom: 30px;
     flex-grow: 0;
   }
 `
@@ -50,10 +50,19 @@ const Logo = props => (
         xmlns="http://www.w3.org/2000/svg"
       >
         <text
-          fontSize="123"
+          className="d-xm-none"
+          fontSize="90"
           fill={`${mainColour}`}
           letterSpacing="-0.5"
         >{`<ByteSchool />`}</text>
+        <text
+          className="d-none d-xm-block"
+          fontSize="70"
+          fill={`${mainColour}`}
+          letterSpacing="-0.5"
+        >
+          {`<ByteSchool />`}
+        </text>
       </svg>
     </LogoContainer>
   </LogoStyle>

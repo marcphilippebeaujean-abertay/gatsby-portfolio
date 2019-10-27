@@ -8,7 +8,7 @@ export default ({ pageContext }) => {
   return (
     <PageContentWrapper>
       <SEO title="Contact" description="Send me a message!" />
-      <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
+      <h1>Contact</h1>
       <ContactForm formTitle={"contact"} />
     </PageContentWrapper>
   )
