@@ -33,6 +33,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   p{
     margin: 3px;
+    line-height: 1.7 !important;
   }
   @media screen {
     pre .token.comment,

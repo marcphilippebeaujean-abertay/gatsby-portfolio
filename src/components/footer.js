@@ -8,6 +8,7 @@ import {
 import { mainColour } from "../style/themeStyle"
 import { getCurrentUrlPathname } from "../utility/navigation"
 import { document } from "browser-monads"
+import { Col, Row } from "react-bootstrap"
 import Logo from "./logo"
 import styled from "styled-components"
 import linkedInLogo from "../images/linkedin-icon.png"
@@ -123,10 +124,10 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <div id="footer-links-container">
-        <div className="footer-container">
+        <Col xs="4">
           <Logo width={200} margin={`0px`} />
-        </div>
-        <div className="footer-container">
+        </Col>
+        <Col xs="4">
           <p>
             <b>Legal</b>
           </p>
@@ -144,8 +145,8 @@ const Footer = () => {
               </div>
             )
           )}
-        </div>
-        <div className="footer-container" id="footer-container-right">
+        </Col>
+        <Col xs="4" id="footer-container-right">
           <p>
             <b>Social Media</b>
           </p>
@@ -179,7 +180,7 @@ const Footer = () => {
               <img className="logo" src={twitterLogo} alt="Twitter Logo" />
             </a>
           </SocialMediaLogoWrapper>
-        </div>
+        </Col>
       </div>
     </FooterWrapper>
   )

@@ -147,6 +147,7 @@ module.exports = {
         display: `standalone`,
       },
     },
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
