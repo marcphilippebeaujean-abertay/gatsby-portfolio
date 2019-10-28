@@ -11,41 +11,20 @@ import { document } from "browser-monads"
 import styled from "styled-components"
 
 const NavigationIcon = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  right: ${smallScreenSidePadding}px;
-  top: 2px;
-  width: 40px;
-  overflow: hidden;
+  .hamburger-inner {
+    position: relative;
+    top: 25px !important;
+    background-color: ${mainColour} !important;
+  }
+  margin-right: ${smallScreenSidePadding}px;
   @media screen and (min-width: ${smallScreenWidth}px) {
     display: none;
-  }
-  .bar {
-    position: relative;
-    width: 100%;
-    height: 5px;
-    margin: 5px 0;
-    background-color: ${mainColour};
-    transition: all 0.2s;
-    opacity: 1;
-    transform: rotate(0);
-  }
-  .bar.bar1 {
-    transform: rotate(-45deg) translate(-10px, 11px);
-  }
-  .bar.bar2 {
-    opacity: 0;
-  }
-  .bar.bar3 {
-    transform: rotate(45deg) translate(-10px, -11px);
   }
 `
 
 const HamburgerMenu = styled.div`
   #nav-overlay {
     position: fixed;
-    margin-top: ${smallScreenNavHeight}px;
     left: 0%;
     width: 100%;
     z-index: 2 !important;
@@ -87,17 +66,19 @@ const OverlayLink = styled(Link)`
   text-align: center;
 `
 
-const barElementsTag = `bar`
-
 const HamburgerButton = props => {
   const [overlayActive, setOverlayActive] = useState(false)
   const toggleOverlay = () => {
-    const menuBarElements = Array.from(
-      document.getElementsByClassName(barElementsTag)
+    const hamburgerElements = Array.from(
+      document.getElementsByClassName(`hamburger`)
     )
-    menuBarElements.map((elem, index) =>
-      elem.classList.toggle(`${barElementsTag + (index + 1)}`)
-    )
+    if (hamburgerElements.length > 0) {
+      if (overlayActive) {
+        hamburgerElements[0].classList.remove("is-active")
+      } else {
+        hamburgerElements[0].classList.add("is-active")
+      }
+    }
     const overlayElement = document.getElementById(`nav-overlay`)
     overlayElement.classList.toggle(`overlay-active`)
     setOverlayActive(!overlayActive)
@@ -121,9 +102,11 @@ const HamburgerButton = props => {
   return (
     <HamburgerMenu>
       <NavigationIcon onClick={toggleOverlay}>
-        <div className={barElementsTag} />
-        <div className={barElementsTag} />
-        <div className={barElementsTag} />
+        <button className="hamburger hamburger--collapse" type="button">
+          <span className="hamburger-box">
+            <span className="hamburger-inner"></span>
+          </span>
+        </button>
       </NavigationIcon>
       <div id={`nav-overlay`}>
         {props.items.map(item =>
