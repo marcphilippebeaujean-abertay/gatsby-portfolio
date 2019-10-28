@@ -1,5 +1,4 @@
 import React from "react"
-import { Col, Row, Container } from "react-bootstrap"
 import { Link } from "gatsby"
 
 const topicLinks = ["Docker", "Linux", "DevOps", "Design", "JavaScript"]

@@ -7,6 +7,7 @@ import {
 } from "./formFunctionality"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { IoMdPaper } from "react-icons/io"
 
 const NewsletterWrapper = styled.div`
   background-color: white;
@@ -18,6 +19,11 @@ const NewsletterWrapper = styled.div`
     width: calc(100% - 20px);
     max-width: 100%;
     overflow: hidden;
+  }
+  #newsletter-heading {
+    position: relative;
+    top: 2.5px;
+    left: 10px;
   }
 `
 
@@ -47,10 +53,8 @@ export default ({ formTitle }) => {
     >
       <NewsletterWrapper>
         <p>
-          <b>
-            Fancy becoming a better Developer? Subscribe to the newsletter to
-            get updated on new content!
-          </b>
+          <IoMdPaper size={32} />
+          <b id="newsletter-heading">Newsletter</b>
         </p>
         <input
           value={formValues.email}

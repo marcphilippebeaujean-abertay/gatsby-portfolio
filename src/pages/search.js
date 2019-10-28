@@ -5,7 +5,7 @@ import { IoIosSearch } from "react-icons/io"
 import { mainColour } from "../style/themeStyle"
 import { DateTime } from "luxon"
 import { inputFieldHeight } from "../components/forms/formStyleComponent"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Img from "gatsby-image/withIEPolyfill"
 import styled from "styled-components"

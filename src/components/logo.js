@@ -1,70 +1,36 @@
 import React from "react"
-import { mainColour } from "../style/themeStyle"
-import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle"
+import { smallScreenWidth } from "../style/layoutStyle"
 import styled from "styled-components"
+import LogoImg from "../images/logo.png"
 
 const LogoStyle = styled.div`
+  img {
+    z-index: 3;
+    position: absolute;
+    top: 30px;
+    height: 50px;
+    width: auto;
+  }
+
   position: relative;
-  color: inherit;
   display: table-cell;
   vertical-align: middle;
-  flex-grow: 1;
-  svg {
-    margin: 0 auto;
-  }
   @media screen and (max-width: ${smallScreenWidth}px) {
     vertical-align: left;
+    img {
+      top: 8px;
+      height: 40px;
+      width: auto;
+    }
   }
   @media screen and (min-width: ${smallScreenWidth}px) {
     bottom: 20px;
-    text {
-      font-size: "140";
-    }
-  }
-`
-
-const LogoContainer = styled.div`
-  height: 50px;
-  width: 330px;
-  font-family: "Orbitron", sans-serif;
-  :hover {
-    cursor: default;
-  }
-  @media screen and (max-width: ${smallScreenWidth}px) {
-    vertical-align: left;
-    position: relative;
-    bottom: 30px;
-    flex-grow: 0;
   }
 `
 
 const Logo = props => (
   <LogoStyle id="logo" partitions={props.menuPartitions}>
-    <LogoContainer>
-      <svg
-        y1="0%"
-        y="100%"
-        x1="0%"
-        x2="100%"
-        viewBox="0 -200 1000 300"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <text
-          className="d-xm-none"
-          fontSize="90"
-          fill={`${mainColour}`}
-          letterSpacing="-0.5"
-        >{`<ByteSchool />`}</text>
-        <text
-          className="d-none d-xm-block"
-          fontSize="70"
-          fill={`${mainColour}`}
-          letterSpacing="-0.5"
-        >
-          {`<ByteSchool />`}
-        </text>
-      </svg>
-    </LogoContainer>
+    <img src={LogoImg} alt="the byteschool logo" />
   </LogoStyle>
 )
 

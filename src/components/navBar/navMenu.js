@@ -15,6 +15,7 @@ const MainMenuWrapper = styled.nav`
   background-color: black;
   width: 100%;
   z-index: 3;
+  padding: 0;
   animation: menu-drop-in 1s;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
   a:hover {
@@ -28,14 +29,11 @@ const MainMenuWrapper = styled.nav`
     background-color: rgb(0, 0, 0);
     display: flex;
     position: relative;
-    padding: 0;
     color: ${mainColour} !important;
-    height: ${navMenuHeight}px;
     overflow: hidden;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     .nav-bar {
-      height: ${navMenuHeight - 20}px;
       overflow: inherit;
     }
   }
@@ -99,13 +97,14 @@ const NavMenu = () => {
       <MainMenuWrapper>
         <CookieBanner />
         <Container>
-          <div className="nav-bar">
+          <Logo key={`logo`} partitions={menuPartitions} />
+
+          <div className="nav-bar justify-content-end">
             {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
               item =>
-                item.object_slug === "logo" ? (
-                  <Logo key={`logo`} partitions={menuPartitions} />
-                ) : (
+                item.object_slug === "logo" ? null : (
                   <NavMenuItem
+                    className="align-"
                     key={item.object_slug + "_key"}
                     item={item}
                     partitions={menuPartitions}

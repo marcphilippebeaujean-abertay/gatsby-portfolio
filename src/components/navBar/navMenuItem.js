@@ -68,11 +68,11 @@ const MenuItem = styled(Link)`
 `
 
 const NavElementText = styled.p`
+  margin: 0;
   font-size: 20px;
-  top: 19px;
   z-index: 1;
-  position: relative;
   width: 100%;
+  padding: 20px 0px;
   text-align: center;
 `
 

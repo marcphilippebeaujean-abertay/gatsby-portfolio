@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import {
   smallScreenWidth,
-  smallScreenNavHeight,
   smallScreenSidePadding,
 } from "../../style/layoutStyle"
 import { mainColour } from "../../style/themeStyle"
@@ -12,7 +11,7 @@ import styled from "styled-components"
 
 const NavigationIcon = styled.div`
   .hamburger-inner {
-    position: relative;
+    position: absolute;
     top: 25px !important;
     background-color: ${mainColour} !important;
   }
