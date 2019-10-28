@@ -39,12 +39,11 @@ const PostPreviewWrapper = styled.div`
     height: 90px;
   }
   .in-text-thumbnail {
-    width: 90px;
+    height: auto;
+    max-width: 100%;
     display: block;
     float: left;
     left: 0 !important;
-  }
-  .container-img {
   }
   .read-more {
     text-decoration: none;
@@ -84,11 +83,13 @@ const PostPreview = props => {
             />
           </div>
         ) : (
-          <img
-            className="in-text-thumbnail thumbnail"
-            src={props.post.featured_media.source_url}
-            alt="Thumbnail"
-          />
+          <div className="in-text-thumbnail-wrapper thumbnail">
+            <img
+              className="in-text-thumbnail thumbnail"
+              src={props.post.featured_media.source_url}
+              alt="Thumbnail"
+            />
+          </div>
         )}
         <div className="excerpt-text">
           <p>
