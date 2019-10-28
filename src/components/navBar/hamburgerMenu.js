@@ -15,7 +15,6 @@ const NavigationIcon = styled.div`
     top: 25px !important;
     background-color: ${mainColour} !important;
   }
-  margin-right: ${smallScreenSidePadding}px;
   @media screen and (min-width: ${smallScreenWidth}px) {
     display: none;
   }
