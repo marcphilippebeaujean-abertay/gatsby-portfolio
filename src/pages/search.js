@@ -77,7 +77,7 @@ const SearchResultWrapper = styled.div`
   }
   h2 {
     margin-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
   }
 `
 

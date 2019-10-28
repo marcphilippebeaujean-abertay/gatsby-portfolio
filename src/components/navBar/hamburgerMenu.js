@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
-import {
-  smallScreenWidth,
-  smallScreenSidePadding,
-} from "../../style/layoutStyle"
+import { smallScreenWidth } from "../../style/layoutStyle"
 import { mainColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
