@@ -47,6 +47,11 @@ const HamburgerMenu = styled.div`
     width: 100vw;
     height: 100vh;
   }
+  .nav-icon {
+    margin-right: 5px;
+    position: relative;
+    bottom: 2px;
+  }
   .selected {
     color: black !important;
     background-color: ${mainColour} !important;
@@ -117,6 +122,7 @@ const HamburgerButton = props => {
               onClick={toggleOverlay}
               className={item.object_slug}
             >
+              {item.icon}
               {item.title}
             </OverlayLink>
           ) : null

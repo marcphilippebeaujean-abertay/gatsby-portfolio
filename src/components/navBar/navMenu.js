@@ -1,9 +1,14 @@
 import React, { useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import { navMenuHeight, smallScreenWidth } from "../../style/layoutStyle"
 import { mainColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
+import {
+  IoIosSearch,
+  IoIosInformationCircleOutline,
+  IoIosSend,
+  IoIosBook,
+} from "react-icons/io"
 import HamburgerButton from "./hamburgerMenu"
 import NavMenuItem from "./navMenuItem"
 import styled from "styled-components"
@@ -59,22 +64,30 @@ const TopCoverupDiv = styled.div`
   }
 `
 
+const items = [
+  {
+    object_slug: `blog`,
+    title: `Blog`,
+    icon: <IoIosBook className="nav-icon" />,
+  },
+  {
+    object_slug: `search`,
+    title: `Search`,
+    icon: <IoIosSearch className="nav-icon" />,
+  },
+  {
+    object_slug: `about`,
+    title: `About`,
+    icon: <IoIosInformationCircleOutline className="nav-icon" />,
+  },
+  {
+    object_slug: `contact`,
+    title: `Contact`,
+    icon: <IoIosSend className="nav-icon" />,
+  },
+]
+
 const NavMenu = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allWordpressWpApiMenusMenusItems(filter: { name: { eq: "Main Menu" } }) {
-        edges {
-          node {
-            name
-            items {
-              title
-              object_slug
-            }
-          }
-        }
-      }
-    }
-  `)
   useEffect(() => {
     const currentUrl =
       getCurrentUrlPathname(document) !== ""
@@ -91,29 +104,25 @@ const NavMenu = () => {
     if (newSelectedObject.length > 0)
       newSelectedObject.map(obj => obj.classList.add("selected"))
   })
-  const menuPartitions =
-    data.allWordpressWpApiMenusMenusItems.edges[0].node.items.length + 1
+  const menuPartitions = items.length + 1
   return (
     <div>
       <TopCoverupDiv className="d-none d-sm-block" />
       <MainMenuWrapper>
         <Logo key={`logo`} partitions={menuPartitions} />
         <div className="nav-bar justify-content-end">
-          {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
-            item.object_slug === "logo" ? null : (
-              <NavMenuItem
-                className="align-"
-                key={item.object_slug + "_key"}
-                item={item}
-                partitions={menuPartitions}
-              >
-                {item.title}
-              </NavMenuItem>
-            )
-          )}
-          <HamburgerButton
-            items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items}
-          />
+          {items.map(item => (
+            <NavMenuItem
+              className="align-"
+              key={item.object_slug + "_key"}
+              item={item}
+              partitions={menuPartitions}
+            >
+              {item.icon}
+              {item.title}
+            </NavMenuItem>
+          ))}
+          <HamburgerButton items={items} />
         </div>
       </MainMenuWrapper>
     </div>

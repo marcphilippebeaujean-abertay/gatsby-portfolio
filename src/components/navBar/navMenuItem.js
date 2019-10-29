@@ -16,6 +16,11 @@ const MenuItem = styled(Link)`
   text-align: center;
   align-content: center;
   display: flex;
+  .nav-icon {
+    margin-right: 5px;
+    position: relative;
+    bottom: 2px;
+  }
   .menu-item {
     position: relative;
     display: inherit;
