@@ -7,7 +7,12 @@ import { document } from "browser-monads"
 import styled from "styled-components"
 
 const NavigationIcon = styled.div`
+  button {
+    outline: none !important;
+  }
+  outline: none !important;
   .hamburger-inner {
+    outline: none;
     position: absolute;
     top: 25px !important;
     background-color: ${mainColour} !important;

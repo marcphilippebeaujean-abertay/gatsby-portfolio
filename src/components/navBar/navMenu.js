@@ -1,7 +1,10 @@
 import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { navMenuHeight, smallScreenWidth } from "../../style/layoutStyle"
-import { Container } from "react-bootstrap"
+import {
+  navMenuHeight,
+  smallScreenWidth,
+  smallScreenSidePadding,
+} from "../../style/layoutStyle"
 import { mainColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
@@ -12,6 +15,7 @@ import styled from "styled-components"
 import Logo from "../logo"
 
 const MainMenuWrapper = styled.nav`
+  display: flex;
   background-color: black;
   width: 100%;
   z-index: 3;
@@ -27,10 +31,13 @@ const MainMenuWrapper = styled.nav`
   }
   .nav-bar {
     background-color: rgb(0, 0, 0);
+    justify-content: right;
+    align-self: flex-end;
     display: flex;
     position: relative;
     color: ${mainColour} !important;
     overflow: hidden;
+    width: 100%;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     .nav-bar {
@@ -94,28 +101,25 @@ const NavMenu = () => {
   return (
     <div>
       <TopCoverupDiv className="d-none d-sm-block" />
-      <MainMenuWrapper>
-        <CookieBanner />
-        <Container>
-          <Logo key={`logo`} partitions={menuPartitions} />
+      <CookieBanner />
 
-          <div className="nav-bar justify-content-end">
-            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
-              item =>
-                item.object_slug === "logo" ? null : (
-                  <NavMenuItem
-                    className="align-"
-                    key={item.object_slug + "_key"}
-                    item={item}
-                    partitions={menuPartitions}
-                  />
-                )
-            )}
-            <HamburgerButton
-              items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items}
-            />
-          </div>
-        </Container>
+      <MainMenuWrapper>
+        <Logo key={`logo`} partitions={menuPartitions} />
+        <div className="nav-bar justify-content-end">
+          {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item =>
+            item.object_slug === "logo" ? null : (
+              <NavMenuItem
+                className="align-"
+                key={item.object_slug + "_key"}
+                item={item}
+                partitions={menuPartitions}
+              />
+            )
+          )}
+          <HamburgerButton
+            items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items}
+          />
+        </div>
       </MainMenuWrapper>
     </div>
   )

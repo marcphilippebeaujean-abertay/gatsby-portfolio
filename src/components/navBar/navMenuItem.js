@@ -9,7 +9,8 @@ const MenuItem = styled(Link)`
   position: relative;
   color: inherit;
   background-color: inherit;
-  width: ${props => 100 / props.partitions}%;
+  width: 100%;
+  max-width: 200px;
   overflow: hidden;
   text-decoration: none;
   text-align: center;

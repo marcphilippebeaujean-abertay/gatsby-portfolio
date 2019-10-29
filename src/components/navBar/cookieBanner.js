@@ -5,11 +5,12 @@ import { mainColour } from "../../style/themeStyle"
 import { smallScreenWidth, initContentWidth } from "../../style/layoutStyle"
 
 const CookieBannerWrapper = styled.div`
+  position: fixed;
   width: 100%;
   text-justify: none;
   height: auto;
   z-index: 5;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.9);
   bottom: 0;
   color: ${mainColour};
   animation: fadeIn 1s;
@@ -47,10 +48,13 @@ const CookieBannerWrapper = styled.div`
 `
 const BannerInformationWrapper = styled.div`
   display: flex;
-  width: ${initContentWidth}px;
   margin: 0 auto;
   text-align: justify;
   font-size: 20px;
+  p {
+    position: relative;
+    top: 6px;
+  }
   a {
     color: ${mainColour} !important;
     font-weight: bold;

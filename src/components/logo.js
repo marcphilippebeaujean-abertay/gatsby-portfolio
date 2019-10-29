@@ -1,12 +1,13 @@
 import React from "react"
-import { smallScreenWidth } from "../style/layoutStyle"
+import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle"
 import styled from "styled-components"
 import LogoImg from "../images/logo.png"
 
 const LogoStyle = styled.div`
   img {
+    margin: 0 ${smallScreenSidePadding}px;
     z-index: 3;
-    position: absolute;
+    position: relative;
     top: 30px;
     height: 50px;
     width: auto;
