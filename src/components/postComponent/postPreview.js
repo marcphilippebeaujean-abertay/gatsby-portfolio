@@ -28,7 +28,7 @@ const PostPreviewWrapper = styled.div`
     margin: 0;
   }
   h2 {
-    margin-bottom: 0;
+    margin: 0px !important;
   }
   .in-text-thumbnail-wrapper {
     display: block;
