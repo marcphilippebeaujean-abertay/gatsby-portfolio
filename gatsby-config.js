@@ -103,7 +103,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Orbitron`, `Open Sans`],
+        fonts: [`Open Sans`],
         display: "swap",
       },
     },
@@ -111,9 +111,6 @@ module.exports = {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Orbitron`,
-          },
           {
             family: `Open Sans`,
             variants: [`400`, `700`],

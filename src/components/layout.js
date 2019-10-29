@@ -2,6 +2,7 @@ import React from "react"
 import Sidebar from "./sidebar/sidebar"
 import NavMenu from "./navBar/navMenu"
 import Footer from "./footer/footer"
+import CookieBanner from "./cookieBanner"
 import { Container, Row, Col } from "react-bootstrap"
 import { footerHeight, smallScreenWidth } from "../style/layoutStyle"
 import { createGlobalStyle } from "styled-components"
@@ -51,6 +52,7 @@ export const GlobalStyles = createGlobalStyle`
 const Layout = ({ children }) => {
   return (
     <Container fluid className="px-0 main">
+      <CookieBanner />
       <NavMenu />
       <Container id="main-content-container">
         <GlobalStyles />

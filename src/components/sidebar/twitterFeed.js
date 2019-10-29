@@ -34,7 +34,7 @@ const TwitterFeedWrapper = styled.div`
   }
   @keyframes fadein {
     from {
-      opacity: 0;
+      opacity: 0.75;
     }
     to {
       opacity: 1;
@@ -64,7 +64,7 @@ const TwitterOverlay = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: fade-in 1.2s;
+    animation: fadein 1.2s;
     animation-iteration-count: infinite;
   }
   .hidden {

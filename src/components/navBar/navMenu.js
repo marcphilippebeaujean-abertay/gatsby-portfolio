@@ -1,14 +1,9 @@
 import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import {
-  navMenuHeight,
-  smallScreenWidth,
-  smallScreenSidePadding,
-} from "../../style/layoutStyle"
+import { navMenuHeight, smallScreenWidth } from "../../style/layoutStyle"
 import { mainColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
-import CookieBanner from "./cookieBanner"
 import HamburgerButton from "./hamburgerMenu"
 import NavMenuItem from "./navMenuItem"
 import styled from "styled-components"
@@ -101,8 +96,6 @@ const NavMenu = () => {
   return (
     <div>
       <TopCoverupDiv className="d-none d-sm-block" />
-      <CookieBanner />
-
       <MainMenuWrapper>
         <Logo key={`logo`} partitions={menuPartitions} />
         <div className="nav-bar justify-content-end">
@@ -113,7 +106,9 @@ const NavMenu = () => {
                 key={item.object_slug + "_key"}
                 item={item}
                 partitions={menuPartitions}
-              />
+              >
+                {item.title}
+              </NavMenuItem>
             )
           )}
           <HamburgerButton

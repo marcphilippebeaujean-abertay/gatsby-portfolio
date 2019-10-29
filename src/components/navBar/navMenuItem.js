@@ -89,7 +89,7 @@ const NavMenuItem = props => {
       <div className={`${props.item.object_slug} menu-item`}>
         <div className={`${props.item.object_slug} hover-anim`} />
         <NavElementText id={props.item.object_slug + `_text`}>
-          {props.item.title}
+          {props.children}
         </NavElementText>
       </div>
     </MenuItem>
