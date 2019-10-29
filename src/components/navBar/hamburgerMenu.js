@@ -42,7 +42,7 @@ const HamburgerMenu = styled.div`
     opacity: 1;
   }
   #overlay-rest-bg {
-    opacity: 0.95;
+    opacity: 0.98;
     background: white;
     width: 100vw;
     height: 100vh;
