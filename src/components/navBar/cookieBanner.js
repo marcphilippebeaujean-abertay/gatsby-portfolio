@@ -2,7 +2,10 @@ import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { mainColour } from "../../style/themeStyle"
-import { smallScreenWidth, initContentWidth } from "../../style/layoutStyle"
+import {
+  smallScreenWidth,
+  smallScreenSidePadding,
+} from "../../style/layoutStyle"
 
 const CookieBannerWrapper = styled.div`
   position: fixed;
@@ -48,7 +51,7 @@ const CookieBannerWrapper = styled.div`
 `
 const BannerInformationWrapper = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin: 0 ${smallScreenSidePadding}px;
   text-align: justify;
   font-size: 20px;
   p {
@@ -60,7 +63,6 @@ const BannerInformationWrapper = styled.div`
     font-weight: bold;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
-    width: calc(100% - 20px);
     flex-direction: column;
     #submit-btn {
       width: 100%;
