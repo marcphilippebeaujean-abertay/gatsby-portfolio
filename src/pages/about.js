@@ -100,7 +100,10 @@ export default ({ pageContext }) => {
         to Scotland to pursue my bachelors degree in Game Development. I
         graduated from Abertay University with a first class honours degree and
         was also fortunate enough to be awarded with the John Wilson award for
-        academic excellence.
+        academic excellence. It was here that I first discovered my love for
+        reading and acquiring new knowledge. During this time, I gathered
+        several productivity routines and techniques that helped me boost my
+        academic performance.
       </p>
       <GatsbyImgWrapper maxWidth={`300px`}>
         <Img
@@ -110,7 +113,9 @@ export default ({ pageContext }) => {
         />
       </GatsbyImgWrapper>
 
-      <figcaption>Graduation in-front of Caird Hall, Dundee</figcaption>
+      <figcaption>
+        Me (right) at Graduation in-front of Caird Hall, Dundee
+      </figcaption>
       <p>
         Upon moving back to Germany, I realized that I had different ambitions
         than when I had began my studies. I decided to pursue a career in
@@ -131,57 +136,13 @@ export default ({ pageContext }) => {
       <p>
         <strong>&lt;ByteSchool /&gt;</strong> is a passion project that
         originated from my desire to learn new technologies and best practices
-        in software development. The website was written from scratch using the
-        GatsbyJS framework. With this blog, I hope to share insights that I have
-        gained from my personal experience and research. While I hope to cover a
-        wide range of topics, you can find a quick overview here:
+        in software development. It also encompasses my thoughts on how an
+        individual can be a user of technology, not a slave to it. With
+        concentration and true relaxation becoming a rare commodity, my goal is
+        to introduce the reader to practical ways that will help them improve
+        their mental health, productivity and relationships. I hope to share
+        insights that I have gained from my personal experience and research.
       </p>
-      <FigureStylesWrapper>
-        <div className="image-block image-row-block">
-          <figure className="wp-block-image">
-            <img src={SoftwareDevLogo} alt="jdit icon" />
-          </figure>
-          <figcaption>Software Development</figcaption>
-          <figure className="wp-block-image">
-            <img
-              src={SoftskillsLogo}
-              alt="handshake icon"
-              className="wp-image-213"
-            />
-          </figure>
-          <figcaption>Softskills</figcaption>
-          <figure className="wp-block-image">
-            <img
-              src={DevOpsLogo}
-              alt="dev ops icon"
-              className="wp-image-2090"
-            />
-          </figure>
-          <figcaption>Developer Operations</figcaption>
-          <figure className="wp-block-image">
-            <img
-              src={GameDevLogo}
-              alt="game dev icon"
-              className="wp-image-233"
-            />
-          </figure>
-          <figcaption>Game Development</figcaption>
-        </div>
-        <div className="caption-block image-row-block">
-          <div>
-            <figcaption>Software Development</figcaption>
-          </div>
-          <div>
-            <figcaption>Softskills</figcaption>
-          </div>
-          <div>
-            <figcaption>Developer Operations</figcaption>
-          </div>
-          <div>
-            <figcaption>Game Development</figcaption>
-          </div>
-        </div>
-      </FigureStylesWrapper>
       <p>
         Thanks for taking the time to read my blog! I hope you learn something
         and enjoy your stay. If you want to receive continual updates on new
