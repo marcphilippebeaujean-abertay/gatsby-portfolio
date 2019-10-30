@@ -50,7 +50,7 @@ const HamburgerMenu = styled.div`
   .nav-icon {
     margin-right: 5px;
     position: relative;
-    bottom: 2px;
+    bottom: 1.6px;
   }
   .selected {
     color: black !important;
