@@ -5,9 +5,7 @@ import { IoIosSearch } from "react-icons/io"
 import { mainColour } from "../style/themeStyle"
 import { DateTime } from "luxon"
 import { inputFieldHeight } from "../components/forms/formStyleComponent"
-import { graphql, useStaticQuery } from "gatsby"
 
-import Img from "gatsby-image/withIEPolyfill"
 import styled from "styled-components"
 import PostPreview from "../components/postComponent/postPreview"
 import ClipLoader from "react-spinners/ClipLoader"
@@ -15,7 +13,7 @@ import ClipLoader from "react-spinners/ClipLoader"
 const SearchBar = styled.form`
   width: 100%;
   height: ${inputFieldHeight}px;
-  margin-bottom: 20px;
+  margin: 0.5rem 0px;
   display: flex;
   -webkit-appearance: none;
   border-radius: 0;
@@ -60,6 +58,8 @@ const SearchBar = styled.form`
 
 const SearchResultWrapper = styled.div`
   position: relative;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   .post-preview-hider {
     display: none !important;
   }
@@ -87,7 +87,7 @@ const SpinnerWrapper = styled.div`
   width: 150px;
 `
 
-export default ({ pageContext }) => {
+export default () => {
   const [searchTerm, setSearchTerm] = useState("")
   const [foundPost, setFoundPost] = useState([])
   const [searchPending, setSearchPending] = useState(false)
@@ -157,17 +157,6 @@ export default ({ pageContext }) => {
       })
       .catch(e => console.error(e))
   }
-  const data = useStaticQuery(graphql`
-    query {
-      searchIcon: file(relativePath: { eq: "search-image.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
   const handleInputChange = e => setSearchTerm(e.target.value)
   return (
     <PageContentWrapper>
@@ -195,21 +184,11 @@ export default ({ pageContext }) => {
       </SearchBar>
       <SearchResultWrapper id="search-results">
         <div id="results-container">
-          {foundPost.length === 0 ? (
-            <div id="no-post-found-container">
-              <div id="search-icon-wrapper">
-                <Img
-                  fluid={data.searchIcon.childImageSharp.fluid}
-                  alt="Search icon for no search found"
-                />
-              </div>
-              <h2 style={{ textAlign: `center` }}>
-                No posts to see. Please start a new search!
-              </h2>
-            </div>
-          ) : (
-            foundPost.map(post => <PostPreview post={post} key={post.title} />)
-          )}
+          {foundPost.length === 0
+            ? null
+            : foundPost.map(post => (
+                <PostPreview post={post} key={post.title} />
+              ))}
         </div>
       </SearchResultWrapper>
       <SpinnerWrapper>
