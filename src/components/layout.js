@@ -13,7 +13,14 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0 !important;
     margin: 0;
     position: relative;
+  }
+  hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;
     background-color: lightgrey !important;
+    height: 1px;
   }
   html {
     height: 100%;

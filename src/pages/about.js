@@ -92,6 +92,7 @@ export default ({ pageContext }) => {
         }
       />
       <h1>About</h1>
+      <hr></hr>
       <h2>About the Author</h2>
       <p>
         Hi! My name is Marc Philippe Beaujean and I'm a software developer from

@@ -36,7 +36,6 @@ const PageContentWrapperStyle = styled.div`
   background-color: white;
   margin-top: ${navMenuHeight + 10}px;
   @media screen and (min-width: ${smallScreenWidth}px) {
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
   }
   @media screen and (max-width: ${smallScreenWidth}px) {

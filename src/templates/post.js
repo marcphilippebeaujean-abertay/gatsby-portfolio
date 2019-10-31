@@ -42,6 +42,7 @@ export default ({ pageContext }) => {
       />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <PostStats post={pageContext} />
+      <hr></hr>
       <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
       <NewsletterFormWrapper>
         <SubForm formTitle={"newsletter"} />

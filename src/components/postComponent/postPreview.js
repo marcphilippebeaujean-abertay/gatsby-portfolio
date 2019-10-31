@@ -9,7 +9,6 @@ import PostStats from "./postStats"
 import Img from "gatsby-image/withIEPolyfill"
 
 const PostPreviewWrapper = styled.div`
-  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   .image-excerpt-container {
@@ -36,7 +35,6 @@ const PostPreviewWrapper = styled.div`
     top: 8px;
     float: left;
     width: 100px;
-    height: 90px;
   }
   .in-text-thumbnail {
     height: auto;
@@ -71,6 +69,7 @@ const PostPreviewWrapper = styled.div`
 const PostPreview = props => {
   return (
     <PostPreviewWrapper>
+      <hr></hr>
       <h2 dangerouslySetInnerHTML={{ __html: props.post.title }} />
       <PostStats post={props.post} />
       <div className="image-excerpt-container">

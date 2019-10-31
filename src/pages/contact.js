@@ -9,6 +9,7 @@ export default ({ pageContext }) => {
     <PageContentWrapper>
       <SEO title="Contact" description="Send me a message!" />
       <h1>Contact</h1>
+      <hr></hr>
       <ContactForm formTitle={"contact"} />
     </PageContentWrapper>
   )
