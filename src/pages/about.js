@@ -2,60 +2,11 @@ import React from "react"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { smallScreenWidth } from "../style/layoutStyle"
 import { graphql, useStaticQuery } from "gatsby"
+import { Row, Col } from "react-bootstrap"
 import SEO from "../components/seo"
 
 import Img from "gatsby-image/withIEPolyfill"
-import SoftwareDevLogo from "../images/software-dev-icon.png"
-import SoftskillsLogo from "../images/handshake-icon.png"
-import DevOpsLogo from "../images/dev-ops.png"
-import GameDevLogo from "../images/game-development.png"
-
 import styled from "styled-components"
-
-const FigureStylesWrapper = styled.div`
-  .image-row-block {
-    display: flex;
-    margin: 0 auto;
-  }
-  .image-block img {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .image-block figcaption {
-    display: none;
-  }
-  .caption-block > div {
-    width: 25%;
-    text-align: center;
-  }
-  @media screen and (min-width: ${smallScreenWidth}px) {
-    .image-block > figure {
-      margin: 0 30px;
-    }
-  }
-  @media screen and (max-width: ${smallScreenWidth}px) {
-    .image-block figcaption {
-      display: inherit;
-    }
-    .image-block img {
-      position: relative !important;
-      top: 50%;
-      transform: translateY(-50%) !important;
-      height: auto;
-      width: 200px;
-    }
-    .image-row-block > figure {
-      height: 150px;
-    }
-    .image-row-block {
-      flex-direction: column;
-    }
-    .caption-block {
-      display: none;
-    }
-  }
-`
 
 const GatsbyImgWrapper = styled.div`
   max-width: ${props => props.maxWidth};
@@ -81,8 +32,21 @@ export default ({ pageContext }) => {
           }
         }
       }
+      allFile(filter: { relativeDirectory: { eq: "about_images" } }) {
+        edges {
+          node {
+            childImageSharp {
+              fluid(maxWidth: 3000) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
     }
   `)
+  const principleImages = data.allFile.edges
+  console.log(data)
   return (
     <PageContentWrapper>
       <SEO
@@ -113,8 +77,7 @@ export default ({ pageContext }) => {
           className="wp-image-186"
         />
       </GatsbyImgWrapper>
-
-      <figcaption>
+      <figcaption className="font-italic">
         Me (right) at Graduation in-front of Caird Hall, Dundee
       </figcaption>
       <p>
@@ -131,7 +94,9 @@ export default ({ pageContext }) => {
           alt="Graduation photo from Abertay University"
           className="wp-image-186"
         />
-        <figcaption>AcademicWork software development class of 2019</figcaption>
+        <figcaption className="font-italic">
+          AcademicWork software development class of 2019
+        </figcaption>
       </GatsbyImgWrapper>
       <h2>About the Blog</h2>
       <p>
@@ -144,6 +109,56 @@ export default ({ pageContext }) => {
         their mental health, productivity and relationships. I hope to share
         insights that I have gained from my personal experience and research.
       </p>
+      <Col>
+        <GatsbyImgWrapper maxWidth={`300px`}>
+          <Img
+            fluid={principleImages[1].node.childImageSharp.fluid}
+            className="wp-image-186"
+          />
+        </GatsbyImgWrapper>
+        <figcaption>
+          <b>Skills:</b>
+          <span className="font-italic">
+            {" "}
+            I hope to share practical advice and tutorials on some of the most
+            important and relevant skills on today's job market.
+          </span>
+        </figcaption>
+      </Col>
+      <Col>
+        <GatsbyImgWrapper maxWidth={`300px`}>
+          <Img
+            fluid={principleImages[0].node.childImageSharp.fluid}
+            className="wp-image-186"
+          />
+        </GatsbyImgWrapper>
+        <figcaption>
+          <b>Productivity:</b>
+          <span className="font-italic">
+            {" "}
+            I am constantly trying to find new ways to increase my focus and
+            reach my goals faster - I hope to share my successes and failures in
+            that regard on this blog.
+          </span>
+        </figcaption>
+      </Col>
+      <Col>
+        <GatsbyImgWrapper maxWidth={`300px`}>
+          <Img
+            fluid={principleImages[2].node.childImageSharp.fluid}
+            className="wp-image-186"
+          />
+        </GatsbyImgWrapper>
+        <figcaption>
+          <b>Well-Being:</b>
+          <span className="font-italic">
+            {" "}
+            I firmly believe that success is linked to mental and physical
+            health - this is why I will be sharing some of the key habits that
+            have helped me lead a healthier and more productive life.
+          </span>
+        </figcaption>
+      </Col>
       <p>
         Thanks for taking the time to read my blog! I hope you learn something
         and enjoy your stay. If you want to receive continual updates on new

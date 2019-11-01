@@ -25,6 +25,9 @@ export const GlobalStyles = createGlobalStyle`
   html {
     height: 100%;
   }
+  figcaption{
+    font-style: italic;
+  }
   #main-content-container{
     min-height: 100vh;
     position: relative;
