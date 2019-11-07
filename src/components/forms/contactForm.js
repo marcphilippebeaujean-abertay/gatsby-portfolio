@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 import { Form } from "react-bootstrap"
 import Recaptcha from "react-google-recaptcha"
 
@@ -87,14 +86,13 @@ export default ({ formTitle }) => {
       </Form.Group>
 
       <Form.Group controlId="termAgreement">
-        <Form.Text id="checkbox-text">
-          <Form.Check
-            label="I agree to the terms and have read the Data Policy"
-            type="checkbox"
-            name="termAgreement"
-            onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
-          />
-        </Form.Text>
+        <Form.Check
+          className="pt-none"
+          label="I agree to the terms and have read the Data Policy"
+          type="checkbox"
+          name="termAgreement"
+          onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
+        />
         <Form.Text
           id={`${formTitle}-termAgreement-error`}
           className="error error-hidden"
@@ -102,7 +100,6 @@ export default ({ formTitle }) => {
           Please agree to the terms!
         </Form.Text>
       </Form.Group>
-
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
       <Form.Group controlId="g-recaptcha-response">

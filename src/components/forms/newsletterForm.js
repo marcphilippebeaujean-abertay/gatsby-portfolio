@@ -24,7 +24,7 @@ const NewsletterWrapper = styled.div`
   }
   #newsletter-heading {
     position: relative;
-    top: 2px;
+    top: 2.1px;
     left: 10px;
   }
   #newsletter-heading-wrapper {
@@ -85,16 +85,12 @@ export default ({ formTitle }) => {
             </Form.Text>
           </Form.Group>
           <Form.Group controlId="termAgreement">
-            <Form.Text id="checkbox-text">
-              <Form.Check
-                label="I agree to the terms and have read the Data Policy"
-                type="checkbox"
-                name="termAgreement"
-                onChange={e =>
-                  toggleTermAgreement(e, formValues, setFormValues)
-                }
-              />
-            </Form.Text>
+            <Form.Check
+              label="I agree to the terms and have read the Data Policy"
+              type="checkbox"
+              name="termAgreement"
+              onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
+            />
             <Form.Text
               id={`${formTitle}-termAgreement-error`}
               className="error error-hidden"

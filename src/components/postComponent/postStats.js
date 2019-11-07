@@ -61,7 +61,7 @@ export default ({ post }) => {
     <PostStatsStyle>
       <div className="post-info-row">
         <IoIosCalendar size={32} className="post-attribute" />
-        <span className="post-info-text">{post.date}</span>
+        <span className="post-info-text text-mute">{post.date}</span>
         <br />
         <IoIosPricetag size={32} className="post-attribute-icon" />
         <TagWrapper>
@@ -73,7 +73,7 @@ export default ({ post }) => {
         </TagWrapper>
         <br />
         <FaComment size={32} className="post-attribute-icon" />
-        <span className="post-info-text">
+        <span className="post-info-text text-mute">
           <CommentCount
             {...disqusConfig(post.wordpress_id)}
             placeholder={`...`}
