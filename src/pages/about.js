@@ -46,7 +46,6 @@ export default ({ pageContext }) => {
     }
   `)
   const principleImages = data.allFile.edges
-  console.log(data)
   return (
     <PageContentWrapper>
       <SEO

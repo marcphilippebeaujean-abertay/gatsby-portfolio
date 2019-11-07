@@ -166,7 +166,7 @@ export default () => {
       />
       <h1>Search</h1>
       <hr></hr>
-      <SearchBar onSubmit={() => searchForPost}>
+      <SearchBar onSubmit={searchForPost}>
         <input
           className="input-field"
           id="search-bar"
