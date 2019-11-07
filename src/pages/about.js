@@ -103,67 +103,89 @@ export default ({ pageContext }) => {
         <strong>&lt;ByteSchool /&gt;</strong> is a passion project that
         originated from my desire to learn new technologies and best practices
         in software development. It also encompasses my thoughts on how an
-        individual can be a user of technology, not a slave to it. With
-        concentration and true relaxation becoming a rare commodity, my goal is
-        to introduce the reader to practical ways that will help them improve
-        their mental health, productivity and relationships. I hope to share
-        insights that I have gained from my personal experience and research.
+        individual can be a user of technology, not a slave to it. With true
+        concentration and relaxation becoming a rare commodities in the digital
+        age, my goal is to introduce the reader to practical ways in which they
+        can take control of their technology use, benefiting their mental
+        health, productivity and relationships. In many ways, this blog contains
+        content regarding several areas of focus that I believe have shaped my
+        life significantly over the past years (and presumably many years to
+        come). I find that they can be broken down into the following
+        categories:
       </p>
-      <Col>
-        <GatsbyImgWrapper maxWidth={`300px`}>
-          <Img
-            fluid={principleImages[1].node.childImageSharp.fluid}
-            className="wp-image-186"
-          />
-        </GatsbyImgWrapper>
-        <figcaption>
-          <b>Skills:</b>
-          <span className="font-italic">
-            {" "}
-            I hope to share practical advice and tutorials on some of the most
-            important and relevant skills on today's job market.
-          </span>
-        </figcaption>
-      </Col>
-      <Col>
-        <GatsbyImgWrapper maxWidth={`300px`}>
-          <Img
-            fluid={principleImages[0].node.childImageSharp.fluid}
-            className="wp-image-186"
-          />
-        </GatsbyImgWrapper>
-        <figcaption>
-          <b>Productivity:</b>
-          <span className="font-italic">
-            {" "}
-            I am constantly trying to find new ways to increase my focus and
-            reach my goals faster - I hope to share my successes and failures in
-            that regard on this blog.
-          </span>
-        </figcaption>
-      </Col>
-      <Col>
-        <GatsbyImgWrapper maxWidth={`300px`}>
-          <Img
-            fluid={principleImages[2].node.childImageSharp.fluid}
-            className="wp-image-186"
-          />
-        </GatsbyImgWrapper>
-        <figcaption>
-          <b>Well-Being:</b>
-          <span className="font-italic">
-            {" "}
-            I firmly believe that success is linked to mental and physical
-            health - this is why I will be sharing some of the key habits that
-            have helped me lead a healthier and more productive life.
-          </span>
-        </figcaption>
-      </Col>
+      <Row>
+        <Col md={6} className="d-flex flex-column justify-content-center">
+          <GatsbyImgWrapper maxWidth={`300px`}>
+            <Img
+              fluid={principleImages[1].node.childImageSharp.fluid}
+              className="wp-image-186"
+            />
+          </GatsbyImgWrapper>
+        </Col>
+        <Col className="d-flex flex-column justify-content-center">
+          <h3>Skills</h3>
+          <p className="text-muted">
+            I think that the jobs of the future are going resolve around
+            practical skills. I hope to share practical advice and tutorials on
+            some of the most important and relevant skills on today's (and the
+            future) job market.
+          </p>
+        </Col>
+      </Row>
+      <hr></hr>
+      <Row>
+        <Col
+          md={6}
+          className="d-md-none d-flex flex-column justify-content-center"
+        >
+          <GatsbyImgWrapper maxWidth={`300px`}>
+            <Img
+              fluid={principleImages[0].node.childImageSharp.fluid}
+              className="wp-image-186"
+            />
+          </GatsbyImgWrapper>
+        </Col>
+        <Col className="d-flex flex-column justify-content-center">
+          <h3>Productivity</h3>
+          <p className="text-muted">
+            I am constantly trying to find new ways to increase productivity and
+            discover how I can make the best use of my time. I hope to share my
+            successes and failures in that regard on this blog.
+          </p>
+        </Col>
+        <Col className="d-none d-md-flex flex-column justify-content-center">
+          <GatsbyImgWrapper maxWidth={`300px`}>
+            <Img
+              fluid={principleImages[0].node.childImageSharp.fluid}
+              className="wp-image-186"
+            />
+          </GatsbyImgWrapper>
+        </Col>
+      </Row>
+      <hr></hr>
+      <Row>
+        <Col md={6} className="d-flex flex-column justify-content-center">
+          <GatsbyImgWrapper maxWidth={`300px`}>
+            <Img
+              fluid={principleImages[2].node.childImageSharp.fluid}
+              className="wp-image-186"
+            />
+          </GatsbyImgWrapper>
+        </Col>
+        <Col>
+          <h3>Well-Being</h3>
+          <p className="text-muted">
+            Success is linked to mental and physical health, as well as the
+            ability to stay focused and determined. I will be sharing some of
+            the key habits that have helped me improve my life in those areas.
+          </p>
+        </Col>
+      </Row>
       <p>
         Thanks for taking the time to read my blog! I hope you learn something
         and enjoy your stay. If you want to receive continual updates on new
         content and exclusive insights, be sure to subscribe to the newsletter
-        and follow me on social media.{" "}
+        and follow me on social media.
       </p>
     </PageContentWrapper>
   )
