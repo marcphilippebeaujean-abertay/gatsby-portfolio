@@ -5,7 +5,7 @@ import {
   handleSubmit,
   toggleTermAgreement,
 } from "./formFunctionality"
-import { Link } from "gatsby"
+import { Form } from "react-bootstrap"
 import styled from "styled-components"
 import { IoMdPaper } from "react-icons/io"
 
@@ -24,12 +24,12 @@ const NewsletterWrapper = styled.div`
   }
   #newsletter-heading {
     position: relative;
-    top: 2.5px;
+    top: 2px;
     left: 10px;
   }
   #newsletter-heading-wrapper {
     position: relative;
-    top: 9px;
+    top: 8px;
     left: 15px;
   }
 `
@@ -67,33 +67,41 @@ export default ({ formTitle }) => {
         </div>
         <hr></hr>
         <div id="form-element-wrapper">
-          <input
-            value={formValues.email}
-            className="input-field"
-            id="form-email"
-            type="email"
-            name="email"
-            placeholder="example@mail.com"
-            onChange={e => handleFormChange(e, formValues, setFormValues)}
-          />
-          <p id={`${formTitle}-email-error`} className="error error-hidden">
-            Please enter a valid email!
-          </p>
-          <p id="checkbox-text">
-            <input
-              type="checkbox"
-              name="termAgreement"
-              onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
-            />{" "}
-            I agree to and have read the{" "}
-            <Link to={`/datenschutzerklarung/`}>Data Policy</Link>.
-          </p>
-          <p
-            id={`${formTitle}-termAgreement-error`}
-            className="error error-hidden"
-          >
-            Please agree to the terms!
-          </p>
+          <Form.Group>
+            <Form.Control
+              value={formValues.email}
+              className="input-field"
+              id="form-email"
+              type="email"
+              name="email"
+              placeholder="example@mail.com"
+              onChange={e => handleFormChange(e, formValues, setFormValues)}
+            />
+            <Form.Text
+              id={`${formTitle}-email-error`}
+              className="error error-hidden"
+            >
+              Please enter a valid email!
+            </Form.Text>
+          </Form.Group>
+          <Form.Group controlId="termAgreement">
+            <Form.Text id="checkbox-text">
+              <Form.Check
+                label="I agree to the terms and have read the Data Policy"
+                type="checkbox"
+                name="termAgreement"
+                onChange={e =>
+                  toggleTermAgreement(e, formValues, setFormValues)
+                }
+              />
+            </Form.Text>
+            <Form.Text
+              id={`${formTitle}-termAgreement-error`}
+              className="error error-hidden"
+            >
+              Please agree to the terms!
+            </Form.Text>
+          </Form.Group>
           <input type="hidden" name="bot-field" />
           <input
             type="hidden"
