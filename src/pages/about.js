@@ -1,6 +1,5 @@
 import React from "react"
 import { PageContentWrapper } from "../style/pageStyleComponent"
-import { smallScreenWidth } from "../style/layoutStyle"
 import { graphql, useStaticQuery } from "gatsby"
 import { Row, Col } from "react-bootstrap"
 import SEO from "../components/seo"

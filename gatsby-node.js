@@ -137,14 +137,6 @@ exports.createPages = ({ graphql, actions }) => {
               const blogTemplate = path.resolve(
                 "./src/templates/blogInfiniteScroll.js"
               )
-              createPage({
-                component: blogTemplate,
-                path: `/`,
-                context: {
-                  posts: posts.slice(0, postsPerPage),
-                  title: `Blog`,
-                },
-              })
               Array.from({ length: numberOfPages }).forEach((page, index) => {
                 createPage({
                   component: blogTemplate,

@@ -13,6 +13,7 @@ import HamburgerButton from "./hamburgerMenu"
 import NavMenuItem from "./navMenuItem"
 import styled from "styled-components"
 import Logo from "../logo"
+import { Link } from "gatsby"
 
 const MainMenuWrapper = styled.nav`
   display: flex;
@@ -89,10 +90,7 @@ const items = [
 
 const NavMenu = () => {
   useEffect(() => {
-    const currentUrl =
-      getCurrentUrlPathname(document) !== ""
-        ? getCurrentUrlPathname(document)
-        : "blog"
+    const currentUrl = getCurrentUrlPathname(document)
     const currentSelected = Array.from(
       document.getElementsByClassName("selected")
     )
@@ -109,7 +107,9 @@ const NavMenu = () => {
     <div>
       <TopCoverupDiv className="d-none d-sm-block" />
       <MainMenuWrapper>
-        <Logo key={`logo`} partitions={menuPartitions} />
+        <Link to="/">
+          <Logo key={`logo`} partitions={menuPartitions} />
+        </Link>
         <div className="nav-bar justify-content-end">
           {items.map(item => (
             <NavMenuItem

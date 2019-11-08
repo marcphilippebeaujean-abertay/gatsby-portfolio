@@ -89,10 +89,7 @@ const HamburgerButton = props => {
     setOverlayActive(!overlayActive)
   }
   useEffect(() => {
-    const currentUrl =
-      getCurrentUrlPathname(document) !== ""
-        ? getCurrentUrlPathname(document)
-        : "blog"
+    const currentUrl = getCurrentUrlPathname(document)
     const currentSelected = Array.from(
       document.getElementsByClassName("selected")
     )
@@ -118,7 +115,9 @@ const HamburgerButton = props => {
           item.object_slug !== "logo" ? (
             <OverlayLink
               key={item.object_slug + "_key"}
-              to={item.object_slug === "blog" ? "/" : `/${item.object_slug}`}
+              to={
+                item.object_slug === "blog" ? "/blog/1" : `/${item.object_slug}`
+              }
               onClick={toggleOverlay}
               className={item.object_slug}
             >

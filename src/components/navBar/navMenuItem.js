@@ -86,7 +86,9 @@ const NavMenuItem = props => {
   return (
     <MenuItem
       to={
-        props.item.object_slug === `blog` ? `/` : `/${props.item.object_slug}`
+        props.item.object_slug === `blog`
+          ? `/blog/1`
+          : `/${props.item.object_slug}`
       }
       key={props.item.title}
       partitions={props.partitions}
