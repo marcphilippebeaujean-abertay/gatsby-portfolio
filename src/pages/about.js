@@ -3,7 +3,6 @@ import { PageContentWrapper } from "../style/pageStyleComponent"
 import { graphql, useStaticQuery } from "gatsby"
 import { Row, Col } from "react-bootstrap"
 import SEO from "../components/seo"
-
 import Img from "gatsby-image/withIEPolyfill"
 import styled from "styled-components"
 
@@ -71,7 +70,7 @@ export default ({ pageContext }) => {
       <GatsbyImgWrapper maxWidth={`300px`}>
         <Img
           fluid={data.gradPhoto.childImageSharp.fluid}
-          alt="Graduation photo from Abertay University"
+          alt="Two young men are standing in front of a large hall. One (the author) is wearing a graduation gown."
           className="wp-image-186"
         />
       </GatsbyImgWrapper>
@@ -89,7 +88,7 @@ export default ({ pageContext }) => {
       <GatsbyImgWrapper maxWidth={`500px`}>
         <Img
           fluid={data.academyPhoto.childImageSharp.fluid}
-          alt="Graduation photo from Abertay University"
+          alt="A group photo of the software development class for academic work."
           className="wp-image-186"
         />
         <figcaption className="font-italic">
@@ -117,6 +116,7 @@ export default ({ pageContext }) => {
             <Img
               fluid={principleImages[1].node.childImageSharp.fluid}
               className="wp-image-186"
+              alt="Icons for programming, linux, databases and office skills."
             />
           </GatsbyImgWrapper>
         </Col>
@@ -140,6 +140,7 @@ export default ({ pageContext }) => {
             <Img
               fluid={principleImages[0].node.childImageSharp.fluid}
               className="wp-image-186"
+              alt="A calendar, a todo list and a chart showing a positive increment."
             />
           </GatsbyImgWrapper>
         </Col>
@@ -156,6 +157,7 @@ export default ({ pageContext }) => {
             <Img
               fluid={principleImages[0].node.childImageSharp.fluid}
               className="wp-image-186"
+              alt="A pillow, dumbell and salad"
             />
           </GatsbyImgWrapper>
         </Col>
