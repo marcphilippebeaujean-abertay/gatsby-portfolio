@@ -1,12 +1,10 @@
 import React from "react"
 import { PageContentWrapper } from "../style/pageStyleComponent"
-import { graphql, useStaticQuery, navigate } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import { Row, Col, Card } from "react-bootstrap"
 import Img from "gatsby-image/withIEPolyfill"
 import SEO from "../components/seo"
 import styled from "styled-components"
-
-import ButtonMixin from "../style/btnMixin"
 
 const PersonalPicWrapper = styled.div`
   margin: auto;
@@ -22,11 +20,18 @@ const HomePageStyles = styled.div`
     float: left;
     width: 80px;
   }
+  .read-more {
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .read-more:hover {
+    text-decoration: underline;
+  }
 `
 
 const PostCard = ({ post }) => (
   <Col md={6}>
-    <Card>
+    <Card className="mb-2">
       <Card.Body>
         <Card.Title dangerouslySetInnerHTML={{ __html: post.title }} />
         <Card.Text>
@@ -35,9 +40,9 @@ const PostCard = ({ post }) => (
           </div>
           {post.excerpt.slice(3, post.excerpt.length - 5)}{" "}
         </Card.Text>
-        <Card.Link href={`/post/${post.slug}`} target="_blank">
-          Read
-        </Card.Link>
+        <Link to={`/post/${post.slug}`} className="read-more">
+          Read More
+        </Link>
       </Card.Body>
     </Card>
   </Col>
@@ -108,11 +113,11 @@ export default () => {
           <Col md={8} className="d-flex flex-column justify-content-center">
             <h3>Welcome</h3>
             <p>
-              Hi, my name is Marc! At <b>ByteSchool</b>, I aim to offer high
-              quality software development and productivity articles to help you
-              reach your professional goals. If you like the content, please
-              consider subscribing to my newsletter to receive updates and
-              exclusive content!
+              At <b>ByteSchool</b>, I aim to offer high quality software
+              development and productivity articles to help you reach your
+              professional goals. If you like the content, please consider
+              subscribing to my newsletter to receive updates and exclusive
+              content!
             </p>
           </Col>
         </Row>
@@ -120,9 +125,9 @@ export default () => {
         <h2>Latest Articles</h2>
         {posts.map((post, index) =>
           index % 2 === 0 ? (
-            <Row className="mb-md-2">
+            <Row>
               <PostCard post={post} />
-              <PostCard post={posts[index + 1]} className="mb-2" />
+              <PostCard post={posts[index + 1]} />
             </Row>
           ) : null
         )}

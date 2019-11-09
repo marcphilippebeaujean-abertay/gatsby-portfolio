@@ -13,7 +13,7 @@ import ClipLoader from "react-spinners/ClipLoader"
 const SearchBar = styled.form`
   width: 100%;
   height: ${inputFieldHeight}px;
-  margin: 2rem 0px 0px 0px;
+  margin: 0.75rem 0px 0px 0px;
   display: flex;
   -webkit-appearance: none;
   border-radius: 0;
@@ -166,7 +166,7 @@ export default () => {
       />
       <h1>Search</h1>
       <hr></hr>
-      <SearchBar onSubmit={searchForPost}>
+      <SearchBar onSubmit={searchForPost} className="mb-2">
         <input
           className="input-field"
           id="search-bar"

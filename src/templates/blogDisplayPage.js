@@ -57,6 +57,7 @@ export default ({ pageContext }) => {
         style={{ marginBottom: `0px` }}
         dangerouslySetInnerHTML={{ __html: pageContext.title }}
       />
+      <hr></hr>
       {pageContext.posts.map(post => (
         <PostPreview post={post.node} key={post.node.title} />
       ))}
