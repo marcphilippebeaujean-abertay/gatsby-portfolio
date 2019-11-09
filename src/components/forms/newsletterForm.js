@@ -18,7 +18,7 @@ const NewsletterWrapper = styled.div`
     padding: 0px 15px;
   }
   #form-email {
-    width: calc(100% - 20px);
+    width: calc(100%);
     max-width: 100%;
     overflow: hidden;
   }
