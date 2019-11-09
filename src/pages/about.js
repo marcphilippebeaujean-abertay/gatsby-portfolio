@@ -123,10 +123,9 @@ export default ({ pageContext }) => {
         <Col className="d-flex flex-column justify-content-center">
           <h3>Skills</h3>
           <p className="text-muted">
-            I think that the jobs of the future are going resolve around
-            practical skills. I hope to share practical advice and tutorials on
-            some of the most important and relevant skills on today's (and the
-            future) job market.
+            I hope to share practical advice and tutorials on some of the most
+            important and relevant skills on today's (and the future) job
+            market.
           </p>
         </Col>
       </Row>
@@ -147,9 +146,8 @@ export default ({ pageContext }) => {
         <Col className="d-flex flex-column justify-content-center">
           <h3>Productivity</h3>
           <p className="text-muted">
-            I am constantly trying to find new ways to increase productivity and
-            discover how I can make the best use of my time. I hope to share my
-            successes and failures in that regard on this blog.
+            This blog will focus on teaching you practical ways for making the
+            best of your time and increasing your productivity.
           </p>
         </Col>
         <Col className="d-none d-md-flex flex-column justify-content-center">
@@ -176,8 +174,8 @@ export default ({ pageContext }) => {
           <h3>Well-Being</h3>
           <p className="text-muted">
             Success is linked to mental and physical health, as well as the
-            ability to stay focused and determined. I will be sharing some of
-            the key habits that have helped me improve my life in those areas.
+            ability to stay focused and determined. This blog will feature
+            habits and routines to help you improve in those areas.
           </p>
         </Col>
       </Row>
