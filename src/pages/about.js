@@ -99,16 +99,11 @@ export default ({ pageContext }) => {
       <p>
         <strong>&lt;ByteSchool /&gt;</strong> is a passion project that
         originated from my desire to learn new technologies and best practices
-        in software development. It also encompasses my thoughts on how an
-        individual can be a user of technology, not a slave to it. With true
-        concentration and relaxation becoming a rare commodities in the digital
-        age, my goal is to introduce the reader to practical ways in which they
-        can take control of their technology use, benefiting their mental
-        health, productivity and relationships. In many ways, this blog contains
-        content regarding several areas of focus that I believe have shaped my
-        life significantly over the past years (and presumably many years to
-        come). I find that they can be broken down into the following
-        categories:
+        in software development. It also encompasses my thoughts on productivity
+        and healthy technology use. In many ways, this blog contains content
+        regarding several areas of focus that I believe have shaped my life
+        significantly over the past years (and presumably many years to come). I
+        find that they can be broken down into the following categories:
       </p>
       <Row>
         <Col md={6} className="d-flex flex-column justify-content-center">
