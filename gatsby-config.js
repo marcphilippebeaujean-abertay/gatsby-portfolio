@@ -107,18 +107,6 @@ module.exports = {
         display: "swap",
       },
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`400`, `700`],
-          },
-        ],
-      },
-    },
-
     `gatsby-image`,
     {
       resolve: `gatsby-source-filesystem`,

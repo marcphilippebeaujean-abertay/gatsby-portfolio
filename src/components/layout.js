@@ -9,7 +9,7 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
   body{
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: sans-serif !important;
     padding: 0 !important;
     margin: 0;
     position: relative;
