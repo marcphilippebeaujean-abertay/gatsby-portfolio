@@ -5,6 +5,7 @@ import { mainColour } from "../style/themeStyle"
 import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle"
 
 const CookieBannerWrapper = styled.div`
+  padding: 10px 0;
   position: fixed;
   width: 100%;
   text-justify: none;
