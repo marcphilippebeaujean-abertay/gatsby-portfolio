@@ -100,13 +100,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Open Sans`],
-        display: "swap",
-      },
-    },
     `gatsby-image`,
     {
       resolve: `gatsby-source-filesystem`,
