@@ -27,7 +27,7 @@ const SidebarWrapper = styled.aside`
 const Sidebar = () => {
   return (
     <SidebarWrapper>
-      {/*<TwitterFeed />*/}
+      <TwitterFeed />
       <NewsletterForm formTitle={"newsletter"} />
     </SidebarWrapper>
   )
