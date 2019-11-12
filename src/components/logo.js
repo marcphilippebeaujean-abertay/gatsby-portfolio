@@ -1,38 +1,53 @@
 import React from "react"
 import { smallScreenWidth, smallScreenSidePadding } from "../style/layoutStyle"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image/withIEPolyfill"
+
 import styled from "styled-components"
-import LogoImg from "../images/logo.png"
 
 const LogoStyle = styled.div`
-  img {
-    margin: 0 ${smallScreenSidePadding}px;
-    z-index: 3;
-    position: relative;
-    top: 30px;
-    height: 50px;
-    width: auto;
-  }
+  left: ${smallScreenSidePadding}px;
+  z-index: 3;
+  position: relative;
+  top: 17px;
+  width: 300px !important;
 
   position: relative;
   display: table-cell;
   vertical-align: middle;
   @media screen and (max-width: ${smallScreenWidth}px) {
     vertical-align: left;
-    img {
-      top: 8px;
-      height: 40px;
-      width: auto;
-    }
+    top: 8px;
+    height: 40px;
+    width: auto;
   }
   @media screen and (min-width: ${smallScreenWidth}px) {
     bottom: 20px;
   }
 `
 
-const Logo = props => (
-  <LogoStyle id="logo" partitions={props.menuPartitions}>
-    <img src={LogoImg} alt="the byteschool logo" />
-  </LogoStyle>
-)
+const Logo = props => {
+  const data = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  return (
+    <LogoStyle id="logo" partitions={props.menuPartitions}>
+      <div id="logo-wrapper ">
+        <Img
+          fluid={data.logo.childImageSharp.fluid}
+          alt="The <ByteSchool /> logo"
+        />
+      </div>
+    </LogoStyle>
+  )
+}
 
 export default Logo
