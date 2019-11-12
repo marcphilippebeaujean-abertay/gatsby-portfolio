@@ -96,6 +96,7 @@ export default props => {
         className="twitter-timeline"
         data-dnt="true"
         data-height={twitterDataHeight}
+        data-tweet-limit="4"
         href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
         data-chrome="noscrollbar"
       >
