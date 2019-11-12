@@ -9,7 +9,10 @@ export default () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allWordpressTag(sort: { order: DESC, fields: wordpress_id }, limit: 7) {
+        allWordpressTag(
+          sort: { order: DESC, fields: wordpress_id }
+          limit: 14
+        ) {
           edges {
             next {
               name
