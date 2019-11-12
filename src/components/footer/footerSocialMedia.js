@@ -3,10 +3,8 @@ import styled from "styled-components"
 
 import { smallScreenWidth } from "../../style/layoutStyle"
 import { mainColour } from "../../style/themeStyle"
-import linkedInLogo from "../../images/linkedin-icon.png"
-import youtubeLogo from "../../images/youtube-icon.png"
-import githubLogo from "../../images/github-icon.png"
-import twitterLogo from "../../images/twitter-icon.png"
+import Img from "gatsby-image/withIEPolyfill"
+import { graphql, useStaticQuery } from "gatsby"
 
 const SocialMediaLogoWrapper = styled.div`
   display: flex;
@@ -14,11 +12,11 @@ const SocialMediaLogoWrapper = styled.div`
   a {
     margin-right: 20px;
     border-radius: 25px;
+    height: 30px;
+    width: 30px;
   }
   .logo {
     background-color: white;
-    height: 30px;
-    width: 30px;
     transition: ease 0.2s;
   }
   a:hover .logo {
@@ -32,35 +30,85 @@ const SocialMediaLogoWrapper = styled.div`
   }
 `
 
-export default () => (
-  <SocialMediaLogoWrapper>
-    <a
-      href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img className="logo" src={linkedInLogo} alt="LinkedIn Logo" />
-    </a>
-    <a
-      href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img className="logo" src={youtubeLogo} alt="YouTube Logo" />
-    </a>
-    <a
-      href="https://github.com/marcphilippebeaujean-abertay"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img className="logo" src={githubLogo} alt="GitHub Logo" />
-    </a>
-    <a
-      href="https://twitter.com/MarcBeaujean"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img className="logo" src={twitterLogo} alt="Twitter Logo" />
-    </a>
-  </SocialMediaLogoWrapper>
-)
+export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      linkinLogo: file(relativePath: { eq: "linkedin-icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      youtubeLogo: file(relativePath: { eq: "youtube-icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      githubLogo: file(relativePath: { eq: "github-icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      twitterLogo: file(relativePath: { eq: "twitter-icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  return (
+    <SocialMediaLogoWrapper>
+      <a
+        href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Img
+          className="logo"
+          fluid={data.linkinLogo.childImageSharp.fluid}
+          alt="LinkedIn Logo"
+        />
+      </a>
+      <a
+        href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Img
+          className="logo"
+          fluid={data.youtubeLogo.childImageSharp.fluid}
+          alt="LinkedIn Logo"
+        />{" "}
+      </a>
+      <a
+        href="https://github.com/marcphilippebeaujean-abertay"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Img
+          className="logo"
+          fluid={data.githubLogo.childImageSharp.fluid}
+          alt="LinkedIn Logo"
+        />{" "}
+      </a>
+      <a
+        href="https://twitter.com/MarcBeaujean"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Img
+          className="logo"
+          fluid={data.twitterLogo.childImageSharp.fluid}
+          alt="LinkedIn Logo"
+        />{" "}
+      </a>
+    </SocialMediaLogoWrapper>
+  )
+}
