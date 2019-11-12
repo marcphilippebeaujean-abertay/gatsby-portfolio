@@ -1,38 +1,14 @@
 import React, { useState } from "react"
+import { Form } from "react-bootstrap"
+import { IoMdPaper } from "react-icons/io"
+
+import SidebarCard from "../sidebar/sidebarCard"
 import FormWrapper from "./formStyleComponent"
 import {
   handleFormChange,
   handleSubmit,
   toggleTermAgreement,
 } from "./formFunctionality"
-import { Form } from "react-bootstrap"
-import styled from "styled-components"
-import { IoMdPaper } from "react-icons/io"
-
-const NewsletterWrapper = styled.div`
-  background-color: white;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
-  #form-element-wrapper {
-    padding: 0px 15px;
-  }
-  #form-email {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-  #newsletter-heading {
-    position: relative;
-    top: 2.1px;
-    left: 10px;
-  }
-  #newsletter-heading-wrapper {
-    position: relative;
-    top: 8px;
-    left: 15px;
-  }
-`
 
 const initFormState = {
   email: "",
@@ -58,14 +34,7 @@ export default ({ formTitle }) => {
         })
       }}
     >
-      <NewsletterWrapper>
-        <div id="newsletter-heading-wrapper">
-          <p>
-            <IoMdPaper size={32} />
-            <b id="newsletter-heading">Newsletter</b>
-          </p>
-        </div>
-        <hr></hr>
+      <SidebarCard title={"Newsletter"} icon={<IoMdPaper size={32} />}>
         <div id="form-element-wrapper">
           <Form.Group>
             <Form.Control
@@ -111,7 +80,7 @@ export default ({ formTitle }) => {
             name="submit-sub"
           />{" "}
         </div>
-      </NewsletterWrapper>
+      </SidebarCard>
     </FormWrapper>
   )
 }

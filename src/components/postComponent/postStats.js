@@ -36,7 +36,7 @@ const PostStatsStyle = styled.div`
 
 export const TagWrapper = styled.span`
   position: relative;
-  margin: 5px 15px;
+  margin: 0px 15px;
   a {
     text-decoration: none !important;
     color: darkblue;
@@ -48,7 +48,7 @@ export const TagWrapper = styled.span`
   }
   .tag-wrapper {
     display: inline-block;
-    margin: 10px 0px;
+    margin: 0.25rem 0px;
   }
   a:hover {
     background-color: darkblue;
