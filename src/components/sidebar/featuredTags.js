@@ -24,10 +24,7 @@ export default () => {
   )
   const tags = data.allWordpressTag.edges.filter(node => node.next !== null)
   return (
-    <SidebarCard
-      title={"Featured Tags"}
-      icon={<IoIosPricetag size={32} className="mt-2" />}
-    >
+    <SidebarCard title={"Featured Tags"} icon={<IoIosPricetag size={32} />}>
       <TagWrapper>
         {tags.map(tag =>
           tag.next === null ? null : (
