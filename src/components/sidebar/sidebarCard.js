@@ -2,8 +2,11 @@ import React from "react"
 import { Card } from "react-bootstrap"
 import styled from "styled-components"
 
-const SidebarCard = styled(Card)`
+import HoverCard from "../../style/widgetStyles/hoverCard"
+
+const SidebarCard = styled(HoverCard)`
   overflow: hidden;
+  margin: 0px auto;
   .card-heading {
     position: relative;
     top: 2.3px;
@@ -14,12 +17,10 @@ const SidebarCard = styled(Card)`
 export default ({ children, title, icon }) => (
   <SidebarCard>
     <Card.Body>
-      <div>
-        <Card.Title>
-          {icon}
-          <span className="card-heading">{title}</span>
-        </Card.Title>
-      </div>
+      <Card.Title>
+        {icon}
+        <span className="card-heading">{title}</span>
+      </Card.Title>
       {children}
     </Card.Body>
   </SidebarCard>

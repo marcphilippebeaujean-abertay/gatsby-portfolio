@@ -19,13 +19,16 @@ const PostStatsStyle = styled.div`
     position: relative;
     padding: 10px 0px;
   }
+  .tag-adjustment {
+    position: relative;
+    top: 1.8px;
+  }
   .post-info-row {
     margin: 5px 0 !important;
   }
   .post-info-text {
     position: relative;
     top: 3px;
-    margin: 5px 15px;
   }
   @media screen and (min-width: ${smallScreenWidth}px) {
     br {
@@ -36,7 +39,7 @@ const PostStatsStyle = styled.div`
 
 export const TagWrapper = styled.span`
   position: relative;
-  margin: 0px 15px;
+  margin: 0px 0px;
   a {
     text-decoration: none !important;
     color: darkblue;
@@ -61,19 +64,22 @@ export default ({ post }) => {
     <PostStatsStyle>
       <div className="post-info-row">
         <IoIosCalendar size={32} className="post-attribute" />
-        <span className="post-info-text text-mute">{post.date}</span>
+        <span className="post-info-text text-mute ml-2 mr-2">{post.date}</span>
         <br />
         <IoIosPricetag size={32} className="post-attribute-icon" />
-        <TagWrapper>
+        <TagWrapper className="ml-2">
           {post.tags.map(tag => (
-            <span className="tag-wrapper" key={`tag_${tag.name}`}>
+            <span
+              className="tag-wrapper tag-adjustment"
+              key={`tag_${tag.name}`}
+            >
               <Link to={`/${tag.name.replace(/ /g, "-")}`}>{tag.name}</Link>
             </span>
           ))}
         </TagWrapper>
         <br />
-        <FaComment size={32} className="post-attribute-icon" />
-        <span className="post-info-text text-mute">
+        <FaComment size={32} className="post-attribute-icon ml-2" />
+        <span className="post-info-text text-mute ml-2">
           <CommentCount
             {...disqusConfig(post.wordpress_id)}
             placeholder={`...`}

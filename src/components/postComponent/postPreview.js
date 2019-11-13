@@ -1,13 +1,15 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { Card } from "react-bootstrap"
+import Img from "gatsby-image/withIEPolyfill"
+
+import HoverCard from "../../style/widgetStyles/hoverCard"
+import PostStats from "./postStats"
 import {
   smallScreenWidth,
   smallScreenSidePadding,
 } from "../../style/layoutStyle"
-import { Card } from "react-bootstrap"
-import PostStats from "./postStats"
-import Img from "gatsby-image/withIEPolyfill"
 
 const PostPreviewWrapper = styled.div`
   display: flex;
@@ -70,7 +72,7 @@ const PostPreviewWrapper = styled.div`
 const PostPreview = props => {
   return (
     <PostPreviewWrapper>
-      <Card className="mb-2">
+      <HoverCard className="mb-2">
         <Card.Body>
           <Card.Title dangerouslySetInnerHTML={{ __html: props.post.title }} />
           <PostStats post={props.post} />
@@ -107,7 +109,7 @@ const PostPreview = props => {
             </div>
           </div>
         </Card.Body>
-      </Card>
+      </HoverCard>
     </PostPreviewWrapper>
   )
 }

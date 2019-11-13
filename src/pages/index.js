@@ -6,6 +6,8 @@ import Img from "gatsby-image/withIEPolyfill"
 import SEO from "../components/seo"
 import styled from "styled-components"
 
+import HoverCard from "../style/widgetStyles/hoverCard"
+
 const PersonalPicWrapper = styled.div`
   margin: auto;
   width: 200px;
@@ -31,7 +33,7 @@ const HomePageStyles = styled.div`
 
 const PostCard = ({ post }) => (
   <Col md={6}>
-    <Card className="mb-2">
+    <HoverCard className="mb-2">
       <Card.Body>
         <Card.Title dangerouslySetInnerHTML={{ __html: post.title }} />
         <Card.Text>
@@ -44,7 +46,7 @@ const PostCard = ({ post }) => (
           Read More
         </Link>
       </Card.Body>
-    </Card>
+    </HoverCard>
   </Col>
 )
 
