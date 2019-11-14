@@ -9,10 +9,12 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
   body{
-    font-family: sans-serif !important;
     padding: 0 !important;
     margin: 0;
     position: relative;
+  }
+  a{
+    color: lightblue;
   }
   hr {
     border: 0;

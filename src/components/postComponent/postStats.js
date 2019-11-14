@@ -17,7 +17,6 @@ const PostStatsStyle = styled.div`
   a {
     text-decoration: none;
     position: relative;
-    padding: 10px 0px;
   }
   .tag-adjustment {
     position: relative;

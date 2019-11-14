@@ -34,18 +34,19 @@ const HomePageStyles = styled.div`
 const PostCard = ({ post }) => (
   <Col md={6}>
     <HoverCard className="mb-2">
-      <Card.Body>
-        <Card.Title dangerouslySetInnerHTML={{ __html: post.title }} />
-        <Card.Text>
-          <div className="preview-img">
-            <Img fluid={post.featured_media.localFile.childImageSharp.fluid} />
-          </div>
-          {post.excerpt.slice(3, post.excerpt.length - 5)}{" "}
-        </Card.Text>
-        <Link to={`/post/${post.slug}`} className="read-more">
-          Read More
-        </Link>
-      </Card.Body>
+      <Link to={`/post/${post.slug}`}>
+        <Card.Body>
+          <Card.Title dangerouslySetInnerHTML={{ __html: post.title }} />
+          <Card.Text>
+            <div className="preview-img">
+              <Img
+                fluid={post.featured_media.localFile.childImageSharp.fluid}
+              />
+            </div>
+            {post.excerpt.slice(3, post.excerpt.length - 5)}{" "}
+          </Card.Text>
+        </Card.Body>
+      </Link>
     </HoverCard>
   </Col>
 )

@@ -20,9 +20,6 @@ const PostPreviewWrapper = styled.div`
     flex-grow: 1;
     position: relative;
   }
-  .excerpt-text {
-    width: 100%;
-  }
   .thumbnail {
     margin-right: ${smallScreenSidePadding}px;
   }
@@ -73,42 +70,38 @@ const PostPreview = props => {
   return (
     <PostPreviewWrapper>
       <HoverCard className="mb-2">
-        <Card.Body>
-          <Card.Title dangerouslySetInnerHTML={{ __html: props.post.title }} />
-          <PostStats post={props.post} />
-          <div className="image-excerpt-container">
-            {`localFile` in props.post.featured_media ? (
-              <div className="in-text-thumbnail-wrapper thumbnail">
-                <Img
-                  className="container-img"
-                  fluid={
-                    props.post.featured_media.localFile.childImageSharp.fluid
-                  }
-                  alt="Search icon for no search found"
-                />
-              </div>
-            ) : (
-              <div className="in-text-thumbnail-wrapper thumbnail">
-                <img
-                  className="in-text-thumbnail thumbnail"
-                  src={props.post.featured_media.source_url}
-                  alt="Thumbnail"
-                />
-              </div>
-            )}
-            <div className="excerpt-text">
-              <p>
-                {props.post.excerpt.slice(3, props.post.excerpt.length - 5)}
-                <span>
-                  {" "}
-                  <Link className="read-more" to={`/post/${props.post.slug}`}>
-                    Read More
-                  </Link>
-                </span>
-              </p>
+        <Link to={`/post/${props.post.slug}`}>
+          <Card.Body>
+            <Card.Title
+              dangerouslySetInnerHTML={{ __html: props.post.title }}
+            />
+            <PostStats post={props.post} />
+            <div className="image-excerpt-container">
+              {`localFile` in props.post.featured_media ? (
+                <div className="in-text-thumbnail-wrapper thumbnail">
+                  <Img
+                    className="container-img"
+                    fluid={
+                      props.post.featured_media.localFile.childImageSharp.fluid
+                    }
+                    alt="Search icon for no search found"
+                  />
+                </div>
+              ) : (
+                <div className="in-text-thumbnail-wrapper thumbnail">
+                  <img
+                    className="in-text-thumbnail thumbnail"
+                    src={props.post.featured_media.source_url}
+                    alt="Thumbnail"
+                  />
+                </div>
+              )}
+              <Card.Text
+                dangerouslySetInnerHTML={{ __html: props.post.excerpt }}
+              />
             </div>
-          </div>
-        </Card.Body>
+          </Card.Body>
+        </Link>
       </HoverCard>
     </PostPreviewWrapper>
   )
