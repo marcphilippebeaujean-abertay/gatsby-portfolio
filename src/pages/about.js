@@ -96,7 +96,7 @@ export default ({ pageContext }) => {
         </figcaption>
       </GatsbyImgWrapper>
       <h2>About the Blog</h2>
-      <p>
+      <p className="mb-2">
         <strong>&lt;ByteSchool /&gt;</strong> is a passion project that
         originated from my desire to learn new technologies and best practices
         in software development. It also encompasses my thoughts on productivity
@@ -174,7 +174,7 @@ export default ({ pageContext }) => {
           </p>
         </Col>
       </Row>
-      <p>
+      <p className="mb-2">
         Thanks for taking the time to read my blog! I hope you learn something
         and enjoy your stay. If you want to receive continual updates on new
         content and exclusive insights, be sure to subscribe to the newsletter

@@ -29,12 +29,15 @@ const PostPreviewWrapper = styled.div`
   h2 {
     margin: 0px !important;
   }
+  .excerpt-text {
+    width: 100%;
+  }
   .in-text-thumbnail-wrapper {
     display: block;
     position: relative;
     top: 8px;
     float: left;
-    width: 100px;
+    width: 100px !important;
   }
   .in-text-thumbnail {
     height: auto;
@@ -96,9 +99,11 @@ const PostPreview = props => {
                   />
                 </div>
               )}
-              <Card.Text
-                dangerouslySetInnerHTML={{ __html: props.post.excerpt }}
-              />
+              <div className="excerpt-text">
+                <Card.Text
+                  dangerouslySetInnerHTML={{ __html: props.post.excerpt }}
+                />
+              </div>
             </div>
           </Card.Body>
         </Link>

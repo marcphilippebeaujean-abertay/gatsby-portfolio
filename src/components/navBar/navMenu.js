@@ -1,7 +1,4 @@
 import React, { useEffect } from "react"
-import { navMenuHeight, smallScreenWidth } from "../../style/layoutStyle"
-import { mainColour } from "../../style/themeStyle"
-import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
 import {
   IoIosSearch,
@@ -9,15 +6,19 @@ import {
   IoIosSend,
   IoIosBook,
 } from "react-icons/io"
+import { Link } from "gatsby"
+
+import { navMenuHeight, smallScreenWidth } from "../../style/layoutStyle"
+import { mainColour, secondaryColour } from "../../style/themeStyle"
+import { getCurrentUrlPathname } from "../../utility/navigation"
 import HamburgerButton from "./hamburgerMenu"
 import NavMenuItem from "./navMenuItem"
 import styled from "styled-components"
 import Logo from "../logo"
-import { Link } from "gatsby"
 
 const MainMenuWrapper = styled.nav`
   display: flex;
-  background-color: black;
+  background-color: ${secondaryColour};
   width: 100%;
   z-index: 3;
   padding: 0;

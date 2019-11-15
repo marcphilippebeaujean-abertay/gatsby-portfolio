@@ -66,7 +66,7 @@ export default ({ post }) => {
         <span className="post-info-text text-mute ml-2 mr-2">{post.date}</span>
         <br />
         <IoIosPricetag size={32} className="post-attribute-icon" />
-        <TagWrapper className="ml-2">
+        <TagWrapper className="ml-2 mr-2">
           {post.tags.map(tag => (
             <span
               className="tag-wrapper tag-adjustment"
@@ -77,7 +77,7 @@ export default ({ post }) => {
           ))}
         </TagWrapper>
         <br />
-        <FaComment size={32} className="post-attribute-icon ml-2" />
+        <FaComment size={32} className="post-attribute-icon" />
         <span className="post-info-text text-mute ml-2">
           <CommentCount
             {...disqusConfig(post.wordpress_id)}
