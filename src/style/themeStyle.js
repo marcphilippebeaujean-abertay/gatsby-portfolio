@@ -3,4 +3,4 @@ export const secondaryColour = `black`
 
 export const darkBlue = `darkblue`
 export const lightBlue = `lightblue`
-export const linkClickedColor = `#9403fc`
+export const linkClickedColor = `#7300ff`

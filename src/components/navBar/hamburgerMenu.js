@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { smallScreenWidth } from "../../style/layoutStyle"
-import { mainColour } from "../../style/themeStyle"
+import { mainColour, secondaryColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
 import styled from "styled-components"
@@ -53,7 +53,7 @@ const HamburgerMenu = styled.div`
     bottom: 1.5px;
   }
   .selected {
-    color: black !important;
+    color: ${secondaryColour} !important;
     background-color: ${mainColour} !important;
   }
   .selected:hover {
@@ -64,8 +64,8 @@ const HamburgerMenu = styled.div`
 const OverlayLink = styled(Link)`
   text-decoration: none;
   opacity: 1;
-  color: ${props => (props.selected ? `black` : mainColour)};
-  background-color: ${props => (props.selected ? mainColour : `black`)};
+  color: ${props => (props.selected ? secondaryColour : mainColour)};
+  background-color: ${props => (props.selected ? mainColour : secondaryColour)};
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;

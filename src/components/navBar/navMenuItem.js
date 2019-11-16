@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import React from "react"
 import { smallScreenWidth } from "../../style/layoutStyle"
-import { mainColour } from "../../style/themeStyle"
+import { mainColour, secondaryColour } from "../../style/themeStyle"
 import { Link } from "gatsby"
 
 const stripeWidth = 20
@@ -32,7 +32,7 @@ const MenuItem = styled(Link)`
     width: 100%;
   }
   .menu-item.selected {
-    color: black !important;
+    color: ${secondaryColour} !important;
     background-color: ${mainColour} !important;
   }
   .selected:hover {
@@ -52,8 +52,8 @@ const MenuItem = styled(Link)`
       135deg,
       black,
       black ${stripeWidth}px,
-      rgba(174, 174, 174, 0.2) ${stripeWidth}px,
-      rgba(174, 174, 174, 0.2) ${stripeWidth * 2}px
+      #5e5d5d ${stripeWidth}px,
+      #5e5d5d ${stripeWidth * 2}px
     );
   }
   .menu-item:hover .hover-anim {

@@ -32,7 +32,7 @@ const MainMenuWrapper = styled.nav`
     color: ${mainColour};
   }
   .nav-bar {
-    background-color: rgb(0, 0, 0);
+    background-color: ${secondaryColour};
     justify-content: right;
     align-self: flex-end;
     display: flex;
