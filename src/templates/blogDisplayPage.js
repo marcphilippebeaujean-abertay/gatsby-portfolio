@@ -59,7 +59,7 @@ export default ({ pageContext }) => {
       />
       <hr></hr>
       {pageContext.posts.map(post => (
-        <PostPreview post={post.node} key={post.node.title} />
+        <PostPreview post={post.node} showStats={true} key={post.node.title} />
       ))}
       <PageToggleStyle>
         <div className="inner-container">

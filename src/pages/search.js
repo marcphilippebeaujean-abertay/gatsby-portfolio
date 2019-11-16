@@ -106,56 +106,29 @@ export default () => {
         if (queriedPosts.length === 0) {
           setSearchPending(false)
           searchResultsDiv.classList.remove(`hidden-results`)
-        }
-        // Get list of tags to query by aggregating them from the search results
-        const foundTagIds = []
-        queriedPosts.forEach(queriedPost => {
-          foundTagIds.push(
-            ...queriedPost.tags
-              .filter(tagId => !foundTagIds.includes(tagId))
-              .map(tagId => tagId)
-          )
-        })
-        fetch(
-          `${process.env.GATSBY_API_PROTOCOL}://${
-            process.env.GATSBY_API_URL
-          }/wp-json/wp/v2/tags?include=${foundTagIds
-            .map(tagId => `${tagId}`)
-            .join(",")}`
-        )
-          .then(resp => resp.json())
-          .then(postTags => {
-            queriedPosts.forEach(queriedPost => {
-              const tagNames = postTags
-                .filter(postTag => queriedPost.tags.includes(postTag.id))
-                .map(postTag => {
-                  return {
-                    name: postTag.name,
-                  }
-                })
-              postList.push({
-                featured_media: {
-                  source_url: queriedPost.better_featured_image.source_url,
-                },
-                wordpress_id: queriedPost.id,
-                title: queriedPost.title.rendered,
-                excerpt: queriedPost.excerpt.rendered,
-                date: DateTime.fromISO(queriedPost.date).toFormat("dd/MM/yyyy"),
-                tags: tagNames,
-                slug: queriedPost.slug,
-              })
+        } else {
+          queriedPosts.forEach(queriedPost => {
+            postList.push({
+              featured_media: {
+                source_url: queriedPost.better_featured_image.source_url,
+              },
+              wordpress_id: queriedPost.id,
+              title: queriedPost.title.rendered,
+              excerpt: queriedPost.excerpt.rendered,
+              date: DateTime.fromISO(queriedPost.date).toFormat("dd/MM/yyyy"),
+              slug: queriedPost.slug,
             })
-            if (postList.length === queriedPosts.length) {
-              setFoundPost(postList)
-            }
           })
-          .catch(e => console.error("failed to fetch post tags!"))
-          .finally(() => {
-            setSearchPending(false)
-            searchResultsDiv.classList.remove(`hidden-results`)
-          })
+          if (postList.length === queriedPosts.length) {
+            setFoundPost(postList)
+          }
+        }
       })
       .catch(e => console.error(e))
+      .finally(() => {
+        setSearchPending(false)
+        searchResultsDiv.classList.remove(`hidden-results`)
+      })
   }
   const handleInputChange = e => setSearchTerm(e.target.value)
   return (
@@ -188,7 +161,7 @@ export default () => {
           {foundPost.length === 0
             ? null
             : foundPost.map(post => (
-                <PostPreview post={post} key={post.title} />
+                <PostPreview post={post} key={post.title} showState={false} />
               ))}
         </div>
       </SearchResultWrapper>

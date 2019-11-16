@@ -69,24 +69,20 @@ const PostPreviewWrapper = styled.div`
   }
 `
 
-const PostPreview = props => {
+const PostPreview = ({ post, showStats }) => {
   return (
     <PostPreviewWrapper>
       <HoverCard className="mb-2">
-        <Link to={`/post/${props.post.slug}`}>
+        <Link to={`/post/${post.slug}`}>
           <Card.Body>
-            <Card.Title
-              dangerouslySetInnerHTML={{ __html: props.post.title }}
-            />
-            <PostStats post={props.post} />
+            <Card.Title dangerouslySetInnerHTML={{ __html: post.title }} />
+            {showStats === true ? <PostStats post={post} /> : null}
             <div className="image-excerpt-container">
-              {`localFile` in props.post.featured_media ? (
+              {`localFile` in post.featured_media ? (
                 <div className="in-text-thumbnail-wrapper thumbnail">
                   <Img
                     className="container-img"
-                    fluid={
-                      props.post.featured_media.localFile.childImageSharp.fluid
-                    }
+                    fluid={post.featured_media.localFile.childImageSharp.fluid}
                     alt="Search icon for no search found"
                   />
                 </div>
@@ -94,15 +90,13 @@ const PostPreview = props => {
                 <div className="in-text-thumbnail-wrapper thumbnail">
                   <img
                     className="in-text-thumbnail thumbnail"
-                    src={props.post.featured_media.source_url}
+                    src={post.featured_media.source_url}
                     alt="Thumbnail"
                   />
                 </div>
               )}
               <div className="excerpt-text">
-                <Card.Text
-                  dangerouslySetInnerHTML={{ __html: props.post.excerpt }}
-                />
+                <Card.Text dangerouslySetInnerHTML={{ __html: post.excerpt }} />
               </div>
             </div>
           </Card.Body>

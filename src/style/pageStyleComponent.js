@@ -6,6 +6,7 @@ import {
   navMenuHeight,
 } from "./layoutStyle"
 import { Container } from "react-bootstrap"
+import { linkClickedColor } from "../style/themeStyle"
 
 export const PageContentWrapper = ({ children }) => {
   return (
@@ -22,6 +23,9 @@ const PageContentWrapperStyle = styled.div`
     position: relative;
     width: 100%;
     margin: 0;
+  }
+  p > a:visited {
+    color: ${linkClickedColor};
   }
   figure > img {
     display: block !important;

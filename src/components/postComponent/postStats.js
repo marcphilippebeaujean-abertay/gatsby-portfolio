@@ -4,7 +4,9 @@ import { IoIosCalendar, IoIosPricetag } from "react-icons/io"
 import { FaComment } from "react-icons/fa"
 import { CommentCount } from "gatsby-plugin-disqus"
 import { Link } from "gatsby"
+
 import { smallScreenWidth } from "../../style/layoutStyle"
+import { linkClickedColor, darkBlue, lightBlue } from "../../style/themeStyle"
 
 const disqusConfig = postId => {
   return {
@@ -41,8 +43,8 @@ export const TagWrapper = styled.span`
   margin: 0px 0px;
   a {
     text-decoration: none !important;
-    color: darkblue;
-    background-color: lightblue;
+    color: ${darkBlue};
+    background-color: ${lightBlue};
     padding: 3px;
     margin-right: 5px;
     border-radius: 5px;
@@ -53,8 +55,11 @@ export const TagWrapper = styled.span`
     margin: 0.25rem 0px;
   }
   a:hover {
-    background-color: darkblue;
+    background-color: ${darkBlue};
     color: white;
+  }
+  a:visited {
+    color: ${linkClickedColor};
   }
 `
 

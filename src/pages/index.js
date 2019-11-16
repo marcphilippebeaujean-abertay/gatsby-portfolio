@@ -1,12 +1,12 @@
 import React from "react"
 import { PageContentWrapper } from "../style/pageStyleComponent"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import { Row, Col, Card } from "react-bootstrap"
+import { graphql, useStaticQuery } from "gatsby"
+import { Row, Col } from "react-bootstrap"
 import Img from "gatsby-image/withIEPolyfill"
 import SEO from "../components/seo"
 import styled from "styled-components"
 
-import HoverCard from "../style/widgetStyles/hoverCard"
+import PostPreview from "../components/postComponent/postPreview"
 
 const PersonalPicWrapper = styled.div`
   margin: auto;
@@ -33,21 +33,7 @@ const HomePageStyles = styled.div`
 
 const PostCard = ({ post }) => (
   <Col md={6}>
-    <HoverCard className="mb-2">
-      <Link to={`/post/${post.slug}`}>
-        <Card.Body>
-          <Card.Title dangerouslySetInnerHTML={{ __html: post.title }} />
-          <Card.Text>
-            <div className="preview-img">
-              <Img
-                fluid={post.featured_media.localFile.childImageSharp.fluid}
-              />
-            </div>
-            {post.excerpt.slice(3, post.excerpt.length - 5)}{" "}
-          </Card.Text>
-        </Card.Body>
-      </Link>
-    </HoverCard>
+    <PostPreview post={post} showStats={false} />
   </Col>
 )
 
@@ -128,7 +114,7 @@ export default () => {
         <h2>Latest Articles</h2>
         {posts.map((post, index) =>
           index % 2 === 0 ? (
-            <Row>
+            <Row key={post.title}>
               <PostCard post={post} />
               <PostCard post={posts[index + 1]} />
             </Row>

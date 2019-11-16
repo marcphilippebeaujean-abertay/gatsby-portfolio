@@ -9,12 +9,8 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
   body{
-    padding: 0 !important;
-    margin: 0;
+    background-color: white;
     position: relative;
-  }
-  a{
-    color: lightblue;
   }
   hr {
     border: 0;
@@ -24,12 +20,13 @@ export const GlobalStyles = createGlobalStyle`
     background-color: lightgrey !important;
     height: 1px;
   }
-  html {
-    height: 100%;
-  }
   figcaption{
     font-style: italic;
   }
+  html{
+    height: 100%;
+  }
+  small, .text_small {font-size: 0.8em;}
   #main-content-container{
     min-height: 100vh;
     position: relative;
@@ -37,10 +34,6 @@ export const GlobalStyles = createGlobalStyle`
   .fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe {
     max-width: 100% !important;
     width: 100% !important;
-  }
-  p{
-    margin: 3px;
-    line-height: 1.7 !important;
   }
   #page-content-row{
     padding-bottom: ${footerHeight}px;

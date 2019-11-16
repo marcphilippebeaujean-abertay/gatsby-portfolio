@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import { IoIosPricetag } from "react-icons/io"
 import { useStaticQuery, graphql, Link } from "gatsby"
 

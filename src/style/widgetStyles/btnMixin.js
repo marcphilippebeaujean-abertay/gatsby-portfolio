@@ -1,7 +1,7 @@
-import { mainColour } from "./themeStyle"
-import { smallScreenWidth } from "./layoutStyle"
+import { mainColour } from "../themeStyle"
+import { smallScreenWidth } from "../layoutStyle"
 
-export default `
+const Mixin = `
   .submit-btn {
     width: 200px;
     height: 50px;
@@ -26,3 +26,4 @@ export default `
     }
   }
 `
+export default Mixin

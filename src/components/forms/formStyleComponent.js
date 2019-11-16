@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import ButtonMixin from "../../style/btnMixin"
+import ButtonMixin from "../../style/widgetStyles/btnMixin"
 import { Form } from "react-bootstrap"
 
 export const inputFieldHeight = 40
