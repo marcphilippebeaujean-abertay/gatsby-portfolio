@@ -62,10 +62,8 @@ export default ({ pageContext }) => {
         to Scotland to pursue my bachelors degree in Game Development. I
         graduated from Abertay University with a first class honours degree and
         was also fortunate enough to be awarded with the John Wilson award for
-        academic excellence. It was here that I first discovered my love for
-        reading and acquiring new knowledge. During this time, I gathered
-        several productivity routines and techniques that helped me boost my
-        academic performance.
+        academic excellence. During this time, I gathered several productivity
+        routines and techniques that helped me boost my academic performance.
       </p>
       <GatsbyImgWrapper maxWidth={`300px`}>
         <Img
