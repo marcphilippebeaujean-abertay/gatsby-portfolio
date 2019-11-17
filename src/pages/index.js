@@ -78,17 +78,16 @@ export default () => {
           </PersonalPicWrapper>
         </Col>
         <Col md={8} className="d-flex flex-column justify-content-center">
-          <h3>Welcome</h3>
+          <h3 className="mt-2">Welcome</h3>
           <p>
-            At <b>ByteSchool</b>, I aim to offer high quality software
-            development and productivity articles to help you reach your
-            professional goals. If you like the content, please consider
-            subscribing to my newsletter to receive updates and exclusive
-            content!
+            I'm Marc, a software developer from Germany. At <b>ByteSchool</b>, I
+            aim to offer high quality software development and productivity
+            articles to help you reach your professional goals. If you like the
+            content, please consider subscribing to my newsletter to receive
+            updates and exclusive content!
           </p>
         </Col>
       </Row>
-      <hr></hr>
       <h2>Latest Articles</h2>
       {posts.map((post, index) =>
         index % 2 === 0 ? (
