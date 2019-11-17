@@ -141,8 +141,8 @@ export default ({ pageContext }) => {
         <Col className="d-flex flex-column justify-content-center">
           <h3>Productivity</h3>
           <p className="text-muted">
-            This blog will focus on teaching you practical ways for making the
-            best of your time and increasing your productivity.
+            This blog will feature practical methods to help you increase your
+            productivity and manage your time.
           </p>
         </Col>
         <Col className="d-none d-md-flex flex-column justify-content-center">
@@ -168,9 +168,8 @@ export default ({ pageContext }) => {
         <Col>
           <h3>Well-Being</h3>
           <p className="text-muted">
-            Success is linked to mental and physical health, as well as the
-            ability to stay focused and determined. This blog will feature
-            habits and routines to help you improve in those areas.
+            This blog will feature habits and routines to help you focused and
+            determined.
           </p>
         </Col>
       </Row>
