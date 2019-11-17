@@ -16,7 +16,7 @@ export default ({ pageContext }) => {
       />
       <hr></hr>
       {pageContext.posts.map(edge => (
-        <PostPreview post={edge.node} key={edge.node.title} />
+        <PostPreview post={edge.node} showStats={true} key={edge.node.title} />
       ))}
     </PageContentWrapper>
   )
