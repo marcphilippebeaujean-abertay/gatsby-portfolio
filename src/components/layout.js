@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   hr {
     border: 0;
+    margin: 0.5rem 0 !important;
     clear:both;
     display:block;
     width: 100%;

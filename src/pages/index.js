@@ -78,12 +78,12 @@ export default () => {
           </PersonalPicWrapper>
         </Col>
         <Col md={8} className="d-flex flex-column justify-content-center">
-          <h3 className="mt-0">Welcome</h3>
+          <h5 className="mt-0">Welcome</h5>
           <p className="mb-0">
-            I'm Marc, a software developer from Germany. At{" "}
-            <b>&lt;ByteSchool /&gt;</b>, I aim to offer high quality software
-            development and productivity articles to help you reach your
-            professional goals. If you like the content, please consider
+            I'm Marc, a software developer from Germany. I published&nbsp;
+            <b>&lt;ByteSchool /&gt;</b> with the aim to offer high quality
+            software development and productivity articles to help you reach
+            your professional goals. If you like the content, please consider
             subscribing to my newsletter to receive updates and exclusive
             content!
           </p>
