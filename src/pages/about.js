@@ -168,8 +168,8 @@ export default ({ pageContext }) => {
         <Col>
           <h3>Well-Being</h3>
           <p className="text-muted">
-            This blog will feature habits and routines to help you focused and
-            determined.
+            This blog will feature habits and routines to help you focus on your
+            goals and boost your determination.
           </p>
         </Col>
       </Row>
