@@ -78,11 +78,6 @@ const items = [
     icon: <IoIosSearch className="nav-icon" />,
   },
   {
-    object_slug: `about`,
-    title: `About`,
-    icon: <IoIosInformationCircleOutline className="nav-icon" />,
-  },
-  {
     object_slug: `contact`,
     title: `Contact`,
     icon: <IoIosSend className="nav-icon" />,
