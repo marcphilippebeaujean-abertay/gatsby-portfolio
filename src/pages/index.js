@@ -79,7 +79,7 @@ export default () => {
         </Col>
         <Col md={8} className="d-flex flex-column justify-content-center">
           <h3 className="mt-0">Welcome</h3>
-          <p>
+          <p className="mb-0">
             I'm Marc, a software developer from Germany. At <b>ByteSchool</b>, I
             aim to offer high quality software development and productivity
             articles to help you reach your professional goals. If you like the
