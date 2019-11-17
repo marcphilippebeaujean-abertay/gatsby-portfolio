@@ -95,9 +95,10 @@ const PostPreview = ({ post, showStats }) => {
                   />
                 </div>
               )}
-              <div className="excerpt-text">
-                <Card.Text dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-              </div>
+              <div
+                className="excerpt-text"
+                dangerouslySetInnerHTML={{ __html: post.excerpt }}
+              />
             </div>
           </Card.Body>
         </Link>

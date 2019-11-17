@@ -1,11 +1,11 @@
 import React from "react"
-import { PageContentWrapper } from "../style/pageStyleComponent"
 import { graphql, useStaticQuery } from "gatsby"
 import { Row, Col } from "react-bootstrap"
 import Img from "gatsby-image/withIEPolyfill"
 import SEO from "../components/seo"
 import styled from "styled-components"
 
+import { PageContentWrapper } from "../style/pageStyleComponent"
 import PostPreview from "../components/postComponent/postPreview"
 
 const PersonalPicWrapper = styled.div`
