@@ -78,7 +78,7 @@ export default () => {
           </PersonalPicWrapper>
         </Col>
         <Col md={8} className="d-flex flex-column justify-content-center">
-          <h3 className="mt-2">Welcome</h3>
+          <h3 className="mt-0">Welcome</h3>
           <p>
             I'm Marc, a software developer from Germany. At <b>ByteSchool</b>, I
             aim to offer high quality software development and productivity
