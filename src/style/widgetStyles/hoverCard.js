@@ -4,6 +4,9 @@ import { Card } from "react-bootstrap"
 import { mainColour } from "../themeStyle"
 
 export default styled(Card)`
+  .h5 {
+    margin-top: 0px;
+  }
   position: relative;
   bottom: 0px;
   transition: all ease-in-out 0.2s;

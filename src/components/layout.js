@@ -24,6 +24,10 @@ export const GlobalStyles = createGlobalStyle`
   figcaption{
     font-style: italic;
   }
+  pre{
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+  }
   html{
     height: 100%;
   }
