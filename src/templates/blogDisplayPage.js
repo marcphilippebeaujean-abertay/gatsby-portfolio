@@ -53,10 +53,7 @@ export default ({ pageContext }) => {
         title={`Blog - Page ${pageContext.currentPage}`}
         description={`Showing results for page ${pageContext.currentPage} of the <JustDoIT /> software development blog`}
       />
-      <h1
-        style={{ marginBottom: `0px` }}
-        dangerouslySetInnerHTML={{ __html: pageContext.title }}
-      />
+      <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <hr></hr>
       {pageContext.posts.map(post => (
         <PostPreview post={post.node} showStats={true} key={post.node.title} />
