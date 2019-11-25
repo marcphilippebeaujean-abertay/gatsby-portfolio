@@ -13,10 +13,7 @@ export default ({ pageContext }) => {
           "<JustDoIT /> is a blog about software development - it is packed with useful tutorials and advise for new or experience developers!"
         }
       />
-      <h1
-        style={{ marginBottom: `0px` }}
-        dangerouslySetInnerHTML={{ __html: pageContext.title }}
-      />
+      <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <hr></hr>
       {pageContext.posts.map(post => (
         <PostPreview post={post.node} showStats={true} key={post.node.title} />
