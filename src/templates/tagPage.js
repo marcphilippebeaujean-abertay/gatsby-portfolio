@@ -10,10 +10,7 @@ export default ({ pageContext }) => {
         title={`${pageContext.title}`}
         description={`Results for tag "${pageContext.excerpt}"`}
       />
-      <h1
-        style={{ marginBottom: `0px` }}
-        dangerouslySetInnerHTML={{ __html: pageContext.title }}
-      />
+      <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <hr></hr>
       {pageContext.posts.map(edge => (
         <PostPreview post={edge.node} showStats={true} key={edge.node.title} />
