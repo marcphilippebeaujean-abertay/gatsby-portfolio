@@ -89,7 +89,7 @@ export default () => {
           </p>
         </Col>
       </Row>
-      <h2 className="mt-4">Latest Articles</h2>
+      <h3>Latest Articles</h3>
       {posts.map((post, index) =>
         index % 2 === 0 ? (
           <Row key={post.title}>
