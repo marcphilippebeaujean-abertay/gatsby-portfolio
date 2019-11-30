@@ -40,21 +40,6 @@ const FooterWrapper = styled.footer`
 `
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allWordpressWpApiMenusMenusItems(filter: { name: { eq: "Legal" } }) {
-        edges {
-          node {
-            name
-            items {
-              title
-              object_slug
-            }
-          }
-        }
-      }
-    }
-  `)
   return (
     <FooterWrapper>
       <Container className="text-white footer-container">
@@ -64,21 +49,24 @@ const Footer = () => {
               <b>Legal</b>
             </p>
             <div className="d-flex flex-md-column flex-xs-row">
-              {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
-                item => (
-                  <div key={item.title} className="link-wrap">
-                    <Link
-                      className="footer-link"
-                      to={`/${item.object_slug}`}
-                      selected={
-                        item.object_slug === getCurrentUrlPathname(document)
-                      }
-                    >
-                      {item.title}
-                    </Link>
-                  </div>
-                )
-              )}
+              <div className="link-wrap">
+                <Link
+                  className="footer-link"
+                  to={`/impressum`}
+                  selected={"/impressum" === getCurrentUrlPathname(document)}
+                >
+                  Impressum und Datenschutzerklärung (DEU)
+                </Link>
+              </div>
+              <div className="link-wrap">
+                <Link
+                  className="footer-link"
+                  to={`/imprint`}
+                  selected={"/imprint" === getCurrentUrlPathname(document)}
+                >
+                  Imprint und Data Policy (ENG)
+                </Link>
+              </div>
             </div>
             <p className="footer-link">© 2019 Marc P. Beaujean</p>
           </Col>

@@ -92,8 +92,7 @@ export default props => {
       <BannerInformationWrapper className="hide" id="banner-wrapper">
         <p>
           This website uses cookies! By using it, you are agreeing to the terms
-          - please read the{" "}
-          <Link to={`/datenschutzerklarung/`}>Data Policy</Link> for more
+          - please read the <Link to={`/imprint`}>Data Policy</Link> for more
           information.
         </p>
         <button id="submit-btn" onClick={() => hideBanner()}>
