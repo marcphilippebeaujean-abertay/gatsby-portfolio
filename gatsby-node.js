@@ -147,7 +147,7 @@ exports.createPages = ({ graphql, actions }) => {
                       index * postsPerPage + postsPerPage
                     ),
                     title: `Blog`,
-                    numberOfPages,
+                    numberOfPages: numberOfPages,
                     currentPage: index + 1,
                   },
                 })

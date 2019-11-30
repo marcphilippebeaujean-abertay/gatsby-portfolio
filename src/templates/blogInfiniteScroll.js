@@ -3,6 +3,7 @@ import SEO from "../components/seo"
 
 import React from "react"
 import PostPreview from "../components/postComponent/postPreview"
+import Pagination from "../components/widgets/blogPagination"
 
 export default ({ pageContext }) => {
   return (
@@ -15,9 +16,22 @@ export default ({ pageContext }) => {
       />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
       <hr></hr>
+      <div className="d-flex justify-content-center">
+        <Pagination
+          numberOfPages={pageContext.numberOfPages}
+          currentPageNum={pageContext.currentPage}
+          className="mr-auto"
+        />
+      </div>
       {pageContext.posts.map(post => (
         <PostPreview post={post.node} showStats={true} key={post.node.title} />
       ))}
+      <div className="d-flex justify-content-center">
+        <Pagination
+          numberOfPages={pageContext.numberOfPages}
+          currentPageNum={pageContext.currentPage}
+        />
+      </div>
     </PageContentWrapper>
   )
 }

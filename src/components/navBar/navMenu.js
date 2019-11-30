@@ -1,11 +1,6 @@
 import React, { useEffect } from "react"
 import { document } from "browser-monads"
-import {
-  IoIosSearch,
-  IoIosInformationCircleOutline,
-  IoIosSend,
-  IoIosBook,
-} from "react-icons/io"
+import { IoIosSearch, IoIosSend, IoIosBook } from "react-icons/io"
 import { Link } from "gatsby"
 
 import { navMenuHeight, smallScreenWidth } from "../../style/layoutStyle"
