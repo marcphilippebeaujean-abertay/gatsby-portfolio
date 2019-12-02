@@ -100,7 +100,7 @@ export default () => {
         src="https://www.podbean.com/media/player/hqhmc-c99ca4?from=yiiadmin&download=1&version=1&skin=2&btn-skin=101&auto=0&download=1&pbad=1"
       ></iframe>
 
-      <h3 className="mt-3">Latest Articles</h3>
+      <h3 className="mt-3 mt-0-md">Latest Articles</h3>
       {posts.map((post, index) =>
         index % 2 === 0 ? (
           <Row key={post.title}>

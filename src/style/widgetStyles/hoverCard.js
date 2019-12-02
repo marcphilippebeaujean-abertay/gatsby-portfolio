@@ -11,6 +11,7 @@ export default styled(Card)`
   bottom: 0px;
   transition: all ease-in-out 0.2s;
   color: black !important;
+  box-shadow: 0px 0px 0.2px 0.2px rgba(0, 0, 0, 0.2);
   a {
     color: black;
   }
