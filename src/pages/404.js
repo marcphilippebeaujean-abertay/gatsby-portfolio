@@ -29,7 +29,6 @@ export default ({ pageContext }) => {
           }
         />
         <h1>Error 404</h1>
-        <hr></hr>
         <div>
           <div style={{ width: `50%` }}>
             <Img

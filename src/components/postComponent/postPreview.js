@@ -74,12 +74,12 @@ const PostPreview = ({ post, showStats }) => {
     <PostPreviewWrapper>
       <HoverCard className="mb-2">
         <Link to={`/post/${post.slug}`}>
-          <Card.Header
-            as="h5"
-            className="mt-0"
-            dangerouslySetInnerHTML={{ __html: post.title }}
-          />
           <Card.Body>
+            <Card.Title
+              as="h5"
+              className="mt-0"
+              dangerouslySetInnerHTML={{ __html: post.title }}
+            />
             {showStats === true ? <PostStats post={post} /> : null}
             <div className="image-excerpt-container">
               {`localFile` in post.featured_media ? (

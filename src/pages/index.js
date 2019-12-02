@@ -66,7 +66,6 @@ export default () => {
         }
       />
       <h1>Home</h1>
-      <hr></hr>
       <Row className="mb-2">
         <Col md={4}>
           <PersonalPicWrapper>
