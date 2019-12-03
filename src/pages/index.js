@@ -88,18 +88,7 @@ export default () => {
           </p>
         </Col>
       </Row>
-      <h3 className="mt-3">Latest Podcast Episode</h3>
-      <iframe
-        title="Intro + Learning to Code"
-        height="122"
-        width="100%"
-        style={{ border: "none" }}
-        scrolling="no"
-        data-name="pb-iframe-player"
-        src="https://www.podbean.com/media/player/hqhmc-c99ca4?from=yiiadmin&download=1&version=1&skin=2&btn-skin=101&auto=0&download=1&pbad=1"
-      ></iframe>
-
-      <h3 className="mt-3 mt-0-md">Latest Articles</h3>
+      <h2 className="h3">Latest Articles</h2>
       {posts.map((post, index) =>
         index % 2 === 0 ? (
           <Row key={post.title}>
@@ -112,6 +101,16 @@ export default () => {
           </Row>
         ) : null
       )}
+      <h2 className="h3">Latest Podcast Episode</h2>
+      <iframe
+        title="Intro + Learning to Code"
+        height="122"
+        width="100%"
+        style={{ border: "none" }}
+        scrolling="no"
+        data-name="pb-iframe-player"
+        src="https://www.podbean.com/media/player/hqhmc-c99ca4?from=yiiadmin&download=1&version=1&skin=2&btn-skin=101&auto=0&download=1&pbad=1"
+      ></iframe>
     </PageContentWrapper>
   )
 }
