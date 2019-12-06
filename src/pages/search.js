@@ -138,6 +138,7 @@ export default () => {
         description="Search through the posts of <JustDoIT />"
       />
       <h1>Search</h1>
+      <hr></hr>
       <SearchBar onSubmit={searchForPost} className="mb-2">
         <input
           className="input-field"

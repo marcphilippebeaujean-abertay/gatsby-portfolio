@@ -66,6 +66,7 @@ export default () => {
         }
       />
       <h1>Home</h1>
+      <hr></hr>
       <Row className="mb-2">
         <Col md={4}>
           <PersonalPicWrapper>
@@ -89,6 +90,7 @@ export default () => {
         </Col>
       </Row>
       <h2 className="h3">Latest Articles</h2>
+      <hr></hr>
       {posts.map((post, index) =>
         index % 2 === 0 ? (
           <Row key={post.title}>
@@ -102,6 +104,7 @@ export default () => {
         ) : null
       )}
       <h2 className="h3">Latest Podcast Episode</h2>
+      <hr></hr>
       <iframe
         title="Intro + Learning to Code"
         height="122"

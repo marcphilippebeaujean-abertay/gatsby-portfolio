@@ -15,6 +15,7 @@ export default ({ pageContext }) => {
         }
       />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
+      <hr></hr>
       <div className="d-flex justify-content-center">
         <Pagination
           numberOfPages={pageContext.numberOfPages}

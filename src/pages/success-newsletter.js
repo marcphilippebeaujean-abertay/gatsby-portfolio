@@ -34,6 +34,7 @@ export default ({ pageContext }) => {
     <PageContentWrapper>
       <SEO title="Success" description="Your message was sent successfully!" />
       <h1>Success</h1>
+      <hr></hr>
       <MessageWrapper>
         <ImageContainer>
           <Img

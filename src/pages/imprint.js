@@ -4,6 +4,7 @@ import { PageContentWrapper } from "../style/pageStyleComponent"
 export default () => (
   <PageContentWrapper>
     <h1>Imprint und Data Protection</h1>
+    <hr></hr>
     <section>
       <h2>Imprint</h2>
       <h3>Accounts according to § 5 TMG</h3>

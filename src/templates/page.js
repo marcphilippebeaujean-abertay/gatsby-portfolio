@@ -13,6 +13,7 @@ export default ({ pageContext }) => {
         )}
       />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
+      <hr></hr>
       <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
     </PageContentWrapper>
   )

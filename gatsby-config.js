@@ -143,6 +143,5 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     "gatsby-plugin-netlify",
-    `gatsby-plugin-twitter`,
   ],
 }

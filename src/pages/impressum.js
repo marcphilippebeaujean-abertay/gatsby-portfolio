@@ -4,6 +4,7 @@ import { PageContentWrapper } from "../style/pageStyleComponent"
 export default () => (
   <PageContentWrapper>
     <h1>Impressum und Datenschuterklärung</h1>
+    <hr></hr>
     <section>
       <h2>Impressum</h2>
       <h3>Angaben gemäß § 5 TMG</h3>
