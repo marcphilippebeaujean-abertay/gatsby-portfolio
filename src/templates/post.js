@@ -41,7 +41,6 @@ export default ({ pageContext }) => {
         ]}
       />
       <h1 dangerouslySetInnerHTML={{ __html: pageContext.title }} />
-      <hr></hr>
       <PostStats post={pageContext} />
       <hr></hr>
       <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
