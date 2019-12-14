@@ -108,7 +108,7 @@ export default () => {
       <iframe
         title="The Junior Developer Podcast"
         id="multi_iframe"
-        src="https://www.podbean.com/media/player/multi?playlist=http%3A%2F%2Fplaylist.podbean.com%2F6716031%2Fplaylist_multi.xml&vjs=1&kdsowie31j4k1jlf913=7f58d7117226a9669437955c0556c71df48862e5&size=430&skin=7&episode_list_bg=%23ffffff&bg_left=%23000000&bg_mid=%23000000&bg_right=%23000000&podcast_title_color=%23ffb813&episode_title_color=%23ffffff&auto=0&download=1&show_playlist_recent_number=10&pbad=1"
+        src="https://www.podbean.com/media/player/multi?playlist=http%3A%2F%2Fplaylist.podbean.com%2F6716031%2Fplaylist_multi.xml&vjs=1&kdsowie31j4k1jlf913=2ec4c1761041f53cbf1046cf9cd24f5d2fb9969e&size=430&skin=8&episode_list_bg=%23ffffff&bg_left=%23000000&bg_mid=%23000000&bg_right=%23000000&podcast_title_color=%23ffb813&episode_title_color=%23ffffff&auto=0&download=1&show_playlist_recent_number=10&pbad=1"
         frameborder="0"
         scrolling="no"
         width="100%"
