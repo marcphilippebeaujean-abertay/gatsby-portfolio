@@ -106,13 +106,14 @@ export default () => {
       <h2 className="h3">Latest Podcast Episode</h2>
       <hr></hr>
       <iframe
-        title="Intro + Learning to Code"
-        height="122"
-        width="100%"
-        style={{ border: "none" }}
+        title="The Junior Developer Podcast"
+        id="multi_iframe"
+        src="https://www.podbean.com/media/player/multi?playlist=http%3A%2F%2Fplaylist.podbean.com%2F6716031%2Fplaylist_multi.xml&vjs=1&kdsowie31j4k1jlf913=7f58d7117226a9669437955c0556c71df48862e5&size=430&skin=7&episode_list_bg=%23ffffff&bg_left=%23000000&bg_mid=%23000000&bg_right=%23000000&podcast_title_color=%23ffb813&episode_title_color=%23ffffff&auto=0&download=1&show_playlist_recent_number=10&pbad=1"
+        frameborder="0"
         scrolling="no"
-        data-name="pb-iframe-player"
-        src="https://www.podbean.com/media/player/hqhmc-c99ca4?from=yiiadmin&download=1&version=1&skin=2&btn-skin=101&auto=0&download=1&pbad=1"
+        width="100%"
+        height="432"
+        allowfullscreen=""
       ></iframe>
     </PageContentWrapper>
   )
