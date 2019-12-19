@@ -9,7 +9,7 @@ import PodcastsCard from "./podcastsCard"
 const SidebarWrapper = styled.aside`
   z-index: 0;
   position: relative;
-  margin: ${navMenuHeight + 20}px 0px 10px 0px;
+  margin: ${navMenuHeight + 10}px 0px 10px 0px;
   animation: fade-in 1s;
   @keyframes fade-in {
     from {

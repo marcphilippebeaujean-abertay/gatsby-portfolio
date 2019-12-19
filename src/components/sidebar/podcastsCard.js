@@ -31,13 +31,6 @@ export default () => {
             }
           }
         }
-        ytLogo: file(relativePath: { eq: "yt.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         applePodcast: file(relativePath: { eq: "apple-podcast-logo.png" }) {
           childImageSharp {
             fluid(maxWidth: 800) {
@@ -83,17 +76,6 @@ export default () => {
             className="logo"
             fluid={data.applePodcast.childImageSharp.fluid}
             alt="Apple Podcast Logo"
-          />
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?view_as=subscriber"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Img
-            className="logo"
-            fluid={data.ytLogo.childImageSharp.fluid}
-            alt="YouTube Logo"
           />
         </a>
       </LinksContainer>
