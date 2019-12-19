@@ -61,6 +61,13 @@ export default () => {
           }
         }
       }
+      rssLogo: file(relativePath: { eq: "rss-icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
   return (
@@ -108,6 +115,17 @@ export default () => {
           fluid={data.twitterLogo.childImageSharp.fluid}
           alt="LinkedIn Logo"
         />{" "}
+      </a>
+      <a
+        href="https://byteschool.io/blog/rss.xml"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Img
+          className="logo"
+          fluid={data.rssLogo.childImageSharp.fluid}
+          alt="RSS Feed Logo"
+        />
       </a>
     </SocialMediaLogoWrapper>
   )
