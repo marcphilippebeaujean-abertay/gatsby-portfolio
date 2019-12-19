@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { Link } from "gatsby"
 import { footerHeight } from "../../style/layoutStyle"
 import { mainColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"

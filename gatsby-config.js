@@ -8,6 +8,7 @@ module.exports = {
     author: "Marc Philippe Beaujean",
     description: "Blog about Software and Personal Development.",
     url: "https://www.byteschool.io", // No trailing slash allowed!
+    siteUrl: "https://www.byteschool.io", // No trailing slash allowed!
     image: "/images/jdit-icon.png", // Path to your image you placed in the 'static' folder
   },
   plugins: [
@@ -139,6 +140,66 @@ module.exports = {
         display: `minimal-ui`,
         title: `<JustDoIT />`,
         icon: `src/images/jdit-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                url,
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allWordpressWpBlogpost } }) => {
+              return allWordpressWpBlogpost.edges.map(edge => {
+                return {
+                  title: edge.node.title,
+                  description: edge.node.excerpt.slice(
+                    3,
+                    edge.node.excerpt.length - 5
+                  ),
+                  date: edge.node.date,
+                  url: `${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_DOMAIN_NAME}/post/${edge.node.slug}`,
+                  guid: `${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_DOMAIN_NAME}/post/${edge.node.slug}`,
+                }
+              })
+            },
+            query: `
+              {
+                allWordpressWpBlogpost(sort: { fields: date, order: DESC }) {
+                  edges {
+                    node {
+                      slug
+                      date
+                      title
+                      featured_media {
+                        source_url
+                      }
+                      excerpt
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/blog/rss.xml",
+            title: "ByteSchool RSS Feed",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            match: "^/blog/",
+          },
+        ],
       },
     },
     `gatsby-plugin-styled-components`,

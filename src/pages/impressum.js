@@ -162,7 +162,7 @@ export default () => (
       Sie können die Erfassung Ihrer Daten durch Google Analytics verhindern,
       indem Sie auf folgenden Link klicken. Es wird ein Opt-Out-Cookie gesetzt,
       der die Erfassung Ihrer Daten bei zukünftigen Besuchen dieser Website
-      verhindert: <a>Google Analytics deaktivieren</a>
+      verhindert.
       <h3>Auftragsdatenverarbeitung</h3>
       <p>
         Wir haben mit Google einen Vertrag zur Auftragsdatenverarbeitung

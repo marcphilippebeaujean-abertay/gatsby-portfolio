@@ -6,6 +6,19 @@ const slash = require(`slash`)
 require("dotenv").config({
   path: ".env",
 })
+
+const { createFilePath } = require(`gatsby-source-filesystem`)
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
+}
 // Implement the Gatsby API “createPages”. This is
 // called after the Gatsby bootstrap is finished so you have
 // access to any information necessary to programmatically
