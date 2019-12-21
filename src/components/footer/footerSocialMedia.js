@@ -35,35 +35,35 @@ export default () => {
     query {
       linkinLogo: file(relativePath: { eq: "linkedin-icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 50) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       youtubeLogo: file(relativePath: { eq: "youtube-icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 50) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       githubLogo: file(relativePath: { eq: "github-icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 50) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       twitterLogo: file(relativePath: { eq: "twitter-icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 50) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       rssLogo: file(relativePath: { eq: "rss-icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 50) {
             ...GatsbyImageSharpFluid
           }
         }

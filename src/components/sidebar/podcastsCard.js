@@ -19,21 +19,21 @@ export default () => {
       query {
         spotifyLogo: file(relativePath: { eq: "spotify-logo-beitrag.png" }) {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 300) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         rssLogo: file(relativePath: { eq: "rss-feed.png" }) {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 300) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         applePodcast: file(relativePath: { eq: "apple-podcast-logo.png" }) {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 300) {
               ...GatsbyImageSharpFluid
             }
           }
