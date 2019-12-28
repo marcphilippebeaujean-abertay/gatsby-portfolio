@@ -6,10 +6,11 @@ import CookieBanner from "./cookieBanner"
 import { Container, Row, Col } from "react-bootstrap"
 import { footerHeight, smallScreenWidth } from "../style/layoutStyle"
 import { createGlobalStyle } from "styled-components"
+import { backgroundColour } from "../style/themeStyle"
 
 export const GlobalStyles = createGlobalStyle`
   body{
-    background-color: white;
+    background-color: ${backgroundColour} !important;
     position: relative;
   }
   hr {

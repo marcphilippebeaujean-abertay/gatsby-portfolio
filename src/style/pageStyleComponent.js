@@ -6,7 +6,7 @@ import {
   navMenuHeight,
 } from "./layoutStyle"
 import { Container } from "react-bootstrap"
-import { linkClickedColor } from "../style/themeStyle"
+import { linkClickedColor, backgroundColour } from "../style/themeStyle"
 
 export const PageContentWrapper = ({ children }) => {
   return (
@@ -37,7 +37,7 @@ const PageContentWrapperStyle = styled.div`
     text-align: center;
     margin: 0 auto;
   }
-  background-color: white;
+  background-color: ${backgroundColour};
   margin-top: ${navMenuHeight + 10}px;
   @media screen and (min-width: ${smallScreenWidth}px) {
     border-radius: 5px;
