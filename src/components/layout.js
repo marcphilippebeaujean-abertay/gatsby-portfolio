@@ -55,7 +55,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   @media screen and (max-width: ${smallScreenWidth}px) {
     body{
-      background-color: white !important;
+      background-color: ${backgroundColour} !important;
     }
   }
 `
