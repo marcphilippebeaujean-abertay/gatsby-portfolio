@@ -28,7 +28,6 @@ const Sidebar = () => {
       <div className="mt-2" />
       <FeaturedTags />
       <div className="mt-2" />
-      <PodcastsCard />
     </SidebarWrapper>
   )
 }
