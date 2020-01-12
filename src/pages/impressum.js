@@ -163,6 +163,7 @@ export default () => (
       indem Sie auf folgenden Link klicken. Es wird ein Opt-Out-Cookie gesetzt,
       der die Erfassung Ihrer Daten bei zukünftigen Besuchen dieser Website
       verhindert.
+      <a href="javascript:gaOptout();">Google Analytics deaktivieren</a>
       <h3>Auftragsdatenverarbeitung</h3>
       <p>
         Wir haben mit Google einen Vertrag zur Auftragsdatenverarbeitung

@@ -162,6 +162,7 @@ export default () => (
       You can prevent the collection of your data by Google Analytics by
       clicking on the following link. An opt-out cookie will be set which
       prevents the collection of your data on future visits to this website.
+      <a href="javascript:gaOptout();">Deactivate Google Analytics</a>
       <h3>Order processing</h3>
       <p>
         We have entered into a contract data processing agreement with Google
