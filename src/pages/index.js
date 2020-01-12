@@ -21,7 +21,7 @@ export default () => {
     {
       personalPic: file(relativePath: { eq: "personal-pic.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 400) {
             ...GatsbyImageSharpFluid
           }
         }
