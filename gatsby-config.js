@@ -104,7 +104,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "<ByteSchool />",
+        trackingId: "UA-153657097-1",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional
@@ -115,7 +115,7 @@ module.exports = {
         pageTransitionDelay: 0,
         // Enables Google Optimize using your container Id
         // Set Variation ID. 0 for original 1,2,3....
-        variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
+        variationId: "0",
       },
     },
     `gatsby-plugin-react-helmet`,
