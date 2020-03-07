@@ -1,7 +1,5 @@
-const Layout = require("./src/components/layout").default;
-const React = require("react");
-const {FacebookProvider} = require("react-facebook");
-
+const Layout = require("./src/components/layout").default
+const React = require("react")
 
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
@@ -9,9 +7,5 @@ const {FacebookProvider} = require("react-facebook");
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  **/
 exports.wrapPageElement = ({ element, props }) => {
-    return (
-        <Layout>
-            {element}
-        </Layout>
-    )
+  return <Layout>{element}</Layout>
 }

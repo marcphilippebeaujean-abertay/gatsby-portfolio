@@ -10,7 +10,7 @@
     "@material-ui/icons": "^4.5.1",
     "babel-plugin-styled-components": "^1.10.6",
     "bluebird": "^3.5.5",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.1",
     "browser-monads": "^1.0.0",
     "core-js": "^3.1.4",
     "disqus-react": "^1.0.6",

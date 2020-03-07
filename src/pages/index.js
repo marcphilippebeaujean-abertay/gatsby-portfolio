@@ -8,6 +8,8 @@ import styled from "styled-components"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import PostPreview from "../components/postComponent/postPreview"
 
+import "../../node_modules/bootstrap/dist/css/bootstrap.css"
+
 const PersonalPicWrapper = styled.div`
   margin: auto;
   width: 200px;
@@ -103,6 +105,17 @@ export default () => {
           </Row>
         ) : null
       )}
+      <div className="d-block ml-auto mr-auto" style={{ maxWidth: "470px" }}>
+        <iframe
+          title="Makerlog Embed"
+          height="200"
+          width="100%"
+          scrolling="no"
+          frameborder="0"
+          allowtransparency="true"
+          src="https://api.getmakerlog.com/users/4354/stats_embed"
+        ></iframe>
+      </div>
     </PageContentWrapper>
   )
 }
