@@ -7,6 +7,7 @@ import styled from "styled-components"
 
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import PostPreview from "../components/postComponent/postPreview"
+import { SidebarCard } from "../components/sidebar/sidebarCard"
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.css"
 
@@ -105,17 +106,22 @@ export default () => {
           </Row>
         ) : null
       )}
-      <div className="d-block ml-auto mr-auto" style={{ maxWidth: "470px" }}>
+      {/*<SidebarCard
+        className="d-block ml-auto mr-auto"
+        style={{ maxWidth: "500px" }}
+      >
         <iframe
+          style={{ margin: "auto", display: "block" }}
           title="Makerlog Embed"
           height="200"
-          width="100%"
+          maxWidth="700px"
           scrolling="no"
           frameborder="0"
+          border-style="hidden"
           allowtransparency="true"
           src="https://api.getmakerlog.com/users/4354/stats_embed"
         ></iframe>
-      </div>
+      </SidebarCard>*/}
     </PageContentWrapper>
   )
 }

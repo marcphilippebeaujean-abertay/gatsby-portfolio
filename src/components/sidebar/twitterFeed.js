@@ -1,14 +1,12 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import twitterLogo from "../../images/Twitter_logo_og.png"
+import { SidebarCard } from "./sidebarCard"
 
 const twitterDataHeight = `350`
 const twitterColourCode = `#1DA1F2`
 
-const TwitterFeedWrapper = styled.div`
-  margin-bottom: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
+const TwitterFeedWrapper = styled(SidebarCard)`
   h1 {
     z-index: 4;
     position: absolute;
@@ -97,7 +95,7 @@ export default props => {
         data-dnt="true"
         data-height={twitterDataHeight}
         data-tweet-limit="4"
-        href="https://twitter.com/MarcBeaujean?ref_src=twsrc%5Etfw"
+        href="https://twitter.com/MarcBeaujean"
         data-chrome="noscrollbar"
       >
         Tweets by MarcBeaujean

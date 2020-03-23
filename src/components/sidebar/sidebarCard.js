@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import HoverCard from "../../style/widgetStyles/hoverCard"
 
-const SidebarCard = styled(HoverCard)`
+export const SidebarCard = styled(HoverCard)`
   overflow: hidden;
   margin: 0px auto;
   .card-heading {

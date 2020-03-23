@@ -4,7 +4,7 @@ import styled from "styled-components"
 import FeaturedTags from "./featuredTags"
 import { navMenuHeight } from "../../style/layoutStyle"
 import NewsletterForm from "../forms/newsletterForm"
-import PodcastsCard from "./podcastsCard"
+import TwitterFeed from "./twitterFeed"
 
 const SidebarWrapper = styled.aside`
   z-index: 0;
@@ -28,6 +28,8 @@ const Sidebar = () => {
       <div className="mt-2" />
       <FeaturedTags />
       <div className="mt-2" />
+      <TwitterFeed />
+      <div className="mt-2"></div>
     </SidebarWrapper>
   )
 }
