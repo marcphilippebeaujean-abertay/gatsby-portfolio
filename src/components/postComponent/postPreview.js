@@ -11,7 +11,7 @@ import {
   smallScreenSidePadding,
 } from "../../style/layoutStyle"
 
-const PostPreviewWrapper = styled.div`
+export const PostPreviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
   .image-excerpt-container {

@@ -7,7 +7,7 @@ import styled from "styled-components"
 
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import PostPreview from "../components/postComponent/postPreview"
-import { SidebarCard } from "../components/sidebar/sidebarCard"
+import ProjectPreviews from "../components/projectPreview/projects"
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.css"
 
@@ -106,22 +106,9 @@ export default () => {
           </Row>
         ) : null
       )}
-      {/*<SidebarCard
-        className="d-block ml-auto mr-auto"
-        style={{ maxWidth: "500px" }}
-      >
-        <iframe
-          style={{ margin: "auto", display: "block" }}
-          title="Makerlog Embed"
-          height="200"
-          maxWidth="700px"
-          scrolling="no"
-          frameborder="0"
-          border-style="hidden"
-          allowtransparency="true"
-          src="https://api.getmakerlog.com/users/4354/stats_embed"
-        ></iframe>
-      </SidebarCard>*/}
+      <h2 className="h3">Things I've Built</h2>
+      <hr></hr>
+      <ProjectPreviews />
     </PageContentWrapper>
   )
 }
