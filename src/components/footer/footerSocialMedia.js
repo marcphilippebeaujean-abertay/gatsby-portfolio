@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Row } from "react-bootstrap"
 
 import { smallScreenWidth } from "../../style/layoutStyle"
 import { mainColour } from "../../style/themeStyle"
@@ -72,61 +73,63 @@ export default () => {
   `)
   return (
     <SocialMediaLogoWrapper>
-      <a
-        href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Img
-          className="logo"
-          fluid={data.linkinLogo.childImageSharp.fluid}
-          alt="LinkedIn Logo"
-        />
-      </a>
-      <a
-        href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Img
-          className="logo"
-          fluid={data.youtubeLogo.childImageSharp.fluid}
-          alt="LinkedIn Logo"
-        />{" "}
-      </a>
-      <a
-        href="https://github.com/marcphilippebeaujean-abertay"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Img
-          className="logo"
-          fluid={data.githubLogo.childImageSharp.fluid}
-          alt="LinkedIn Logo"
-        />{" "}
-      </a>
-      <a
-        href="https://twitter.com/MarcBeaujean"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Img
-          className="logo"
-          fluid={data.twitterLogo.childImageSharp.fluid}
-          alt="LinkedIn Logo"
-        />{" "}
-      </a>
-      <a
-        href="https://byteschool.io/blog/rss.xml"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Img
-          className="logo"
-          fluid={data.rssLogo.childImageSharp.fluid}
-          alt="RSS Feed Logo"
-        />
-      </a>
+      <Row className="ml-auto mr-auto">
+        <a
+          href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Img
+            className="logo"
+            fluid={data.linkinLogo.childImageSharp.fluid}
+            alt="LinkedIn Logo"
+          />
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Img
+            className="logo"
+            fluid={data.youtubeLogo.childImageSharp.fluid}
+            alt="LinkedIn Logo"
+          />{" "}
+        </a>
+        <a
+          href="https://github.com/marcphilippebeaujean-abertay"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Img
+            className="logo"
+            fluid={data.githubLogo.childImageSharp.fluid}
+            alt="LinkedIn Logo"
+          />{" "}
+        </a>
+        <a
+          href="https://twitter.com/MarcBeaujean"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Img
+            className="logo"
+            fluid={data.twitterLogo.childImageSharp.fluid}
+            alt="LinkedIn Logo"
+          />{" "}
+        </a>
+        <a
+          href="https://byteschool.io/blog/rss.xml"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Img
+            className="logo"
+            fluid={data.rssLogo.childImageSharp.fluid}
+            alt="RSS Feed Logo"
+          />
+        </a>
+      </Row>
     </SocialMediaLogoWrapper>
   )
 }

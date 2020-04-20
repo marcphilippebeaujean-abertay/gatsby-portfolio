@@ -5,7 +5,6 @@ import { mainColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
 import { Col, Row, Container } from "react-bootstrap"
-import FooterNavLinks from "./footerNavLinks"
 import FooterSocialMedia from "./footerSocialMedia"
 import styled from "styled-components"
 
@@ -29,6 +28,8 @@ const FooterWrapper = styled.footer`
     display: inline-block;
     color: ${props => (props.selected ? mainColour : `white`)};
     text-decoration: none !important;
+    font-size: 16px;
+    text-transform: uppercase;
     margin: 0;
   }
   p {
@@ -43,46 +44,34 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <Container className="text-white footer-container">
-        <Row>
-          <Col md="4">
-            <p>
-              <b>Legal</b>
-            </p>
-            <div className="d-flex flex-md-column flex-xs-row">
-              <div className="link-wrap">
-                <Link
-                  className="footer-link"
-                  to={`/impressum`}
-                  selected={"/impressum" === getCurrentUrlPathname(document)}
-                >
-                  Impressum und Datenschutzerklärung (DEU)
-                </Link>
-              </div>
-              <div className="link-wrap">
-                <Link
-                  className="footer-link"
-                  to={`/imprint`}
-                  selected={"/imprint" === getCurrentUrlPathname(document)}
-                >
-                  Imprint und Data Policy (ENG)
-                </Link>
-              </div>
-            </div>
-            <p className="footer-link">© 2019 Marc P. Beaujean</p>
+        <Row className="text-center">
+          <Col xs="12" className="link-wrap mt-4">
+            <Link
+              className="footer-link mr-2"
+              to={`/impressum`}
+              selected={"/impressum" === getCurrentUrlPathname(document)}
+            >
+              Impressum und Datenschutzerklärung
+              </Link>
           </Col>
-          <Col md="4">
-            <p>
-              <b>Topics</b>
-            </p>
-            <FooterNavLinks />
-          </Col>
-          <Col md="4">
-            <p>
-              <b>Social Media</b>
-            </p>
-            <FooterSocialMedia />
+          <Col xs="12" className="link-wrap">
+            <Link
+              className="footer-link ml-2"
+              to={`/imprint`}
+              selected={"/imprint" === getCurrentUrlPathname(document)}
+            >
+              Imprint und Data Policy
+              </Link>
           </Col>
         </Row>
+        <div className="text-center mt-2 mb-2">
+          <p >Copyright © Marc Philippe Beaujean, 2020</p>
+        </div>
+        <div className="d-block ml-auto mr-auto">
+          <div>
+            <FooterSocialMedia />
+          </div>
+        </div>
       </Container>
     </FooterWrapper>
   )
