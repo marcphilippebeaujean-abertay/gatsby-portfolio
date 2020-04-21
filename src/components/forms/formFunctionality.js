@@ -61,14 +61,17 @@ function encode(data) {
     .join("&")
 }
 
-export const handleSubmit = (e, formValues, formTitle) => {
+export const handleSubmit = (e, formValues, formTitle, resetFormCallback) => {
   e.preventDefault()
   if (!inputsValid(formValues, formTitle)) {
     return
   }
   const form = e.target
+  const submitButton = document.getElementById(form.getAttribute("name") + "-submit");
+  submitButton.disabled = true;
   const spinner = document.getElementById(form.getAttribute("name") + "-spinner");
   spinner.classList.remove("d-none")
+  submitButton.disabled = true;
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -79,5 +82,9 @@ export const handleSubmit = (e, formValues, formTitle) => {
   })
     .then(() => navigate(form.getAttribute("action")))
     .catch(error => alert(error))
-    .finally(() => spinner.classList.add("d-none"))
+    .finally(() => {
+      spinner.classList.add("d-none");
+      submitButton.disabled = false;
+      resetFormCallback();
+    })
 }

@@ -29,10 +29,9 @@ export default ({ formTitle }) => {
       data-netlify="true"
       id="sub-form"
       onSubmit={e => {
-        handleSubmit(e, formValues, formTitle)
-        setFormValues({
+        handleSubmit(e, formValues, formTitle, () => setFormValues({
           ...initFormState,
-        })
+        }))
       }}
     >
       <SidebarCard title={"Newsletter"} icon={<IoMdPaper size={32} />}>
@@ -74,7 +73,7 @@ export default ({ formTitle }) => {
             name="form-name"
             value={formName}
           />
-          <button className="submit-btn extended-submit-btn">Subscribe <Spinner id={formName + "-spinner"} animation="border" role="status" className="form-spinner d-none" /></button>
+          <button id={formName + "-submit"} className="submit-btn extended-submit-btn">Subscribe <Spinner id={formName + "-spinner"} animation="border" role="status" className="form-spinner d-none" /></button>
           {/*<input
             className="submit-btn extended-submit-btn"
             type="submit"

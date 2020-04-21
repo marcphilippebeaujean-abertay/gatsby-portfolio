@@ -10,15 +10,17 @@ import {
 } from "./formFunctionality"
 
 const RECAPTCHA_KEY = process.env.GATSBY_SITE_RECAPTCHA_KEY
+const initFormState = {
+  name: "",
+  email: "",
+  message: "",
+  termAgreement: false,
+  "g-recaptcha-response": "",
+}
+
 
 export default ({ formTitle }) => {
-  const [formValues, setFormValues] = useState({
-    name: "",
-    email: "",
-    message: "",
-    termAgreement: false,
-    "g-recaptcha-response": "",
-  })
+  const [formValues, setFormValues] = useState(initFormState)
   const handleRecaptcha = value => {
     setFormValues({
       ...formValues,
@@ -33,7 +35,7 @@ export default ({ formTitle }) => {
       method="post"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
-      onSubmit={e => handleSubmit(e, formValues, formTitle)}
+      onSubmit={e => handleSubmit(e, formValues, formTitle, () => setFormValues({ ...initFormState }))}
     >
       <Form.Group controlId="name">
         <Form.Label htmlFor="name">Full Name</Form.Label>
@@ -113,6 +115,7 @@ export default ({ formTitle }) => {
         </Form.Text>
       </Form.Group>
       <button
+        id={formName + "-submit"}
         className="submit-btn"
       >Submit <Spinner id={formName + "-spinner"} animation="border" role="status" className="form-spinner d-none" /></button>
     </FormWrapper>
