@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Form } from "react-bootstrap"
+import { Form, Spinner } from "react-bootstrap"
 import Recaptcha from "react-google-recaptcha"
 
 import FormWrapper from "./formStyleComponent"
@@ -25,10 +25,11 @@ export default ({ formTitle }) => {
       "g-recaptcha-response": value,
     })
   }
+  const formName = "contact"
   return (
     <FormWrapper
       action="/success-contact/"
-      name="contact"
+      name={formName}
       method="post"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
@@ -101,7 +102,7 @@ export default ({ formTitle }) => {
         </Form.Text>
       </Form.Group>
       <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="form-name" value={formName} />
       <Form.Group controlId="g-recaptcha-response">
         <Recaptcha sitekey={RECAPTCHA_KEY} onChange={handleRecaptcha} />
         <Form.Text
@@ -111,12 +112,9 @@ export default ({ formTitle }) => {
           Please confirm that you are not a robot!
         </Form.Text>
       </Form.Group>
-      <input
+      <button
         className="submit-btn"
-        type="submit"
-        value="Submit"
-        name="submit-contact"
-      />
+      >Submit <Spinner id={formName + "-spinner"} animation="border" role="status" className="form-spinner d-none" /></button>
     </FormWrapper>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Form } from "react-bootstrap"
+import { Form, Spinner } from "react-bootstrap"
 import { IoMdPaper } from "react-icons/io"
 
 import SidebarCard from "../sidebar/sidebarCard"
@@ -19,10 +19,11 @@ export default ({ formTitle }) => {
   const [formValues, setFormValues] = useState({
     ...initFormState,
   })
+  const formName = "newsletter-subscription";
   return (
     <FormWrapper
       action="/success-newsletter/"
-      name="newsletter-subscription"
+      name={formName}
       method="post"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
@@ -71,14 +72,15 @@ export default ({ formTitle }) => {
           <input
             type="hidden"
             name="form-name"
-            value="newsletter-subscription"
+            value={formName}
           />
-          <input
+          <button className="submit-btn extended-submit-btn">Subscribe <Spinner id={formName + "-spinner"} animation="border" role="status" className="form-spinner d-none" /></button>
+          {/*<input
             className="submit-btn extended-submit-btn"
             type="submit"
             value="Subscribe"
             name="submit-sub"
-          />{" "}
+          />*/}
         </div>
       </SidebarCard>
     </FormWrapper>

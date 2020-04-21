@@ -17,12 +17,12 @@ const LogoStyle = styled.div`
   vertical-align: middle;
   @media screen and (max-width: ${smallScreenWidth}px) {
     vertical-align: left;
-    top: 2px;
+    top: 5px;
     height: 40px;
     width: auto;
   }
   @media screen and (min-width: ${smallScreenWidth}px) {
-    bottom: 20px;
+    bottom: 25px;
   }
 `
 

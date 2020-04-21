@@ -67,6 +67,8 @@ export const handleSubmit = (e, formValues, formTitle) => {
     return
   }
   const form = e.target
+  const spinner = document.getElementById(form.getAttribute("name") + "-spinner");
+  spinner.classList.remove("d-none")
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -77,4 +79,5 @@ export const handleSubmit = (e, formValues, formTitle) => {
   })
     .then(() => navigate(form.getAttribute("action")))
     .catch(error => alert(error))
+    .finally(() => spinner.classList.add("d-none"))
 }
