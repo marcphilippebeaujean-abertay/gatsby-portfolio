@@ -47,7 +47,7 @@ const Footer = () => {
         <Row className="text-center">
           <Col xs="12" className="link-wrap mt-4">
             <Link
-              className="footer-link mr-2"
+              className="footer-link"
               to={`/impressum`}
               selected={"/impressum" === getCurrentUrlPathname(document)}
             >
@@ -56,7 +56,7 @@ const Footer = () => {
           </Col>
           <Col xs="12" className="link-wrap">
             <Link
-              className="footer-link ml-2"
+              className="footer-link"
               to={`/imprint`}
               selected={"/imprint" === getCurrentUrlPathname(document)}
             >

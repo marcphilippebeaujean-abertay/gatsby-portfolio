@@ -11,7 +11,6 @@ const SocialMediaLogoWrapper = styled.div`
   display: flex;
   padding: 5px 0;
   a {
-    margin-right: 20px;
     border-radius: 25px;
     height: 30px;
     width: 30px;
@@ -75,6 +74,8 @@ export default () => {
     <SocialMediaLogoWrapper>
       <Row className="ml-auto mr-auto">
         <a
+          className="mr-4"
+
           href="https://www.linkedin.com/in/marc-philippe-beaujean-5ab27815a/"
           target="_blank"
           rel="noopener noreferrer"
@@ -89,6 +90,7 @@ export default () => {
           href="https://www.youtube.com/channel/UCrGAw9i5HoaByeiQAV5FaLA?guided_help_flow=3"
           target="_blank"
           rel="noopener noreferrer"
+          className="mr-4"
         >
           <Img
             className="logo"
@@ -100,6 +102,7 @@ export default () => {
           href="https://github.com/marcphilippebeaujean-abertay"
           target="_blank"
           rel="noopener noreferrer"
+          className="mr-4"
         >
           <Img
             className="logo"
@@ -111,6 +114,7 @@ export default () => {
           href="https://twitter.com/MarcBeaujean"
           target="_blank"
           rel="noopener noreferrer"
+          className="mr-4"
         >
           <Img
             className="logo"

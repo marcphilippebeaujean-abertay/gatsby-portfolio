@@ -9,15 +9,15 @@ const LogoStyle = styled.div`
   left: ${smallScreenSidePadding}px;
   z-index: 3;
   position: relative;
-  top: 17px;
-  width: 300px !important;
+  top: 2px;
+  width: 400px !important;
 
   position: relative;
   display: table-cell;
   vertical-align: middle;
   @media screen and (max-width: ${smallScreenWidth}px) {
     vertical-align: left;
-    top: 8px;
+    top: 2px;
     height: 40px;
     width: auto;
   }
@@ -31,7 +31,7 @@ const Logo = props => {
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
