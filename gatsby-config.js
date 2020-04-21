@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "<ByteSchool />",
+    title: "ByteSchool",
     author: "Marc Philippe Beaujean",
     description: "Blog about Software and Personal Development.",
     url: "https://www.byteschool.io", // No trailing slash allowed!
@@ -95,7 +95,7 @@ module.exports = {
           "**/*/blogpost",
         ],
         // use a custom normalizer which is applied after the built-in ones.
-        normalizer: function({ entities }) {
+        normalizer: function ({ entities }) {
           return entities
         },
       },
