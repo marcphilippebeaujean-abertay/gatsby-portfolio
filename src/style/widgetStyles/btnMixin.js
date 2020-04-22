@@ -13,8 +13,6 @@ const Mixin = `
     margin-bottom: 10px;
   }
   .submit-btn:hover {
-    color: black;
-    background-color: ${mainColour};
     cursor: pointer;
   }
   .extended-submit-btn {

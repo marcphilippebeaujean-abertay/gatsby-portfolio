@@ -67,11 +67,12 @@ export const handleSubmit = (e, formValues, formTitle, resetFormCallback) => {
     return
   }
   const form = e.target
+
   const submitButton = document.getElementById(form.getAttribute("name") + "-submit");
   submitButton.disabled = true;
+
   const spinner = document.getElementById(form.getAttribute("name") + "-spinner");
   spinner.classList.remove("d-none")
-  submitButton.disabled = true;
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
