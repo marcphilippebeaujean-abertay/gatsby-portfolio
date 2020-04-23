@@ -9,20 +9,16 @@ const LogoStyle = styled.div`
   left: ${smallScreenSidePadding}px;
   z-index: 3;
   position: relative;
-  top: 2px;
-  width: 400px !important;
+  top: 3px;
+  height: 50px;
+  width: 300px;
+  max-width: 350px !important;
 
   position: relative;
-  display: table-cell;
-  vertical-align: middle;
+
   @media screen and (max-width: ${smallScreenWidth}px) {
-    vertical-align: left;
-    top: 5px;
-    height: 40px;
-    width: auto;
-  }
-  @media screen and (min-width: ${smallScreenWidth}px) {
-    bottom: 25px;
+    top: 0px;
+    width: 250px;
   }
 `
 
@@ -31,7 +27,7 @@ const Logo = props => {
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 400) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -40,12 +36,10 @@ const Logo = props => {
   `)
   return (
     <LogoStyle id="logo" partitions={props.menuPartitions}>
-      <div id="logo-wrapper ">
-        <Img
-          fluid={data.logo.childImageSharp.fluid}
-          alt="The <ByteSchool /> logo"
-        />
-      </div>
+      <Img
+        fluid={data.logo.childImageSharp.fluid}
+        alt="The <ByteSchool /> logo"
+      />
     </LogoStyle>
   )
 }

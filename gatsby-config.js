@@ -9,7 +9,7 @@ module.exports = {
     description: "Blog about Software and Personal Development.",
     url: "https://www.byteschool.io", // No trailing slash allowed!
     siteUrl: "https://www.byteschool.io", // No trailing slash allowed!
-    image: "/images/jdit-icon.png", // Path to your image you placed in the 'static' folder
+    image: "/images/icon.png", // Path to your image you placed in the 'static' folder
   },
   plugins: [
     {
@@ -157,7 +157,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         title: `<JustDoIT />`,
-        icon: `src/images/jdit-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     {

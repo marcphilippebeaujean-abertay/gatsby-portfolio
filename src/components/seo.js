@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import seoTags from "../utility/seoTags"
-import ogLogo from "../images/jdit-icon.png"
+import ogLogo from "../images/icon.png"
 
 function SEO({ description, lang, meta, tags, image, title }) {
   const { site } = useStaticQuery(
@@ -79,29 +79,29 @@ function SEO({ description, lang, meta, tags, image, title }) {
         .concat(
           image
             ? [
-                {
-                  property: "og:image",
-                  content: image.src,
-                },
-                {
-                  property: "og:image:width",
-                  content: image.width,
-                },
-                {
-                  property: "og:image:height",
-                  content: image.height,
-                },
-                {
-                  name: "twitter:card",
-                  content: "summary_large_image",
-                },
-              ]
+              {
+                property: "og:image",
+                content: image.src,
+              },
+              {
+                property: "og:image:width",
+                content: image.width,
+              },
+              {
+                property: "og:image:height",
+                content: image.height,
+              },
+              {
+                name: "twitter:card",
+                content: "summary_large_image",
+              },
+            ]
             : [
-                {
-                  name: "twitter:card",
-                  content: "summary",
-                },
-              ]
+              {
+                name: "twitter:card",
+                content: "summary",
+              },
+            ]
         )
         .concat(meta)}
     />
