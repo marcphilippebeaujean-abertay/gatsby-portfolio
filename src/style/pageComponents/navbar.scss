@@ -1,0 +1,140 @@
+@import "../themeVars.scss";
+
+$stripeWidth: 20px;
+
+#nav-menu {
+  position: fixed;
+  display: flex;
+  background-color: $secondaryColour;
+  width: 100%;
+  z-index: 3;
+  padding: 0;
+  animation: menu-drop-in 1s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+  a:hover {
+    text-decoration: none;
+    color: $mainColour;
+  }
+  a:active {
+    color: $mainColour;
+  }
+  .nav-bar {
+    background-color: $secondaryColour;
+    justify-content: right;
+    align-self: flex-end;
+    display: flex;
+    position: relative;
+    color: $mainColour !important;
+    overflow: hidden;
+    width: 100%;
+  }
+  @media screen and (max-width: $smallScreenWidth) {
+    .nav-bar {
+      overflow: inherit;
+    }
+  }
+  @keyframes menu-drop-in {
+    from {
+      top: -100px;
+    }
+    to {
+      top: 0px;
+    }
+  }
+
+  .nav-menu-item {
+    position: relative;
+    color: inherit;
+    background-color: inherit;
+    width: 100%;
+    height: $navMenuHeight;
+    max-width: 200px;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+    display: flex;
+    .nav-icon {
+      margin-right: 5px;
+      position: relative;
+      top: 3px;
+    }
+    .nav-menu-item-text {
+      text-align: center !important;
+      p{
+        z-index: 99;
+        margin: 0 auto !important;
+        display: block;
+        position: relative;
+        bottom: 2px;
+      }
+      font-size: 20px;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      padding: 20px 0px;
+      text-align: center;
+    }
+    .menu-item {
+      position: relative;
+      display: inherit;
+      font-weight: bold;
+      vertical-align: middle;
+      transition: all 0.3s;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+    }
+    .menu-item.selected {
+      color: $secondaryColour !important;
+      background-color: $mainColour !important;
+    }
+    .selected:hover {
+      cursor: default !important;
+    }
+    .hover-anim {
+      position: absolute;
+      width: 1000%;
+      height: 100%;
+      background-position-x: 100px;
+      top: 0%;
+      display: none;
+      background: repeating-linear-gradient(
+        135deg,
+        black,
+        black $stripeWidth,
+        #5e5d5d $stripeWidth,
+        #5e5d5d $stripeWidth * 2
+      );
+    }
+    .menu-item:hover .hover-anim {
+      display: flex;
+      animation: slide 60s linear infinite;
+    }
+    .selected:hover .hover-anim {
+      display: none !important;
+    }
+    @keyframes slide {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: -800px 0;
+      }
+    }
+  }
+  @media screen and (max-width: $smallScreenWidth) {
+    .nav-menu-item {
+      display: none;
+    }
+  }
+}
+
+#nav-top-coverup {
+  position: absolute;
+  z-index: 1;
+  height: $navMenuHeight;
+  @media screen and (max-width: $smallScreenWidth) {
+    display: none;
+  }
+}

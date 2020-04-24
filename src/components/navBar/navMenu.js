@@ -3,63 +3,10 @@ import { document } from "browser-monads"
 import { IoIosSearch, IoIosSend, IoIosBook } from "react-icons/io"
 import { Link } from "gatsby"
 
-import { navMenuHeight, smallScreenWidth } from "../../style/layoutStyle"
-import { mainColour, secondaryColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"
 import HamburgerButton from "./hamburgerMenu"
 import NavMenuItem from "./navMenuItem"
-import styled from "styled-components"
 import Logo from "../logo"
-
-const MainMenuWrapper = styled.nav`
-  display: flex;
-  background-color: ${secondaryColour};
-  width: 100%;
-  z-index: 3;
-  padding: 0;
-  animation: menu-drop-in 1s;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
-  a:hover {
-    text-decoration: none;
-    color: ${mainColour};
-  }
-  a:active {
-    color: ${mainColour};
-  }
-  .nav-bar {
-    background-color: ${secondaryColour};
-    justify-content: right;
-    align-self: flex-end;
-    display: flex;
-    position: relative;
-    color: ${mainColour} !important;
-    overflow: hidden;
-    width: 100%;
-  }
-  @media screen and (max-width: ${smallScreenWidth}px) {
-    .nav-bar {
-      overflow: inherit;
-    }
-  }
-  @keyframes menu-drop-in {
-    from {
-      top: -100px;
-    }
-    to {
-      top: 0px;
-    }
-  }
-  position: fixed;
-`
-
-const TopCoverupDiv = styled.div`
-  position: absolute;
-  z-index: 1;
-  height: ${navMenuHeight}px;
-  @media screen and (max-width: ${smallScreenWidth}px) {
-    display: none;
-  }
-`
 
 const items = [
   {
@@ -96,15 +43,14 @@ const NavMenu = () => {
   const menuPartitions = items.length + 1
   return (
     <div>
-      <TopCoverupDiv className="d-none d-sm-block" />
-      <MainMenuWrapper>
+      <div id="nav-top-coverup" className="d-none d-sm-block" />
+      <nav id="nav-menu">
         <Link to="/">
           <Logo key={`logo`} partitions={menuPartitions} />
         </Link>
         <div className="nav-bar justify-content-end">
           {items.map(item => (
             <NavMenuItem
-              className="align-"
               key={item.object_slug + "_key"}
               item={item}
               partitions={menuPartitions}
@@ -115,7 +61,7 @@ const NavMenu = () => {
           ))}
           <HamburgerButton items={items} />
         </div>
-      </MainMenuWrapper>
+      </nav>
     </div>
   )
 }

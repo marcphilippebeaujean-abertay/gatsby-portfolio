@@ -55,7 +55,6 @@
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.8.6",
     "react-facebook": "^8.0.4",
     "react-google-recaptcha": "^2.0.1",
@@ -68,7 +67,6 @@
     "redux": "^4.0.4",
     "remark-highlight.js": "^5.1.1",
     "spin.js": "^4.0.0",
-    "styled-components": "^4.3.2",
     "webpack": "^4.39.3",
     "why-did-you-update": "^1.0.6"
   },

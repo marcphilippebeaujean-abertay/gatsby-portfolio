@@ -1,0 +1,32 @@
+@import "../themeVars.scss";
+
+.default-page-layout {
+    figure {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        margin: 0;
+      }
+      p > a:visited {
+        color: $linkClickedColor;
+      }
+      figure > img {
+        display: block !important;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+      }
+      figcaption {
+        text-align: center;
+        margin: 0 auto;
+      }
+      background-color: $backgroundColour;
+      margin-top: $navMenuHeight + 10px;
+      @media screen and (min-width: $smallScreenWidth) {
+        border-radius: 5px;
+      }
+      @media screen and (max-width: $smallScreenWidth) {
+        margin-top: $smallScreenNavHeight;
+        margin-bottom: 10px;
+      }
+}

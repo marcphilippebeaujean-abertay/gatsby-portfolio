@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Row, Col } from "react-bootstrap"
 
 import ProjectPreview from "./projectPreview"
 
@@ -26,8 +25,8 @@ export default () => {
     }
   `)
   return (
-    <Row>
-      <Col md={6} className="pr-md-1 pr-3 pl-3">
+    <div className="row">
+      <div className="pr-md-1 pr-3 pl-3 col-md-6">
         <ProjectPreview
           projectTitle={"CastSpot [Alpha]"}
           projectDescription={
@@ -36,8 +35,8 @@ export default () => {
           projectLink={"https://castspot.io"}
           imageData={data.castspotIcon.childImageSharp.fluid}
         />
-      </Col>
-      <Col md={6} className="pl-md-1 pr-3 pl-3">
+      </div >
+      <div md={6} className="pl-md-1 pr-3 pl-3 col-md-6">
         <ProjectPreview
           projectTitle={"Django + React Cookiecutter"}
           projectDescription={
@@ -48,7 +47,7 @@ export default () => {
           }
           imageData={data.djangoReactCookiecutter.childImageSharp.fluid}
         />
-      </Col>
-    </Row>
+      </div>
+    </div>
   )
 }

@@ -1,27 +1,15 @@
 import React from "react"
-import { Card } from "react-bootstrap"
-import styled from "styled-components"
 
-import HoverCard from "../../style/widgetStyles/hoverCard"
-
-export const SidebarCard = styled(HoverCard)`
-  overflow: hidden;
-  margin: 0px auto;
-  .card-heading {
-    position: relative;
-    top: 2.3px;
-    left: 10px;
-  }
-`
+import HoverCard from "../widgets/hoverCard"
 
 export default ({ children, title, icon }) => (
-  <SidebarCard>
-    <Card.Body>
-      <Card.Title>
+  <HoverCard className="sidebar-card">
+    <div className="card-body">
+      <h5 className="card-title">
         {icon}
         <span className="card-heading">{title}</span>
-      </Card.Title>
+      </h5>
       {children}
-    </Card.Body>
-  </SidebarCard>
+    </div>
+  </HoverCard>
 )

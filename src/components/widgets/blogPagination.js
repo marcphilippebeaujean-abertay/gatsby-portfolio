@@ -1,26 +1,5 @@
 import React from "react"
-import styled from "styled-components"
 import { Link } from "gatsby"
-import { mainColour, secondaryColour } from "../../style/themeStyle"
-
-const PaginationStyles = styled.div`
-  .pagination-button {
-    padding: 10px;
-  }
-  .button-inactive {
-    background-color: ${secondaryColour};
-    color: ${mainColour};
-  }
-  .pagination-button:hover {
-    background-color: ${mainColour};
-    color: ${secondaryColour};
-    text-decoration: none;
-  }
-  .button-active {
-    color: ${secondaryColour};
-    background-color: ${mainColour};
-  }
-`
 
 export default ({ numberOfPages, currentPageNum }) => {
   const pageButtons = []
@@ -30,7 +9,7 @@ export default ({ numberOfPages, currentPageNum }) => {
         key={index}
         className={`pagination-button ${
           currentPageNum === index + 1 ? `button-active` : `button-inactive`
-        }
+          }
         ${index === 0 ? "rounded-left" : ""}
         ${index === numberOfPages - 1 ? "rounded-right" : ""}`}
         to={`/blog/${index + 1}`}
@@ -40,6 +19,6 @@ export default ({ numberOfPages, currentPageNum }) => {
     )
   }
   return (
-    <PaginationStyles className="mt-2 mb-3">{pageButtons}</PaginationStyles>
+    <div className="paginator mt-2 mb-3">{pageButtons}</div>
   )
 }

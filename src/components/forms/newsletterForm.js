@@ -1,9 +1,8 @@
 import React, { useState } from "react"
-import { Form, Spinner } from "react-bootstrap"
 import { IoMdPaper } from "react-icons/io"
+import { Link } from "gatsby"
 
 import SidebarCard from "../sidebar/sidebarCard"
-import FormWrapper from "./formStyleComponent"
 import {
   handleFormChange,
   handleSubmit,
@@ -21,12 +20,13 @@ export default ({ formTitle }) => {
   })
   const formName = "newsletter-subscription";
   return (
-    <FormWrapper
+    <form
       action="/success-newsletter/"
       name={formName}
       method="post"
       data-netlify-honeypot="bot-field"
       data-netlify="true"
+      className="form"
       id="sub-form"
       onSubmit={e => {
         handleSubmit(e, formValues, formTitle, () => setFormValues({
@@ -36,44 +36,47 @@ export default ({ formTitle }) => {
     >
       <SidebarCard title={"Newsletter"} icon={<IoMdPaper size={32} />}>
         <div id="form-element-wrapper">
-          <Form.Group>
-            <Form.Control
+          <div className="form-group">
+            <input
               value={formValues.email}
-              className="input-field"
+              className="input-field form-control"
               id="form-email"
               type="email"
               name="email"
               placeholder="example@mail.com"
               onChange={e => handleFormChange(e, formValues, setFormValues)}
             />
-            <Form.Text
+            <small
               id={`${formTitle}-email-error`}
-              className="error error-hidden"
+              className="form-text error error-hidden"
             >
               Please enter a valid email!
-            </Form.Text>
-          </Form.Group>
-          <Form.Group controlId="termAgreement">
-            <Form.Check
-              label="I agree to the terms and have read the Data Policy"
-              type="checkbox"
-              name="termAgreement"
-              onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
-            />
-            <Form.Text
+            </small>
+          </div>
+          <div className="form-group">
+            <div className="form-check">
+              <input
+                className="pt-none form-check-input"
+                type="checkbox"
+                name="termAgreement"
+                onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
+              />
+              <label className="form-check-label" for="termAgreement">I agree to and have read the <Link to={"/imprint/"}>data policy.</Link></label>
+            </div>
+            <small
               id={`${formTitle}-termAgreement-error`}
-              className="error error-hidden"
+              className="form-text error error-hidden form-check-label"
             >
               Please agree to the terms!
-            </Form.Text>
-          </Form.Group>
+            </small>
+          </div>
           <input type="hidden" name="bot-field" />
           <input
             type="hidden"
             name="form-name"
             value={formName}
           />
-          <button id={formName + "-submit"} className="submit-btn extended-submit-btn">Subscribe <Spinner id={formName + "-spinner"} animation="border" role="status" className="form-spinner d-none" /></button>
+          <button id={formName + "-submit"} className="submit-btn extended-submit-btn">Subscribe <div id={formName + "-spinner"} animation="border" role="status" className="spinner-border form-spinner d-none"><span class="sr-only"></span></div></button>
           {/*<input
             className="submit-btn extended-submit-btn"
             type="submit"
@@ -82,6 +85,6 @@ export default ({ formTitle }) => {
           />*/}
         </div>
       </SidebarCard>
-    </FormWrapper>
+    </form>
   )
 }

@@ -3,15 +3,9 @@ import React from "react"
 import { IoIosMicrophone } from "react-icons/io"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image/withIEPolyfill"
-import styled from "styled-components"
 
 import SidebarCard from "./sidebarCard"
 
-const LinksContainer = styled.div`
-  max-width: 200px;
-  margin: 0 auto;
-  width: 100%;
-`
 
 export default () => {
   const data = useStaticQuery(
@@ -43,7 +37,7 @@ export default () => {
   )
   return (
     <SidebarCard title={"Podcast"} icon={<IoIosMicrophone size={32} />}>
-      <LinksContainer>
+      <div className="links-container">
         <a
           href="https://open.spotify.com/show/5KxuV0VPpcMKVvBrSs4tnU"
           target="_blank"
@@ -78,7 +72,7 @@ export default () => {
             alt="Apple Podcast Logo"
           />
         </a>
-      </LinksContainer>
+      </div>
     </SidebarCard>
   )
 }

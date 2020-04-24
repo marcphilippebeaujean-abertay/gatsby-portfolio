@@ -1,0 +1,20 @@
+@import "../themeVars.scss";
+
+.paginator {
+  .pagination-button {
+    padding: 10px;
+  }
+  .button-inactive {
+    background-color: $secondaryColour;
+    color: $mainColour;
+  }
+  .pagination-button:hover {
+    background-color: $mainColour;
+    color: $secondaryColour;
+    text-decoration: none;
+  }
+  .button-active {
+    color: $secondaryColour;
+    background-color: $mainColour;
+  }
+}

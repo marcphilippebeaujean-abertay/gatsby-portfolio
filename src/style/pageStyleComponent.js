@@ -1,49 +1,9 @@
-import styled from "styled-components"
 import React from "react"
-import {
-  smallScreenWidth,
-  smallScreenNavHeight,
-  navMenuHeight,
-} from "./layoutStyle"
-import { Container } from "react-bootstrap"
-import { linkClickedColor, backgroundColour } from "../style/themeStyle"
 
 export const PageContentWrapper = ({ children }) => {
   return (
-    <PageContentWrapperStyle>
-      <Container>{children}</Container>
-    </PageContentWrapperStyle>
+    <div className="default-page-layout">
+      <div className="container">{children}</div>
+    </div>
   )
 }
-
-const PageContentWrapperStyle = styled.div`
-  /***** Content Layout *****/
-  figure {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    margin: 0;
-  }
-  p > a:visited {
-    color: ${linkClickedColor};
-  }
-  figure > img {
-    display: block !important;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-  figcaption {
-    text-align: center;
-    margin: 0 auto;
-  }
-  background-color: ${backgroundColour};
-  margin-top: ${navMenuHeight + 10}px;
-  @media screen and (min-width: ${smallScreenWidth}px) {
-    border-radius: 5px;
-  }
-  @media screen and (max-width: ${smallScreenWidth}px) {
-    margin-top: ${smallScreenNavHeight}px;
-    margin-bottom: 10px;
-  }
-`

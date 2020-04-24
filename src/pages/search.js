@@ -4,88 +4,9 @@ import { PageContentWrapper } from "../style/pageStyleComponent"
 import { IoIosSearch } from "react-icons/io"
 import { mainColour } from "../style/themeStyle"
 import { DateTime } from "luxon"
-import { inputFieldHeight } from "../components/forms/formStyleComponent"
 
-import styled from "styled-components"
 import PostPreview from "../components/postComponent/postPreview"
 import ClipLoader from "react-spinners/ClipLoader"
-
-const SearchBar = styled.form`
-  width: 100%;
-  height: ${inputFieldHeight}px;
-  margin: 0.75rem 0px 0px 0px;
-  display: flex;
-  -webkit-appearance: none;
-  border-radius: 0;
-  #search-btn {
-    height: ${inputFieldHeight}px;
-    width: 60px;
-    background-color: black;
-    border: 1px solid transparent;
-    border-radius: 0px 5px 5px 0px;
-    font-size: 16px;
-  }
-  #search-btn::-moz-focus-inner {
-    border: 0;
-  }
-  #search-btn:hover {
-    cursor: pointer;
-    background-color: ${mainColour};
-    color: black;
-  }
-  #btn-icon {
-    color: ${mainColour};
-  }
-  #search-btn:hover #btn-icon {
-    color: black;
-  }
-  .input-field {
-    font-size: 16px;
-    width: 100%;
-    max-height: ${inputFieldHeight}px;
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: lightgrey;
-    border-radius: 5px 0px 0px 5px;
-    padding: 0 10px;
-  }
-  .input-field:hover {
-    border-color: lightblue;
-    border-style: solid;
-    box-shadow: 0px;
-  }
-`
-
-const SearchResultWrapper = styled.div`
-  position: relative;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  .post-preview-hider {
-    display: none !important;
-  }
-  #no-post-found-container {
-    width: 100%;
-    justify-content: center;
-  }
-  #search-icon-wrapper {
-    width: 150px;
-    height: auto;
-    margin: 0 auto;
-  }
-  .hidden-results {
-    display: none !important;
-  }
-  h2 {
-    margin-top: 40px;
-    padding-bottom: 10px;
-  }
-`
-
-const SpinnerWrapper = styled.div`
-  display: block;
-  margin: 0 auto;
-  width: 150px;
-`
 
 export default () => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -95,7 +16,7 @@ export default () => {
     e.preventDefault()
     if (searchTerm.length === 0) return
     const searchResultsDiv = document.getElementById(`results-container`)
-    searchResultsDiv.classList.add(`hidden-results`)
+    searchResultsDiv.classList.add(`d-none`)
     setSearchPending(true)
     fetch(
       `${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/blogpost?search=${searchTerm}`
@@ -105,7 +26,7 @@ export default () => {
         const postList = []
         if (queriedPosts.length === 0) {
           setSearchPending(false)
-          searchResultsDiv.classList.remove(`hidden-results`)
+          searchResultsDiv.classList.remove(`d-none`)
         } else {
           queriedPosts.forEach(queriedPost => {
             postList.push({
@@ -127,54 +48,56 @@ export default () => {
       .catch(e => console.error(e))
       .finally(() => {
         setSearchPending(false)
-        searchResultsDiv.classList.remove(`hidden-results`)
+        searchResultsDiv.classList.remove(`d-none`)
       })
   }
   const handleInputChange = e => setSearchTerm(e.target.value)
   return (
     <PageContentWrapper>
-      <SEO
-        title="Archive"
-        description="Search through the posts of <JustDoIT />"
-      />
-      <h1>Search</h1>
-      <hr></hr>
-      <SearchBar onSubmit={searchForPost} className="mb-2">
-        <input
-          className="input-field"
-          id="search-bar"
-          type="text"
-          name="search-bar"
-          value={searchTerm}
-          onChange={handleInputChange}
-          placeholder="Search"
+      <div className="search-page">
+        <SEO
+          title="Archive"
+          description="Search through the posts of <JustDoIT />"
         />
-        <button id="search-btn">
-          <span>
-            {" "}
-            <IoIosSearch id="btn-icon" size="30px" />
-          </span>
-        </button>
-      </SearchBar>
-      <SearchResultWrapper id="search-results">
-        <div id="results-container">
-          {foundPost.length === 0
-            ? null
-            : foundPost.map(post => (
+        <h1>Search</h1>
+        <hr></hr>
+        <form onSubmit={searchForPost} className="mb-2" id="search-form">
+          <input
+            className="input-field"
+            id="search-bar"
+            type="text"
+            name="search-bar"
+            value={searchTerm}
+            onChange={handleInputChange}
+            placeholder="Search"
+          />
+          <button id="search-btn">
+            <span>
+              {" "}
+              <IoIosSearch id="btn-icon" size="30px" />
+            </span>
+          </button>
+        </form>
+        <div id="search-results">
+          <div id="results-container">
+            {foundPost.length === 0
+              ? null
+              : foundPost.map(post => (
                 <PostPreview post={post} key={post.title} showState={false} />
               ))}
+          </div>
         </div>
-      </SearchResultWrapper>
-      <SpinnerWrapper>
-        {searchPending ? (
-          <ClipLoader
-            sizeUnit={"px"}
-            size={150}
-            color={mainColour}
-            loading={searchPending}
-          />
-        ) : null}
-      </SpinnerWrapper>
+        <div className="spinner-wrapper">
+          {searchPending ? (
+            <ClipLoader
+              sizeUnit={"px"}
+              size={150}
+              color={mainColour}
+              loading={searchPending}
+            />
+          ) : null}
+        </div>
+      </div>
     </PageContentWrapper>
   )
 }

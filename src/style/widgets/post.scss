@@ -1,0 +1,107 @@
+@import "../themeVars.scss";
+
+.post-preview-wrapper {
+  display: flex;
+  flex-direction: column;
+  .image-excerpt-container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    position: relative;
+  }
+  .thumbnail {
+    margin-right: $smallScreenSidePadding;
+  }
+  p {
+    margin: 0;
+  }
+  h2 {
+    margin: 0px !important;
+  }
+  .excerpt-text {
+    width: 100%;
+  }
+  .in-text-thumbnail-wrapper {
+    display: block;
+    position: relative;
+    top: 8px;
+    float: left;
+    width: 100px !important;
+  }
+  .in-text-thumbnail {
+    height: auto;
+    max-width: 100%;
+    display: block;
+    float: left;
+    left: 0 !important;
+  }
+  .read-more {
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .read-more:hover {
+    text-decoration: underline;
+  }
+  .img-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .post-stats {
+    a {
+        text-decoration: none;
+        position: relative;
+      }
+      .tag-adjustment {
+        position: relative;
+        bottom: 10px;
+      }
+      .post-info-row {
+        margin: 5px 0 !important;
+      }
+      .post-info-text {
+        position: relative;
+        bottom: 10px;
+      }
+      @media screen and (min-width: $smallScreenWidth) {
+        br {
+          display: none;
+        }
+      }
+  }
+  @media screen and (max-width: $smallScreenWidth) {
+    .excerpt-text {
+      position: static;
+      -ms-transform: translateY(0%);
+      transform: translateY(0%);
+    }
+  }
+}
+
+.post-tag-wrapper {
+  position: relative;
+  margin: 0px 0px;
+  a {
+    text-decoration: none !important;
+    color: $darkBlue;
+    background-color: $lightBlue;
+    padding: 3px;
+    margin-right: 5px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .tag-wrapper {
+    display: inline-block;
+    margin: 0.25rem 0px;
+  }
+  a:hover {
+    background-color: $darkBlue;
+    color: white;
+  }
+  a:visited {
+    color: $linkClickedColor;
+  }
+}

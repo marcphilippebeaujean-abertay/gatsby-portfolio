@@ -1,34 +1,7 @@
 import React from "react"
-import styled from "styled-components"
-import { Row } from "react-bootstrap"
 
-import { smallScreenWidth } from "../../style/layoutStyle"
-import { mainColour } from "../../style/themeStyle"
 import Img from "gatsby-image/withIEPolyfill"
 import { graphql, useStaticQuery } from "gatsby"
-
-const SocialMediaLogoWrapper = styled.div`
-  display: flex;
-  padding: 5px 0;
-  a {
-    border-radius: 25px;
-    height: 30px;
-    width: 30px;
-  }
-  .logo {
-    background-color: white;
-    transition: ease 0.2s;
-  }
-  a:hover .logo {
-    background-color: ${mainColour};
-  }
-  @media screen and (max-width: ${smallScreenWidth}px) {
-    a {
-      margin: 0px 20px 0px 0px;
-    }
-    left: 0px;
-  }
-`
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -71,8 +44,8 @@ export default () => {
     }
   `)
   return (
-    <SocialMediaLogoWrapper>
-      <Row className="ml-auto mr-auto">
+    <div className="social-media-wrapper">
+      <div className="ml-auto mr-auto row">
         <a
           className="mr-4"
 
@@ -133,7 +106,7 @@ export default () => {
             alt="RSS Feed Logo"
           />
         </a>
-      </Row>
-    </SocialMediaLogoWrapper>
+      </div>
+    </div>
   )
 }

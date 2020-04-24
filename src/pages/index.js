@@ -1,23 +1,13 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Row, Col } from "react-bootstrap"
+import 'bootstrap/dist/css/bootstrap.css';
 import Img from "gatsby-image/withIEPolyfill"
 import SEO from "../components/seo"
-import styled from "styled-components"
 
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import PostPreview from "../components/postComponent/postPreview"
 import ProjectPreviews from "../components/projectPreview/projects"
 
-import "../../node_modules/bootstrap/dist/css/bootstrap.css"
-
-const PersonalPicWrapper = styled.div`
-  margin: auto;
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  overflow: hidden;
-`
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -70,17 +60,17 @@ export default () => {
       />
       <h1>Home</h1>
       <hr></hr>
-      <Row className="mb-2">
-        <Col md={4}>
-          <PersonalPicWrapper>
+      <div className="mb-2 row">
+        <div className="col-md-4">
+          <div className="personal-pic-wrapper">
             <Img
               fluid={data.personalPic.childImageSharp.fluid}
               alt="Photo of the author"
               className="wp-image-186"
             />
-          </PersonalPicWrapper>
-        </Col>
-        <Col md={8} className="d-flex flex-column justify-content-center">
+          </div>
+        </div>
+        <div className="d-flex flex-column justify-content-center col-md-8">
           <h5 className="mt-0">Welcome</h5>
           <p className="mb-0">
             I'm Marc, a software developer from Germany. I published&nbsp;
@@ -90,20 +80,20 @@ export default () => {
             subscribing to my newsletter to receive updates and exclusive
             content!
           </p>
-        </Col>
-      </Row>
+        </div>
+      </div>
       <h2 className="h3">Latest Articles</h2>
       <hr></hr>
       {posts.map((post, index) =>
         index % 2 === 0 ? (
-          <Row key={post.title}>
-            <Col md={6} className="pr-md-1 pr-3 pl-3">
+          <div key={post.title} className="row">
+            <div className="pr-md-1 pr-3 pl-3 col-md-6">
               <PostPreview post={post} showStats={false} />
-            </Col>
-            <Col md={6} className="pl-md-1 pr-3 pl-3">
+            </div>
+            <div md={6} className="pl-md-1 pr-3 pl-3 col-md-6">
               <PostPreview post={posts[index + 1]} showStats={false} />
-            </Col>
-          </Row>
+            </div>
+          </div>
         ) : null
       )}
       <h2 className="h3">Things I've Built</h2>

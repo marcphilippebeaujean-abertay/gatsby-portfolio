@@ -1,0 +1,52 @@
+@import "../themeVars.scss";
+
+
+body{
+  background-color: $backgroundColour !important;
+  position: relative;
+}
+hr {
+  border: 0;
+  margin: 0.5rem 0 !important;
+  clear:both;
+  display:block;
+  width: 100%;
+  background-color: lightgrey !important;
+  height: 1px;
+}
+figcaption{
+  font-style: italic;
+}
+pre{
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+}
+html{
+  height: 100%;
+}
+small, .text_small {font-size: 0.8em;}
+#main-content-container{
+  min-height: 100vh;
+  position: relative;
+}
+.fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+#page-content-row{
+  padding-bottom: $footerHeight;
+  margin-bottom: 20px;
+}
+@media screen {
+  pre .token.comment,
+  pre .token.prolog,
+  pre .token.doctype,
+  pre .token.cdata {
+      color: slategray;
+  }
+}
+@media screen and (max-width: $smallScreenWidth) {
+  body{
+    background-color: $backgroundColour !important;
+  }
+}

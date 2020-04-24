@@ -6,15 +6,6 @@ import { PageContentWrapper } from "../style/pageStyleComponent"
 import { DiscussionEmbed } from "disqus-react"
 import SubForm from "../components/forms/newsletterForm"
 import PostStats from "../components/postComponent/postStats"
-import styled from "styled-components"
-import { mediumScreenWidth } from "../style/layoutStyle"
-
-const NewsletterFormWrapper = styled.div`
-  display: none;
-  @media screen and (max-width: ${mediumScreenWidth}px) {
-    display: inherit;
-  }
-`
 
 export default ({ pageContext }) => {
   const disqusConfig = {
@@ -44,9 +35,9 @@ export default ({ pageContext }) => {
       <PostStats post={pageContext} />
       <hr></hr>
       <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
-      <NewsletterFormWrapper>
+      <div className="d-block d-md-none">
         <SubForm formTitle={"newsletter"} />
-      </NewsletterFormWrapper>
+      </div>
       <DiscussionEmbed {...disqusConfig} />
     </PageContentWrapper>
   )

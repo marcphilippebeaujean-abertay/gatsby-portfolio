@@ -1,0 +1,56 @@
+@import "../themeVars.scss";
+
+#footer{
+  position: relative;
+  width: 100%;
+  padding: 0 0 10px 0 !important;
+  clear: both;
+  min-height: $footerHeight;
+  margin-top: -$footerHeight;
+  margin-bottom: 0 !important;
+  .link-wrap {
+    margin-right: 5px;
+  }
+  .footer-container {
+    margin-bottom: 0 !important;
+  }
+  color: white;
+  background-color: black !important;
+  .footer-link {
+    display: inline-block;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  p {
+    margin: 0px !important;
+  }
+  .footer-link:hover {
+    color: $mainColour;
+  }
+
+  .social-media-wrapper {
+    display: flex;
+    padding: 5px 0;
+    a {
+      border-radius: 25px;
+      height: 30px;
+      width: 30px;
+    }
+    .logo {
+      background-color: white;
+      transition: ease 0.2s;
+    }
+    a:hover .logo {
+      background-color: $mainColour;
+    }
+    @media screen and (max-width: $smallScreenWidth) {
+      a {
+        margin: 0px 20px 0px 0px;
+      }
+      left: 0px;
+    }
+  }
+}

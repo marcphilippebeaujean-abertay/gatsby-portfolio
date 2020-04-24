@@ -1,0 +1,69 @@
+@import "../themeVars.scss";
+
+#hamburger-menu {
+  #nav-overlay {
+    position: fixed;
+    left: 0%;
+    width: 100%;
+    z-index: 2 !important;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: all 0.2s;
+    transform: scaleX(0);
+  }
+  #nav-overlay.overlay-active {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  #overlay-rest-bg {
+    opacity: 0.98;
+    background: white;
+    width: 100vw;
+    height: 100vh;
+  }
+  .nav-icon {
+    margin-right: 5px;
+    position: relative;
+    top: 3px;
+  }
+  .selected {
+    color: $secondaryColour !important;
+    background-color: $mainColour !important;
+  }
+  .selected:hover {
+    cursor: default !important;
+  }
+
+  .dropdown-nav-overlay-link {
+    text-decoration: none;
+    opacity: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: $mainColour;
+    background-color: black;
+  }
+
+  #hamburger-navigation-icon-wrapper {
+      button {
+        outline: none !important;
+      }
+      outline: none !important;
+      .hamburger-inner {
+        outline: none;
+        position: absolute;
+        top: 25px !important;
+        background-color: $mainColour !important;
+      }
+  }
+}
+
+@media screen and (min-width: $smallScreenWidth) {
+  #hamburger-navigation-icon-wrapper {
+    display: none;
+  }
+  #hamburger-menu {
+    display: none !important;
+  }
+}

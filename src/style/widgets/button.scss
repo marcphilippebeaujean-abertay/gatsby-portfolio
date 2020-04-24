@@ -1,11 +1,11 @@
-import { mainColour } from "../themeStyle"
-import { smallScreenWidth } from "../layoutStyle"
+@import "../themeVars.scss";
 
-const Mixin = `
+
+@mixin form-btn {
   .submit-btn {
     width: 200px;
     height: 50px;
-    color: ${mainColour};
+    color: $mainColour;
     background-color: black;
     border: 0;
     border-radius: 5px 5px 5px 5px;
@@ -18,10 +18,9 @@ const Mixin = `
   .extended-submit-btn {
     width: 100% !important;
   }
-  @media screen and (max-width: ${smallScreenWidth}px) {
+  @media screen and (max-width: $smallScreenWidth) {
     .submit-btn {
       width: 100%;
     }
   }
-`
-export default Mixin
+}

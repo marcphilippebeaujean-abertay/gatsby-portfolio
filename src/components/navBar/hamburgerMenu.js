@@ -1,75 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
-import { smallScreenWidth } from "../../style/layoutStyle"
-import { mainColour, secondaryColour } from "../../style/themeStyle"
 import { getCurrentUrlPathname } from "../../utility/navigation"
 import { document } from "browser-monads"
-import styled from "styled-components"
-
-const NavigationIcon = styled.div`
-  button {
-    outline: none !important;
-  }
-  outline: none !important;
-  .hamburger-inner {
-    outline: none;
-    position: absolute;
-    top: 25px !important;
-    background-color: ${mainColour} !important;
-  }
-  @media screen and (min-width: ${smallScreenWidth}px) {
-    display: none;
-  }
-`
-
-const HamburgerMenu = styled.div`
-  #nav-overlay {
-    position: fixed;
-    left: 0%;
-    width: 100%;
-    z-index: 2 !important;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transition: all 0.2s;
-    transform: scaleX(0);
-    @media screen and (min-width: ${smallScreenWidth}px) {
-      display: none !important;
-    }
-  }
-  #nav-overlay.overlay-active {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-  #overlay-rest-bg {
-    opacity: 0.98;
-    background: white;
-    width: 100vw;
-    height: 100vh;
-  }
-  .nav-icon {
-    margin-right: 5px;
-    position: relative;
-    bottom: 1.5px;
-  }
-  .selected {
-    color: ${secondaryColour} !important;
-    background-color: ${mainColour} !important;
-  }
-  .selected:hover {
-    cursor: default !important;
-  }
-`
-
-const OverlayLink = styled(Link)`
-  text-decoration: none;
-  opacity: 1;
-  color: ${props => (props.selected ? secondaryColour : mainColour)};
-  background-color: ${props => (props.selected ? mainColour : secondaryColour)};
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-`
 
 const HamburgerButton = props => {
   const [overlayActive, setOverlayActive] = useState(false)
@@ -102,33 +34,33 @@ const HamburgerButton = props => {
       newSelectedObject.map(obj => obj.classList.add("selected"))
   })
   return (
-    <HamburgerMenu>
-      <NavigationIcon onClick={toggleOverlay}>
+    <div id="hamburger-menu">
+      <div id="hamburger-navigation-icon-wrapper" onClick={toggleOverlay}>
         <button className="hamburger hamburger--collapse" type="button">
           <span className="hamburger-box">
             <span className="hamburger-inner"></span>
           </span>
         </button>
-      </NavigationIcon>
+      </div>
       <div id={`nav-overlay`}>
         {props.items.map(item =>
           item.object_slug !== "logo" ? (
-            <OverlayLink
+            <Link
               key={item.object_slug + "_key"}
               to={
                 item.object_slug === "blog" ? "/blog/1" : `/${item.object_slug}`
               }
               onClick={toggleOverlay}
-              className={item.object_slug}
+              className={`${item.object_slug} dropdown-nav-overlay-link`}
             >
               {item.icon}
               {item.title}
-            </OverlayLink>
+            </Link>
           ) : null
         )}
         <div id="overlay-rest-bg" />
       </div>
-    </HamburgerMenu>
+    </div>
   )
 }
 
