@@ -6,13 +6,13 @@ const cookieBannerStorageKey = "cookiesAccepted"
 export default props => {
   useEffect(() => {
     if (window.localStorage.getItem(cookieBannerStorageKey) !== "true") {
-      let banner = document.getElementById("banner-wrapper")
+      let banner = document.getElementById("cookie-banner-container")
       banner.classList.remove("d-none")
     }
   }, [])
   const hideBanner = () => {
     if (!window) return
-    const cookieBanner = document.getElementById("banner-wrapper")
+    const cookieBanner = document.getElementById("cookie-banner-container")
     cookieBanner.classList.add("d-none")
     window.localStorage.setItem(cookieBannerStorageKey, "true")
   }
