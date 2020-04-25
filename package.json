@@ -63,7 +63,6 @@
     "react-icons": "^3.7.0",
     "react-recaptcha-v3": "^1.1.0",
     "react-redux": "^7.1.0",
-    "react-spinners": "^0.6.1",
     "redux": "^4.0.4",
     "remark-highlight.js": "^5.1.1",
     "spin.js": "^4.0.0",

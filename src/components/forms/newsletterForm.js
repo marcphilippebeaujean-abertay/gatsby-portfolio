@@ -61,7 +61,7 @@ export default ({ formTitle }) => {
                 name="termAgreement"
                 onChange={e => toggleTermAgreement(e, formValues, setFormValues)}
               />
-              <label className="form-check-label" for="termAgreement">I agree to and have read the <Link to={"/imprint/"}>data policy.</Link></label>
+              <label className="form-check-label" htmlFor="termAgreement">I agree to and have read the <Link to={"/imprint/"}>data policy.</Link></label>
             </div>
             <small
               id={`${formTitle}-termAgreement-error`}
@@ -76,7 +76,7 @@ export default ({ formTitle }) => {
             name="form-name"
             value={formName}
           />
-          <button id={formName + "-submit"} className="submit-btn extended-submit-btn">Subscribe <div id={formName + "-spinner"} animation="border" role="status" className="spinner-border form-spinner d-none"><span class="sr-only"></span></div></button>
+          <button id={formName + "-submit"} className="submit-btn extended-submit-btn">Subscribe <div id={formName + "-spinner"} animation="border" role="status" className="spinner-border form-spinner d-none"><span className="sr-only"></span></div></button>
           {/*<input
             className="submit-btn extended-submit-btn"
             type="submit"

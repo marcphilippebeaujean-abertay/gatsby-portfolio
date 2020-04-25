@@ -122,7 +122,7 @@ export default ({ formTitle }) => {
       <button
         id={formName + "-submit"}
         className="submit-btn"
-      >Submit <div id={formName + "-spinner"} animation="border" role="status" className="spinner-border form-spinner d-none"><span class="sr-only"></span></div></button>
+      >Submit <div id={formName + "-spinner"} animation="border" role="status" className="spinner-border form-spinner d-none"><span className="sr-only"></span></div></button>
     </form>
   )
 }

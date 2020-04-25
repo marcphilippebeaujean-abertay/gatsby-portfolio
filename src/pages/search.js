@@ -2,22 +2,20 @@ import React, { useState } from "react"
 import SEO from "../components/seo"
 import { PageContentWrapper } from "../style/pageStyleComponent"
 import { IoIosSearch } from "react-icons/io"
-import { mainColour } from "../style/themeStyle"
 import { DateTime } from "luxon"
 
 import PostPreview from "../components/postComponent/postPreview"
-import ClipLoader from "react-spinners/ClipLoader"
 
 export default () => {
   const [searchTerm, setSearchTerm] = useState("")
   const [foundPost, setFoundPost] = useState([])
-  const [searchPending, setSearchPending] = useState(false)
   const searchForPost = e => {
     e.preventDefault()
     if (searchTerm.length === 0) return
     const searchResultsDiv = document.getElementById(`results-container`)
     searchResultsDiv.classList.add(`d-none`)
-    setSearchPending(true)
+    const spinnerElement = document.getElementById("search-spinner");
+    spinnerElement.classList.remove("d-none");
     fetch(
       `${process.env.GATSBY_API_PROTOCOL}://${process.env.GATSBY_API_URL}/wp-json/wp/v2/blogpost?search=${searchTerm}`
     )
@@ -25,8 +23,8 @@ export default () => {
       .then(queriedPosts => {
         const postList = []
         if (queriedPosts.length === 0) {
-          setSearchPending(false)
           searchResultsDiv.classList.remove(`d-none`)
+          spinnerElement.classList.add("d-none");
         } else {
           queriedPosts.forEach(queriedPost => {
             postList.push({
@@ -47,7 +45,7 @@ export default () => {
       })
       .catch(e => console.error(e))
       .finally(() => {
-        setSearchPending(false)
+        spinnerElement.classList.add("d-none");
         searchResultsDiv.classList.remove(`d-none`)
       })
   }
@@ -88,14 +86,9 @@ export default () => {
           </div>
         </div>
         <div className="spinner-wrapper">
-          {searchPending ? (
-            <ClipLoader
-              sizeUnit={"px"}
-              size={150}
-              color={mainColour}
-              loading={searchPending}
-            />
-          ) : null}
+          <div id={"search-spinner"} animation="border" role="status" className="d-none spinner-border">
+            <span className="sr-only"></span>
+          </div>
         </div>
       </div>
     </PageContentWrapper>
