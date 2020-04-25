@@ -7,9 +7,15 @@
         width: 100%;
         margin: 0;
       }
-      p > a:visited {
+      p {
+        a:visited {
         color: $linkClickedColor;
+        }
+        a {
+          color: $darkBlue !important;
+        }
       }
+
       img {
         display: block !important;
         margin: 0 auto;

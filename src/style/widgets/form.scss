@@ -23,5 +23,11 @@
       width: 12px;
       color: $mainColour !important;
     }
+    a{
+      color: $darkBlue
+    }
+    a:visited {
+      color: $linkClickedColor;
+    }
     @include form-btn;
 }

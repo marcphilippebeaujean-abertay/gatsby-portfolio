@@ -77,12 +77,6 @@ export default ({ formTitle }) => {
             value={formName}
           />
           <button id={formName + "-submit"} className="submit-btn extended-submit-btn">Subscribe <div id={formName + "-spinner"} animation="border" role="status" className="spinner-border form-spinner d-none"><span className="sr-only"></span></div></button>
-          {/*<input
-            className="submit-btn extended-submit-btn"
-            type="submit"
-            value="Subscribe"
-            name="submit-sub"
-          />*/}
         </div>
       </SidebarCard>
     </form>
