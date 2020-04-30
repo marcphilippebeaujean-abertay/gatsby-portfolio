@@ -19,6 +19,7 @@ export default ({ formTitle }) => {
     ...initFormState,
   })
   const formName = "newsletter-subscription";
+  return null;
   return (
     <form
       action="/success-newsletter/"
