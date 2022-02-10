@@ -51,7 +51,7 @@
     "lazysizes": "^5.1.1",
     "luxon": "^1.17.2",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
